@@ -20,10 +20,12 @@ require 'spec_helper'
 
 describe AttendancesController do
 
+  let(:user) { User.create! }
+
   # This should return the minimal set of attributes required to create a valid
   # Attendance. As you add validations to Attendance, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "user" => "" } }
+  let(:valid_attributes) { { user_id: user.id } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +108,8 @@ describe AttendancesController do
         # specifies that the Attendance created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        expect_any_instance_of(Attendance).to receive(:update).with({ "user" => "" })
-        put :update, {:id => attendance.to_param, :attendance => { "user" => "" }}, valid_session
+        expect_any_instance_of(Attendance).to receive(:update).with({ "user_id" => user.id.to_s })
+        put :update, {:id => attendance.to_param, :attendance => { user_id: user.id }}, valid_session
       end
 
       it "assigns the requested attendance as @attendance" do

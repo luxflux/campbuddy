@@ -108,8 +108,8 @@ describe WorkshopsController do
         # specifies that the Workshop created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        expect_any_instance_of(Workshop).to receive(:update).with({ "owner" => "" })
-        put :update, {:id => workshop.to_param, :workshop => { "owner" => "" }}, valid_session
+        expect_any_instance_of(Workshop).to receive(:update).with({ 'owner_id' => owner.id.to_s })
+        put :update, {:id => workshop.to_param, :workshop => { owner_id: owner.id }}, valid_session
       end
 
       it "assigns the requested workshop as @workshop" do
