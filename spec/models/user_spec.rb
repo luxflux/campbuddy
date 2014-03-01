@@ -1,5 +1,14 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  context 'validations' do
+
+    it 'should validate that the email exists' do
+      user = User.new
+      user.valid?
+      expect(user).to have(1).error_on(:email)
+    end
+
+  end
 end
