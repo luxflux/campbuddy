@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301104924) do
+ActiveRecord::Schema.define(version: 20140301112219) do
+
+  create_table "attendances", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "workshop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attendances", ["user_id", "workshop_id"], name: "index_attendances_on_user_id_and_workshop_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"
