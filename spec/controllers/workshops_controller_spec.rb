@@ -20,10 +20,12 @@ require 'spec_helper'
 
 describe WorkshopsController do
 
+  let(:owner) { User.create! }
+
   # This should return the minimal set of attributes required to create a valid
   # Workshop. As you add validations to Workshop, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "owner" => "" } }
+  let(:valid_attributes) { { owner_id: owner.id } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
