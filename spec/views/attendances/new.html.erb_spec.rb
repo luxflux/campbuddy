@@ -10,7 +10,6 @@ describe "attendances/new" do
 
   it "renders new attendance form" do
     render
-    puts rendered
 
     assert_select "form[action=?][method=?]", attendances_path, "post" do
       assert_select "input#attendance_user_id[name=?]", "attendance[user_id]"
