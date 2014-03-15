@@ -20,7 +20,7 @@ require 'spec_helper'
 
 describe WorkshopsController do
 
-  let(:owner) { User.create! }
+  let(:owner) { User.create!(email: "user@domain.com") }
 
   # This should return the minimal set of attributes required to create a valid
   # Workshop. As you add validations to Workshop, be sure to

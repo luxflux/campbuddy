@@ -13,7 +13,7 @@ describe "workshops/new" do
     render
 
     assert_select "form[action=?][method=?]", workshops_path, "post" do
-      assert_select "input#workshop_owner[name=?]", "workshop[owner]"
+      assert_select "select#workshop_owner_id[name=?]", "workshop[owner_id]"
       assert_select "input#workshop_title[name=?]", "workshop[title]"
       assert_select "textarea#workshop_description[name=?]", "workshop[description]"
     end

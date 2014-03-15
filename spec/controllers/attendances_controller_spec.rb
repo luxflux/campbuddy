@@ -20,7 +20,7 @@ require 'spec_helper'
 
 describe AttendancesController do
 
-  let(:user) { User.create! }
+  let(:user) { User.create!(email: "user@domain.com") }
 
   # This should return the minimal set of attributes required to create a valid
   # Attendance. As you add validations to Attendance, be sure to

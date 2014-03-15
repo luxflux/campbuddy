@@ -6,12 +6,16 @@ describe "workshops/index" do
       stub_model(Workshop,
         :owner => nil,
         :title => "Title",
-        :description => "MyText"
+        :description => "MyText",
+        :starts => Time.now - 3.hours,
+        :ends => Time.now - 2.hours,
       ),
       stub_model(Workshop,
         :owner => nil,
         :title => "Title",
-        :description => "MyText"
+        :description => "MyText",
+        :starts => Time.now + 3.hours,
+        :ends => Time.now + 5.hours,
       )
     ])
   end
