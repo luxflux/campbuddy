@@ -43,4 +43,5 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
+  gem 'railroady'
 end
