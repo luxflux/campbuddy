@@ -1,4 +1,6 @@
 Trololo::Application.routes.draw do
+  resources :jobs
+
   resources :memberships
 
   resources :groups
