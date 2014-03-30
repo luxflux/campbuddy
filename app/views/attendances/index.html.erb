@@ -1,6 +1,6 @@
 <h1>Listing attendances</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -24,6 +24,8 @@
   </tbody>
 </table>
 
-<br>
+*redundanz owner und member?
 
-<%= link_to 'New Attendance', new_attendance_path %>
+<br><br>
+
+<%= link_to 'New Attendance', new_attendance_path, {:class => "button"} %>

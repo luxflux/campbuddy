@@ -10,16 +10,15 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.collection_select(:user_id, User.all, :id, :firstname, prompt: true) %>
   </div>
   <div class="field">
     <%= f.label :workshop_id %><br>
-    <%= f.text_field :workshop_id %>
+    <%= f.collection_select(:workshop_id, Workshop.all, :id, :title, prompt: true) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to 'Back', attendances_path, {:class => "button"}  %> | <%= f.submit %>
   </div>
 <% end %>

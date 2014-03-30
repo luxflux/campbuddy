@@ -1,6 +1,6 @@
 <h1>Listing memberships</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -24,6 +24,8 @@
   </tbody>
 </table>
 
-<br>
+*redundanz owner und member?
 
-<%= link_to 'New Membership', new_membership_path %>
+<br><br>
+
+<%= link_to 'New Membership', new_membership_path, {:class => "button"} %>

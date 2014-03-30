@@ -7,7 +7,7 @@
 
 <p>
   <strong>Leader:</strong>
-  <%= @group.leader %>
+  <%= @group.leader.firstname + " " + @group.leader.name %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

@@ -13,13 +13,13 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.collection_select(:user_id, User.all, :id, :firstname, prompt: true) %>
   </div>
   <div class="field">
     <%= f.label :group_id %><br>
-    <%= f.text_field :group_id %>
+    <%= f.collection_select(:group_id, Group.all, :id, :name, prompt: true) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to 'Back', memberships_path, {:class => "button"}  %> | <%= f.submit %>
   </div>
 <% end %>

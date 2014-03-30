@@ -15,11 +15,15 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+<!--  <div class="field">
     <%= f.label :leader_id %><br>
     <%= f.text_field :leader_id %>
+  </div>-->
+  <div class="field">
+    <%= f.label :leader_id %><br>
+    <%= f.collection_select(:leader_id, User.all, :id, :firstname, prompt: true) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to 'Back', groups_path, {:class => "button"}  %> | <%= f.submit %>
   </div>
 <% end %>

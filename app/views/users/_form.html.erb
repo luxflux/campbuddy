@@ -28,6 +28,6 @@
     <%= f.text_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to 'cancel', users_path, {:class => "button"} %> | <%= f.submit %>
   </div>
 <% end %>
