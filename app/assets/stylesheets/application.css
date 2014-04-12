@@ -8,13 +8,19 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
 /*
- *= require bootstrap.min
  *= require_self
  *= require_tree .
  */
 
+
+
 body {
     background: url(gplaypattern_gray.png) repeat center center;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
 }
 
 header {

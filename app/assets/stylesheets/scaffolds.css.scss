@@ -1,3 +1,17 @@
+/* Bootstrap variables over writting: 
+
+$container-large-desktop: 600px;
+$container-tablet: 600px;
+$container-desktop: 600px;
+$container-lg: 600px;
+$container-sm: 600px;
+$container-md: 600px;
+
+*/
+
+/* Bootstrap IMPORT NOT VIA *=require, otherwise variables couldnt be set like above */
+@import "bootstrap";
+
 body {
   background-color: #efefef;
   color: #333;

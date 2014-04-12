@@ -18,7 +18,7 @@
           <li><%= link_to 'Gruppen', groups_path %>
             <ul><li><%= link_to 'member', memberships_path %></li></ul>
           </li>
-          <li><%= link_to 'Ämptli', jobs_path %></li>
+          <li><%= link_to 'Jobs', jobs_path %></li>
         </ul>
       </nav>
     </header>
@@ -27,8 +27,6 @@
     <section class="container content">
       <%= yield %>
     </section>
-
-  <!-- <%= link_to 'Gruppen', groups_path %> -->
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
