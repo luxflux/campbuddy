@@ -52,6 +52,11 @@ GEM
       activemodel
     erubis (2.7.0)
     execjs (2.2.1)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.5)
     guard (2.6.1)
@@ -187,6 +192,7 @@ DEPENDENCIES
   bootstrap-sass
   clearance
   coffee-rails (~> 4.0.0)
+  factory_girl_rails
   guard
   guard-rspec
   jquery-rails

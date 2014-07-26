@@ -20,142 +20,156 @@ require 'rails_helper'
 
 describe MembershipsController do
 
-  let(:user) { User.create!(email: 'user@example.org', name: 'My little pony') }
-  # This should return the minimal set of attributes required to create a valid
-  # Membership. As you add validations to Membership, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { { "user_id" => user.id } }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # MembershipsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
-
-  describe "GET index" do
-    it "assigns all memberships as @memberships" do
-      membership = Membership.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:memberships)).to eq([membership])
+  context 'a guest' do
+    before do
+      get :index
     end
+
+    it { should deny_access }
   end
 
-  describe "GET show" do
-    it "assigns the requested membership as @membership" do
-      membership = Membership.create! valid_attributes
-      get :show, {:id => membership.to_param}, valid_session
-      expect(assigns(:membership)).to eq(membership)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new membership as @membership" do
-      get :new, {}, valid_session
-      expect(assigns(:membership)).to be_a_new(Membership)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested membership as @membership" do
-      membership = Membership.create! valid_attributes
-      get :edit, {:id => membership.to_param}, valid_session
-      expect(assigns(:membership)).to eq(membership)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Membership" do
-        expect {
-          post :create, {:membership => valid_attributes}, valid_session
-        }.to change(Membership, :count).by(1)
-      end
-
-      it "assigns a newly created membership as @membership" do
-        post :create, {:membership => valid_attributes}, valid_session
-        expect(assigns(:membership)).to be_a(Membership)
-        expect(assigns(:membership)).to be_persisted
-      end
-
-      it "redirects to the created membership" do
-        post :create, {:membership => valid_attributes}, valid_session
-        expect(response).to redirect_to(Membership.last)
-      end
+  context 'a user' do
+    before do
+      sign_in
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved membership as @membership" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Membership).to receive(:save).and_return(false)
-        post :create, {:membership => { "user" => "invalid value" }}, valid_session
-        expect(assigns(:membership)).to be_a_new(Membership)
-      end
+    let(:user) { FactoryGirl.create(:user) }
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Membership).to receive(:save).and_return(false)
-        post :create, {:membership => { "user" => "invalid value" }}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
-  end
+    # This should return the minimal set of attributes required to create a valid
+    # Membership. As you add validations to Membership, be sure to
+    # adjust the attributes here as well.
+    let(:valid_attributes) { { "user_id" => user.id } }
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested membership" do
+    # This should return the minimal set of values that should be in the session
+    # in order to pass any filters (e.g. authentication) defined in
+    # MembershipsController. Be sure to keep this updated too.
+    let(:valid_session) { {} }
+
+    describe "GET index" do
+      it "assigns all memberships as @memberships" do
         membership = Membership.create! valid_attributes
-        # Assuming there are no other memberships in the database, this
-        # specifies that the Membership created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        allow_any_instance_of(Membership).to receive(:update).with({ "user_id" => user.id.to_s })
-        put :update, {:id => membership.to_param, :membership => { "user_id" => user.id }}, valid_session
+        get :index, {}, valid_session
+        expect(assigns(:memberships)).to eq([membership])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested membership as @membership" do
         membership = Membership.create! valid_attributes
-        put :update, {:id => membership.to_param, :membership => valid_attributes}, valid_session
+        get :show, {:id => membership.to_param}, valid_session
         expect(assigns(:membership)).to eq(membership)
-      end
-
-      it "redirects to the membership" do
-        membership = Membership.create! valid_attributes
-        put :update, {:id => membership.to_param, :membership => valid_attributes}, valid_session
-        expect(response).to redirect_to(membership)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the membership as @membership" do
-        membership = Membership.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Membership).to receive(:save).and_return(false)
-        put :update, {:id => membership.to_param, :membership => { "user" => "invalid value" }}, valid_session
-        expect(assigns(:membership)).to eq(membership)
-      end
-
-      it "re-renders the 'edit' template" do
-        membership = Membership.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Membership).to receive(:save).and_return(false)
-        put :update, {:id => membership.to_param, :membership => { "user" => "invalid value" }}, valid_session
-        expect(response).to render_template("edit")
+    describe "GET new" do
+      it "assigns a new membership as @membership" do
+        get :new, {}, valid_session
+        expect(assigns(:membership)).to be_a_new(Membership)
       end
     end
-  end
 
-  describe "DELETE destroy" do
-    it "destroys the requested membership" do
-      membership = Membership.create! valid_attributes
-      expect {
+    describe "GET edit" do
+      it "assigns the requested membership as @membership" do
+        membership = Membership.create! valid_attributes
+        get :edit, {:id => membership.to_param}, valid_session
+        expect(assigns(:membership)).to eq(membership)
+      end
+    end
+
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new Membership" do
+          expect {
+            post :create, {:membership => valid_attributes}, valid_session
+          }.to change(Membership, :count).by(1)
+        end
+
+        it "assigns a newly created membership as @membership" do
+          post :create, {:membership => valid_attributes}, valid_session
+          expect(assigns(:membership)).to be_a(Membership)
+          expect(assigns(:membership)).to be_persisted
+        end
+
+        it "redirects to the created membership" do
+          post :create, {:membership => valid_attributes}, valid_session
+          expect(response).to redirect_to(Membership.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved membership as @membership" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          allow_any_instance_of(Membership).to receive(:save).and_return(false)
+          post :create, {:membership => { "user" => "invalid value" }}, valid_session
+          expect(assigns(:membership)).to be_a_new(Membership)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          allow_any_instance_of(Membership).to receive(:save).and_return(false)
+          post :create, {:membership => { "user" => "invalid value" }}, valid_session
+          expect(response).to render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested membership" do
+          membership = Membership.create! valid_attributes
+          # Assuming there are no other memberships in the database, this
+          # specifies that the Membership created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          allow_any_instance_of(Membership).to receive(:update).with({ "user_id" => user.id.to_s })
+          put :update, {:id => membership.to_param, :membership => { "user_id" => user.id }}, valid_session
+        end
+
+        it "assigns the requested membership as @membership" do
+          membership = Membership.create! valid_attributes
+          put :update, {:id => membership.to_param, :membership => valid_attributes}, valid_session
+          expect(assigns(:membership)).to eq(membership)
+        end
+
+        it "redirects to the membership" do
+          membership = Membership.create! valid_attributes
+          put :update, {:id => membership.to_param, :membership => valid_attributes}, valid_session
+          expect(response).to redirect_to(membership)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the membership as @membership" do
+          membership = Membership.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          allow_any_instance_of(Membership).to receive(:save).and_return(false)
+          put :update, {:id => membership.to_param, :membership => { "user" => "invalid value" }}, valid_session
+          expect(assigns(:membership)).to eq(membership)
+        end
+
+        it "re-renders the 'edit' template" do
+          membership = Membership.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          allow_any_instance_of(Membership).to receive(:save).and_return(false)
+          put :update, {:id => membership.to_param, :membership => { "user" => "invalid value" }}, valid_session
+          expect(response).to render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested membership" do
+        membership = Membership.create! valid_attributes
+        expect {
+          delete :destroy, {:id => membership.to_param}, valid_session
+        }.to change(Membership, :count).by(-1)
+      end
+
+      it "redirects to the memberships list" do
+        membership = Membership.create! valid_attributes
         delete :destroy, {:id => membership.to_param}, valid_session
-      }.to change(Membership, :count).by(-1)
-    end
-
-    it "redirects to the memberships list" do
-      membership = Membership.create! valid_attributes
-      delete :destroy, {:id => membership.to_param}, valid_session
-      expect(response).to redirect_to(memberships_url)
+        expect(response).to redirect_to(memberships_url)
+      end
     end
   end
-
 end

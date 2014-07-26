@@ -56,4 +56,5 @@ group :development, :test do
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
   gem 'rails-erd'
+  gem 'factory_girl_rails'
 end
