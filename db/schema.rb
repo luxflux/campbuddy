@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726092345) do
+ActiveRecord::Schema.define(version: 20140726094534) do
 
   create_table "attendances", force: true do |t|
     t.integer  "user_id"
@@ -52,15 +52,8 @@ ActiveRecord::Schema.define(version: 20140726092345) do
 
   add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "firstname"
-    t.string   "email"
-    t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "one_time_token"
-  end
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "workshops", force: true do |t|
     t.integer  "owner_id"
