@@ -9,10 +9,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
 
   validates :email, presence: true
-=begin
-  validates :firstname, presence: true
-  validates :name, presence: true
-=end
+  
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       email = row.field('email')
