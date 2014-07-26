@@ -5,7 +5,7 @@ describe User do
     it 'validates that the email exists' do
       user = User.new
       user.valid?
-      expect(user).to have(1).error_on(:email)
+      expect(user).to have(3).error_on(:email)
     end
   end
 
