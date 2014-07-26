@@ -39,7 +39,7 @@ header h1 {
 /* navigation */
 nav ul {
     height: 40px;
-    width: 440px;
+    width: 80%;
     margin: 0 auto auto;
     padding: 0;
 }
@@ -48,10 +48,9 @@ nav li {
     display: block;
     float: left;
     height: 40px;
-    width: 110px;
+    width: 20%;
     margin: 0;
     padding: 0;
-    
     text-align: center;
 }
 nav li a {

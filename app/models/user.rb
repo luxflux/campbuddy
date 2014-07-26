@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Clearance::User
+
   has_many :owned_workshops, class_name: 'Workshop', foreign_key: 'owner_id'
   has_many :leaded_groups,   class_name: 'Group',    foreign_key: 'leader_id'
 
@@ -9,8 +11,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
 
   validates :email, presence: true
+  validates :firstname, presence: true
   validates :name, presence: true
-  validates :lastname, presence: true
   validates :password, presence: true
-  validates :token, presence: true
 end

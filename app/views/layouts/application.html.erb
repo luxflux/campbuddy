@@ -10,19 +10,31 @@
     <header>
       <h1>Trololapp</h1>
       <nav class="header container">
-        <ul>
-          <li><%= link_to 'Users', users_path %></li>
-          <li><%= link_to 'Workshops', workshops_path %>
-            <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul>
-          </li>
-          <li><%= link_to 'Gruppen', groups_path %>
-            <ul><li><%= link_to 'member', memberships_path %></li></ul>
-          </li>
-          <li><%= link_to 'Jobs', jobs_path %></li>
-        </ul>
+        <% if signed_in? %>
+          <ul>
+            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'Workshops', workshops_path %>
+              <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul>
+            </li>
+            <li><%= link_to 'Gruppen', groups_path %>
+              <ul><li><%= link_to 'member', memberships_path %></li></ul>
+            </li>
+            <li><%= link_to 'Jobs', jobs_path %></li>
+            <li>
+              Signed in as: <%= current_user.email %>
+              <%= button_to 'Sign out', sign_out_path, method: :delete %>
+            </li>
+          </ul>
+        <% end %>
       </nav>
     </header>
 
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
 
     <section class="container content">
       <%= yield %>
