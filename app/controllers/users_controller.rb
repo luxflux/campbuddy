@@ -45,6 +45,12 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
+  # POST /users/import
+  def import
+    User.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
