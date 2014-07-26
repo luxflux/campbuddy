@@ -9,12 +9,18 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
 
   validates :email, presence: true
+=begin
   validates :firstname, presence: true
   validates :name, presence: true
-
+=end
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      create! row.to_hash
+      email = row.field('email')
+
+      if email.include? "@"
+        User.where(:email => email).first_or_create!(row.to_hash)
+      end
     end
   end
+
 end

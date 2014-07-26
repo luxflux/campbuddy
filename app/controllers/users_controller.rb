@@ -47,8 +47,11 @@ class UsersController < ApplicationController
 
   # POST /users/import
   def import
-    User.import(params[:file])
-    redirect_to root_url, notice: "Products imported."
+    if params[:file]
+      User.import(params[:file])
+    end
+    
+    redirect_to users_path, notice: "Products imported."
   end
 
   private
