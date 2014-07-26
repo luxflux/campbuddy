@@ -13,5 +13,17 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :firstname, presence: true
   validates :name, presence: true
-  validates :password, presence: true
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      email = row.field('email')
+
+      if email.include? "@"
+        attributes = row.to_hash
+        attributes[:password] = Kernel.rand
+        User.where(:email => email).first_or_create!(attributes)
+      end
+    end
+  end
+
 end

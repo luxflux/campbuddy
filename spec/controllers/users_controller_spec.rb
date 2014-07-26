@@ -69,6 +69,36 @@ describe UsersController do
       end
     end
 
+    describe "POST import" do
+      let(:path) { Rails.root.join("spec/fixtures/test_import.csv") }
+      let(:file) { Rack::Test::UploadedFile.new(path, "text/csv") }
+
+      describe "with valid params" do
+        it "redirects to user list" do
+          post :import, file: file
+          expect(response).to redirect_to users_path
+        end
+
+        it "calls import on User" do
+          expect(User).to receive(:import).with(file)
+          post :import, file: file
+        end
+      end
+
+      describe "with invalid params" do
+        let(:file) { nil }
+        it "redirects to users path" do
+          post :import, file: file
+          expect(response).to redirect_to users_path
+        end
+
+        it "does not call import on User" do
+          expect(User).to_not receive(:import)
+          post :import, file: file
+        end
+      end
+    end
+
     describe "POST create" do
       describe "with valid params" do
         it "creates a new User" do
