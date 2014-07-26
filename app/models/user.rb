@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
 
   validates :email, presence: true
+  /*
+  validates :name, presence: true
+  validates :lastname, presence: true
+  validates :password, presence: true
+  validates :token, presence: true*/
 end
