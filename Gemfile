@@ -21,4 +21,5 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rails-erd'
   gem 'factory_girl_rails'
+  gem 'foreman'
 end
