@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'clearance'
 gem 'unicorn'
+gem 'pg'
 
 group :development, :test do
   gem 'guard'
