@@ -12,6 +12,10 @@ gem 'clearance'
 gem 'unicorn'
 gem 'pg'
 
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+
 group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
