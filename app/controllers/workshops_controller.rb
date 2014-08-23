@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :set_workshop, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /workshops
   def index
@@ -46,11 +46,6 @@ class WorkshopsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_workshop
-      @workshop = Workshop.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def workshop_params
       params.require(:workshop).permit(:owner_id, :starts, :ends, :title, :description)
