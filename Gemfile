@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'clearance'
 gem 'unicorn'
 gem 'pg'
+gem 'cancancan'
 
 gem 'bourbon'
 gem 'neat'

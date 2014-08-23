@@ -26,4 +26,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def admin?
+    !!admin
+  end
+
+  def user?
+    !admin?
+  end
+
+  def guest?
+    false
+  end
 end

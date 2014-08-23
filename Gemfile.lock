@@ -39,6 +39,7 @@ GEM
       sass (~> 3.2)
       thor
     builder (3.2.2)
+    cancancan (1.9.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     choice (0.1.6)
@@ -210,6 +211,7 @@ DEPENDENCIES
   bitters
   bootstrap-sass
   bourbon
+  cancancan
   clearance
   coffee-rails (~> 4.0.0)
   factory_girl_rails
