@@ -4,31 +4,34 @@
   <title>trololo</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
  <div id="main-wrapper">
     <header>
-      <h1>Trololapp</h1>
-      <nav class="header container">
-        <% if signed_in? %>
-          <ul>
-            <li><%= link_to 'Users', users_path %></li>
-            <li><%= link_to 'Workshops', workshops_path %>
-              <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul>
-            </li>
-            <li><%= link_to 'Gruppen', groups_path %>
-              <ul><li><%= link_to 'member', memberships_path %></li></ul>
-            </li>
-            <li><%= link_to 'Jobs', jobs_path %></li>
-            <li>
-              Signed in as: <%= current_user.email %>
-              <%= button_to 'Sign out', sign_out_path, method: :delete %>
-            </li>
-          </ul>
-        <% end %>
-      </nav>
+
+	<% if signed_in? %>
+		<div>
+	      Signed in as: <%= current_user.email %>
+	      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+		</div>
+	<% end %>
     </header>
 
+	<nav>
+	<% if signed_in? %>
+	  <ul>
+	    <!-- <li><%= link_to 'Users', users_path %></li> -->
+	    <li><%= link_to icon(:home), workshops_path %></li>
+	      <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
+	    <li><%= link_to icon(:calendar), groups_path %></li>
+	      <!-- <ul><li><%= link_to 'member', memberships_path %></li></ul> -->
+	    <li><%= link_to icon(:users), jobs_path %></li>
+	    <li><%= link_to icon(:user), jobs_path %></li>
+	   
+	  </ul>
+	<% end %>
+	</nav>
 
     <div id="flash">
       <% flash.each do |key, value| %>
