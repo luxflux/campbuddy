@@ -1,0 +1,53 @@
+.activities{
+  margin-top: 15px;
+}
+
+/*activity categories*/
+.activities > div {
+  border-left: 5px solid $medium-gray;
+  border-top: 1px solid $light-gray;
+
+  &.red{
+    border-left-color: $red;
+  }
+  &.green{
+    border-left-color: $green;
+  }
+  &.blue{
+    border-left-color: $blue;
+  }
+  &.dark-blue{
+    border-left-color: $dark-blue;
+  }
+  &.yellow{
+    border-left-color: $yellow;
+  }
+  &:last-child{
+    border-bottom: 1px solid $light-gray;
+  } 
+}
+
+/*activity descriptions*/
+.activities > div {
+  @include clearfix;
+}
+.activities img{
+  display: block;
+  float: left;
+  width: 37.5%; /*von 320px zu 120px*/
+  min-width: 120px;
+}
+.activities h1 {
+  width: 52%; /*von 320 zu 165*/
+  float: right;
+  margin-top: 15px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.activities .description {
+  width: 52%; /*von 320 zu 165*/
+  float: right;
+  font-size: 10px;
+  font-weight: 400;
+}
