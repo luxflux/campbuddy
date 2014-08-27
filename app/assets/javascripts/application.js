@@ -14,3 +14,35 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+//filtering in workshops
+$(function() {
+	//variables
+	var filter;
+	var $filters = $('.activity-nav > span');
+	var $activities =  $('.activities > div');
+
+	$filters.on('click', function(e){
+		//reset filters
+		if($(this).hasClass('active')) {
+			$activities.slideDown();
+			$filters.removeClass('active not-filtered');
+		} else {
+			//styling
+			$filters.addClass('not-filtered');
+			$filters.removeClass('active');
+			$(this).removeClass('not-filtered');
+			$(this).addClass('active');
+
+			//filtering
+			filter = $(this).data('filter');
+			$activities.each(function( index ) {
+			  if( $(this).attr('class') != filter) {
+			  	$(this).slideUp();
+			  } else {
+			  	$(this).slideDown();
+			  }
+			});
+		}
+	})
+});

@@ -2,8 +2,16 @@
 
 @import "bourbon";
 @import "base/base"; // bitters
-$visual-grid: true;
+//$visual-grid: true;
 @import "neat";
 
 //layouts
 @import 'navigation';
+@import 'workshop';
+
+body {
+  margin: 0;
+}
+section.content {
+	margin-bottom: 50px;
+}

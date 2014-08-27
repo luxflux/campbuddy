@@ -7,31 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
- <div id="main-wrapper">
-    <header>
-
-	<% if signed_in? %>
-		<div>
-	      Signed in as: <%= current_user.email %>
-	      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-		</div>
-	<% end %>
-    </header>
-
-	<nav>
-	<% if signed_in? %>
-	  <ul>
-	    <!-- <li><%= link_to 'Users', users_path %></li> -->
-	    <li><%= link_to icon(:home), workshops_path %></li>
-	      <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
-	    <li><%= link_to icon(:calendar), groups_path %></li>
-	      <!-- <ul><li><%= link_to 'member', memberships_path %></li></ul> -->
-	    <li><%= link_to icon(:users), jobs_path %></li>
-	    <li><%= link_to icon(:user), jobs_path %></li>
-	   
-	  </ul>
-	<% end %>
-	</nav>
+  <div id="main-wrapper">
+    <nav>
+    <% if signed_in? %>
+      <ul>
+        <!-- <li><%= link_to 'Users', users_path %></li> -->
+        <li><%= link_to icon(:home), workshops_path %></li>
+        <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
+        <li><%= link_to icon(:calendar), groups_path %></li>
+        <!-- <ul><li><%= link_to 'member', memberships_path %></li></ul> -->
+        <li><%= link_to icon(:list), jobs_path %></li>
+        <li><%= link_to icon(:users), jobs_path %></li>
+        <li><%= link_to icon(:user), jobs_path %></li>
+      </ul>
+    <% end %>
+    </nav>
 
     <div id="flash">
       <% flash.each do |key, value| %>
@@ -39,9 +29,19 @@
       <% end %>
     </div>
 
-    <section class="container content">
+    <section class="content">
       <%= yield %>
     </section>
+
+
+    <% if signed_in? %>
+      <!--
+      <div>
+          Signed in as: <%= current_user.email %>
+          <%= button_to 'Sign out', sign_out_path, method: :delete %>
+      </div>
+      -->
+    <% end %>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">

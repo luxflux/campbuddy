@@ -1,33 +1,68 @@
-<h1>Listing workshops</h1>
+<div class="day-nav">
+  <span>SA</span>
+  <span>SO</span>
+  <span class="active">MO</span>
+  <span>DI</span>
+  <span>MI</span>
+  <span>DO</span>
+  <span>FR</span>
+  <span>SA</span>
+</div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Owner</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Starts</th>
-      <th>Ends</th>
-      <th colspan="3">actions</th>
-    </tr>
-  </thead>
+<div class="activity-nav">
+  <span data-filter="red">Workshops</span>
+  <span data-filter="green">Activities</span>
+  <span data-filter="blue">Piste</span>
+  <span data-filter="gray">Camp</span>
+  <span data-filter="dark-blue">Radio</span>
+  <span data-filter="yellow">Skibus</span>
+</div>
 
-  <tbody>
-    <% @workshops.each do |workshop| %>
-      <tr>
-        <td><%= workshop.owner[:firstname] + " " + workshop.owner[:name] %></td>
-        <td><%= workshop.title %></td>
-        <td><%= workshop.description %></td>
-        <td><%= workshop.starts %></td>
-        <td><%= workshop.ends %></td>
-        <td><%= link_to 'Show', workshop %></td>
-        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="activities">
+	<div class="red">
+		<%= image_tag "_fotographie.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
+		<h1>Fotographie</h1>
+		<div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	</div>
+	<div class="red">
+		<%= image_tag "_bowling.png", height: '85', width: '120', alt: 'Bild zum Workshop'%>
+		<h1>Bowling</h1>
+		<div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	</div>
+	<div class="green">
+		<%= image_tag "_luzern.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
+		<h1>Luzern</h1>
+		<div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	</div>
+	<div class="blue">
+		<%= image_tag "_siebdruck.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
+		<h1>Siebdruck</h1>
+		<div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	</div>
+	<div class="red">
+		<%= image_tag "_snowboard.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
+		<h1>Snowboard</h1>
+		<div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	</div>
+	<div class="blue">
+		<%= image_tag "_fotographie.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
+		<h1>Fotographie</h1>
+		<div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	</div>
+</div>
+<!--
+<% @workshops.each do |workshop| %>
+  <div class="entity-picture">
+    <td><%= workshop.title %></td>
+    <td><%= workshop.description %></td>
+    <td><%= link_to 'details', workshop %></td>
 
-<br>
+    //if admin
+    <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+    <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </div>
+<% end %>
 
+//if admin
 <%= link_to 'New Workshop', new_workshop_path, {:class => "button"} %>
+-->
