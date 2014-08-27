@@ -1,0 +1,33 @@
+nav {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	background-color: $medium-gray;
+}
+nav > ul {
+	width: 100%;
+}
+nav > ul > li {
+	display: block;
+	float: left;
+	width: 25%;
+	text-align: center;
+
+	border-left: 1px solid $light-gray;
+}
+nav > ul > li:first-child {
+	border-left: none;
+}
+nav > ul > li > a {
+	@include transition($transition-fast all ease);
+	display: block;
+	width: 100%;
+	padding: 0.3em 0;
+	color: #fff;
+	font-size: 1.5em;
+	&:focus,&:active,&:hover {
+		background-color: #fff;
+		color: $medium-gray;
+	}
+}
