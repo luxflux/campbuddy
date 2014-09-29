@@ -1,5 +1,6 @@
 /*Main navigation - bottom*/
 nav {
+  z-index: 3;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -27,7 +28,7 @@ nav > ul > li > a {
   width: 100%;
   padding: 0.3em 0;
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1em;
   &:focus,&:active,&:hover {
     background-color: #fff;
     color: $medium-gray;

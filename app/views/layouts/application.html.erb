@@ -7,18 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <script>
+    //global vars -> more detail in application.js
+    var hideNavBar = false;
+  </script>
+
   <div id="main-wrapper">
     <nav>
     <% if signed_in? %>
       <ul>
-        <!-- <li><%= link_to 'Users', users_path %></li> -->
-        <li><%= link_to icon(:home), workshops_path %></li>
-        <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
-        <li><%= link_to icon(:calendar), groups_path %></li>
+        <li><%= link_to icon(:home), memberships_path %></li>
+        <li><%= link_to icon(:calendar), memberships_path %></li>
+        <li><%= link_to icon(:list), workshops_path %></li>
+        <li><%= link_to icon(:users), groups_path %></li>
+        <li><%= link_to icon(:user), users_path %></li>
         <!-- <ul><li><%= link_to 'member', memberships_path %></li></ul> -->
-        <li><%= link_to icon(:list), jobs_path %></li>
-        <li><%= link_to icon(:users), jobs_path %></li>
-        <li><%= link_to icon(:user), jobs_path %></li>
+        <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
+        <!-- <li><%= link_to 'Users', users_path %></li> -->
       </ul>
     <% end %>
     </nav>

@@ -15,8 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
-//filtering in workshops
+
 $(function() {
+	//
+	//-filtering in workshops
+	//
+
 	//variables
 	var filter;
 	var $filters = $('.activity-nav > span');
@@ -45,4 +49,15 @@ $(function() {
 			});
 		}
 	})
+
+	//
+	//-hiding navigation bar
+	//
+
+	//used in membership > new.html.erb
+	if( hideNavBar === true ){
+		$('nav').slideUp();
+	} else {
+		$('nav').slideDown();
+	}
 });

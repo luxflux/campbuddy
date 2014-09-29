@@ -11,6 +11,8 @@ $base-line-height: $base-font-size * 1.5;
 $unitless-line-height: $base-line-height / ($base-line-height * 0 + 1); // Strip units from line-height: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#Prefer_unitless_numbers_for_line-height_values
 $header-line-height: $base-font-size * 1.25;
 $base-border-radius: em(3);
+$date-time-size: 26px;
+$detail-title-size: 28px;
 
 // Colors
 $blue: #22c8db;
@@ -19,6 +21,7 @@ $green: #26e1a0;
 $dark-gray: #1e1e1e;
 $medium-gray: #535a6a;
 $light-gray: #ededef;
+$light-white: rgba(255, 255, 255, 0.9);
 $dark-blue: #224478;
 $yellow: #fec26c;
 

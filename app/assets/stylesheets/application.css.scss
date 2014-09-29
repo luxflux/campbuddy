@@ -8,10 +8,13 @@
 //layouts
 @import 'navigation';
 @import 'workshop';
+@import 'membership';
+@import 'workshop-detail';
+@import 'smallgroups';
 
 body {
   margin: 0;
 }
 section.content {
-	margin-bottom: 50px;
+	margin-bottom: 32px;
 }

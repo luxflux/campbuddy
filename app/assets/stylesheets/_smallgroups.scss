@@ -1,0 +1,39 @@
+/*title*/
+h1.title {
+  display: inline-block;
+  font-size: $detail-title-size;
+  font-weight: 300;
+  margin: 10px 0 0 15px;
+  padding: 5px 0;
+}
+
+/*attendees*/
+.attendees {
+  padding-left: 15px;
+}
+
+.attendees > div {
+  width: 60px;
+  margin: 5px;
+  float: left;
+}
+.attendees .image {
+  box-shadow: 0 0 20px -5px $medium-gray;
+  border-radius: 56px;
+  overflow: hidden;
+  width: 56px;
+  height: 56px;
+  margin: 0 2px 2px 2px;
+}
+.attendees .image > img {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  margin: 0;
+}
+.attendees .name {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin: 0 0 2px 0;
+}
