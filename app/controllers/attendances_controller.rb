@@ -48,6 +48,6 @@ class AttendancesController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def attendance_params
-      params.require(:attendance).permit(:user_id, :workshop_id)
+      params.require(:attendance).permit(:user_id, :event_id)
     end
 end

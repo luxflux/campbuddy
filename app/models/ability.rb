@@ -8,9 +8,9 @@ class Ability
     when user.admin?
       can :manage, :all
     when user.user?
-      can :read, Workshop
-      can :update, Workshop, owner_id: user.id
-      can :read, Attendance, workshop_id: user.workshop_ids
+      can :read, Event
+      can :update, Event, owner_id: user.id
+      can :read, Attendance, event_id: user.event_ids
       can :read, Group
     when user.guest?
     end
