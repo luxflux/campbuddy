@@ -10,6 +10,7 @@ class Ability
     when user.user?
       can :read, Workshop
       can :update, Workshop, owner_id: user.id
+      can :read, Attendance, workshop_id: user.workshop_ids
     when user.guest?
     end
   end
