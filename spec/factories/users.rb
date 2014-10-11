@@ -6,5 +6,6 @@ FactoryGirl.define do
     firstname "MyString"
     sequence(:email) { |i| "email#{i}@example.org" }
     password "secretpassword"
+    admin true
   end
 end

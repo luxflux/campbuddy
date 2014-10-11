@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /memberships
   def index
@@ -46,11 +46,6 @@ class MembershipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_membership
-      @membership = Membership.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def membership_params
       params.require(:membership).permit(:user_id, :group_id)

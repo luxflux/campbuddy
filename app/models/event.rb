@@ -1,6 +1,5 @@
-class Workshop < ActiveRecord::Base
+class Event < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
-
   has_many :attendances
   has_many :users, through: :attendances
 end

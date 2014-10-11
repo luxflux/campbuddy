@@ -11,19 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726102747) do
+ActiveRecord::Schema.define(version: 20141011113930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attendances", force: true do |t|
     t.integer  "user_id"
-    t.integer  "workshop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
+    t.boolean  "mandatory"
   end
 
-  add_index "attendances", ["user_id", "workshop_id"], name: "index_attendances_on_user_id_and_workshop_id", unique: true, using: :btree
+  create_table "events", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "meeting_point"
+    t.datetime "starts"
+    t.datetime "ends"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "max_attendees"
+  end
+
+  add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -33,18 +46,6 @@ ActiveRecord::Schema.define(version: 20140726102747) do
   end
 
   add_index "groups", ["leader_id"], name: "index_groups_on_leader_id", using: :btree
-
-  create_table "jobs", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "starts"
-    t.datetime "ends"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "jobs", ["group_id"], name: "index_jobs_on_group_id", using: :btree
 
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
@@ -69,17 +70,5 @@ ActiveRecord::Schema.define(version: 20140726102747) do
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-
-  create_table "workshops", force: true do |t|
-    t.integer  "owner_id"
-    t.datetime "starts"
-    t.datetime "ends"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "workshops", ["owner_id"], name: "index_workshops_on_owner_id", using: :btree
 
 end
