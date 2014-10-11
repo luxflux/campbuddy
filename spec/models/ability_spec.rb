@@ -33,6 +33,10 @@ describe Ability do
       it { should be_able_to(:read, others_attendance_same_workshop) }
       it { should_not be_able_to(:read, others_attendance) }
     end
+
+    describe 'Group' do
+      it { should be_able_to(:read, Group) }
+    end
   end
 
   context 'as guest' do
@@ -41,5 +45,6 @@ describe Ability do
     it { should_not be_able_to(:manage, :all) }
     it { should_not be_able_to(:read, Workshop) }
     it { should_not be_able_to(:read, Attendance) }
+    it { should_not be_able_to(:read, Group) }
   end
 end

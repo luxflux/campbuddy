@@ -11,6 +11,7 @@ class Ability
       can :read, Workshop
       can :update, Workshop, owner_id: user.id
       can :read, Attendance, workshop_id: user.workshop_ids
+      can :read, Group
     when user.guest?
     end
   end
