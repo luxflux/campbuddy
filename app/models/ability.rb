@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     when user.user?
       can :read, Workshop
+      can :update, Workshop, owner_id: user.id
     when user.guest?
     end
   end
