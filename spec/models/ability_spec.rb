@@ -7,7 +7,7 @@ describe Ability do
   context 'for an admin' do
     let(:user) { FactoryGirl.create(:user, admin: true) }
 
-    specify { expect(subject).to be_able_to(:manage, :all) }
+    it { should be_able_to(:manage, :all) }
   end
 
   context 'as normal user' do
@@ -15,18 +15,20 @@ describe Ability do
     let(:workshop) { FactoryGirl.create(:workshop) }
     let(:owned_workshop) { FactoryGirl.create(:workshop, owner: user) }
 
-    specify { expect(subject).to_not be_able_to(:manage, :all) }
+    specify { should_not be_able_to(:manage, :all) }
 
-    specify { expect(subject).to be_able_to(:read, Workshop) }
-    specify { expect(subject).to_not be_able_to(:update, workshop) }
-    specify { expect(subject).to be_able_to(:update, owned_workshop) }
-    specify { expect(subject).to_not be_able_to(:destroy, owned_workshop) }
+    describe 'Workshop' do
+      it { should be_able_to(:read, Workshop) }
+      it { should_not be_able_to(:update, workshop) }
+      it { should be_able_to(:update, owned_workshop) }
+      it { should_not be_able_to(:destroy, owned_workshop) }
+    end
   end
 
   context 'as guest' do
     let(:user) { nil }
 
-    specify { expect(subject).to_not be_able_to(:manage, :all) }
-    specify { expect(subject).to_not be_able_to(:read, Workshop) }
+    it { should_not be_able_to(:manage, :all) }
+    it { should_not be_able_to(:read, Workshop) }
   end
 end
