@@ -13,13 +13,12 @@
         <% if signed_in? %>
           <ul>
             <li><%= link_to 'Users', users_path %></li>
-            <li><%= link_to 'Workshops', workshops_path %>
+            <li><%= link_to 'Events', events_path %>
               <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul>
             </li>
             <li><%= link_to 'Gruppen', groups_path %>
               <ul><li><%= link_to 'member', memberships_path %></li></ul>
             </li>
-            <li><%= link_to 'Jobs', jobs_path %></li>
             <li>
               Signed in as: <%= current_user.email %>
               <%= button_to 'Sign out', sign_out_path, method: :delete %>

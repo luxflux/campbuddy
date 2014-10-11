@@ -1,4 +1,4 @@
-<h1>Listing workshops</h1>
+<h1>Listing events</h1>
 
 <table class="table table-striped">
   <thead>
@@ -13,16 +13,16 @@
   </thead>
 
   <tbody>
-    <% @workshops.each do |workshop| %>
+    <% @events.each do |event| %>
       <tr>
-        <td><%= workshop.owner[:firstname] + " " + workshop.owner[:name] %></td>
-        <td><%= workshop.title %></td>
-        <td><%= workshop.description %></td>
-        <td><%= workshop.starts %></td>
-        <td><%= workshop.ends %></td>
-        <td><%= link_to 'Show', workshop %></td>
-        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= event.owner[:firstname] + " " + event.owner[:name] %></td>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.starts %></td>
+        <td><%= event.ends %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Workshop', new_workshop_path, {:class => "button"} %>
+<%= link_to 'New event', new_event_path, {:class => "button"} %>

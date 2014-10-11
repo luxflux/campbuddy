@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
-  root 'workshops#index'
+  root 'events#index'
 end
