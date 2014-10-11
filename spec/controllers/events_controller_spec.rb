@@ -33,8 +33,11 @@ describe EventsController do
     end
 
     let(:owner) { FactoryGirl.create(:user) }
+    let(:category) { FactoryGirl.create(:category) }
 
-    let(:valid_attributes) { { owner_id: owner.id } }
+    let(:valid_attributes) do
+      FactoryGirl.attributes_for(:event).merge(owner_id: owner.id, category_id: category.id)
+    end
 
     let(:valid_session) { {} }
 

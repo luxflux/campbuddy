@@ -4,11 +4,11 @@ class Event < ActiveRecord::Base
   has_many :attendances
   has_many :users, through: :attendances
 
-  validate :owner, presence: true
-  validate :category, presence: true
-  validate :title, presence: true
-  validate :description, presence: true
-  validate :starts, presence: true
-  validate :ends, presence: true
+  validates :owner, presence: true
+  validates :category, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :starts, presence: true
+  validates :ends, presence: true
 
 end
