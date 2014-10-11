@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :event do
     owner factory: :user
+    category
     title 'Gardening'
     description 'Gardening in the backyard'
     meeting_point 'Backyard'
