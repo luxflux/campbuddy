@@ -1,0 +1,21 @@
+/*activity date and time*/
+.activities .date-time {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: $date-time-size;
+  line-height: 28px;
+  float: left;
+  width: 120px;
+  height: 85px;
+  padding: 15px 0 0 20px;
+
+  box-sizing: border-box;
+}
+.activities > div > a { 
+  display: block;
+  width: 100%;
+  height: 85px;
+  
+  z-index: 2;
+  position: relative;
+}

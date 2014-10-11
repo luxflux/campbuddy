@@ -4,30 +4,29 @@
   <title>trololo</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
- <div id="main-wrapper">
-    <header>
-      <h1>Trololapp</h1>
-      <nav class="header container">
-        <% if signed_in? %>
-          <ul>
-            <li><%= link_to 'Users', users_path %></li>
-            <li><%= link_to 'Events', events_path %>
-              <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul>
-            </li>
-            <li><%= link_to 'Gruppen', groups_path %>
-              <ul><li><%= link_to 'member', memberships_path %></li></ul>
-            </li>
-            <li>
-              Signed in as: <%= current_user.email %>
-              <%= button_to 'Sign out', sign_out_path, method: :delete %>
-            </li>
-          </ul>
-        <% end %>
-      </nav>
-    </header>
+  <script>
+    //global vars -> more detail in application.js
+    var hideNavBar = false;
+  </script>
 
+  <div id="main-wrapper">
+    <nav>
+    <% if signed_in? %>
+      <ul>
+        <li><%= link_to icon(:home), memberships_path %></li>
+        <li><%= link_to icon(:calendar), memberships_path %></li>
+        <li><%= link_to icon(:list), events_path %></li>
+        <li><%= link_to icon(:users), groups_path %></li>
+        <li><%= link_to icon(:user), users_path %></li>
+        <!-- <ul><li><%= link_to 'member', memberships_path %></li></ul> -->
+        <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
+        <!-- <li><%= link_to 'Users', users_path %></li> -->
+      </ul>
+    <% end %>
+    </nav>
 
     <div id="flash">
       <% flash.each do |key, value| %>
@@ -35,9 +34,19 @@
       <% end %>
     </div>
 
-    <section class="container content">
+    <section class="content">
       <%= yield %>
     </section>
+
+
+    <% if signed_in? %>
+      <!--
+      <div>
+          Signed in as: <%= current_user.email %>
+          <%= button_to 'Sign out', sign_out_path, method: :delete %>
+      </div>
+      -->
+    <% end %>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
