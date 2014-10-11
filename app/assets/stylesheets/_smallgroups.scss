@@ -12,10 +12,10 @@ h1.title {
   padding-left: 15px;
 }
 
-.attendees > div {
+.attendees > li {
+  display: inline-block;
   width: 60px;
   margin: 5px;
-  float: left;
 }
 .attendees .image {
   box-shadow: 0 0 20px -5px $medium-gray;

@@ -17,9 +17,9 @@
 
 
 $(function() {
-	//
-	//-filtering in workshops
-	//
+	// // // // // // // // // 
+	//- filtering in workshops
+	// // // // // // // // // 
 
 	//variables
 	var filter;
@@ -50,9 +50,9 @@ $(function() {
 		}
 	})
 
-	//
-	//-hiding navigation bar
-	//
+	// // // // // // // // // 
+	//- hiding navigation bar
+	// // // // // // // // // 
 
 	//used in membership > new.html.erb
 	if( hideNavBar === true ){
@@ -60,4 +60,12 @@ $(function() {
 	} else {
 		$('nav').slideDown();
 	}
+
+
+	// // // // // // // // // 
+	//- partipicate in workshop
+	// // // // // // // // // 
+	$('.partipicate').on('click', function(){
+		$(this).toggleClass('yes');
+	})
 });

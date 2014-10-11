@@ -38,12 +38,10 @@
   min-width: 120px;
 }
 .activities h1 {
+  @include small-bold-title();
   width: 52%; /*von 320 zu 165*/
   float: right;
   margin-top: 15px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 .activities .description {
   width: 52%; /*von 320 zu 165*/

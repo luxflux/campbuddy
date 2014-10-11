@@ -18,18 +18,17 @@
   margin: 20px 0 0 15px;
 }
 .detail-nav > h1 {
-  display: inline-block;
   font-size: $detail-title-size;
+  display: inline-block;
   font-weight: 300;
   margin: 10px 0 0 15px;
   padding-top: 5px;
 }
 .detail-nav > p {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
+  @include small-bold-title();
   margin: 0 0 0 50px;
 }
+
 /*title picture*/
 .title-pic { 
   z-index: 0;
@@ -43,10 +42,63 @@
 .title-pic img{ 
 }
 
-/*activity-details*/
+/*activity-details -> event descripteion...*/
 .activity-details{
   z-index: 2;
   position: relative;
   margin-top: 265px;
   background-color: #fff;
+
+  .partipicate { 
+    text-align: right;
+    padding-right: 15px;
+    width: 100%;
+    position: absolute;
+    top: -35px;
+    color: #333;
+    font-size: 1.3em;
+    background: rgba(255,255,255,0.8);
+    cursor: pointer;
+
+    .checked{
+      display: none;
+    }
+    &.yes {
+      .checked{
+        display: inline;
+      }
+      .unchecked {
+        display: none;
+      }
+    }
+  }
+  
+  ul {
+    padding: 30px 0 0 12px;
+
+    ul {
+      padding: 0;
+    }
+  }
+}
+
+.activity-details li {
+  @include clearfix;
+}
+.activity-details .icon {
+  float: left;
+  width: 25px
+}
+.activity-details .text {
+  float: left;
+  width: 265px;
+  margin: 0 16px 0 0;
+
+}
+.activity-details .text > h1 {
+  margin: 4px 0 0 0;
+  @include small-bold-title();
+}
+.activity-details .text > p {
+
 }

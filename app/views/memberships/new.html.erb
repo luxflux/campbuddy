@@ -9,65 +9,95 @@
 </div>
 
 <div class="activity-details">
-	<!-- blbalbablalb, delete content and replace it -->
-	<div class="activities">
-	  <div class="red">
-	    <div class="date-time">Mo<br>10:00</div>
-	    <h1>Fotographie</h1>
-	    <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="red">
-	    <div class="date-time">di<br>10:00</div>
-	    <h1>Bowling</h1>
-	    <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="green">
-	    <div class="date-time">di<br>14:00</div>
-	    <h1>Luzern</h1>
-	    <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="blue">
-	    <div class="date-time">do<br>10:00</div>
-	    <h1>Siebdruck</h1>
-	    <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="red">
-	    <div class="date-time">do<br>14:00</div>
-	    <h1>Snowboard</h1>
-	    <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="blue">
-	    <div class="date-time">fr<br>8:00</div>
-	    <h1>Fotographie</h1>
-	    <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="gray">
-	    <div class="date-time">sa<br>7:30</div>
-	    <h1>Packen</h1>
-	    <div class="description">Alle Gepäcksstücke müssen um 7:30 bei der Mensa bereitstehen</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
-	  <div class="gray">
-	    <div class="date-time">sa<br>9:30</div>
-	    <h1>Aufräumen</h1>
-	    <div class="description">Putzen ist angesagt. Was genau deine Aufgabe ist, findest du bei deinen Angeboten. Sonst wende dich bitte an deinen Smallgroup Leiter. Sonst wende dich bitte an deinen Smallgroup Leiter.</div>
-	    <!--this should be link with id, not to new membership.-->
-	    <%= link_to '', new_membership_path%>
-	  </div>
+	<div class="partipicate">
+		<div class="unchecked">
+			<span>Teilnahme </span>
+			<%= icon(:"square-o") %>
+		</div>
+		<div class="checked">
+			<span>Du nimmst teil </span>
+			<%= icon(:"check-square-o") %>
+		</div>
 	</div>
+	<ul>
+		<li class="description">
+			<!-- diffrent icon related to the class of the li -->
+			<div class="icon"><%= icon(:"info-circle") %></div>
+			<div class="text">
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+			</div>
+		</li>
+		<li class="time">
+			<!-- diffrent icon related to the class of the li -->
+			<div class="icon"><%= icon(:"clock-o") %></div>
+			<div class="text">
+				<p>Dienstag, 15:00 - 16:45</p>
+			</div>
+		</li>
+		<li class="meeting_point">
+			<!-- diffrent icon related to the class of the li -->
+			<div class="icon"><%= icon(:"compass") %></div>
+			<div class="text">
+				<p>Treffpunkt ist im Chalett</p>
+			</div>
+		</li>
+		<li class="partipicants">
+			<!-- diffrent icon related to the class of the li -->
+			<div class="icon"><%= icon(:"check-circle") %></div>
+			<div class="text">
+				<p>Teilnehmer</p>
+				<ul class="attendees">
+				  <li>
+				    <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%></div>
+				    <div class="name">Raffael</div>
+				  </li>
+				  
+				  <li>
+				    <div class="image"><%= image_tag "_profil3.jpg", height: '80', width: '80', alt: 'Bild von Melanie'%></div>
+				    <div class="name">Melanie</div>
+				  </li>
+
+				  <li>
+				    <div class="image"><%= image_tag "_profil2.jpg", height: '80', width: '80', alt: 'Bild von Andreas'%></div>
+				    <div class="name">Andreas</div>
+				  </li>
+				  
+				  <li>
+				    <div class="image"><%= image_tag "_profil1.jpg", height: '80', width: '80', alt: 'Bild von Noëmi'%></div>
+				    <div class="name">Noëmi</div>
+				  </li>
+				  
+				  <li>
+				    <div class="image"><%= image_tag "_profil5.jpg", height: '80', width: '80', alt: 'Bild von Imis'%></div>
+				    <div class="name">Imis</div>
+				  </li>
+				  
+				  <li>
+				    <div class="image"><%= image_tag "_profil6.jpg", height: '80', width: '80', alt: 'Bild von Tim'%></div>
+				    <div class="name">Tim</div>
+				  </li>
+
+				  <li>
+				    <div class="space">4</div>
+				    <div class="name">Freie Plätze</div>
+				  </li>
+				</ul>
+			</div>
+		</li>
+		<li class="owner">
+			<!-- diffrent icon related to the class of the li -->
+			<div class="icon"><%= icon(:"question-circle") %></div>
+			<div class="text">
+				<p>Workshop-Leiter</p>
+					<ul class="attendees">
+					  <li>
+					    <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%></div>
+					    <div class="name">Raffael</div>
+					  </li>
+					 </ul>
+			</div>
+		</li>
+	</ul>
 </div>
 <!--
 <%= render 'form' %>
