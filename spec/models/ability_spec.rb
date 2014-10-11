@@ -19,30 +19,38 @@ describe Ability do
 
     describe 'Event' do
       it { should be_able_to(:read, Event) }
+
       it { should_not be_able_to(:update, event) }
       it { should be_able_to(:update, owned_event) }
+
+      it { should_not be_able_to(:destroy, Event) }
       it { should_not be_able_to(:destroy, owned_event) }
     end
 
     describe 'Attendance' do
-      let!(:own_attendance) do
+      let(:own_attendance) do
         FactoryGirl.create(:attendance, user: current_user, event: event, mandatory: false)
       end
       let(:mandatory_attendance) do
         FactoryGirl.create(:attendance, user: current_user, event: event, mandatory: true)
       end
-      let(:others_attendance) { FactoryGirl.create(:attendance) }
-      let(:others_attendance_same_event) { FactoryGirl.create(:attendance, event: event) }
 
-      it { should be_able_to(:read, own_attendance) }
+      it { should be_able_to(:read, Attendance) }
+      it { should_not be_able_to(:update, own_attendance) }
       it { should be_able_to(:destroy, own_attendance) }
       it { should_not be_able_to(:destroy, mandatory_attendance) }
-      it { should be_able_to(:read, others_attendance_same_event) }
-      it { should_not be_able_to(:read, others_attendance) }
     end
 
     describe 'Group' do
       it { should be_able_to(:read, Group) }
+      it { should_not be_able_to(:update, Group) }
+      it { should_not be_able_to(:destroy, Group) }
+    end
+
+    describe 'Membership' do
+      it { should be_able_to(:read, Membership) }
+      it { should_not be_able_to(:update, Membership) }
+      it { should_not be_able_to(:destroy, Membership) }
     end
   end
 
@@ -53,5 +61,6 @@ describe Ability do
     it { should_not be_able_to(:read, Event) }
     it { should_not be_able_to(:read, Attendance) }
     it { should_not be_able_to(:read, Group) }
+    it { should_not be_able_to(:read, Membership) }
   end
 end
