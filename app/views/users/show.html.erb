@@ -1,8 +1,79 @@
+
+<h1 class="title">Mein Profil</h1>
+
+<div class="col">
+  <div class="user-img">
+    <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%>
+    </div>
+  </div>
+  <div class="user-desc">
+    <div class="edit">
+      <a href="<%= edit_user_path(@user.id) %>"><i class="fa fa-pencil-square-o"></i></a>
+    </div>
+    <hr>
+    <div class="name">
+      <%= @user.firstname %> <%= @user.name %>
+    </div>
+    <div class="email">
+      <%= @user.email %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+    <% if @user.owned_workshops.any? %>
+      <h1 class="title">Von mir geleitete Events</h1>
+      <% @user.owned_workshops.each do |workshop| %>
+        <%= workshop.title %>
+      <% end %>
+      <hr>
+    <% end %>
+
+<h1 class="title">Meine Events</h1>
+    <% @user.workshops.each do |workshop| %>
+      <%= workshop.title %>
+    <% end %>
+
+<div class="activities">
+  <div class="gray">
+    <div class="date-time">fr<br>17:00</div>
+    <h1>Smallgroup</h1>
+    <div class="description">Zeit mit deinen Freunden</div>
+    <!--this should be link with id, not to new membership.-->
+    <%= link_to '', new_membership_path%>
+  </div>
+  <div class="gray">
+    <div class="date-time">sa<br>7:30</div>
+    <h1>Packen</h1>
+    <div class="description">Alle Gepäcksstücke müssen um 7:30 bei der Mensa bereitstehen</div>
+    <!--this should be link with id, not to new membership.-->
+    <%= link_to '', new_membership_path%>
+  </div>
+  <div class="gray">
+    <div class="date-time">sa<br>9:30</div>
+    <h1>Aufräumen</h1>
+    <div class="description">Putzen ist angesagt. Was genau deine Aufgabe ist, findest du bei deinen Angeboten. Sonst wende dich bitte an deinen Smallgroup Leiter. Sonst wende dich bitte an deinen Smallgroup Leiter.</div>
+    <!--this should be link with id, not to new membership.-->
+    <%= link_to '', new_membership_path%>
+  </div>
+</div>
+
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  
 </p>
 
 <p>

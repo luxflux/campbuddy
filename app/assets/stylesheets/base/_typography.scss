@@ -45,6 +45,11 @@ h6 {
   font-weight: 600;
   text-transform: uppercase;
 }
+@mixin small-desc-text(){
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+}
 
 p {
   margin: 0 0 ($base-line-height * .5);

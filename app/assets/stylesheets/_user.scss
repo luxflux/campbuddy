@@ -1,0 +1,45 @@
+/*attendees*/
+
+
+
+.col {
+  @include outer-container;
+  padding-top: 8px;
+
+  .user-img {
+    @include span-columns(6);
+
+    .image {
+      border-radius: 85px;
+      overflow: hidden;
+      width: 85px;
+      height: 85px;
+      margin: 0 2px 2px 15px;
+      img {
+        width: 85px;
+        height: 85px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+  }
+
+  .user-desc { 
+    @include span-columns(6);
+    @include small-desc-text();
+
+    .edit {
+      /*text-align: right;
+      padding-right: 15px;*/
+    }
+    .name {
+        @include small-bold-title();
+    } 
+    a {
+      color: $dark-gray;
+      font-size: 20px;
+    }
+  }
+}
+

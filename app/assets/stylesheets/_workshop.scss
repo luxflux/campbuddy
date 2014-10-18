@@ -44,11 +44,10 @@
   margin-top: 15px;
 }
 .activities .description {
+  @include small-desc-text();
   width: 52%; /*von 320 zu 165*/
   float: right;
   margin-bottom: 15px;
-  font-size: 10px;
-  font-weight: 400;
 }
 .activities > div > a { 
   display: block;

@@ -7,10 +7,12 @@
 
 //layouts
 @import 'navigation';
+@import 'home';
 @import 'workshop';
 @import 'membership';
 @import 'workshop-detail';
 @import 'smallgroups';
+@import 'user';
 
 body {
   margin: 0;

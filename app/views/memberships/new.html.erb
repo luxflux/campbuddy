@@ -1,5 +1,6 @@
 <div class="detail-nav">
-  <%= link_to icon(:"chevron-left"), memberships_path %>
+	<span onclick="window.history.back()"><%= icon(:"chevron-left") %></span>
+  <!--<%= link_to icon(:"chevron-left"), memberships_path %>-->
   <h1>Fotographie</h1>
   <p>Workshop</p>
 </div>
@@ -99,11 +100,11 @@
 		</li>
 	</ul>
 </div>
-<!--
+
 <%= render 'form' %>
 
 <%= link_to 'Back', memberships_path %>
--->
+<!-- -->
 <script>
 	var hideNavBar = true;
 </script>
