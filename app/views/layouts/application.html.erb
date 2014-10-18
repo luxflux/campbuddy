@@ -13,18 +13,13 @@
   </script>
 
   <div id="main-wrapper">
-    <nav>
+    <nav class="main">
     <% if signed_in? %>
-      <ul>
-        <li><%= link_to icon(:home), memberships_path %></li>
-        <li><%= link_to icon(:calendar), memberships_path %></li>
-        <li><%= link_to icon(:list), events_path %></li>
-        <li><%= link_to icon(:users), groups_path %></li>
-        <li><%= link_to icon(:user), users_path %></li>
-        <!-- <ul><li><%= link_to 'member', memberships_path %></li></ul> -->
-        <!-- <ul><li><%= link_to 'teilnehmer', attendances_path %></li></ul> -->
-        <!-- <li><%= link_to 'Users', users_path %></li> -->
-      </ul>
+      <%= link_to icon(:home), memberships_path %>
+      <%= link_to icon(:calendar), memberships_path %>
+      <%= link_to icon(:list), events_path %>
+      <%= link_to icon(:users), groups_path %>
+      <%= link_to icon(:user), users_path %>
     <% end %>
     </nav>
 

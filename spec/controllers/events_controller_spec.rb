@@ -47,6 +47,27 @@ describe EventsController do
         get :index, {}, valid_session
         expect(assigns(:events)).to eq([event])
       end
+
+      context 'without a date selected' do
+        it 'assigns the current date as selection' do
+          get :index, {}, valid_session
+          expect(assigns(:selected_date)).to eq(Date.current)
+        end
+      end
+
+      context 'with an invalid date selected' do
+        it 'assigns the current date as selection' do
+          get :index, { date: 'asd' }, valid_session
+          expect(assigns(:selected_date)).to eq(Date.current)
+        end
+      end
+
+      context 'with an valid date selected' do
+        it 'assigns the current date as selection' do
+          get :index, { date: '2014-04-01' }, valid_session
+          expect(assigns(:selected_date)).to eq(Date.new(2014,4,1))
+        end
+      end
     end
 
     describe "GET show" do
