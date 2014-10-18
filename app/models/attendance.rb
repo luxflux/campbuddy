@@ -1,4 +1,4 @@
 class Attendance < ActiveRecord::Base
   belongs_to :user
-  belongs_to :workshop
+  belongs_to :event
 end

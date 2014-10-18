@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  before_action :set_attendance, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /attendances
   def index
@@ -46,13 +46,8 @@ class AttendancesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attendance
-      @attendance = Attendance.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def attendance_params
-      params.require(:attendance).permit(:user_id, :workshop_id)
+      params.require(:attendance).permit(:user_id, :event_id)
     end
 end
