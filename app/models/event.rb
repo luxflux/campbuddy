@@ -11,4 +11,5 @@ class Event < ActiveRecord::Base
   validates :starts, presence: true
   validates :ends, presence: true
 
+  scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
 end

@@ -1,8 +1,10 @@
-<%= link_to event, class: event.category.identifier do %>
+<div class="event <%= event.category.identifier %>">
   <div class="date-time">
-    <p><%= event.starts.strftime('%A') %></p>
-    <p><%= event.starts.strftime('%H:%M') %></p>
+    <p><%= event.starts.strftime('%a') %><br><%= event.starts.strftime('%H:%M') %></p>
   </div>
-  <h1><%= event.title %></h1>
-  <div class="description"><%= event.description %></div>
-<% end %>
+  <div class="details">
+    <h1><%= event.title %></h1>
+    <div class="description"><%= event.description %></div>
+  </div>
+  <div class="link"><%= link_to icon('angle-right'), event %></div>
+</div>

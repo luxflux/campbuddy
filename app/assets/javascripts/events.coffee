@@ -1,12 +1,12 @@
 jQuery ->
-  filters = $('nav.activity a')
-  activities = $('.activities > div')
+  filters = $('nav.events a')
+  events = $('div.event')
 
 
   filters.on 'click', (event) ->
     element = $(@)
     if element.hasClass('active')
-      # actitivites.slideDown()
+      events.slideDown()
       filters.removeClass('active filtered-out')
 
     else
@@ -17,9 +17,10 @@ jQuery ->
       element.addClass 'active'
 
       filter = element.data('filter')
-      activities.each (index) ->
+
+      events.each (index) ->
         ele = $(@)
         if ele.hasClass(filter)
-          ele.slideUp()
-        else
           ele.slideDown()
+        else
+          ele.slideUp()

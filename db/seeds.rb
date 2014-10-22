@@ -13,3 +13,5 @@ else
   admin.first_or_create!(firstname: 'Mr', name: 'Admin', password: 'adminpass', admin: true)
   puts 'Created admin: admin@example.org/adminpass'
 end
+
+Event.create! owner: User.first, category: Category.first, title: "testing", description: "these stuff", starts: Time.now + 2.hours, ends: Time.now + 4.hours
