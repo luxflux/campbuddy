@@ -12,4 +12,5 @@ class Event < ActiveRecord::Base
   validates :ends, presence: true
 
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
+  scope :today, -> { on_date(Date.current) }
 end
