@@ -16,6 +16,8 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 4.0.0.rc'
 gem 'simple_form'
 gem 'simple_form_fancy_uploads'
+gem 'pickadate-rails'
+gem 'date_time_attribute'
 
 gem 'bourbon'
 gem 'neat'
