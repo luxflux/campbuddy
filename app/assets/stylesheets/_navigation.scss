@@ -32,6 +32,10 @@ nav.main {
     &:first-child {
       border-left: none;
     }
+
+    &.active {
+      background-color: $dark-gray;
+    }
   }
 }
 
