@@ -40,6 +40,11 @@ GEM
       thor
     builder (3.2.2)
     cancancan (1.9.2)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     choice (0.1.6)
@@ -98,6 +103,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.1)
+    mini_magick (4.0.0.rc)
     minitest (5.4.2)
     multi_json (1.10.1)
     neat (1.5.1)
@@ -205,6 +211,7 @@ DEPENDENCIES
   bootstrap-sass
   bourbon
   cancancan
+  carrierwave
   clearance
   coffee-rails (~> 4.0.0)
   factory_girl_rails
@@ -212,6 +219,7 @@ DEPENDENCIES
   guard
   guard-rspec
   jquery-rails
+  mini_magick (~> 4.0.0.rc)
   neat
   pg
   puma

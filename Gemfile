@@ -12,6 +12,8 @@ gem 'clearance'
 gem 'puma'
 gem 'pg'
 gem 'cancancan'
+gem 'carrierwave'
+gem 'mini_magick', '~> 4.0.0.rc'
 
 gem 'bourbon'
 gem 'neat'
