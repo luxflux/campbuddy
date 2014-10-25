@@ -14,4 +14,5 @@ else
   puts 'Created admin: admin@example.org/adminpass'
 end
 
+Category.create! identifier: :red, name: 'Activities'
 Event.create! owner: User.first, category: Category.first, title: "testing", description: "these stuff", starts: Time.now + 2.hours, ends: Time.now + 4.hours
