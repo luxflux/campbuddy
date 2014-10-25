@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   def guest?
     false
   end
+
+  def fullname
+    "#{firstname} #{name}"
+  end
 end
