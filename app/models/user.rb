@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :name, presence: true
 
+  mount_uploader :avatar, ImageUploader
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       email = row.field('email')
@@ -36,5 +38,9 @@ class User < ActiveRecord::Base
 
   def guest?
     false
+  end
+
+  def fullname
+    "#{firstname} #{name}"
   end
 end

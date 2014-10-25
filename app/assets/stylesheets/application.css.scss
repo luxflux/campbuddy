@@ -12,3 +12,8 @@ $visual-grid: true;
 @import 'event';
 @import 'workshop-detail';
 @import 'smallgroups';
+
+// pickadate
+@import 'pickadate/default';
+@import 'pickadate/default.date';
+@import 'pickadate/default.time';

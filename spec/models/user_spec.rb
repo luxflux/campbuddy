@@ -1,12 +1,19 @@
 require 'rails_helper'
 
 describe User do
+  let(:user) { FactoryGirl.build(:user) }
+
   context 'validations' do
     it 'validates that the email exists' do
       user = User.new
       user.valid?
       expect(user).to have(3).error_on(:email)
     end
+  end
+
+  describe '#fullname' do
+    subject { user.fullname }
+    specify { expect(subject).to eq("#{user.firstname} #{user.name}") }
   end
 
   describe "::import" do
