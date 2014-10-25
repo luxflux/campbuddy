@@ -1,1 +1,1 @@
-web: bundle exec unicorn -l $SOCKET_DIR/campplaner -c ./config/unicorn.rb
+web: bundle exec puma --preload -b unix://$SOCKET_DIR/campplaner

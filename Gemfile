@@ -9,7 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'clearance'
-gem 'unicorn'
+gem 'puma'
 gem 'pg'
 gem 'cancancan'
 
