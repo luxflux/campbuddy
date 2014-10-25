@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025141006) do
+ActiveRecord::Schema.define(version: 20141025143104) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "attendances", force: true do |t|
     t.integer  "user_id"
@@ -39,9 +42,10 @@ ActiveRecord::Schema.define(version: 20141025141006) do
     t.datetime "updated_at"
     t.integer  "max_attendees"
     t.integer  "category_id"
+    t.string   "impression"
   end
 
-  add_index "events", ["owner_id"], name: "index_events_on_owner_id"
+  add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -50,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141025141006) do
     t.datetime "updated_at"
   end
 
-  add_index "groups", ["leader_id"], name: "index_groups_on_leader_id"
+  add_index "groups", ["leader_id"], name: "index_groups_on_leader_id", using: :btree
 
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
@@ -59,7 +63,7 @@ ActiveRecord::Schema.define(version: 20141025141006) do
     t.datetime "updated_at"
   end
 
-  add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true
+  add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -74,7 +78,7 @@ ActiveRecord::Schema.define(version: 20141025141006) do
     t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

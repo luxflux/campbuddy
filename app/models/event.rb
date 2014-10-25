@@ -13,4 +13,6 @@ class Event < ActiveRecord::Base
 
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
   scope :today, -> { on_date(Date.current) }
+
+  mount_uploader :impression, ImageUploader
 end
