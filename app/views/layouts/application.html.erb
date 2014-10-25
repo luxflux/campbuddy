@@ -15,11 +15,11 @@
   <div id="main-wrapper">
     <nav class="main">
     <% if signed_in? %>
-      <%= link_to icon(:home), memberships_path %>
-      <%= link_to icon(:calendar), memberships_path %>
-      <%= link_to icon(:list), events_path %>
-      <%= link_to icon(:users), groups_path %>
-      <%= link_to icon(:user), users_path %>
+      <%= nav_link :home, memberships_path %>
+      <%= nav_link :calendar, events_path %>
+      <%= nav_link :list, events_path %>
+      <%= nav_link :users, groups_path %>
+      <%= nav_link :user, users_path %>
     <% end %>
     </nav>
 
