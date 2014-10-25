@@ -24,3 +24,8 @@ jQuery ->
           ele.slideDown()
         else
           ele.slideUp()
+
+  events.on 'click', (event) ->
+    element = $(@)
+
+    window.location = element.find('a').first().attr('href')
