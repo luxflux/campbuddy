@@ -64,8 +64,9 @@ nav.day {
   }
 }
 
-/*Activity navigation - second top*/
-nav.activity {
+/* Event navigation - second top*/
+nav.events {
+  @include outer-container;
   font-size: $base-font-size;
   padding: 0.7em 0;
   a {
@@ -99,7 +100,7 @@ nav.activity {
       background-color: $blue;
       border-color: $blue;
     }
-    &[data-filter="dark-blue"] {
+    &[data-filter="royal"] {
       background-color: $dark-blue;
       border-color: $dark-blue;
     }
@@ -116,7 +117,4 @@ nav.activity {
       color: #fff;
     }
   }
-}
-.activity-nav > span:last-child {
-  margin-right: 1.5625%;
 }

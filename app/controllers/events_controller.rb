@@ -3,12 +3,13 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
     begin
       @selected_date = Date.parse(params[:date].to_s)
     rescue ArgumentError
       @selected_date = Date.today
     end
+    @events = Event.on_date(@selected_date)
+    @categories = Category.where(id: @events.pluck(:category_id))
   end
 
   # GET /events/1
