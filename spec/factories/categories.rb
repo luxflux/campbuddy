@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :category do
-    name "MyString"
-    identifier "MyString"
+    name "Activities"
+    identifier :blue
   end
 end

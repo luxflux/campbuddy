@@ -9,6 +9,7 @@ class EventsController < ApplicationController
       @selected_date = Date.today
     end
     @events = Event.on_date(@selected_date)
+    @categories = Category.where(id: @events.pluck(:category_id))
   end
 
   # GET /events/1

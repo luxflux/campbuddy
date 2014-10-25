@@ -7,12 +7,9 @@
 </nav>
 
 <nav class="events">
-  <a href="#" data-filter="red">Workshops</a>
-  <a href="#" data-filter="green">Activities</a>
-  <a href="#" data-filter="blue">Piste</a>
-  <a href="#" data-filter="gray">Camp</a>
-  <a href="#" data-filter="royal">Radio</a>
-  <a href="#" data-filter="yellow">Skibus</a>
+  <% @categories.each do |category| %>
+    <%= link_to category.name, '#', data: { filter: category.identifier } %>
+  <% end %>
 </nav>
 
 <%= render @events %>
