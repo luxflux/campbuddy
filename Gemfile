@@ -14,6 +14,7 @@ gem 'pg'
 gem 'cancancan'
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.0.0.rc'
+gem 'simple_form'
 gem 'simple_form_fancy_uploads'
 
 gem 'bourbon'

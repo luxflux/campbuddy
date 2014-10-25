@@ -1,4 +1,5 @@
 <%= simple_form_for @user do |f| %>
+  <%= f.input :avatar, as: :image_preview, input_html: {preview_version: :thumb} %>
   <%= f.input :name %>
   <%= f.input :firstname %>
   <%= f.input :email %>
