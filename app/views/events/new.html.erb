@@ -1,5 +1,8 @@
-<h1>New event</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', events_path %>
+<div class="detail-nav">
+  <span onclick="window.history.back()"><%= icon(:"chevron-left") %></span>
+  <h1>Event</h1>
+  <p>erstellen</p>
+</div>
+<div class="form-stuff">
+  <%= render 'form' %>
+</div>

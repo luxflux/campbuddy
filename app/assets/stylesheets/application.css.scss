@@ -8,11 +8,12 @@
 //layouts
 @import 'navigation';
 @import 'home';
-@import 'workshop';
+@import 'event';
 @import 'membership';
-@import 'workshop-detail';
-@import 'smallgroups';
+@import 'event-detail';
+@import 'groups';
 @import 'user';
+@import 'forms';
 
 body {
   margin: 0;
