@@ -62,10 +62,23 @@ $(function() {
 	}
 
 
+  /*this js is only used in the membership (show) view*/
 	// // // // // // // // // 
 	//- partipicate in workshop
 	// // // // // // // // // 
 	$('.partipicate').on('click', function(){
 		$(this).toggleClass('yes');
+		
+		if($(this).hasClass('yes')){
+			console.log('send data that member wants to partipicate');
+			// $.post( "membership/new", function( data ) {
+			//   send-partipicate-update
+			// });
+		} else {
+			console.log('send data that member no longer want to partipicate');
+			// $.post( "membership/new", function( data ) {
+			//   send-partipicate-update
+			// });
+		}
 	})
 });

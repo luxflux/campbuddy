@@ -15,6 +15,12 @@
     <%= f.label :owner_id %><br>
     <%= f.collection_select(:owner_id, User.all, :id, :firstname, prompt: true) %>
   </div>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+  </div>
+
   <div class="field">
     <%= f.label :starts %><br>
     <%= f.datetime_select :starts %>
@@ -30,6 +36,10 @@
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :meeting_point %><br>
+    <%= f.text_area :meeting_point %>
   </div>
   <div class="actions">
     <%= link_to 'Back', events_path, {:class => "button"}  %> | <%= f.submit %>
