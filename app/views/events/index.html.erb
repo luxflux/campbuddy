@@ -1,80 +1,15 @@
-<div class="day-nav">
-  <span>SA</span>
-  <span>SO</span>
-  <span class="active">MO</span>
-  <span>DI</span>
-  <span>MI</span>
-  <span>DO</span>
-  <span>FR</span>
-  <span>SA</span>
-</div>
-
-<div class="activity-nav">
-  <span data-filter="red">Workshops</span>
-  <span data-filter="green">Activities</span>
-  <span data-filter="blue">Piste</span>
-</div>
-
-<div class="activities">
-    <h3>dynamische:</h3>
-
-  <% @events.each do |event| %>
-    <div class="red">
-      <%= image_tag "_fotographie.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1><%= event.title %></h1>
-      <div class="description"><%= event.description %></div>
-      <%= link_to ' ', event %>
-    </div>
+<nav class="day">
+  <% ((Date.today.at_beginning_of_week - 1)..Date.today.end_of_week).each do |date| %>
+    <a href="<%= events_path(date: date) %>" class="<%= 'active' if date == @selected_date %>">
+      <%= date.strftime('%a') %>
+    </a>
   <% end %>
+</nav>
 
-    <h3>statische:</h3>
-    <div class="red">
-      <%= image_tag "_fotographie.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1>Fotographie</h1>
-      <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-      <a href="#">&nbsp;</a>
-    </div>
-    <div class="red">
-      <%= image_tag "_bowling.png", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1>Bowling</h1>
-      <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-      <a href="#">&nbsp;</a>
-    </div>
-    <div class="green">
-      <%= image_tag "_luzern.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1>Luzern</h1>
-      <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-      <a href="#">&nbsp;</a>
-    </div>
-    <div class="blue">
-      <%= image_tag "_siebdruck.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1>Siebdruck</h1>
-      <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-      <a href="#">&nbsp;</a>
-    </div>
-    <div class="red">
-      <%= image_tag "_snowboard.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1>Snowboard</h1>
-      <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-      <a href="#">&nbsp;</a>
-    </div>
-    <div class="blue">
-      <%= image_tag "_fotographie.jpg", height: '85', width: '120', alt: 'Bild zum Workshop'%>
-      <h1>Fotographie</h1>
-      <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-      <a href="#">&nbsp;</a>
-    </div>
-  </div>
-<!---->
-<h1>Listing events</h1>
+<nav class="events">
+  <% @categories.each do |category| %>
+    <%= link_to category.name, '#', data: { filter: category.identifier } %>
+  <% end %>
+</nav>
 
-      <tr>
-        <td>< % - = event.owner[:firstname] + " " + event.owner[:name] %></td>
-        <td>< % - = event.starts %></td>
-        <td>< % - = event.ends %></td>
-        <td></td>
-        <td>< % - = link_to 'Edit', edit_event_path(event) %></td>
-        <td>< % - = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <hr>
-<%= link_to 'New event', new_event_path, {:class => "button"} %>
+<%= render @events %>

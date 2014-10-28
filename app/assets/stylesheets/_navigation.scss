@@ -1,120 +1,124 @@
-/*Main navigation - bottom*/
 nav {
+  font-size: 0;
+  a {
+    @include transition($transition-fast all ease);
+    display: inline-block;
+    padding: 0.3em 0;
+    color: $medium-gray;
+    text-align: center;
+
+    &:focus,&:active,&:hover {
+      background-color: #fff;
+      color: $medium-gray;
+    }
+  }
+}
+
+/*Main navigation - bottom*/
+nav.main {
   z-index: 3;
   position: fixed;
   bottom: 0;
   right: 0;
   width: 100%;
   background-color: $medium-gray;
-}
-nav > ul {
-  width: 100%;
-}
-nav > ul > li {
-  display: block;
-  float: left;
-  width: 20%;
-  text-align: center;
 
-  border-left: 1px solid $light-gray;
-  
-  &:first-child {
-    border-left: none;
-  }
-}
-nav > ul > li > a {
-  @include transition($transition-fast all ease);
-  display: block;
-  width: 100%;
-  padding: 0.3em 0;
-  color: #fff;
-  font-size: 1em;
-  &:focus,&:active,&:hover {
-    background-color: #fff;
-    color: $medium-gray;
-  }
-}
-/*Day navigation - top*/
-.day-nav {
-  @include clearfix;
-}
-.day-nav > span {
-  display: block;
-  float: left;
-  height: 30px;
-  min-width: 30px;
-  width: 10.8125%;
-  font-size: 12px;
-  padding-top: 5px;
-  font-weight: 400;
-  margin: 5px 0 0 1.5%;
-  text-align: center;
-  text-transform: uppercase;
-
-  border: 1px solid $medium-gray;
-  cursor: pointer;
-  // border-radius: 50px;
-
-  &.active,&:focus,&:active,&:hover {
-    background-color: $medium-gray;
+  a {
+    font-size: 20px;
+    width: 20%;
+    border-left: 1px solid $light-gray;
     color: #fff;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &.active {
+      background-color: $dark-gray;
+    }
   }
-  &:last-child {
+}
+
+/*Day navigation - top*/
+nav.day {
+  text-align: justify;
+  text-align-last: justify;
+  a {
+    display: inline-block;
+    min-width: 30px;
+    width: 11.1875%;
     margin-right: 1.5%;
-  }
-}
-/*Activity navigation - second top*/
-.activity-nav {
-  @include clearfix;
-}
-.activity-nav > span {
-  display: block;
-  float: left;
-  height: 35px;
-  min-width: 100px;
-  width: 31.25%;
-  font-size: 12px;
-  padding-top: 8px;
-  font-weight: 400;
-  margin: 5px 0 0 1.5625%;
-  text-align: center;
-  text-transform: uppercase;
 
-  color: #fff;
-  background-color: $medium-gray;
-  border: 1px solid $medium-gray;
-  cursor: pointer;
-  // border-radius: 50px;
+    line-height: 25px;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
 
-  &[data-filter="red"] {
-    background-color: $red;
-    border: 1px solid $red;
-  }
-  &[data-filter="green"] {
-    background-color: $green;
-    border: 1px solid $green;
-  }
-  &[data-filter="yellow"] {
-    background-color: $yellow;
-    border: 1px solid $yellow;
-  }
-  &[data-filter="blue"] {
-    background-color: $blue;
-    border: 1px solid $blue;
-  }
-  &[data-filter="dark-blue"] {
-    background-color: $dark-blue;
-    border: 1px solid $dark-blue;
-  }
-  &.not-filtered {
-    background-color: #fff;
-    color: $medium-gray;
-  }
-  /*instead of active, use .not-filtered for filter styling*/
-  &.active,&:focus,&:active,&:hover {
-    transform: scale(0.95);
+    border: 1px solid $medium-gray;
+    cursor: pointer;
+
+    &.active,&:focus,&:active,&:hover {
+      background-color: $medium-gray;
+      color: #fff;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
-.activity-nav > span:last-child {
-  margin-right: 1.5625%;
+
+/* Event navigation - second top*/
+nav.events {
+  @include outer-container;
+  font-size: $base-font-size;
+  padding: 0.7em 0;
+  a {
+    @include span-columns(4);
+    @include omega(3n);
+
+    margin-top: 0.4em;
+
+    line-height: 35px;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+
+    &[data-filter="red"] {
+      background-color: $red;
+      border-color: $red;
+    }
+    &[data-filter="green"] {
+      background-color: $green;
+      border-color: $green;
+    }
+    &[data-filter="yellow"] {
+      background-color: $yellow;
+      border-color: $yellow;
+    }
+    &[data-filter="blue"] {
+      background-color: $blue;
+      border-color: $blue;
+    }
+    &[data-filter="royal"] {
+      background-color: $dark-blue;
+      border-color: $dark-blue;
+    }
+    &[data-filter="gray"] {
+      background-color: $medium-gray;
+      border-color: $medium-gray;
+    }
+    &.filtered-out {
+      background-color: #fff;
+      color: $medium-gray;
+    }
+    &.active, &:focus, &:active, &:hover {
+      transform: scale(0.97);
+      color: #fff;
+    }
+  }
 }

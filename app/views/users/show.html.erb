@@ -1,10 +1,8 @@
-
 <h1 class="title">Mein Profil</h1>
 
 <div class="col">
   <div class="user-img">
-    <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%>
-    </div>
+    <div class="image"><%= image_tag @user.avatar_url, height: '80', width: '80' %></div>
   </div>
   <div class="user-desc">
     <div class="edit">
@@ -73,7 +71,7 @@
 
 <p>
   <strong>Name:</strong>
-  
+
 </p>
 
 <p>

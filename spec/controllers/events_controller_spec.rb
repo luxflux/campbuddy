@@ -43,9 +43,40 @@ describe EventsController do
 
     describe "GET index" do
       it "assigns all events as @events" do
-        event = Event.create! valid_attributes
+        event = FactoryGirl.create(:event)
         get :index, {}, valid_session
         expect(assigns(:events)).to eq([event])
+      end
+
+      it 'assigns all the categories of the events as @categories' do
+        category1 = FactoryGirl.create(:category, identifier: :red)
+        category2 = FactoryGirl.create(:category, identifier: :yellow)
+        FactoryGirl.create(:event, category: category2, starts: Time.current - 24.hours)
+        FactoryGirl.create(:event, category: category1)
+
+        get :index, {}, valid_session
+        expect(assigns(:categories)).to eq([category1])
+      end
+
+      context 'without a date selected' do
+        it 'assigns the current date as selection' do
+          get :index, {}, valid_session
+          expect(assigns(:selected_date)).to eq(Date.current)
+        end
+      end
+
+      context 'with an invalid date selected' do
+        it 'assigns the current date as selection' do
+          get :index, { date: 'asd' }, valid_session
+          expect(assigns(:selected_date)).to eq(Date.current)
+        end
+      end
+
+      context 'with an valid date selected' do
+        it 'assigns the current date as selection' do
+          get :index, { date: '2014-04-01' }, valid_session
+          expect(assigns(:selected_date)).to eq(Date.new(2014,4,1))
+        end
       end
     end
 
