@@ -12,13 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.collection_select(:owner_id, User.all, :id, :firstname, prompt: true) %>
+    <%= f.label :owner_id %>
+    <div class="custom-dropdown long">
+      <%= f.collection_select(:owner_id, User.all, :id, :firstname, prompt: true) %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+    <%= f.label :category_id %>
+    <div class="custom-dropdown">
+      <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+    </div>
   </div>
 
   <div class="field">
@@ -26,22 +30,22 @@
     <%= f.datetime_select :starts %>
   </div>
   <div class="field">
-    <%= f.label :ends %><br>
-    <%= f.datetime_select :ends %>
+    <%= f.label :ends %>
+    <%= f.datetime_select :ends %><br>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :meeting_point %><br>
+    <%= f.label :meeting_point %>
     <%= f.text_area :meeting_point %>
   </div>
   <div class="actions">
-    <%= link_to 'Back', events_path, {:class => "button"}  %> | <%= f.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

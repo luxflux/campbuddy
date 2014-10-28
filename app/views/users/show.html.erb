@@ -26,17 +26,17 @@
 
 
 
-    <% if @user.owned_workshops.any? %>
+    <% if @user.owned_events.any? %>
       <h1 class="title">Von mir geleitete Events</h1>
-      <% @user.owned_workshops.each do |workshop| %>
-        <%= workshop.title %>
+      <% @user.owned_events.each do |event| %>
+        <%= event.title %>
       <% end %>
       <hr>
     <% end %>
 
 <h1 class="title">Meine Events</h1>
-    <% @user.workshops.each do |workshop| %>
-      <%= workshop.title %>
+    <% @user.events.each do |event| %>
+      <%= event.title %>
     <% end %>
 
 <div class="activities">
