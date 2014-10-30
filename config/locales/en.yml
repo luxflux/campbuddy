@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  events:
+    index:
+      no_events:
+        title: No events
+        text: Unfortunately there aren't any events today.
