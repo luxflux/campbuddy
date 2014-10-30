@@ -43,11 +43,11 @@
     .custom-dropdown.long {
       width: 100%;
     }
-    .custom-dropdown.long > select {
+    .custom-dropdown.long select {
       width: 100%;
     }
 
-    .custom-dropdown > select {
+    .custom-dropdown select {
       font-size: inherit; /* inherit size from .custom-dropdown */
       padding: .5em; /* add some space*/
       margin: 0; /* remove default margins */
@@ -93,14 +93,14 @@
     .custom-dropdown.custom-dropdown--disabled::after {
         color: rgba(0,0,0,.1);
     }
-    .custom-dropdown > select[disabled] {
+    .custom-dropdown select[disabled] {
         color: rgba(0,0,0,.3);
     }
 
     /* FF only temp fix 
     @-moz-document url-prefix() {
-        .custom-dropdown > select             { padding-right: .9em }
-        .custom-dropdown--large .custom-dropdown > select { padding-right: 1.3em }
-        .custom-dropdown--small .custom-dropdown > select { padding-right: .5em }
+        .custom-dropdown select             { padding-right: .9em }
+        .custom-dropdown--large .custom-dropdown select { padding-right: 1.3em }
+        .custom-dropdown--small .custom-dropdown select { padding-right: .5em }
     }*/
 

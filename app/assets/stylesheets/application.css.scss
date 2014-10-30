@@ -12,13 +12,16 @@ $visual-grid: true;
 @import 'home';
 @import 'event';
 @import 'event-detail';
-@import 'membership';
+@import 'activities';
+
 @import 'groups';
 @import 'user';
 @import 'forms';
-@import 'workshop';
-@import 'workshop-detail';
-@import 'smallgroups';
+
+//@import 'membership';
+//@import 'workshop';
+//@import 'workshop-detail';
+//@import 'smallgroups';
 
 // pickadate
 @import 'pickadate/default';

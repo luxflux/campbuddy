@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Workshop</th>
+      <th>event</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +15,7 @@
     <% @attendances.each do |attendance| %>
       <tr>
         <td><%= attendance.user.name %></td>
-        <td><%= attendance.workshop.title %></td>
+        <td><%= attendance.event.title %></td>
         <td><%= link_to 'Show', attendance %></td>
         <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
         <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>

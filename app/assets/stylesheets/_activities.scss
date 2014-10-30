@@ -1,32 +1,32 @@
-.activities{
+.event{
   margin-top: 15px;
 }
 
 /*activity categories*/
 
 /*activity descriptions*/
-.activities > div {
+.event > div {
   @include clearfix;
 }
-.activities img{
+.event img{
   display: block;
   float: left;
   width: 37.5%; /*von 320px zu 120px*/
   min-width: 120px;
 }
-.activities h1 {
+.event h1 {
   @include small-bold-title();
   width: 52%; /*von 320 zu 165*/
   float: right;
   margin-top: 15px;
 }
-.activities .description {
+.event .description {
   @include small-desc-text();
   width: 52%; /*von 320 zu 165*/
   float: right;
   margin-bottom: 15px;
 }
-.activities > div > a {
+.event > div > a {
   display: block;
   width: 100%;
   height: 85px;

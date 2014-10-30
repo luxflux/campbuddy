@@ -36,9 +36,15 @@
   right: 0;
   height: 180px;
   width: 100%;
+  overflow: hidden;
+  background: url("/assets/_fallback_titlepic.png") center center;
+  background-size: cover;
 }
 
 .title-pic img{ 
+  width: 100%;
+  min-width: 320px;
+  min-height: 180px;
 }
 
 /*activity-details -> event descripteion...*/
