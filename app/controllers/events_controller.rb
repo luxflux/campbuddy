@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   # POST /events
   def create
     if(mandatory?)
-      abort(make all users attanding to that created event)
+      abort("make all users attanding to that created event")
     end
 
     @event = Event.new(event_params)
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if(mandatory?)
-      abort(make all users attanding to that updated event/ or not if nolonger mandatory)
+      abort("make all users attanding to that updated event/ or not if nolonger mandatory")
     end
 
     if @event.update(event_params)
