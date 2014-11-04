@@ -61,13 +61,6 @@ describe MembershipsController do
       end
     end
 
-    describe "GET new" do
-      it "assigns a new membership as @membership" do
-        get :new, {}, valid_session
-        expect(assigns(:membership)).to be_a_new(Membership)
-      end
-    end
-
     describe "GET edit" do
       it "assigns the requested membership as @membership" do
         membership = Membership.create! valid_attributes
@@ -98,6 +91,7 @@ describe MembershipsController do
 
       describe "with invalid params" do
         it "assigns a newly created but unsaved membership as @membership" do
+          pending "no html stuff"
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(Membership).to receive(:save).and_return(false)
           post :create, {:membership => { "user" => "invalid value" }}, valid_session
@@ -105,6 +99,7 @@ describe MembershipsController do
         end
 
         it "re-renders the 'new' template" do
+          pending "no html stuff"
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(Membership).to receive(:save).and_return(false)
           post :create, {:membership => { "user" => "invalid value" }}, valid_session

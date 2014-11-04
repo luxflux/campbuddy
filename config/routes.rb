@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'home' => 'home#index'
-  resources :memberships
+  resources :memberships, except: [:new]
   resources :groups
   resources :attendances
   resources :events
