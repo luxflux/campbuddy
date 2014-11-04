@@ -1,11 +1,6 @@
 class MembershipsController < ApplicationController
   load_and_authorize_resource
 
-  # GET /memberships
-  def index
-    @memberships = Membership.all
-  end
-
   # GET /memberships/1
   def show
   end
