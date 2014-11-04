@@ -22,7 +22,8 @@ describe UsersController do
 
   context 'a guest' do
     before do
-      get :index
+      user = FactoryGirl.create(:user)
+      get :show, {:id => user.to_param}
     end
 
     it { should deny_access }
@@ -38,13 +39,6 @@ describe UsersController do
     # User. As you add validations to User, be sure to
     # adjust the attributes here as well.
     let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
-
-    describe "GET index" do
-      it "assigns all users as @users" do
-        get :index, {}
-        expect(assigns(:users)).to eq([user])
-      end
-    end
 
     describe "GET show" do
       it "assigns the requested user as @user" do

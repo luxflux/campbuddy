@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :groups
   resources :attendances
   resources :events
-  resources :users do
+  resources :users, except: [:index] do
     collection { post :import }
   end
   root 'home#index'
