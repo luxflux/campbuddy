@@ -1,5 +1,5 @@
 jQuery ->
-	$('.partipicate').on 'click', () ->
+  $('.partipicate').on 'click', () ->
     element = $(@)
     element.toggleClass('yes')
     if element.hasClass('yes')
