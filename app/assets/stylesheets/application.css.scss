@@ -5,25 +5,18 @@
 $visual-grid: true;
 @import "neat";
 
-//layouts
-@import 'layout';
-@import 'navigation';
-
-@import 'home';
-@import 'event';
-@import 'event-detail';
-@import 'activities';
-
-@import 'groups';
-@import 'user';
-@import 'forms';
-
-//@import 'membership';
-//@import 'workshop';
-//@import 'workshop-detail';
-//@import 'smallgroups';
-
 // pickadate
 @import 'pickadate/default';
 @import 'pickadate/default.date';
 @import 'pickadate/default.time';
+
+//layouts
+@import 'layout';
+@import 'navigation';
+@import 'forms';
+
+// entities
+@import 'home';
+@import 'event';
+@import 'groups';
+@import 'user';
