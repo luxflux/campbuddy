@@ -1,0 +1,154 @@
+/*Form Filds'n'stuff for editing or creating new entries*/
+.form-stuff {
+  margin-top: 85px;
+  padding: 10px;
+
+  form {
+    .field {
+      border-bottom: 1px solid $light-gray;
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+      max-width: 2000px;
+      font-weight: 400;
+      margin: 5px 15px 5px 0;
+    }
+    select {
+
+    }
+  }
+}
+
+.form-stuff form div.image_preview > label {
+  display: block;
+}
+.image_preview img {
+  width: 85px;
+  height: 85px;
+  padding: 0;
+  margin: 0;
+  border-radius: 85px;
+  overflow: hidden;
+  display: block;
+  float: left;
+}
+
+input[type="file"]{
+  display: block;
+  float: right;
+  width: 120px;
+}
+
+/*editing user*/
+input[type="file"].image_preview::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"].image_preview {
+  margin: 22px 0 0 0;
+}
+input[type="file"].image_preview::before {
+  content: 'Wähle ein Bild';
+  display: inline-block;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+
+
+  font-size: inherit; /* inherit size from .custom-dropdown */
+  padding: .5em; /* add some space*/
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background: $red;
+  box-shadow: 0 0 20px -5px #535a6a;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .custom-dropdown {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      box-shadow: 0 0 20px -5px #535a6a;
+      margin: 5px 0;
+    }
+    .custom-dropdown.long {
+      width: 100%;
+    }
+    .custom-dropdown.long select {
+      width: 100%;
+    }
+
+    .custom-dropdown select {
+      font-size: inherit; /* inherit size from .custom-dropdown */
+      padding: .5em; /* add some space*/
+      margin: 0; /* remove default margins */
+      /* accommodate with the pseudo elements for the dropdown arrow */
+      padding-right: 2.5em;
+      border: 0;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      background: $red;
+      color: #fff;
+    }
+
+    .custom-dropdown::before,
+    .custom-dropdown::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    /*  Custom dropdown arrow */
+    .custom-dropdown::after {
+      color: #fff;
+      content: "\25BC";
+      height: 1em;
+      font-size: .625em;
+      line-height: 1;
+      right: 1.2em;
+      top: 50%; margin-top: -.5em;
+    }
+
+    /*  Custom dropdown arrow cover */
+    .custom-dropdown::before {
+        width: 2em;
+        right: 0; top: 0; bottom: 0;
+        background-color: rgba(0,0,0,.1);
+        border-left: 1px solid rgba(0,0,0,.1);
+    }
+
+    /* when disabeled*/
+    .custom-dropdown.custom-dropdown--disabled::after {
+        color: rgba(0,0,0,.1);
+    }
+    .custom-dropdown select[disabled] {
+        color: rgba(0,0,0,.3);
+    }
+
+    /* FF only temp fix
+    @-moz-document url-prefix() {
+        .custom-dropdown select             { padding-right: .9em }
+        .custom-dropdown--large .custom-dropdown select { padding-right: 1.3em }
+        .custom-dropdown--small .custom-dropdown select { padding-right: .5em }
+    }*/
+

@@ -1,4 +1,110 @@
-<%= image_tag @event.impression_url %>
+<div class="detail-nav">
+  <span onclick="window.history.back()"><%= icon(:"chevron-left") %></span>
+  <h1><%= @event.title %></h1>
+  <p><%= @event.category.name %></p>
+</div>
+
+<div class="title-pic">
+  <%= image_tag @event.impression_url %>
+  <!-- <img src="/assets/_fallback_titlepic.png"> -->
+  <!-- height: '180', width: '320' -->
+</div>
+
+<div class="event">
+  <div class="partipicate">
+    <div class="unchecked">
+      <span>Teilnahme </span>
+      <%= icon(:"square-o") %>
+    </div>
+    <div class="checked">
+      <span>Du nimmst teil </span>
+      <%= icon(:"check-square-o") %>
+    </div>
+  </div>
+  <ul>
+    <li class="description">
+      <div class="icon"><%= icon(:"info-circle") %></div>
+      <div class="text">
+        <p><%= @event.description %></p>
+      </div>
+    </li>
+    <li class="time">
+      <!-- diffrent icon related to the class of the li -->
+      <div class="icon"><%= icon(:"clock-o") %></div>
+      <div class="text">
+        <p><%= @event.starts %> - <%= @event.ends %></p>
+      </div>
+    </li>
+    <li class="meeting_point">
+      <!-- diffrent icon related to the class of the li -->
+      <div class="icon"><%= icon(:"compass") %></div>
+      <div class="text">
+        <p>Treffpunkt <%= @event.meeting_point %></p>
+      </div>
+    </li>
+    <li class="partipicants">
+      <!-- diffrent icon related to the class of the li -->
+      <div class="icon"><%= icon(:"check-circle") %></div>
+      <div class="text">
+        <p>Teilnehmer</p>
+        <ul class="attendees">
+          <li>
+            <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%></div>
+            <div class="name">Raffael</div>
+          </li>
+
+          <li>
+            <div class="image"><%= image_tag "_profil3.jpg", height: '80', width: '80', alt: 'Bild von Melanie'%></div>
+            <div class="name">Melanie</div>
+          </li>
+
+          <li>
+            <div class="image"><%= image_tag "_profil2.jpg", height: '80', width: '80', alt: 'Bild von Andreas'%></div>
+            <div class="name">Andreas</div>
+          </li>
+
+          <li>
+            <div class="image"><%= image_tag "_profil1.jpg", height: '80', width: '80', alt: 'Bild von Noëmi'%></div>
+            <div class="name">Noëmi</div>
+          </li>
+
+          <li>
+            <div class="image"><%= image_tag "_profil5.jpg", height: '80', width: '80', alt: 'Bild von Imis'%></div>
+            <div class="name">Imis</div>
+          </li>
+
+          <li>
+            <div class="image"><%= image_tag "_profil6.jpg", height: '80', width: '80', alt: 'Bild von Tim'%></div>
+            <div class="name">Tim</div>
+          </li>
+
+          <li class="space">
+            <div class="count">3</div>
+            <div class="name">Plätze</div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="owner">
+      <!-- diffrent icon related to the class of the li -->
+      <div class="icon"><%= icon(:"question-circle") %></div>
+      <div class="text">
+        <p>Workshop-Leiter</p>
+          <ul class="attendees">
+            <li>
+              <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%></div>
+              <div class="name">Raffael</div>
+            </li>
+           </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Owner:</strong>

@@ -16,26 +16,3 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 //= require_tree .
-
-
-$(function() {
-
-	// // // // // // // // //
-	//- hiding navigation bar
-	// // // // // // // // //
-
-	//used in membership > new.html.erb
-	if( hideNavBar === true ){
-		$('nav').slideUp();
-	} else {
-		$('nav').slideDown();
-	}
-
-
-	// // // // // // // // //
-	//- partipicate in workshop
-	// // // // // // // // //
-	$('.partipicate').on('click', function(){
-		$(this).toggleClass('yes');
-	})
-});

@@ -22,6 +22,7 @@ gem 'date_time_attribute'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem 'flutie'
 
 group :development, :test do
   gem 'guard'

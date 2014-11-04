@@ -16,7 +16,7 @@ nav {
 
 /*Main navigation - bottom*/
 nav.main {
-  z-index: 3;
+  z-index: 15;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -37,6 +37,10 @@ nav.main {
       background-color: $dark-gray;
     }
   }
+}
+
+body.events-show nav.main {
+  display: none;
 }
 
 /*Day navigation - top*/
@@ -121,4 +125,33 @@ nav.events {
       color: #fff;
     }
   }
+}
+
+.detail-nav {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  height: 85px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $light-white;
+}
+
+.detail-nav > span {
+  font-size: 10px;
+  font-weight: 600;
+  color: $dark-gray;
+  font-size: 20px;
+  margin: 20px 0 0 15px;
+}
+.detail-nav > h1 {
+  @include title();
+  display: inline-block;
+  margin: 10px 0 0 15px;
+  padding-top: 5px;
+}
+.detail-nav > p {
+  @include small-bold-title();
+  margin: 0 0 0 50px;
 }

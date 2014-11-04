@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :memberships
+  get 'home' => 'home#index'
+  resources :memberships, except: [:new, :index]
   resources :groups
   resources :attendances
   resources :events
-  resources :users do
+  resources :users, except: [:index] do
     collection { post :import }
   end
-
-  root 'events#index'
+  root 'home#index'
 end
