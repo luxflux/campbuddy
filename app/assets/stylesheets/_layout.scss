@@ -1,9 +1,14 @@
 body {
   margin: 0;
 }
+
 section.content {
 	margin-bottom: 32px;
   padding: 0.2em 0.3em;
   @include outer-container;
+}
+
+div.image_preview {
+   @include clearfix;
 }
 

@@ -1,8 +1,4 @@
-/*attendees*/
-
-
-
-.col {
+.users-show .user {
   @include outer-container;
   padding-top: 8px;
 
@@ -27,7 +23,7 @@
 
   }
 
-  .user-desc { 
+  .user-desc {
     @include span-columns(6);
     @include small-desc-text();
 
@@ -37,63 +33,10 @@
     }
     .name {
         @include small-bold-title();
-    } 
+    }
     a {
       color: $dark-gray;
       font-size: 20px;
     }
   }
-}
-
-div.image_preview {
-   @include clearfix;
-}
-
-.form-stuff form div.image_preview > label {
-  display: block;
-}
-.image_preview img {
-  width: 85px;
-  height: 85px;
-  padding: 0;
-  margin: 0;
-  border-radius: 85px;
-  overflow: hidden;
-  display: block;
-  float: left;
-}
-
-input[type="file"]{
-  display: block;
-  float: right;
-  width: 120px;
-}
-
-/*editing user*/
-input[type="file"].image_preview::-webkit-file-upload-button {
-  visibility: hidden;
-}
-input[type="file"].image_preview {
-  margin: 22px 0 0 0;  
-}
-input[type="file"].image_preview::before {
-  content: 'Wähle ein Bild';
-  display: inline-block;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-
-
-  font-size: inherit; /* inherit size from .custom-dropdown */
-  padding: .5em; /* add some space*/
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;  
-
-  background: $red;
-  box-shadow: 0 0 20px -5px #535a6a;
-  color: #fff;
 }
