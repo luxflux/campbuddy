@@ -39,6 +39,10 @@ nav.main {
   }
 }
 
+body.events-show nav.main {
+  display: none;
+}
+
 /*Day navigation - top*/
 nav.day {
   text-align: justify;
