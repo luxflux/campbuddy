@@ -18,76 +18,16 @@
   </div>
 </div>
 
-
-
-
-
-
-
-    <% if @user.owned_events.any? %>
-      <h1 class="title">Von mir geleitete Events</h1>
-      <% @user.owned_events.each do |event| %>
-        <%= event.title %>
-      <% end %>
-      <hr>
-    <% end %>
-
-<h1 class="title">Meine Events</h1>
-    <% @user.events.each do |event| %>
-      <%= event.title %>
-    <% end %>
-
-<div class="event">
-  <div class="gray">
-    <div class="date-time">fr<br>17:00</div>
-    <h1>Smallgroup</h1>
-    <div class="description">Zeit mit deinen Freunden</div>
-    <!--this should be link with id, not to new membership.-->
-    <%= link_to '', ''%>
+<% if @owned_events.any? %>
+  <h1 class="title"><%= t('.leaded_events') %></h1>
+  <div class="events">
+    <%= render @owned_events %>
   </div>
-  <div class="gray">
-    <div class="date-time">sa<br>7:30</div>
-    <h1>Packen</h1>
-    <div class="description">Alle Gepäcksstücke müssen um 7:30 bei der Mensa bereitstehen</div>
-    <!--this should be link with id, not to new membership.-->
-    <%= link_to '', ''%>
+<% end %>
+
+<% if @events.any? %>
+  <h1 class="title"><%= t('.attending_events') %></h1>
+  <div class="events">
+    <%= render @events %>
   </div>
-  <div class="gray">
-    <div class="date-time">sa<br>9:30</div>
-    <h1>Aufräumen</h1>
-    <div class="description">Putzen ist angesagt. Was genau deine Aufgabe ist, findest du bei deinen Angeboten. Sonst wende dich bitte an deinen Smallgroup Leiter. Sonst wende dich bitte an deinen Smallgroup Leiter.</div>
-    <!--this should be link with id, not to new membership.-->
-    <%= link_to '', ''%>
-  </div>
-</div>
-
-
-
-
-
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-
-</p>
-
-<p>
-  <strong>Firstname:</strong>
-  <%= @user.firstname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% end %>

@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
 
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
   scope :today, -> { on_date(Date.current) }
+  scope :in_future, -> { where('starts > ?', Time.zone.now) }
 
   mount_uploader :impression, ImageUploader
 
