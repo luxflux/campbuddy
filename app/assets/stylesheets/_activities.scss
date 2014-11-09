@@ -2,27 +2,28 @@
   margin-top: 15px;
 }
 
-/*activity categories*/
 
-/*activity descriptions*/
+
+/*activity descriptions
+*/
 .event > div {
   @include clearfix;
 }
 .event img{
   display: block;
   float: left;
-  width: 37.5%; /*von 320px zu 120px*/
+  width: 37.5%;
   min-width: 120px;
 }
 .event h1 {
   @include small-bold-title();
-  width: 52%; /*von 320 zu 165*/
+  width: 52%;
   float: right;
   margin-top: 15px;
 }
 .event .description {
   @include small-desc-text();
-  width: 52%; /*von 320 zu 165*/
+  width: 52%; 
   float: right;
   margin-bottom: 15px;
 }

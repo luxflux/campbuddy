@@ -27,13 +27,16 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    if(mandatory?)
-      abort("make all users attanding to that created event")
-    end
-
     @event = Event.new(event_params)
 
     if @event.save
+      if(mandatory?)
+        #abort("make all users attanding to that created event")
+        User.all.each do |user|
+          Attendance.create(user: user, event: @event)
+        end
+      end
+
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render action: 'new'
