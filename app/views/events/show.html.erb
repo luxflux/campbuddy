@@ -48,6 +48,9 @@
       <div class="text">
         <p>Teilnehmer</p>
         <ul class="attendees">
+          <% @users.each do |user| %>
+          <span>x </span>  
+          <% end %>
           <li>
             <div class="image"><%= image_tag "_profil4.jpg", height: '80', width: '80', alt: 'Bild von Raffael'%></div>
             <div class="name">Raffael</div>
@@ -101,6 +104,9 @@
   </ul>
 </div>
 
+<!-- hidden fields for jquery post attendance creation -->
+<input type="hidden" id="user_id" value="<%= current_user.id%>">
+<input type="hidden" id="event_id" value="<%= @event.id%>">
 
 
 

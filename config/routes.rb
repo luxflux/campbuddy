@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     collection { post :import }
   end
   root 'home#index'
+  
 end

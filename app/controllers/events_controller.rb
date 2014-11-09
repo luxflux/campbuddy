@@ -14,6 +14,8 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    #@attendance = Attendance.where(user: current_user, event: @event)
+    @users = Event.users
   end
 
   # GET /events/new

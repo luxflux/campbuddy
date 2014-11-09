@@ -35,18 +35,31 @@ $(function() {
 	// // // // // // // // //
 	//- partipicate in workshop
 	// // // // // // // // //
+	var userId = $('input#user_id').html();
+	var eventId = $('input#event_id').html();
+	var attendanceId = $('input#attendance_id').html();
+
 	$('.partipicate').on('click', function(){
 		$(this).toggleClass('yes');
 
 		if($(this).hasClass('yes')){
 			console.log('send data that member wants to partipicate');
-			// $.post( "membership/new", function( data ) {
-			//   send-partipicate-update
-			// });
+			$.ajax({
+		    url: 'http://localhost:3000/attendance/create',
+		    type: 'POST',
+		    data: {'user_id': userId, 'event_id': eventId},
+		    success: function(result) {
+		    	console.log("erst hier hacken setzen zumteilnehmen");
+		    }
+		  });
 		} else {
 			console.log('send data that member no longer want to partipicate');
-			// $.post( "membership/new", function( data ) {
-			//   send-partipicate-update
+			// $.ajax({
+			//     url: '/script.cgi',
+			//     type: 'DELETE',
+			//     success: function(result) {
+			//         // Do something with the result
+			//     }
 			// });
 		}
 	})

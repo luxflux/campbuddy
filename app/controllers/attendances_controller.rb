@@ -30,6 +30,14 @@ class AttendancesController < ApplicationController
     end
   end
 
+  # GET /attendances/remove
+  def remove
+    @user = User.where(id: attendance_params.user_id)
+    @event = Event.where(id: attendance_params.event_id)
+    @attendance = Attendance.where(user: @user, event: @event)
+    @attendance.destroy    
+  end
+
   # PATCH/PUT /attendances/1
   def update
     if @attendance.update(attendance_params)
