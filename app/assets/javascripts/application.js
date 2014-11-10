@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require pickadate/picker
 //= require pickadate/picker.date
