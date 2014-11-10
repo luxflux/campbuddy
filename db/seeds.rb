@@ -14,23 +14,48 @@ else
   puts 'Created admin: admin@example.org/adminpass'
 end
 
-User.create! firstname: 'Andreas', name: 'Pluss', email: 'test@test.com', password: 'robidog', admin: true
-User.create! firstname: 'Robi', name: 'Dogi', email: 'robi@dogi.com', password: 'robidog', admin: false
-User.create! firstname: 'Simon', name: 'Wittwer', email: 'widdi@test.com', password: 'robidog', admin: false
+andi = User.
+  where(email: 'test@test.com').
+  create_with(firstname: 'Andreas', name: 'Pluss', password: 'robidog', admin: true).
+  first_or_create
+robi = User.
+  where(email: 'robi@dogi.com').
+  create_with(firstname: 'Robi', name: 'Dogi', password: 'robidog', admin: false).
+  first_or_create
+simi = User.
+  where(email: 'widdi@test.com').
+  create_with(firstname: 'Simon', name: 'Wittwer', password: 'robidog', admin: false).
+  first_or_create
 
 a = Category.red.where(name: 'Activities').first_or_create
 p = Category.blue.where(name: 'Piste').first_or_create
 c = Category.gray.where(name: 'Camp').first_or_create
 
-#puts("------------")
-#puts(Event.methods.sort)
-#puts("------------")
+e1 = Event.create! owner: andi,
+                   category: a,
+                   title: "Foto",
+                   description: "Fotographie-Kurs",
+                   max_attendees: 2,
+                   starts: Time.now + 4.hours,
+                   ends: Time.now + 5.hours
+e2 = Event.create! owner: andi,
+                   category: p,
+                   title: "Snowboard-Kurs",
+                   max_attendees: 4,
+                   description: "Späte Action auf der Piste, es wird SUPER!",
+                   starts: Time.now + 4.hours,
+                   ends: Time.now + 5.hours
+e3 = Event.create! owner: simi,
+                   category: c,
+                   title: "camping",
+                   description: "Lagerfeuer am Abend in der Celebration-Hall! Es gibt super Würste!",
+                   starts: Time.now + 4.hours,
+                   ends: Time.now + 5.hours
 
-Event.create! owner: User.first, category: a, title: "testing", description: "these stuff", starts: Time.now + 2.hours, ends: Time.now + 4.hours
-Event.create! owner: User.first, category: p, title: "skiing", description: "these stuff", starts: Time.now + 2.hours, ends: Time.now + 4.hours
-Event.create! owner: User.first, category: c, title: "camping", description: "these stuff", starts: Time.now + 2.hours, ends: Time.now + 4.hours
+e1.users << robi
+e1.users << simi
 
-Event.create! owner: User.first, category: a, title: "Foto", description: "Fotographie-Kurs", starts: Time.now + 4.hours, ends: Time.now + 5.hours
-Event.create! owner: User.first, category: p, title: "Snowboar-Kurs", description: "Späte Action auf der Piste, es wird SUPER!", starts: Time.now + 4.hours, ends: Time.now + 5.hours
-Event.create! owner: User.first, category: c, title: "camping", description: "these stuff", starts: Time.now + 4.hours, ends: Time.now + 5.hours
+e2.users << simi
 
+e3.users << andi
+e3.users << robi
