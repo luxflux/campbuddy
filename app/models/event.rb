@@ -21,4 +21,9 @@ class Event < ActiveRecord::Base
 
   date_time_attribute :starts
   date_time_attribute :ends
+
+  def attendance_places_left
+    return nil unless max_attendees
+    max_attendees - users.count
+  end
 end
