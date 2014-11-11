@@ -24,7 +24,6 @@ describe UsersController do
 
     describe "GET show" do
       before do
-        user = FactoryGirl.create(:user)
         get :show, {:id => user.to_param}
       end
 

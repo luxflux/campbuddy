@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, ImageUploader
 
+  before_create :generate_invitation_token
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       email = row.field('email')
@@ -42,5 +44,12 @@ class User < ActiveRecord::Base
 
   def fullname
     "#{firstname} #{name}"
+  end
+
+  def generate_invitation_token
+    self.invitation_token ||= loop do
+      token = SecureRandom.hex
+      break token unless self.class.where(invitation_token: token).any?
+    end
   end
 end

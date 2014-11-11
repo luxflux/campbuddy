@@ -16,6 +16,11 @@ describe User do
     specify { expect(subject).to eq("#{user.firstname} #{user.name}") }
   end
 
+  describe 'token' do
+    subject { user }
+    specify { expect { subject.save }.to change(subject, :invitation_token) }
+  end
+
   describe "::import" do
     let(:file) { "test_import.csv" }
     let(:path) { Rails.root.join("spec/fixtures/#{file}") }

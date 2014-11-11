@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025143104) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20141111155652) do
 
   create_table "attendances", force: true do |t|
     t.integer  "user_id"
@@ -45,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.string   "impression"
   end
 
-  add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
+  add_index "events", ["owner_id"], name: "index_events_on_owner_id"
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -54,7 +51,19 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.datetime "updated_at"
   end
 
-  add_index "groups", ["leader_id"], name: "index_groups_on_leader_id", using: :btree
+  add_index "groups", ["leader_id"], name: "index_groups_on_leader_id"
+
+  create_table "jobs", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "starts"
+    t.datetime "ends"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "jobs", ["group_id"], name: "index_jobs_on_group_id"
 
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
@@ -63,7 +72,7 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.datetime "updated_at"
   end
 
-  add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true, using: :btree
+  add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -76,9 +85,22 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
     t.string   "avatar"
+    t.string   "invitation_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "workshops", force: true do |t|
+    t.integer  "owner_id"
+    t.datetime "starts"
+    t.datetime "ends"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workshops", ["owner_id"], name: "index_workshops_on_owner_id"
 
 end
