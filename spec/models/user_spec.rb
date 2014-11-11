@@ -16,11 +16,6 @@ describe User do
     specify { expect(subject).to eq("#{user.firstname} #{user.name}") }
   end
 
-  describe 'token' do
-    subject { user }
-    specify { expect { subject.save }.to change(subject, :invitation_token) }
-  end
-
   describe "::import" do
     let(:file) { "test_import.csv" }
     let(:path) { Rails.root.join("spec/fixtures/#{file}") }
@@ -41,6 +36,13 @@ describe User do
         expect {
           User.import(file_instance)
         }.to_not change { User.count }
+      end
+
+      it 'generates the invitation_token for imported users' do
+        FactoryGirl.create(:user)
+        User.import(file_instance)
+        expect(User.first.invitation_token).to be_nil
+        expect(User.last.invitation_token).to_not be_nil
       end
     end
 

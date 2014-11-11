@@ -16,8 +16,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, ImageUploader
 
-  before_create :generate_invitation_token
-
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       email = row.field('email')
@@ -25,7 +23,12 @@ class User < ActiveRecord::Base
       if email.include? "@"
         attributes = row.to_hash
         attributes[:password] = Kernel.rand
-        User.where(:email => email).first_or_create!(attributes)
+
+        unless User.where(:email => email).any?
+          user = User.new(attributes)
+          user.generate_invitation_token
+          user.save!
+        end
       end
     end
   end
