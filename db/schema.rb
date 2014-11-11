@@ -53,18 +53,6 @@ ActiveRecord::Schema.define(version: 20141111155652) do
 
   add_index "groups", ["leader_id"], name: "index_groups_on_leader_id"
 
-  create_table "jobs", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "starts"
-    t.datetime "ends"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "jobs", ["group_id"], name: "index_jobs_on_group_id"
-
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
     t.integer  "group_id"
@@ -90,17 +78,5 @@ ActiveRecord::Schema.define(version: 20141111155652) do
 
   add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-
-  create_table "workshops", force: true do |t|
-    t.integer  "owner_id"
-    t.datetime "starts"
-    t.datetime "ends"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "workshops", ["owner_id"], name: "index_workshops_on_owner_id"
 
 end
