@@ -18,6 +18,10 @@ class Ability
       can :read, Membership
 
       can :read, Group
+
+      can :read, User
+      can :update, User, id: user.id
+
     when user.guest?
     end
   end

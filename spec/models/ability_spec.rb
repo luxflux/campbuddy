@@ -52,6 +52,16 @@ describe Ability do
       it { should_not be_able_to(:update, Membership) }
       it { should_not be_able_to(:destroy, Membership) }
     end
+
+    describe 'User' do
+      let(:other_user) { FactoryGirl.create(:user) }
+      it { should be_able_to(:read, User) }
+      it { should be_able_to(:read, other_user) }
+      it { should be_able_to(:update, current_user) }
+      it { should_not be_able_to(:update, other_user) }
+      it { should_not be_able_to(:destroy, current_user) }
+      it { should_not be_able_to(:destroy, other_user) }
+    end
   end
 
   context 'as guest' do
