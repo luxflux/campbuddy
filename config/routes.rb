@@ -7,5 +7,11 @@ Rails.application.routes.draw do
   resources :users, except: [:index] do
     collection { post :import }
   end
+
+  scope '/onboarding', controller: :onboarding, as: :onboarding do
+    get 'start'
+    post 'finish'
+  end
+
   root 'home#index'
 end
