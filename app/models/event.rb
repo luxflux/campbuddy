@@ -15,9 +15,15 @@ class Event < ActiveRecord::Base
 
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
   scope :today, -> { on_date(Date.current) }
+  scope :in_future, -> { where('starts > ?', Time.zone.now) }
 
   mount_uploader :impression, ImageUploader
 
   date_time_attribute :starts
   date_time_attribute :ends
+
+  def attendance_places_left
+    return nil unless max_attendees
+    max_attendees - users.count
+  end
 end

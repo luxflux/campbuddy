@@ -10,4 +10,8 @@ module ApplicationHelper
   def active_if_current_page(url)
     :active if current_page? url
   end
+
+  def back_link
+    link_to icon(:"chevron-left"), :back
+  end
 end
