@@ -9,7 +9,7 @@ describe OnboardingController do
 
   describe 'GET start' do
     before do
-      get :start, token: user.confirmation_token
+      get :start, token: user.invitation_token
     end
 
     specify { expect(assigns(:user)).to eq(user) }
@@ -17,7 +17,7 @@ describe OnboardingController do
 
   describe 'POST finish' do
     let(:params) do
-      { user: { token: user.confirmation_token, password: 'new-password' } }
+      { user: { token: user.invitation_token, password: 'new-password' } }
     end
 
     it 'loads the user according to its token' do
@@ -40,6 +40,12 @@ describe OnboardingController do
     it 'redirects to the events' do
       post :finish, params
       expect(response).to redirect_to events_path
+    end
+
+    it 'removes the token' do
+      expect {
+        post :finish, params
+      }.to change { user.reload.invitation_token }.to(nil)
     end
   end
 end
