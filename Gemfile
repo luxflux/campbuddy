@@ -35,4 +35,5 @@ group :development, :test do
   gem 'rails-erd'
   gem 'factory_girl_rails'
   gem 'foreman'
+  gem 'i18n-tasks'
 end
