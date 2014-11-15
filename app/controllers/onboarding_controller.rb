@@ -8,8 +8,8 @@ class OnboardingController < ApplicationController
 
   def finish
     @user = User.where(confirmation_token: params[:user][:token]).first
-    @user.password = params[:user][:password]
-    @user.save!
+    @user.update_password params[:user][:password]
+    sign_in @user
     redirect_to events_path, notice: I18n.t('onboarding.password_set')
   end
 end

@@ -28,7 +28,13 @@ describe OnboardingController do
     it 'sets the password' do
       expect {
         post :finish, params
-      }.to change { user.reload.password }
+      }.to change { user.reload.encrypted_password }
+    end
+
+    it 'signs the user in' do
+      expect {
+        post :finish, params
+      }.to change { controller.current_user }.from(nil).to(user)
     end
 
     it 'redirects to the events' do
