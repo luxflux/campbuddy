@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>trololo</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="<%= body_class %>">
+  <div id="main-wrapper">
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+    <section class="content">
+      <%= yield %>
+    </section>
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</body>
+</html>

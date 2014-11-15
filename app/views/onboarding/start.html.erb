@@ -1,0 +1,9 @@
+<h1><%= t('.welcome') %></h1>
+<p><%= t('.welcome_description') %></p>
+
+<%= simple_form_for @user, url: onboarding_finish_path, method: :post do |f| %>
+  <%= f.input :token, as: :hidden, input_html: { value: params[:token] } %>
+  <%= f.input :password %>
+
+  <%= f.button :submit, value: t('.save_password') %>
+<% end %>

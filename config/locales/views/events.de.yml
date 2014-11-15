@@ -1,0 +1,10 @@
+---
+de:
+  events:
+    index:
+      no_events:
+        text: Events
+        title: Leider hat es an diesem Tag keine Events.
+    show:
+      attendance: Teilnehmen?
+      you_take_part: Du nimmst teil

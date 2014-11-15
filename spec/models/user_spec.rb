@@ -37,6 +37,13 @@ describe User do
           User.import(file_instance)
         }.to_not change { User.count }
       end
+
+      it 'generates the invitation_token for imported users' do
+        FactoryGirl.create(:user)
+        User.import(file_instance)
+        expect(User.first.invitation_token).to be_nil
+        expect(User.last.invitation_token).to_not be_nil
+      end
     end
 
     context "email address does not contain an @" do

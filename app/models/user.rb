@@ -23,7 +23,12 @@ class User < ActiveRecord::Base
       if email.include? "@"
         attributes = row.to_hash
         attributes[:password] = Kernel.rand
-        User.where(:email => email).first_or_create!(attributes)
+
+        unless User.where(:email => email).any?
+          user = User.new(attributes)
+          user.generate_invitation_token
+          user.save!
+        end
       end
     end
   end
@@ -42,5 +47,12 @@ class User < ActiveRecord::Base
 
   def fullname
     "#{firstname} #{name}"
+  end
+
+  def generate_invitation_token
+    self.invitation_token ||= loop do
+      token = SecureRandom.hex
+      break token unless self.class.where(invitation_token: token).any?
+    end
   end
 end
