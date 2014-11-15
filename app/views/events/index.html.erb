@@ -13,7 +13,9 @@
     <% end %>
   </nav>
 
-  <%= render @events %>
+  <div class="events">
+    <%= render @events %>
+  </div>
 <% else %>
   <h1><%= t('.no_events.title') %></h1>
   <p><%= t('.no_events.text') %></p>

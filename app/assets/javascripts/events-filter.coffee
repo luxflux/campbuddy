@@ -1,6 +1,6 @@
 jQuery ->
   filters = $('nav.events a')
-  events = $('div.event')
+  events = $('div.events .event')
 
 
   filters.on 'click', (event) ->
