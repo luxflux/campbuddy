@@ -1,0 +1,9 @@
+<h1>Hallo <%= @user.firstname %></h1>
+
+<p>Du bist herzlich eingeladen deinen Account beim Campplaner zu aktivieren.</p>
+
+<p>Klicke <%= link_to "hier", onboarding_start_path(token: @user.invitation_token) %> um zu starten.</p>
+
+<p>Viele Grüsse</p>
+
+<p>Das Team</p>

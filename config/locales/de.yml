@@ -11,3 +11,6 @@ de:
       event:
         one: Event
         other: Events
+  notifications:
+    invitation:
+      subject: Einladung zum CampPlaner
