@@ -12,3 +12,15 @@ div.image_preview {
    @include clearfix;
 }
 
+.flash{
+  &.notice {
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(255,255,255,0.7);
+    width: 100%;
+    text-align: center;
+    min-height: 25px;
+    color: #aaa;
+  }
+}

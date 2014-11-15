@@ -33,7 +33,7 @@ class EventsController < ApplicationController
       if(mandatory?)
         #abort("make all users attanding to that created event")
         User.all.each do |user|
-          Attendance.create(user: user, event: @event)
+          Attendance.create(user: user, event: @event, mandatory: true)
         end
       end
 

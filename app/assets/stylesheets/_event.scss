@@ -67,7 +67,7 @@
   margin-top: 265px;
   background-color: #fff;
 
-  .partipicate {
+  .partipicate, .partipicate-mandatory {
     text-align: right;
     padding-right: 15px;
     width: 100%;
@@ -78,7 +78,7 @@
     background: rgba(255,255,255,0.8);
     cursor: pointer;
 
-    .checked{
+    .checked, .mandatory, .occupied{
       display: none;
     }
     &.yes {
@@ -88,6 +88,15 @@
       .unchecked {
         display: none;
       }
+    }
+  }
+
+  .partipicate-mandatory {
+    .occupied, .mandatory{
+      display: block;
+    }
+    .unchecked, .checked {
+      display: none;
     }
   }
 

@@ -23,11 +23,8 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
 
-    if @attendance.save
-      redirect_to @attendance, notice: 'Attendance was successfully created.'
-    else
-      render action: 'new'
-    end
+    @attendance.save!
+    render text: nil, status: 201
   end
 
   # GET /attendances/remove
@@ -50,7 +47,7 @@ class AttendancesController < ApplicationController
   # DELETE /attendances/1
   def destroy
     @attendance.destroy
-    redirect_to attendances_url, notice: 'Attendance was successfully destroyed.'
+    render text: nil, status: 201
   end
 
   private
