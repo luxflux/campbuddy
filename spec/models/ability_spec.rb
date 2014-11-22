@@ -28,11 +28,12 @@ describe Ability do
     end
 
     describe 'Attendance' do
+      let(:mandatory_event) { FactoryGirl.create(:event, mandatory: true) }
       let(:own_attendance) do
-        FactoryGirl.create(:attendance, user: current_user, event: event, mandatory: false)
+        FactoryGirl.create(:attendance, user: current_user, event: event)
       end
       let(:mandatory_attendance) do
-        FactoryGirl.create(:attendance, user: current_user, event: event, mandatory: true)
+        FactoryGirl.create(:attendance, user: current_user, event: mandatory_event)
       end
 
       it { should be_able_to(:read, Attendance) }
