@@ -16,8 +16,8 @@ describe User do
     specify { expect(subject).to eq("#{user.firstname} #{user.name}") }
   end
 
-  describe '#all_attended_events' do
-    subject { user.all_attended_events }
+  describe '#events' do
+    subject { user.events }
 
     let!(:mandatory_event) { FactoryGirl.create(:event, mandatory: true, title: 'Mandatory') }
     let!(:owned_event) { FactoryGirl.create(:event, owner: user, title: 'Owned Event') }
@@ -30,7 +30,7 @@ describe User do
 
     before do
       user.save!
-      user.events << event
+      user.self_attended_events << event
 
       user.groups << group
       group.events << group_event

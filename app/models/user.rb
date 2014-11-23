@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :leaded_groups, class_name: 'Group', foreign_key: 'leader_id'
 
   has_many :attendances
-  has_many :events, through: :attendances
+  has_many :self_attended_events, through: :attendances, source: :event
 
   has_many :memberships
   has_many :groups, through: :memberships
@@ -36,9 +36,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def all_attended_events
+  def events
     ids = []
-    ids.concat event_ids
+    ids.concat self_attended_event_ids
     ids.concat Event.mandatory_only.ids
     ids.concat group_event_ids
     ids.concat leaded_group_events.ids
