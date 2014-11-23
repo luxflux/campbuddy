@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :group do
     name 'Chillers & Grillers'
+    leader factory: :user
   end
 end
