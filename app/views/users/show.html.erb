@@ -31,3 +31,7 @@
     <%= render @events %>
   </div>
 <% end %>
+
+<% if can? :access, :administration %>
+  <%= link_to t('.administration'), '/admin' %>
+<% end %>
