@@ -7,6 +7,11 @@ de:
         meeting_point: Treffpunkt
         owner: Leiter
         users: Teilnehmer
+        mandatory: Obligatorisch
+        title: Titel
+        starts: Startet
+        ends: Endet
+        max_attendees: Max. Teilnehmer
     models:
       event:
         one: Event

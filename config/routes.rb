@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   get 'home' => 'home#index'
+
   resources :memberships, except: [:new, :index]
-  resources :groups
+
+  resources :groups, only: [:index, :show]
+
   resources :attendances
-  resources :events
+
+  resources :events, only: [:show, :index, :edit, :update]
+
   resources :users, except: [:index] do
     collection { post :import }
   end

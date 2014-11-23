@@ -1,0 +1,7 @@
+---
+de:
+  support:
+    array:
+      last_word_connector: " und "
+      two_words_connector: " und "
+      words_connector: ", "
