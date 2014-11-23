@@ -10,8 +10,10 @@ class Event < ActiveRecord::Base
   validates :category, presence: true
   validates :title, presence: true
   validates :description, presence: true
+  validates :starts, presence: true
   validates :starts_date, presence: true
   validates :starts_time, presence: true
+  validates :ends, presence: true
   validates :ends_date, presence: true
   validates :ends_time, presence: true
 
