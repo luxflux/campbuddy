@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   belongs_to :category
   has_many :attendances
   has_many :users, through: :attendances
+  has_many :group_attendances
+  has_many :groups, through: :group_attendances
 
   validates :owner, presence: true
   validates :category, presence: true
