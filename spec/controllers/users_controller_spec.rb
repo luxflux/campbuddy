@@ -29,7 +29,7 @@ describe UsersController do
 
       specify { expect(assigns(:user)).to eq(user) }
       specify { expect(assigns(:owned_events)).to eq(user.owned_events.in_future) }
-      specify { expect(assigns(:events)).to eq(user.events.in_future) }
+      specify { expect(assigns(:events)).to eq(user.all_attended_events.in_future) }
     end
 
     describe "GET new" do
