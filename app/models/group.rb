@@ -3,4 +3,7 @@ class Group < ActiveRecord::Base
 
   has_many :memberships
   has_many :users, through: :memberships
+
+  has_many :group_attendances
+  has_many :events, through: :group_attendances
 end

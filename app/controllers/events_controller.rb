@@ -27,10 +27,6 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    if(mandatory?)
-      abort("make all users attanding to that created event")
-    end
-
     @event = Event.new(event_params)
 
     if @event.save
@@ -42,10 +38,6 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
-    if(mandatory?)
-      abort("make all users attanding to that updated event/ or not if nolonger mandatory")
-    end
-
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
@@ -68,14 +60,6 @@ class EventsController < ApplicationController
                :starts_date, :starts_time,
                :ends_date, :ends_time,
                :title, :description, :meeting_point,
-               :impression
-    end
-
-    def mandatory?
-      if params[:mandatory] == "1"
-        return true
-      else
-        return false
-      end
+               :impression, :mandatory
     end
 end

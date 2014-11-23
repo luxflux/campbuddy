@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   belongs_to :category
   has_many :attendances
   has_many :users, through: :attendances
+  has_many :group_attendances
+  has_many :groups, through: :group_attendances
 
   validates :owner, presence: true
   validates :category, presence: true
@@ -16,6 +18,7 @@ class Event < ActiveRecord::Base
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
   scope :today, -> { on_date(Date.current) }
   scope :in_future, -> { where('starts > ?', Time.zone.now) }
+  scope :mandatory_only, -> { where(mandatory: true) }
 
   mount_uploader :impression, ImageUploader
 

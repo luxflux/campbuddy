@@ -5,10 +5,13 @@ class User < ActiveRecord::Base
   has_many :leaded_groups, class_name: 'Group', foreign_key: 'leader_id'
 
   has_many :attendances
-  has_many :events, through: :attendances
+  has_many :self_attended_events, through: :attendances, source: :event
 
   has_many :memberships
   has_many :groups, through: :memberships
+
+  has_many :group_events, through: :groups, source: :events
+  has_many :leaded_group_events, through: :leaded_groups, source: :events
 
   validates :email, presence: true
   validates :firstname, presence: true
@@ -31,6 +34,16 @@ class User < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def events
+    ids = []
+    ids.concat self_attended_event_ids
+    ids.concat Event.mandatory_only.ids
+    ids.concat group_event_ids
+    ids.concat leaded_group_events.ids
+    ids.concat owned_event_ids
+    Event.where(id: ids)
   end
 
   def admin?

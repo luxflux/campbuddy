@@ -11,5 +11,6 @@ FactoryGirl.define do
     starts_time Time.current
     ends_date Time.current.to_date
     ends_time Time.current + 5.hours
+    mandatory false
   end
 end
