@@ -1,0 +1,17 @@
+---
+de:
+  helpers:
+    label:
+      password:
+        email: E-Mail Adresse
+      password_reset:
+        password: Passwort
+    submit:
+      password:
+        submit: Passwort zurücksetzen
+      password_reset:
+        submit: Passwort speichern
+      session:
+        submit: Einloggen
+      user:
+        create: Neuen User erstellen
