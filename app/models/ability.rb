@@ -13,7 +13,8 @@ class Ability
       can :update, Event, owner_id: user.id
 
       can :read, Attendance, event_id: user.event_ids
-      can :destroy, Attendance, user_id: user.id, event: { mandatory: false }
+      can :create, Attendance, user_id: user.id
+      can :destroy, Attendance, user_id: user.id
 
       can :read, Membership
 

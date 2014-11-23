@@ -12,6 +12,7 @@ describe Ability do
 
   context 'as normal user' do
     let(:current_user) { FactoryGirl.create(:user, admin: false) }
+    let(:other_user) { FactoryGirl.create(:user) }
     let(:event) { FactoryGirl.create(:event) }
     let(:owned_event) { FactoryGirl.create(:event, owner: current_user) }
 
@@ -28,18 +29,18 @@ describe Ability do
     end
 
     describe 'Attendance' do
-      let(:mandatory_event) { FactoryGirl.create(:event, mandatory: true) }
       let(:own_attendance) do
         FactoryGirl.create(:attendance, user: current_user, event: event)
       end
-      let(:mandatory_attendance) do
-        FactoryGirl.create(:attendance, user: current_user, event: mandatory_event)
+      let(:other_attendance) do
+        FactoryGirl.create(:attendance, user: other_user, event: event)
       end
 
       it { should be_able_to(:read, Attendance) }
+      it { should be_able_to(:create, own_attendance) }
       it { should_not be_able_to(:update, own_attendance) }
       it { should be_able_to(:destroy, own_attendance) }
-      it { should_not be_able_to(:destroy, mandatory_attendance) }
+      it { should_not be_able_to(:write, other_attendance) }
     end
 
     describe 'Group' do
@@ -55,7 +56,6 @@ describe Ability do
     end
 
     describe 'User' do
-      let(:other_user) { FactoryGirl.create(:user) }
       it { should be_able_to(:read, User) }
       it { should be_able_to(:read, other_user) }
       it { should be_able_to(:update, current_user) }
