@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Trololo::Application.load_tasks
+CampPlaner::Application.load_tasks
