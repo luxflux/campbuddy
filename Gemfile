@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'simple_form_fancy_uploads'
 gem 'pickadate-rails'
 gem 'date_time_attribute'
+gem 'rails_admin'
 
 gem 'bourbon'
 gem 'neat'
