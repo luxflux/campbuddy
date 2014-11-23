@@ -29,4 +29,16 @@ class Event < ActiveRecord::Base
     return nil unless max_attendees
     max_attendees - users.count
   end
+
+  def any_places_left?
+    attendance_places_left.nil? || attendance_places_left > 0
+  end
+
+  def no_places_left?
+    !any_places_left?
+  end
+
+  def attended_by_user?(user)
+    users.include? user
+  end
 end
