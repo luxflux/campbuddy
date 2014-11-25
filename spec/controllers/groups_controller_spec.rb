@@ -22,13 +22,5 @@ describe GroupsController do
         expect(assigns(:groups)).to eq([group])
       end
     end
-
-    describe "GET show" do
-      it "assigns the requested group as @group" do
-        group = FactoryGirl.create :group
-        get :show, {:id => group.to_param}
-        expect(assigns(:group)).to eq(group)
-      end
-    end
   end
 end

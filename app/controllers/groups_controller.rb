@@ -5,8 +5,4 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
   end
-
-  # GET /groups/1
-  def show
-  end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :memberships, except: [:new, :index]
 
-  resources :groups, only: [:index, :show]
+  resources :groups, only: [:index]
 
   resources :attendances
 
