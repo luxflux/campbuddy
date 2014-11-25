@@ -1,4 +1,7 @@
-<h1 class="title"><%= group.name %></h1>
+<h1 class="title">
+  <%= image_tag group.leader.avatar_url, class: :avatar %>
+  <%= group.name %>
+</h1>
 
 <ul class="attendees">
   <%= render group.users %>
