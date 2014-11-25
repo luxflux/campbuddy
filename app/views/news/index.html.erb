@@ -2,9 +2,10 @@
 <%= icon('plus-square') %>
 <%= icon('phone-square') %>
 <hr>
-<h1 class="title">News Feed</h1>
-<hr>
 -->
+<h1 class="title"><%= News.model_name.human count: 2 %></h1>
+<%= render @news %>
+<hr>
 <h1 class="title">Insta Feed</h1> <span class="hashtag">#icfzurich</span>
 <!-- SnapWidget -->
 <script src="http://snapwidget.com/js/snapwidget.js"></script>

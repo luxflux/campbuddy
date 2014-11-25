@@ -23,6 +23,8 @@ class Ability
       can :read, User
       can :update, User, id: user.id
 
+      can :read, News
+
     when user.guest?
     end
   end

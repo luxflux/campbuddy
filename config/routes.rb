@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  get 'home' => 'home#index'
+  resources :news, only: [:index]
 
   resources :memberships, except: [:new, :index]
 
@@ -24,5 +24,5 @@ Rails.application.routes.draw do
     mount MailPreview => 'mail_view'
   end
 
-  root 'home#index'
+  root 'news#index'
 end

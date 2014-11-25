@@ -10,6 +10,7 @@ class RailsAdminAbility
       can :read, Category
       can :manage, Event
       can :manage, Group
+      can :manage, News
     end
   end
 end

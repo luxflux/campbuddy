@@ -12,6 +12,15 @@ RailsAdmin.config do |config|
     show_in_app
   end
 
+  config.model 'News' do
+    configure :id do
+      hide
+    end
+    configure :created_at do
+      hide
+    end
+  end
+
   config.model 'User' do
     configure :id do
       hide
