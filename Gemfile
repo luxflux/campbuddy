@@ -29,14 +29,18 @@ gem 'flutie'
 group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
+
   gem 'spring'
   gem 'spring-commands-rspec'
+
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
-  gem 'rails-erd'
+  gem 'timecop'
   gem 'factory_girl_rails'
+
+  gem 'rails-erd'
   gem 'foreman'
   gem 'i18n-tasks'
 end
