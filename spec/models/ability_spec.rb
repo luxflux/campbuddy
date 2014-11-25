@@ -63,6 +63,14 @@ describe Ability do
       it { should_not be_able_to(:destroy, current_user) }
       it { should_not be_able_to(:destroy, other_user) }
     end
+
+    describe 'News' do
+      it { should be_able_to(:read, News) }
+
+      it { should_not be_able_to(:create, News) }
+      it { should_not be_able_to(:update, News) }
+      it { should_not be_able_to(:destroy, News) }
+    end
   end
 
   context 'as guest' do
@@ -73,5 +81,6 @@ describe Ability do
     it { should_not be_able_to(:read, Attendance) }
     it { should_not be_able_to(:read, Group) }
     it { should_not be_able_to(:read, Membership) }
+    it { should_not be_able_to(:read, News) }
   end
 end
