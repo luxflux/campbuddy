@@ -16,3 +16,6 @@ de:
       event:
         one: Event
         other: Events
+      news:
+        one: Neuigkeiten
+        other: News Feed
