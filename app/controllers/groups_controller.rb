@@ -3,10 +3,6 @@ class GroupsController < ApplicationController
 
   # GET /groups
   def index
-    @groups = Group.all
-  end
-
-  # GET /groups/1
-  def show
+    @groups = current_user.groups
   end
 end

@@ -1,0 +1,10 @@
+---
+de:
+  groups:
+    index:
+      no_groups:
+        text: Leider bist du keiner Gruppe zugewiesen.
+        title: Keine Gruppen gefunden
+    group:
+      no_events: Es stehen keine Events an.
+

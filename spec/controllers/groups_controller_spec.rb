@@ -11,23 +11,19 @@ describe GroupsController do
   end
 
   context 'a user' do
+    let(:user) { FactoryGirl.create :user }
+
     before do
-      sign_in
+      sign_in_as user
     end
 
     describe "GET index" do
-      it "assigns all groups as @groups" do
+      it "assigns the current users groups to @groups" do
         group = FactoryGirl.create :group
+        other_group = FactoryGirl.create :group
+        user.groups << group
         get :index, {}
         expect(assigns(:groups)).to eq([group])
-      end
-    end
-
-    describe "GET show" do
-      it "assigns the requested group as @group" do
-        group = FactoryGirl.create :group
-        get :show, {:id => group.to_param}
-        expect(assigns(:group)).to eq(group)
       end
     end
   end

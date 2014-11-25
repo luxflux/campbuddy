@@ -2,7 +2,7 @@
 
 <div class="user">
   <div class="user-img">
-    <div class="image"><%= image_tag @user.avatar_url, height: '80', width: '80' %></div>
+    <%= image_tag @user.avatar_url, class: :avatar %>
   </div>
   <div class="user-desc">
     <div class="edit">
