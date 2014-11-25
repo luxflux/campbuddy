@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :news do
     message "MyString"
+    visible_until Time.now + 5.hours
   end
 end
