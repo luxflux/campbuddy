@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers'
   gem 'rails-erd'
   gem 'factory_girl_rails'
   gem 'foreman'
