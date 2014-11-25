@@ -43,13 +43,7 @@
       <div class="text">
         <p><%= Event.human_attribute_name :users %></p>
         <ul class="attendees">
-          <% @event.users.each do |attendee| %>
-            <li>
-              <div class="image"><%= image_tag attendee.avatar_url %></div>
-              <div class="name"><%= attendee.fullname %></div>
-            </li>
-          <% end %>
-
+          <%= render @event.users %>
           <% if @event.attendance_places_left %>
             <li class="space">
               <div class="count"><%= @event.attendance_places_left %></div>
