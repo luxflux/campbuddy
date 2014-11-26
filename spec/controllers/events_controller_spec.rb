@@ -24,7 +24,7 @@ describe EventsController do
     describe "GET index" do
       it "assigns all events as @events" do
         event = FactoryGirl.create(:event)
-        get :index, {}
+        get :index, { date: event.starts }
         expect(assigns(:events)).to eq([event])
       end
 
@@ -32,9 +32,9 @@ describe EventsController do
         category1 = FactoryGirl.create(:category, identifier: :red)
         category2 = FactoryGirl.create(:category, identifier: :yellow)
         FactoryGirl.create(:event, category: category2, starts: Time.current - 24.hours)
-        FactoryGirl.create(:event, category: category1)
+        event = FactoryGirl.create(:event, category: category1)
 
-        get :index, {}
+        get :index, { date: event.starts }
         expect(assigns(:categories)).to eq([category1])
       end
 
@@ -67,6 +67,22 @@ describe EventsController do
         Timecop.freeze Time.now + 2.hours
         get :catalog
         expect(assigns(:events)).to eq([future_event])
+      end
+
+      it 'does not fetch mandatory events' do
+        mandatory_event = FactoryGirl.create(:event, mandatory: true)
+        get :catalog
+        expect(assigns(:events)).to eq([])
+      end
+
+      it 'assigns all the categories of the events as @categories' do
+        category1 = FactoryGirl.create(:category, identifier: :red)
+        category2 = FactoryGirl.create(:category, identifier: :yellow)
+        FactoryGirl.create(:event, category: category2, starts: Time.current - 24.hours)
+        FactoryGirl.create(:event, category: category1, starts: Time.current + 4.hours)
+
+        get :catalog
+        expect(assigns(:categories)).to eq([category1])
       end
     end
 
