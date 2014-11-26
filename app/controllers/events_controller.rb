@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     rescue ArgumentError
       @selected_date = Date.current
     end
-    @events = Event.on_date(@selected_date)
+    @events = Event.on_date(@selected_date).order(:starts)
     @categories = Category.where(id: @events.pluck(:category_id))
   end
 

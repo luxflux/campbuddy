@@ -11,8 +11,8 @@
     <nav class="main">
     <% if signed_in? %>
       <%= nav_link :home, news_index_path %>
-      <%= nav_link :calendar, attendances_path %>
-      <%= nav_link :list,  events_path %>
+      <%= nav_link :calendar, events_path %>
+      <%= nav_link :list, catalog_events_path %>
       <%= nav_link :users, groups_path %>
       <%= nav_link :user, user_path(current_user) %>
     <% end %>
