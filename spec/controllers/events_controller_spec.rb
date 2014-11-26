@@ -60,6 +60,16 @@ describe EventsController do
       end
     end
 
+    describe 'GET catalog' do
+      it 'assigns all Events in the future as @events' do
+        passed_event = FactoryGirl.create(:event, starts: Time.now + 1.hour)
+        future_event = FactoryGirl.create(:event, starts: Time.now + 3.hours)
+        Timecop.freeze Time.now + 2.hours
+        get :catalog
+        expect(assigns(:events)).to eq([future_event])
+      end
+    end
+
     describe "GET show" do
       it "assigns the requested event as @event" do
         event = Event.create! valid_attributes
