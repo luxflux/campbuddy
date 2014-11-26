@@ -71,6 +71,12 @@ describe EventsController do
         expect(assigns(:events)).to eq([])
       end
 
+      it 'does not fetch group events' do
+        mandatory_event = FactoryGirl.create(:event, groups_only: true)
+        get :catalog
+        expect(assigns(:events)).to eq([])
+      end
+
       it 'assigns all the categories of the events as @categories' do
         category1 = FactoryGirl.create(:category, identifier: :red)
         category2 = FactoryGirl.create(:category, identifier: :yellow)
