@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   resources :attendances
 
-  resources :events, only: [:show, :index, :edit, :update]
+  resources :events, only: [:show, :index, :edit, :update] do
+    collection do
+      get :catalog
+    end
+  end
 
   resources :users, except: [:index] do
     collection { post :import }
