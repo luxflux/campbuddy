@@ -5,9 +5,11 @@
     <%= image_tag @user.avatar_url, class: :avatar %>
   </div>
   <div class="user-desc">
-    <div class="edit">
-      <a href="<%= edit_user_path(@user.id) %>"><i class="fa fa-pencil-square-o"></i></a>
-    </div>
+    <% if can? :edit, @user %>
+      <div class="edit">
+        <a href="<%= edit_user_path(@user.id) %>"><i class="fa fa-pencil-square-o"></i></a>
+      </div>
+    <% end %>
     <hr>
     <div class="name">
       <%= @user.firstname %> <%= @user.name %>
