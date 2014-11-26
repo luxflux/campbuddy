@@ -3,8 +3,12 @@ de:
   events:
     index:
       no_events:
-        text: Events
-        title: Leider hat es an diesem Tag keine Events.
+        text: Leider hat es an diesem Tag keine Events.
+        title: Events
+    catalog:
+      no_events:
+        text: Leider gibt es noch keine Events.
+        title: Events
     show:
       attendance: Teilnehmen?
       you_take_part: Du nimmst teil
