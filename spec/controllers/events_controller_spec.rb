@@ -21,12 +21,10 @@ describe EventsController do
       FactoryGirl.attributes_for(:event).merge(owner_id: owner.id, category_id: category.id)
     end
 
-    let(:valid_session) { {} }
-
     describe "GET index" do
       it "assigns all events as @events" do
         event = FactoryGirl.create(:event)
-        get :index, {}, valid_session
+        get :index, {}
         expect(assigns(:events)).to eq([event])
       end
 
@@ -36,27 +34,27 @@ describe EventsController do
         FactoryGirl.create(:event, category: category2, starts: Time.current - 24.hours)
         FactoryGirl.create(:event, category: category1)
 
-        get :index, {}, valid_session
+        get :index, {}
         expect(assigns(:categories)).to eq([category1])
       end
 
       context 'without a date selected' do
         it 'assigns the current date as selection' do
-          get :index, {}, valid_session
+          get :index, {}
           expect(assigns(:selected_date)).to eq(Date.current)
         end
       end
 
       context 'with an invalid date selected' do
         it 'assigns the current date as selection' do
-          get :index, { date: 'asd' }, valid_session
+          get :index, { date: 'asd' }
           expect(assigns(:selected_date)).to eq(Date.current)
         end
       end
 
       context 'with an valid date selected' do
         it 'assigns the current date as selection' do
-          get :index, { date: '2014-04-01' }, valid_session
+          get :index, { date: '2014-04-01' }
           expect(assigns(:selected_date)).to eq(Date.new(2014,4,1))
         end
       end
@@ -65,7 +63,7 @@ describe EventsController do
     describe "GET show" do
       it "assigns the requested event as @event" do
         event = Event.create! valid_attributes
-        get :show, {:id => event.to_param}, valid_session
+        get :show, {:id => event.to_param}
         expect(assigns(:event)).to eq(event)
       end
     end
@@ -73,7 +71,7 @@ describe EventsController do
     describe "GET edit" do
       it "assigns the requested event as @event" do
         event = Event.create! valid_attributes
-        get :edit, {:id => event.to_param}, valid_session
+        get :edit, {:id => event.to_param}
         expect(assigns(:event)).to eq(event)
       end
     end
@@ -87,18 +85,18 @@ describe EventsController do
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
           expect_any_instance_of(Event).to receive(:update).with({ 'owner_id' => owner.id.to_s })
-          put :update, {:id => event.to_param, :event => { owner_id: owner.id }}, valid_session
+          put :update, {:id => event.to_param, :event => { owner_id: owner.id }}
         end
 
         it "assigns the requested event as @event" do
           event = Event.create! valid_attributes
-          put :update, {:id => event.to_param, :event => valid_attributes}, valid_session
+          put :update, {:id => event.to_param, :event => valid_attributes}
           expect(assigns(:event)).to eq(event)
         end
 
         it "redirects to the event" do
           event = Event.create! valid_attributes
-          put :update, {:id => event.to_param, :event => valid_attributes}, valid_session
+          put :update, {:id => event.to_param, :event => valid_attributes}
           expect(response).to redirect_to(event)
         end
       end
@@ -108,7 +106,7 @@ describe EventsController do
           event = Event.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(Event).to receive(:save).and_return(false)
-          put :update, {:id => event.to_param, :event => { "owner" => "invalid value" }}, valid_session
+          put :update, {:id => event.to_param, :event => { "owner" => "invalid value" }}
           expect(assigns(:event)).to eq(event)
         end
 
@@ -116,7 +114,7 @@ describe EventsController do
           event = Event.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(Event).to receive(:save).and_return(false)
-          put :update, {:id => event.to_param, :event => { "owner" => "invalid value" }}, valid_session
+          put :update, {:id => event.to_param, :event => { "owner" => "invalid value" }}
           expect(response).to render_template("edit")
         end
       end
