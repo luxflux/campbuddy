@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
   scope :in_future, -> { where('starts > ?', Time.zone.now) }
   scope :mandatory_only, -> { where(mandatory: true) }
   scope :except_mandatory, -> { where.not(mandatory: true) }
+  scope :except_group_events, -> { where.not(groups_only: true) }
 
   mount_uploader :impression, ImageUploader
 

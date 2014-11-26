@@ -17,10 +17,6 @@ describe EventsController do
     let(:owner) { FactoryGirl.create(:user) }
     let(:category) { FactoryGirl.create(:category) }
 
-    let(:valid_attributes) do
-      FactoryGirl.attributes_for(:event).merge(owner_id: owner.id, category_id: category.id)
-    end
-
     describe "GET index" do
       it "assigns all events as @events" do
         event = FactoryGirl.create(:event)
@@ -87,49 +83,46 @@ describe EventsController do
     end
 
     describe "GET show" do
+      let(:event) { FactoryGirl.create(:event) }
+
       it "assigns the requested event as @event" do
-        event = Event.create! valid_attributes
         get :show, {:id => event.to_param}
         expect(assigns(:event)).to eq(event)
       end
     end
 
     describe "GET edit" do
+      let(:event) { FactoryGirl.create(:event) }
+
       it "assigns the requested event as @event" do
-        event = Event.create! valid_attributes
         get :edit, {:id => event.to_param}
         expect(assigns(:event)).to eq(event)
       end
     end
 
     describe "PUT update" do
+      let(:event) { FactoryGirl.create(:event) }
+
       describe "with valid params" do
         it "updates the requested event" do
-          event = Event.create! valid_attributes
-          # Assuming there are no other events in the database, this
-          # specifies that the Event created on the previous line
-          # receives the :update_attributes message with whatever params are
-          # submitted in the request.
           expect_any_instance_of(Event).to receive(:update).with({ 'owner_id' => owner.id.to_s })
           put :update, {:id => event.to_param, :event => { owner_id: owner.id }}
         end
 
         it "assigns the requested event as @event" do
-          event = Event.create! valid_attributes
-          put :update, {:id => event.to_param, :event => valid_attributes}
+          put :update, {:id => event.to_param, :event => { starts: Time.now + 2.hours } }
           expect(assigns(:event)).to eq(event)
         end
 
         it "redirects to the event" do
-          event = Event.create! valid_attributes
-          put :update, {:id => event.to_param, :event => valid_attributes}
+          put :update, {:id => event.to_param, :event => { starts: Time.now + 2.hours } }
           expect(response).to redirect_to(event)
         end
       end
 
       describe "with invalid params" do
+
         it "assigns the event as @event" do
-          event = Event.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(Event).to receive(:save).and_return(false)
           put :update, {:id => event.to_param, :event => { "owner" => "invalid value" }}
@@ -137,7 +130,6 @@ describe EventsController do
         end
 
         it "re-renders the 'edit' template" do
-          event = Event.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(Event).to receive(:save).and_return(false)
           put :update, {:id => event.to_param, :event => { "owner" => "invalid value" }}
