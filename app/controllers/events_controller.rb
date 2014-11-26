@@ -12,6 +12,12 @@ class EventsController < ApplicationController
     @categories = Category.where(id: @events.pluck(:category_id))
   end
 
+  # GET /events/catalog
+  def catalog
+    @events = @events.in_future.except_mandatory.except_group_events
+    @categories = Category.where(id: @events.pluck(:category_id))
+  end
+
   # GET /events/1
   def show
   end

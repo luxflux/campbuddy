@@ -4,6 +4,10 @@
   border-left: 5px solid $medium-gray;
   border-bottom: 1px solid $light-gray;
 
+  .impression {
+    @include span-columns(3);
+  }
+
   .date-time {
     @include span-columns(3);
     text-transform: uppercase;

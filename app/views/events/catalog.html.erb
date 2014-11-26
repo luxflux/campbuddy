@@ -1,0 +1,28 @@
+<% if @events.any? %>
+  <nav class="events">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, '#', data: { filter: category.identifier } %>
+    <% end %>
+  </nav>
+
+  <div class="events">
+    <% @events.group_by { |e| e.starts.to_date }.each do |date, events| %>
+      <h1><%= l date, format: :weekday_only %></h1>
+      <% events.each do |event| %>
+        <div class="event <%= event.category.identifier %>">
+          <div class="impression">
+            <%= image_tag event.impression_url %>
+          </div>
+          <div class="details">
+            <h2><%= event.title %></h2>
+            <div class="description"><%= event.description %></div>
+          </div>
+          <div class="link"><%= link_to icon('angle-right'), event %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <h1><%= t('.no_events.title') %></h1>
+  <p><%= t('.no_events.text') %></p>
+<% end %>
