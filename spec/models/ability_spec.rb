@@ -20,6 +20,7 @@ describe Ability do
 
     describe 'Event' do
       it { should be_able_to(:read, Event) }
+      it { should be_able_to(:catalog, Event) }
 
       it { should_not be_able_to(:update, event) }
       it { should be_able_to(:update, owned_event) }
