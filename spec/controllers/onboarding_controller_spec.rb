@@ -47,5 +47,10 @@ describe OnboardingController do
         post :finish, params
       }.to change { user.reload.invitation_token }.to(nil)
     end
+
+    it 'sets a flash message' do
+      post :finish, params
+      expect(flash[:success]).to_not be_blank
+    end
   end
 end

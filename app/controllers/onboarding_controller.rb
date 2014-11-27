@@ -11,6 +11,7 @@ class OnboardingController < ApplicationController
     @user.invitation_token = nil
     @user.update_password params[:user][:password]
     sign_in @user
-    redirect_to events_path, notice: I18n.t('onboarding.password_set')
+    flash[:success] = I18n.t('onboarding.password_set')
+    redirect_to events_path
   end
 end
