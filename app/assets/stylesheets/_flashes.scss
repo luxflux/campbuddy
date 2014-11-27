@@ -1,0 +1,12 @@
+.flash.notice {
+  @extend %flash-notice;
+}
+.flash.success {
+  @extend %flash-success;
+}
+.flash.error {
+  @extend %flash-error;
+}
+.flash.alert {
+  @extend %flash-alert;
+}

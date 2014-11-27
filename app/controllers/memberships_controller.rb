@@ -14,7 +14,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
 
     if @membership.save
-      redirect_to @membership, notice: 'Membership was successfully created.'
+      redirect_to @membership
     else
       render action: 'new'
     end
@@ -23,7 +23,7 @@ class MembershipsController < ApplicationController
   # PATCH/PUT /memberships/1
   def update
     if @membership.update(membership_params)
-      redirect_to @membership, notice: 'Membership was successfully updated.'
+      redirect_to @membership
     else
       render action: 'edit'
     end
@@ -32,7 +32,7 @@ class MembershipsController < ApplicationController
   # DELETE /memberships/1
   def destroy
     @membership.destroy
-    redirect_to memberships_url, notice: 'Membership was successfully destroyed.'
+    redirect_to memberships_url
   end
 
   private

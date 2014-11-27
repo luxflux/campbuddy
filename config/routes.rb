@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index]
 
-  resources :attendances
+  resources :attendances, only: [:show, :create, :destroy]
 
   resources :events, only: [:show, :index, :edit, :update] do
     collection do
@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, except: [:index] do
-    collection { post :import }
-  end
+  resources :users, only: [:show, :edit, :update]
 
   scope '/onboarding', controller: :onboarding, as: :onboarding do
     get 'start/:token', action: :start, as: :start
