@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show, :edit, :update] do
-    collection { post :import }
-  end
+  resources :users, only: [:show, :edit, :update]
 
   scope '/onboarding', controller: :onboarding, as: :onboarding do
     get 'start/:token', action: :start, as: :start

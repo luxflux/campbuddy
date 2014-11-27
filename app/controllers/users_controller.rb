@@ -20,15 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # POST /users/import
-  def import
-    if params[:file]
-      User.import(params[:file])
-    end
-
-    redirect_to users_path, notice: "Products imported."
-  end
-
   private
     # Only allow a trusted parameter "white list" through.
     def user_params
