@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index]
 
-  resources :attendances
+  resources :attendances, only: [:show, :create, :destroy]
 
   resources :events, only: [:show, :index, :edit, :update] do
     collection do
