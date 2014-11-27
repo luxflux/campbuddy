@@ -24,7 +24,7 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
 
     if @attendance.save
-      redirect_to @attendance, notice: 'Attendance was successfully created.'
+      redirect_to @attendance
     else
       render action: 'new'
     end
@@ -33,7 +33,7 @@ class AttendancesController < ApplicationController
   # PATCH/PUT /attendances/1
   def update
     if @attendance.update(attendance_params)
-      redirect_to @attendance, notice: 'Attendance was successfully updated.'
+      redirect_to @attendance
     else
       render action: 'edit'
     end
@@ -42,7 +42,7 @@ class AttendancesController < ApplicationController
   # DELETE /attendances/1
   def destroy
     @attendance.destroy
-    redirect_to attendances_url, notice: 'Attendance was successfully destroyed.'
+    redirect_to attendances_url
   end
 
   private

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, except: [:index] do
+  resources :users, only: [:show, :edit, :update] do
     collection { post :import }
   end
 
