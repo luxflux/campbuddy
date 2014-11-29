@@ -1,3 +1,5 @@
 jQuery ->
-  $('.datepicker').pickadate()
-  $('.timepicker').pickatime()
+  $('.datepicker').pickadate
+    format: 'dd.mm.yyyy'
+  $('.timepicker').pickatime
+    format: 'hh:i'
