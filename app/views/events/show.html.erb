@@ -37,7 +37,7 @@
     <li class="time">
       <div class="icon"><%= icon(:"clock-o") %></div>
       <div class="text">
-        <p><%= l @event.starts %> - <%= l @event.ends %></p>
+        <p><%= l @event.starts %> - <%= l @event.ends, format: :time_only %></p>
       </div>
     </li>
     <li class="meeting_point">
