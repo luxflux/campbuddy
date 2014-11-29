@@ -5,6 +5,6 @@ de:
       sign_in: Einloggen
       title: Neuen User erstellen
     show:
+      administration: Administrationsoberfläche
       attending_events: Events
       leaded_events: Eventleader von
-      administration: Administrationsoberfläche
