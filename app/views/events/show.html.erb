@@ -2,6 +2,14 @@
   <%= back_or_default_link events_path %>
   <h1><%= @event.title %></h1>
   <p><%= @event.category.name %></p>
+  <% if can? :edit, @event %>
+    <div class="edit">
+      <%= link_to edit_event_path do %>
+        <%= t('shared.edit') %>
+        <%= icon 'pencil-square-o' %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <div class="title-pic">
