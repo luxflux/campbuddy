@@ -9,12 +9,21 @@
     text-transform: uppercase;
     font-weight: 300;
     font-size: $date-time-size;
+    padding-top: 8px;
     line-height: 28px;
     padding-left: 0.2em;
   }
 
   .details {
     @include span-columns(8);
+    h1{
+        @include small-bold-title;
+        margin-top: 10px;
+      }
+      .description{
+        font-size: 12px;
+        font-weight: 300;
+      }
   }
 
   .link {

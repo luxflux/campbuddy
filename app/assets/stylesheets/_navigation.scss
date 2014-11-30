@@ -76,14 +76,14 @@ nav.day {
 nav.events {
   @include outer-container;
   font-size: $base-font-size;
-  padding: 0.7em 0;
+  padding: 0px 6px 8px 6px;
   a {
     @include span-columns(4);
     @include omega(3n);
 
     margin-top: 0.4em;
 
-    line-height: 35px;
+    line-height: 28px; /*was 35*/
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;

@@ -36,29 +36,22 @@
 
 <h1 class="title">Unsere Events</h1>
 
-<div class="event">
-  <div class="gray">
-    <div class="date-time">fr<br>17:00</div>
-    <h1>Smallgroup</h1>
-    <div class="description">Zeit mit deinen Freunden</div>
-    <!--this should be link with id, not to new membership.-->
-    <%= link_to '', new_membership_path%>
+<% if @groups.any? %>
+  <h1 class="title"><%= t('.leaded_events') %></h1>
+  <div class="events">
+    <%= render @groups %>
   </div>
-  <div class="gray">
-    <div class="date-time">sa<br>7:30</div>
-    <h1>Packen</h1>
-    <div class="description">Alle Gepäcksstücke müssen um 7:30 bei der Mensa bereitstehen</div>
-    <!--this should be link with id, not to new membership.-->
-    <%= link_to '', new_membership_path%>
-  </div>
-  <div class="gray">
-    <div class="date-time">sa<br>9:30</div>
-    <h1>Aufräumen</h1>
-    <div class="description">Putzen ist angesagt. Was genau deine Aufgabe ist, findest du bei deinen Angeboten. Sonst wende dich bitte an deinen Smallgroup Leiter. Sonst wende dich bitte an deinen Smallgroup Leiter.</div>
-    <!--this should be link with id, not to new membership.-->
-    <%= link_to '', new_membership_path%>
-  </div>
-</div>
+<% end %>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.leader[:firstname] + " " + group.leader[:name] %></td>
+    <td><%= group.name %></td>
+    <td><%= link_to 'Show', group %></td>
+    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
 
 <!--
 <table class="table table-striped">
