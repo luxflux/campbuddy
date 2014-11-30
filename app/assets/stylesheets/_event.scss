@@ -3,13 +3,14 @@
 
   border-left: 6px solid $medium-gray;
   border-top: 1px solid $light-gray;
+  min-height: 85px;
 
   .impression {
-    @include span-columns(3);
+    @include span-columns(4);
   }
 
   .date-time {
-    @include span-columns(3);
+    @include span-columns(4);
     text-transform: uppercase;
     font-weight: 300;
     font-size: $date-time-size;
@@ -19,15 +20,15 @@
   }
 
   .details {
-    @include span-columns(8);
+    @include span-columns(7);
     h1{
-        @include small-bold-title;
-        margin-top: 10px;
-      }
-      .description{
-        font-size: 12px;
-        font-weight: 300;
-      }
+      @include small-bold-title;
+      margin-top: 10px;
+    }
+    .description{
+      font-size: 12px;
+      font-weight: 300;
+    }
   }
 
   .link {
