@@ -1,8 +1,8 @@
 .events .event {
   @include outer-container;
 
-  border-left: 5px solid $medium-gray;
-  border-bottom: 1px solid $light-gray;
+  border-left: 6px solid $medium-gray;
+  border-top: 1px solid $light-gray;
 
   .impression {
     @include span-columns(3);
@@ -32,10 +32,13 @@
 
   .link {
     @include span-columns(1);
-    text-align: right;
-    font-size: 3em;
+    margin: 13px 0 0 0;
+    font-size: 2.3em;
     padding: 0;
     height: 100%;
+    a {
+      color: $light-gray;
+    }
   }
 
   &.red{

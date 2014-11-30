@@ -1,18 +1,21 @@
-<h1 class="title">
-  <%= image_tag group.leader.avatar_url, class: :avatar %>
-  <%= group.name %>
-</h1>
+<div class="group-detail">
+  <div class="seperator">&nbsp;</div>
+  <h1 class="title">
+    <%= image_tag group.leader.avatar_url, class: :avatar %>
+    <%= group.name %>
+  </h1>
 
-<ul class="attendees">
-  <%= render group.users %>
-</ul>
+  <ul class="attendees">
+    <%= render group.users %>
+  </ul>
 
-<h1 class="title"><%= Event.model_name.human count: 2 %></h1>
+  <h1 class="title"><%= Event.model_name.human count: 2 %></h1>
 
-<% if group.events.any? %>
-  <div class="events">
-    <%= render group.events %>
-  </div>
-<% else %>
-  <%= t('.no_events') %>
-<% end %>
+  <% if group.events.any? %>
+    <div class="events">
+      <%= render group.events %>
+    </div>
+  <% else %>
+    <%= t('.no_events') %>
+  <% end %>
+</div>
