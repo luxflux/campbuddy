@@ -1,4 +1,45 @@
 /*activity date and time*/
-.hashtag {
-  padding-left: 7px;
+
+.news-feed {
+  padding: 15px 0 0 15px;
+
+  .call {
+    color: $red;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+
+    span {
+      @include small-bold-title;
+      color: $dark-gray;
+    }
+
+    .fa {
+      position: relative;
+      top: 1px;
+    }
+
+  }
+  .fa {
+    margin: 0 0.6em 0 0.2em;
+
+    &.red {
+      color: $red;
+    }
+    &.green {
+      color: $green;
+    }
+    &.blue {
+      color: $blue;
+    }
+  }
+
+  h1.left {
+    float: left;
+  }
+  .hashtag {
+    position: relative;
+    top: 0.4em;
+    left: 0.6em;
+  }
 }

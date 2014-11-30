@@ -1,12 +1,15 @@
-<!--
-<%= icon('plus-square') %>
-<%= icon('phone-square') %>
+<div class="news-feed">
+  <a href="tel:+41764477449" class="call">
+    <span>NOTFALL</span>
+    <%= icon('phone') %>
+  </a>
 <hr>
--->
-<h1 class="title"><%= News.model_name.human count: 2 %></h1>
+<h1><%= News.model_name.human count: 2 %></h1>
 <%= render @news %>
 <hr>
-<h1 class="title">Insta Feed</h1> <span class="hashtag">#icfzurich</span>
+<h1 class="left">Insta Feed</h1> <span class="hashtag">#icfzurich</span>
+</div>
+
 <!-- SnapWidget -->
 <script src="http://snapwidget.com/js/snapwidget.js"></script>
-<iframe src="http://snapwidget.com/in/?h=aWNmenVyaWNofGlufDEyNXwzfDE1fHxub3wyfG5vbmV8b25TdGFydHxub3x5ZXM=&ve=181014" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>
+<iframe src="http://snapwidget.com/in/?h=aWNmenVyaWNofGlufDEyNXwzfDE1fHxub3wyfG5vbmV8b25TdGFydHxub3x5ZXM=&ve=181014" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; margin-top:1.2em!important;"></iframe>
