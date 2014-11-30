@@ -1,3 +1,9 @@
+<%=
+#if can? :update, @event
+#  link_to "edit", edit_event_path(@event)
+#end
+%>
+
 <div class="detail-nav">
   <%= back_or_default_link events_path %>
   <h1><%= @event.title %></h1>
@@ -16,8 +22,28 @@
   <%= image_tag @event.impression_url %>
 </div>
 
+
 <div class="event">
-  <div class="partipicate">
+<% if @event.mandatory? %>
+  <div class="partipicate-mandatory">
+    <div class="mandatory">
+      <span>Obligatorisch für alle</span>
+      <%= icon(:"exclamation-circle") %>
+    </div>
+
+<% elsif @event.attended_by_user?(current_user) %>
+  <div class="partipicate yes" data-attendance-id="<%=  @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
+
+<% elsif @event.no_places_left? %>
+  <div class="partipicate-mandatory">
+    <div class="occupied">
+      <span>Der Workshop ist voll besetzt</span>
+    </div>
+
+<% else %>
+  <div class="partipicate" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
+<% end %>
+
     <div class="unchecked">
       <span><%= t('.attendance') %></span>
       <%= icon(:"square-o") %>

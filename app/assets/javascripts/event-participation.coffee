@@ -1,8 +1,29 @@
 jQuery ->
+
+
+
   $('.partipicate').on 'click', () ->
     element = $(@)
     element.toggleClass('yes')
-    if element.hasClass('yes')
-      console.log 'send data that member wants to partipicate'
+    if element.attr('data-attendance-id')
+      $.ajax(
+        url: "/attendances/" + element.data("attendance-id")
+        type: "DELETE"
+
+      ).done( (response)->
+        console.log("/events/" + element.data("event-id"))
+        window.location = "/events/" + element.data("event-id")
+      )
     else
-      console.log 'send data that member no longer want to partipicate'
+      $.ajax(
+        url: "/attendances"
+        type: "POST"
+        data:
+          attendance:
+            user_id: $(@).data("user-id")
+            event_id: $(@).data("event-id")
+
+      ).done( (response)->
+        console.log("/events/" + element.data("event-id"))
+        window.location = "/events/" + element.data("event-id")
+      )
