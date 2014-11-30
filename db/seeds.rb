@@ -62,7 +62,7 @@ e3.users << robi
 
 
 # Groups
-visionteam = Group.create! name: 'Smallgroup', leader: admin
+#visionteam = Group.create! name: 'Smallgroup', leader: admin
 
 smallgroup = Group.create! name: 'Smallgroup', leader: robi
 smallgroup.users << simi
