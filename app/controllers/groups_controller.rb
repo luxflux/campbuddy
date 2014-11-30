@@ -4,5 +4,6 @@ class GroupsController < ApplicationController
   # GET /groups
   def index
     @groups = current_user.groups
+    @leading = Group.where(leader_id:current_user.id)
   end
 end
