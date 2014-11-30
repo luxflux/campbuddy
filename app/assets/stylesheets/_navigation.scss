@@ -139,6 +139,17 @@ nav.events {
   width: 100%;
   box-sizing: border-box;
   background-color: $light-white;
+
+  .edit{
+    position: absolute;
+    right: 12px;
+    bottom: 18px;
+    font-size: 30px;
+
+    a {
+      color: $dark-gray;
+    }
+  }
 }
 
 .detail-nav > a {

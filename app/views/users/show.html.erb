@@ -35,5 +35,5 @@
 <% end %>
 
 <% if can? :access, :administration %>
-  <%= link_to t('.administration'), '/admin' %>
+  <%= link_to t('.administration'), '/admin', class: "button-red" %>
 <% end %>

@@ -47,14 +47,13 @@ input[type="file"].image_preview::-webkit-file-upload-button {
 input[type="file"].image_preview {
   margin: 22px 0 0 0;
 }
-input[type="file"].image_preview::before {
+input[type="file"].image_preview::before, .button-red {
   content: 'Wähle ein Bild';
   display: inline-block;
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
-
 
   font-size: inherit; /* inherit size from .custom-dropdown */
   padding: .5em; /* add some space*/
@@ -67,6 +66,10 @@ input[type="file"].image_preview::before {
   background: $red;
   box-shadow: 0 0 20px -5px #535a6a;
   color: #fff;
+}
+.button-red {
+  margin: 10px 15px 5px 5px;
+  float: right;
 }
 
 
