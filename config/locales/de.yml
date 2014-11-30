@@ -1,23 +1,13 @@
+---
 de:
-  time:
-    formats:
-      default: '%d.%m.%Y %H:%M'
   activerecord:
-    models:
-      event:
-        one: 'Event'
-        other: 'Events'
     attributes:
       event:
-        attendance_places_left: 'Plätze frei'
-        meeting_point: 'Treffpunkt'
-        owner: 'Leiter'
-        users: 'Teilnehmer'
-  events:
-    show:
-      attendance: 'Teilnehmen?'
-  users:
-    show:
-      leaded_events: 'Eventleader von'
-      attending_events: 'Events'
-
+        attendance_places_left: Plätze frei
+        meeting_point: Treffpunkt
+        owner: Leiter
+        users: Teilnehmer
+    models:
+      event:
+        one: Event
+        other: Events

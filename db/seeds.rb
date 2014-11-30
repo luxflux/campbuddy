@@ -59,3 +59,16 @@ e2.users << simi
 
 e3.users << andi
 e3.users << robi
+
+
+# Groups
+smallgroup = Group.create! name: 'Smallgroup', leader: robi
+smallgroup.users << simi
+smallgroup.users << andi
+
+smallgroup.events.create! owner: robi, category: c, title: 'Smallgroup', description: 'Smallgroup zum Thema Grillwürste', starts: Time.now + 3.hours, ends: Time.now + 4.hours
+
+cleaning_group = Group.create! name: 'WC-Putzer', leader: robi
+cleaning_group.users << simi
+cleaning_group.users << andi
+cleaning_group.events.create! owner: robi, category: c, title: 'WC Putzen', description: 'Muss alles sauber sein!', starts: Time.now + 1.day, ends: Time.now + 1.day + 4.hours

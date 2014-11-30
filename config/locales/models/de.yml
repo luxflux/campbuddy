@@ -1,0 +1,21 @@
+---
+de:
+  activerecord:
+    attributes:
+      event:
+        attendance_places_left: Plätze frei
+        meeting_point: Treffpunkt
+        owner: Leiter
+        users: Teilnehmer
+        mandatory: Obligatorisch
+        title: Titel
+        starts: Startet
+        ends: Endet
+        max_attendees: Max. Teilnehmer
+    models:
+      event:
+        one: Event
+        other: Events
+      news:
+        one: Neuigkeiten
+        other: News Feed

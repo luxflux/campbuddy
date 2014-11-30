@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+@import "font-awesome";
 
 @import "bourbon";
 @import "base/base"; // bitters
-$visual-grid: true;
 @import "neat";
 
 // pickadate
@@ -14,10 +14,10 @@ $visual-grid: true;
 @import 'layout';
 @import 'navigation';
 @import 'forms';
-@import 'new';
+@import 'flashes';
 
 // entities
-@import 'home';
+@import 'news';
 @import 'event';
 @import 'groups';
 @import 'user';

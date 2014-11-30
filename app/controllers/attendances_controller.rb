@@ -1,47 +1,18 @@
 class AttendancesController < ApplicationController
   load_and_authorize_resource
 
-  # GET /attendances
-  def index
-    @attendances = Attendance.all
-  end
-
   # GET /attendances/1
   def show
-  end
-
-  # GET /attendances/new
-  def new
-    @attendance = Attendance.new
-  end
-
-  # GET /attendances/1/edit
-  def edit
+    render json: @attendance
   end
 
   # POST /attendances
   def create
     @attendance = Attendance.new(attendance_params)
-
     @attendance.save!
-    render text: nil, status: 201
-  end
-
-  # GET /attendances/remove
-  def remove
-    @user = User.where(id: attendance_params.user_id)
-    @event = Event.where(id: attendance_params.event_id)
-    @attendance = Attendance.where(user: @user, event: @event)
-    @attendance.destroy    
-  end
-
-  # PATCH/PUT /attendances/1
-  def update
-    if @attendance.update(attendance_params)
-      redirect_to @attendance, notice: 'Attendance was successfully updated.'
-    else
-      render action: 'edit'
-    end
+    render json: @attendance, status: 200
+  rescue ActiveRecord::RecordInvalid
+    render json: @attendance.errors, status: 422
   end
 
   # DELETE /attendances/1

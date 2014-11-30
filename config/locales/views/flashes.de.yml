@@ -1,0 +1,6 @@
+---
+de:
+  flashes:
+    failure_after_create: Falsche E-Mail oder Passwort.
+    failure_after_update: Passwort darf nicht leer sein.
+    failure_when_forbidden: Bitte überprüfe die URL nochmals oder versuche das Formular nochmals abzusenden.

@@ -16,15 +16,11 @@ nav.day{
   padding: 4px;
 }
 
-.flash{
-  &.notice {
-    position: fixed;
-    bottom: 0;
-    z-index: 99;
-    background: rgba(255,255,255,0.7);
-    width: 100%;
-    text-align: center;
-    min-height: 25px;
-    color: #aaa;
-  }
+img.avatar {
+  width: 6em;
+  height: 6em;
+  padding: 0;
+  margin: 0;
+  border-radius: 6em;
+  overflow: hidden;
 }

@@ -1,12 +1,30 @@
 Rails.application.routes.draw do
-  get 'home' => 'home#index'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  resources :news, only: [:index]
+
   resources :memberships, except: [:new, :index]
-  resources :groups
-  resources :attendances
-  resources :events
-  resources :users, except: [:index] do
-    collection { post :import }
+
+  resources :groups, only: [:index]
+
+  resources :attendances, only: [:show, :create, :destroy]
+
+  resources :events, only: [:show, :index, :edit, :update] do
+    collection do
+      get :catalog
+    end
   end
-  root 'home#index'
-  
+
+  resources :users, only: [:show, :edit, :update]
+
+  scope '/onboarding', controller: :onboarding, as: :onboarding do
+    get 'start/:token', action: :start, as: :start
+    post 'finish'
+  end
+
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
+  root 'news#index'
 end

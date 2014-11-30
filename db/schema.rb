@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025143104) do
+ActiveRecord::Schema.define(version: 20141126222415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_id"
-    t.boolean  "mandatory"
   end
 
   create_table "categories", force: true do |t|
@@ -43,9 +42,21 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.integer  "max_attendees"
     t.integer  "category_id"
     t.string   "impression"
+    t.boolean  "mandatory"
+    t.boolean  "groups_only"
   end
 
   add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
+
+  create_table "group_attendances", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "group_attendances", ["event_id"], name: "index_group_attendances_on_event_id", using: :btree
+  add_index "group_attendances", ["group_id"], name: "index_group_attendances_on_group_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -65,6 +76,13 @@ ActiveRecord::Schema.define(version: 20141025143104) do
 
   add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true, using: :btree
 
+  create_table "news", force: true do |t|
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "visible_until"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "firstname"
@@ -76,6 +94,7 @@ ActiveRecord::Schema.define(version: 20141025143104) do
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
     t.string   "avatar"
+    t.string   "invitation_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

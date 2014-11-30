@@ -1,0 +1,6 @@
+---
+de:
+  layouts:
+    application:
+      sign_in: Einloggen
+      sign_out: Ausloggen

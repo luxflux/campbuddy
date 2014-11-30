@@ -11,7 +11,7 @@ module ApplicationHelper
     :active if current_page? url
   end
 
-  def back_link
-    link_to icon(:"chevron-left"), :back
+  def back_or_default_link(default)
+    link_to icon(:"chevron-left"), request.referrer || default
   end
 end

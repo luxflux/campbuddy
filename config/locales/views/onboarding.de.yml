@@ -1,0 +1,8 @@
+---
+de:
+  onboarding:
+    password_set: Passwort gesetzt
+    start:
+      save_password: Passwort setzen
+      welcome: Willkommen!
+      welcome_description: Bitte setze als Erstes dein Passwort.

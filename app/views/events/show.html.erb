@@ -5,9 +5,17 @@
 %>
 
 <div class="detail-nav">
-  <%= back_link %>
+  <%= back_or_default_link events_path %>
   <h1><%= @event.title %></h1>
   <p><%= @event.category.name %></p>
+  <% if can? :edit, @event %>
+    <div class="edit">
+      <%= link_to edit_event_path do %>
+        <%= t('shared.edit') %>
+        <%= icon 'pencil-square-o' %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <div class="title-pic">
@@ -55,7 +63,7 @@
     <li class="time">
       <div class="icon"><%= icon(:"clock-o") %></div>
       <div class="text">
-        <p><%= l @event.starts %> - <%= l @event.ends %></p>
+        <p><%= l @event.starts %> - <%= l @event.ends, format: :time_only %></p>
       </div>
     </li>
     <li class="meeting_point">
@@ -69,12 +77,7 @@
       <div class="text">
         <p><%= Event.human_attribute_name :users %></p>
         <ul class="attendees">
-          <% @event.users.each do |attendee| %>
-            <li>
-              <div class="image"><%= image_tag attendee.avatar_url %></div>
-              <div class="name"><%= attendee.fullname %></div>
-            </li>
-          <% end %>
+          <%= render @event.users %>
           <% if @event.attendance_places_left %>
             <li class="space">
               <div class="count"><%= @event.attendance_places_left %></div>

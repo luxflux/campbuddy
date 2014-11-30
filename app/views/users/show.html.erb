@@ -2,12 +2,14 @@
 
 <div class="user">
   <div class="user-img">
-    <div class="image"><%= image_tag @user.avatar_url, height: '80', width: '80' %></div>
+    <%= image_tag @user.avatar_url, class: :avatar %>
   </div>
   <div class="user-desc">
-    <div class="edit">
-      <a href="<%= edit_user_path(@user.id) %>"><i class="fa fa-pencil-square-o"></i></a>
-    </div>
+    <% if can? :edit, @user %>
+      <div class="edit">
+        <a href="<%= edit_user_path(@user.id) %>"><i class="fa fa-pencil-square-o"></i></a>
+      </div>
+    <% end %>
     <hr>
     <div class="name">
       <%= @user.firstname %> <%= @user.name %>
@@ -30,4 +32,8 @@
   <div class="events">
     <%= render @events %>
   </div>
+<% end %>
+
+<% if can? :access, :administration %>
+  <%= link_to t('.administration'), '/admin' %>
 <% end %>

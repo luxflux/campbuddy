@@ -1,0 +1,8 @@
+---
+de:
+  sessions:
+    form:
+      forgot_password: Passwort vergessen?
+      sign_up: Einloggen
+    new:
+      title: Einloggen

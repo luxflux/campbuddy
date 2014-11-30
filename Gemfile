@@ -16,23 +16,32 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 4.0.0.rc'
 gem 'simple_form'
 gem 'simple_form_fancy_uploads'
-gem 'pickadate-rails'
 gem 'date_time_attribute'
+gem 'jc-validates_timeliness'
+gem 'rails_admin'
 
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'flutie'
+gem 'font-awesome-rails'
+gem 'pickadate-rails'
 
 group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
+
   gem 'spring'
   gem 'spring-commands-rspec'
+
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
-  gem 'rails-erd'
+  gem 'shoulda-matchers'
+  gem 'timecop'
   gem 'factory_girl_rails'
+
+  gem 'rails-erd'
   gem 'foreman'
+  gem 'i18n-tasks'
 end

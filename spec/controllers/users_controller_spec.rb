@@ -24,20 +24,12 @@ describe UsersController do
 
     describe "GET show" do
       before do
-        user = FactoryGirl.create(:user)
         get :show, {:id => user.to_param}
       end
 
       specify { expect(assigns(:user)).to eq(user) }
       specify { expect(assigns(:owned_events)).to eq(user.owned_events.in_future) }
       specify { expect(assigns(:events)).to eq(user.events.in_future) }
-    end
-
-    describe "GET new" do
-      it "assigns a new user as @user" do
-        get :new, {}
-        expect(assigns(:user)).to be_a_new(User)
-      end
     end
 
     describe "GET edit" do
@@ -49,6 +41,10 @@ describe UsersController do
     end
 
     describe "POST import" do
+      before do
+        pending 'Import will be done via console'
+      end
+
       let(:path) { Rails.root.join("spec/fixtures/test_import.csv") }
       let(:file) { Rack::Test::UploadedFile.new(path, "text/csv") }
 
@@ -74,43 +70,6 @@ describe UsersController do
         it "does not call import on User" do
           expect(User).to_not receive(:import)
           post :import, file: file
-        end
-      end
-    end
-
-    describe "POST create" do
-      describe "with valid params" do
-        it "creates a new User" do
-          expect {
-            post :create, {:user => valid_attributes}
-          }.to change(User, :count).by(1)
-        end
-
-        it "assigns a newly created user as @user" do
-          post :create, {:user => valid_attributes}
-          expect(assigns(:user)).to be_a(User)
-          expect(assigns(:user)).to be_persisted
-        end
-
-        it "redirects to the created user" do
-          post :create, {:user => valid_attributes}
-          expect(response).to redirect_to(User.last)
-        end
-      end
-
-      describe "with invalid params" do
-        it "assigns a newly created but unsaved user as @user" do
-          # Trigger the behavior that occurs when invalid params are submitted
-          allow_any_instance_of(User).to receive(:save).and_return(false)
-          post :create, {:user => { "name" => "invalid value" }}
-          expect(assigns(:user)).to be_a_new(User)
-        end
-
-        it "re-renders the 'new' template" do
-          # Trigger the behavior that occurs when invalid params are submitted
-          allow_any_instance_of(User).to receive(:save).and_return(false)
-          post :create, {:user => { "name" => "invalid value" }}
-          expect(response).to render_template("new")
         end
       end
     end
@@ -158,21 +117,5 @@ describe UsersController do
         end
       end
     end
-
-    describe "DELETE destroy" do
-      it "destroys the requested user" do
-        user = FactoryGirl.create(:user)
-        expect {
-          delete :destroy, {:id => user.to_param}
-        }.to change(User, :count).by(-1)
-      end
-
-      it "redirects to the users list" do
-        user = FactoryGirl.create(:user)
-        delete :destroy, {:id => user.to_param}
-        expect(response).to redirect_to(users_url)
-      end
-    end
-
   end
 end

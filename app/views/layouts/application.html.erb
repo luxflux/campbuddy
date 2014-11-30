@@ -7,17 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="<%= body_class %>">
-  <script>
-    //global vars -> more detail in application.js
-    var hideNavBar = false;
-  </script>
-
   <div id="main-wrapper">
     <nav class="main">
     <% if signed_in? %>
-      <%= nav_link :home, home_path %>
-      <%= nav_link :calendar, attendances_path %>
-      <%= nav_link :list,  events_path %>
+      <%= nav_link :home, news_index_path %>
+      <%= nav_link :calendar, events_path %>
+      <%= nav_link :list, catalog_events_path %>
       <%= nav_link :users, groups_path %>
       <%= nav_link :user, user_path(current_user) %>
     <% end %>
@@ -44,6 +39,5 @@
     <% end %>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </body>
 </html>
