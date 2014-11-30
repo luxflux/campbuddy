@@ -36,6 +36,9 @@ nav.main {
     &.active {
       background-color: $dark-gray;
     }
+    &:focus,&:active,&:hover {
+      color: $medium-gray;
+    }
   }
 }
 
