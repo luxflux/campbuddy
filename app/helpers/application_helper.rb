@@ -3,6 +3,10 @@ module ApplicationHelper
     content_tag(:i, "", class: "fa fa-#{type}")
   end
 
+  def iconnew(type)
+    content_tag(:i, "", class: "icon-essential-light-#{type}")
+  end
+
   def nav_link(icon_type, url)
     link_to icon(icon_type), url, class: active_if_current_page(url)
   end
