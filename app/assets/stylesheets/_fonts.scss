@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
+@import "font-awesome";
+
 @font-face {
   font-family: "essential-light";
-  src:font-url("/assets/essential-light.eot");
-  src:font-url("/assets/essential-light.eot?#iefix") format("embedded-opentype"),
-    font-url("/assets/essential-light.woff") format("woff"),
-    font-url("/assets/essential-light.ttf") format("truetype"),
-    font-url("/assets/essential-light.svg#essential-light") format("svg");
+  src:font-url("essential-light.eot");
+  src:font-url("essential-light.eot?#iefix") format("embedded-opentype"),
+    font-url("essential-light.woff") format("woff"),
+    font-url("essential-light.ttf") format("truetype"),
+    font-url("essential-light.svg#essential-light") format("svg");
   font-weight: normal;
   font-style: normal;
 
@@ -14,7 +16,7 @@
 
 @font-face {
   font-family: "OpenSansLight";
-  src:font-url("/assets/OpenSans-Light.ttf");
+  src:font-url("OpenSans-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
