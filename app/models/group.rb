@@ -10,6 +10,10 @@ class Group < ActiveRecord::Base
   has_many :events, through: :group_attendances
 
   def name_with_leader
-    "#{name} (#{leader.name})"
+    if leader
+      "#{name} (#{leader.name})"
+    else
+      name
+    end
   end
 end
