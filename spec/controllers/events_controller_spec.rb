@@ -111,8 +111,8 @@ describe EventsController do
 
       describe "with valid params" do
         it "updates the requested event" do
-          expect_any_instance_of(Event).to receive(:update).with({ 'owner_id' => owner.id.to_s })
-          put :update, {:id => event.to_param, :event => { owner_id: owner.id }}
+          expect_any_instance_of(Event).to receive(:update).with({ 'description' => 'this is a new text' })
+          put :update, {:id => event.to_param, :event => { 'description' => 'this is a new text' }}
         end
 
         it "assigns the requested event as @event" do
