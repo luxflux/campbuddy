@@ -9,8 +9,14 @@ de:
         users: Teilnehmer
         mandatory: Obligatorisch
         title: Titel
+        description: Beschreibung
         starts: Startet
+        starts_date: Startdatum
+        starts_time: Startzeit
         ends: Endet
+        ends_date: Enddatum
+        ends_time: Endzeit
+        impression: Bild
         max_attendees: Max. Teilnehmer
     models:
       event:

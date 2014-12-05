@@ -40,10 +40,9 @@ class EventsController < ApplicationController
     def event_params
       params.
         require(:event).
-        permit :owner_id, :category_id,
-               :starts_date, :starts_time,
+        permit :starts_date, :starts_time,
                :ends_date, :ends_time,
                :title, :description, :meeting_point,
-               :impression, :mandatory
+               :impression
     end
 end
