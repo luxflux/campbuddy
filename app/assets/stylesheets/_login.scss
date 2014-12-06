@@ -1,0 +1,52 @@
+.clearance-sessions-new,
+.clearance-sessions-create {
+  height: 100%;
+
+  #main-wrapper,
+  .content {
+    height: 100%;
+  }
+
+  #clearance {
+    margin: 4em auto;
+    width: 80%;
+    text-align: center;
+
+    form {
+      text-align: left;
+    }
+
+    h1 {
+      margin: 0em 0em .8em;
+    }
+
+    p {
+      margin: .4em 0em;
+    }
+
+    p.dots {
+      font-size: 3em;
+      margin: .1em 0em;
+
+      .green {
+        color: $green;
+      }
+      .red {
+        color: $red;
+      }
+      .blue {
+        color: $blue;
+      }
+    }
+  }
+
+  .actions,
+  .other-links {
+    text-align: center;
+    margin: 1.5em;
+  }
+
+  a {
+    color: $base-font-color;
+  }
+}

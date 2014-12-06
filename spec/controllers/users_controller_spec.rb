@@ -23,13 +23,15 @@ describe UsersController do
     let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
 
     describe "GET show" do
+      let(:event) { FactoryGirl.create :event }
+
       before do
+        user.events << event
         get :show, {:id => user.to_param}
       end
 
       specify { expect(assigns(:user)).to eq(user) }
-      specify { expect(assigns(:owned_events)).to eq(user.owned_events.in_future) }
-      specify { expect(assigns(:events)).to eq(user.events.in_future) }
+      specify { expect(assigns(:events).map(&:id)).to eq(user.events.in_future.map(&:id)) }
     end
 
     describe "GET edit" do

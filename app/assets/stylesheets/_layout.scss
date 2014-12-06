@@ -1,5 +1,11 @@
+html { height: 100% }
 body {
   margin: 0;
+  font-weight: 300;
+}
+
+small {
+  font-size: .7em;
 }
 
 section.content {
@@ -14,6 +20,10 @@ section.content {
 
 .padded-row {
   padding: .4em 1em;
+}
+
+.full-row + .padded-row {
+  padding-top: 1.2em;
 }
 
 div.image_preview {

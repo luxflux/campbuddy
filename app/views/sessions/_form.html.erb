@@ -1,0 +1,12 @@
+<%= simple_form_for :session, url: session_path do |form| %>
+  <%= form.input :email, as: :email, required: false %>
+  <%= form.input :password, as: :password, required: false%>
+
+  <div class="actions">
+    <%= form.button :submit, class: 'red' %>
+  </div>
+
+  <div class="other-links">
+    <%= link_to t('.forgot_password'), new_password_path %>
+  </div>
+<% end %>
