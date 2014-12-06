@@ -11,10 +11,10 @@
       <% events.each do |event| %>
         <div class="event <%= event.category.identifier %>">
           <div class="impression">
-            <%= image_tag event.impression_url %>
+            <%= image_tag event.impression.catalog_preview.url %>
           </div>
           <div class="details">
-            <h1><%= event.title %></h1>
+            <div class="title"><%= event.title %></div>
             <div class="description"><%= event.description %></div>
           </div>
           <div class="link"><%= link_to ico('02-chevron-right'), event %></div>
