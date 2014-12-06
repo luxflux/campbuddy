@@ -167,3 +167,9 @@
     @include small-bold-title();
   }
 }
+
+.events.events-edit {
+  form {
+    margin-top: 85px;
+  }
+}
