@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>trololo</title>
+  <title>CampPlaner</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CampPlaner">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <!-- iPhone 3 and 4 Non-Retina 320x460-->
+  <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="/assets/welcome-screen.png">
+  <!-- iPhone 4 Retina 640x920-->
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/assets/welcome-screen.png">
+  <!-- iPhone 5 Retina 640x1096-->
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/welcome-screen.png">
 </head>
 <body class="<%= body_class %>">
   <div id="main-wrapper">
     <nav class="main">
     <% if signed_in? %>
-      <%= nav_link :home, news_index_path %>
-      <%= nav_link :calendar, events_path %>
-      <%= nav_link :list, catalog_events_path %>
-      <%= nav_link :users, groups_path %>
-      <%= nav_link :user, user_path(current_user) %>
+      <%= nav_link "92-expand", news_index_path %>
+      <%= nav_link "98-file-minus", events_path %>
+      <%= nav_link "60-question-circle", catalog_events_path %>
+      <%= nav_link "99-statistic-pie", groups_path %>
+      <%= nav_link "53-mobile", user_path(current_user) %>
     <% end %>
     </nav>
 

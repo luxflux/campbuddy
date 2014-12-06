@@ -37,12 +37,14 @@
 
   .link {
     @include span-columns(1);
-    margin: 13px 0 0 0;
+    margin: 20px 0 0 0;
     font-size: 2.3em;
     padding: 0;
     height: 100%;
     a {
       color: $light-gray;
+      position: absolute;
+      right: 0;
     }
   }
 
@@ -89,11 +91,12 @@
   background-color: #fff;
 
   .partipicate, .partipicate-mandatory {
-    text-align: right;
-    padding-right: 15px;
-    width: 100%;
     position: absolute;
     top: -35px;
+    right: 0;
+    left: -5px;
+    text-align: right;
+    padding-right: 15px;
     color: #333;
     font-size: 1.3em;
     background: rgba(255,255,255,0.8);
@@ -101,6 +104,16 @@
 
     .checked, .mandatory, .occupied{
       display: none;
+    }
+    .checked i {
+      color: $green;
+    }
+    .mandatory i {
+      color: $red;
+    }
+    i {
+      position: relative;
+      top: 3px;
     }
     &.yes {
       .checked{
@@ -122,7 +135,7 @@
   }
 
   ul {
-    padding: 30px 0 0 12px;
+    padding: 16px 0 0 13px;
 
     ul {
       padding: 0;
@@ -155,12 +168,15 @@
   }
   .icon {
     float: left;
-    width: 25px
+    width: 9%;
+    max-width: 2em;
+    font-size: 1.4em;
+    color: #000;
   }
   .text {
     float: left;
-    width: 265px;
-    margin: 0 16px 0 0;
+    width: 85%;
+    margin: 2px 16px 0 0;
   }
   .text > h1 {
     margin: 4px 0 0 0;
