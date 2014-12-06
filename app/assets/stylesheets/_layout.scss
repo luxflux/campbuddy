@@ -7,6 +7,15 @@ section.content {
   @include outer-container;
 }
 
+.full-row {
+  padding: 0em;
+  margin: 0em;
+}
+
+.padded-row {
+  padding: .4em 1em;
+}
+
 div.image_preview {
    @include clearfix;
 }
