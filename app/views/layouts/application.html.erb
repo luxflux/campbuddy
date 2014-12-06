@@ -20,15 +20,15 @@
 </head>
 <body class="<%= body_class %>">
   <div id="main-wrapper">
-    <nav class="main">
     <% if signed_in? %>
-      <%= nav_link "92-expand", news_index_path %>
-      <%= nav_link "98-file-minus", events_path %>
-      <%= nav_link "60-question-circle", catalog_events_path %>
-      <%= nav_link "99-statistic-pie", groups_path %>
-      <%= nav_link "53-mobile", user_path(current_user) %>
+      <nav class="main">
+        <%= nav_link "92-expand", news_index_path %>
+        <%= nav_link "98-file-minus", events_path %>
+        <%= nav_link "60-question-circle", catalog_events_path %>
+        <%= nav_link "99-statistic-pie", groups_path %>
+        <%= nav_link "53-mobile", user_path(current_user) %>
+      </nav>
     <% end %>
-    </nav>
 
     <div id="flash">
       <% flash.each do |key, value| %>
