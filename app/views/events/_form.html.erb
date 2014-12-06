@@ -4,7 +4,7 @@
   <%= f.input :ends_date,   input_html: { class: :datepicker, value: l(f.object.ends_date.to_date) } %>
   <%= f.input :ends_time,   input_html: { class: :timepicker, value: l(f.object.ends_time.to_time, format: :time_only) } %>
 
-  <%= f.input :impression, as: :image_preview, input_html: {preview_version: :thumb} %>
+  <%= f.input :impression, as: :image_preview, input_html: {preview_version: :catalog_preview} %>
 
   <%= f.input :title %>
   <%= f.input :description %>
