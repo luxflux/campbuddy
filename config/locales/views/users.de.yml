@@ -6,5 +6,6 @@ de:
       title: Neuen User erstellen
     show:
       administration: Administrationsoberfläche
-      attending_events: Events
-      leaded_events: Eventleader von
+      edit: Profil bearbeiten
+      my_links: Meine Links
+      sign_out: Ausloggen

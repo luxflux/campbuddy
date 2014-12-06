@@ -27,17 +27,7 @@
     <section class="content">
       <%= yield %>
     </section>
-
-
-    <% if signed_in? %>
-      <!--
-      <div>
-          Signed in as: <%= current_user.email %>
-          <%= button_to 'Sign out', sign_out_path, method: :delete %>
-      </div>
-      -->
-    <% end %>
-
+  </div>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

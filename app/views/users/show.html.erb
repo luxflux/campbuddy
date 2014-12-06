@@ -1,39 +1,28 @@
-<h1 class="title">Mein Profil</h1>
+<div class="padded-row">
+  <h1><%= @user.fullname %><small><%= @user.email %></small></h1>
 
-<div class="user">
-  <div class="user-img">
-    <%= image_tag @user.avatar_url, class: :avatar %>
-  </div>
-  <div class="user-desc">
-    <% if can? :edit, @user %>
-      <div class="edit">
-        <a href="<%= edit_user_path(@user.id) %>"><i class="fa fa-pencil-square-o"></i></a>
-      </div>
-    <% end %>
-    <hr>
-    <div class="name">
-      <%= @user.firstname %> <%= @user.name %>
-    </div>
-    <div class="email">
-      <%= @user.email %>
-    </div>
-  </div>
+  <%= image_tag @user.avatar.small.url, class: :avatar %>
 </div>
 
-<% if @owned_events.any? %>
-  <h1 class="title"><%= t('.leaded_events') %></h1>
-  <div class="events">
-    <%= render @owned_events %>
-  </div>
-<% end %>
-
 <% if @events.any? %>
-  <h1 class="title"><%= t('.attending_events') %></h1>
-  <div class="events">
-    <%= render @events %>
+  <div class="full-row">
+    <div class="events">
+      <%= render @events %>
+    </div>
   </div>
 <% end %>
 
-<% if can? :access, :administration %>
-  <%= link_to t('.administration'), '/admin', class: "button-red" %>
-<% end %>
+<div class="padded-row">
+  <h2><%= t('.my_links') %></h2>
+  <ul class="links">
+    <% if can? :edit, @user %>
+      <li><%= link_to t('.edit'), edit_user_path(@user) %></li>
+    <% end %>
+    <% if can? :access, :administration %>
+      <li><%= link_to t('.administration'), '/admin' %></li>
+    <% end %>
+    <% if signed_in? && current_user == @user %>
+      <li><%= link_to t('.sign_out'), sign_out_path, method: :delete %></li>
+    <% end %>
+  </ul>
+</div>

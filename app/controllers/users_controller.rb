@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @owned_events = @user.owned_events.in_future
-    @events = @user.events.in_future - @owned_events
+    @events = @user.events.in_future
   end
 
   # GET /users/1/edit
