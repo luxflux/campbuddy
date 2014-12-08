@@ -17,7 +17,7 @@
             <div class="title"><%= event.title %></div>
             <div class="description"><%= event.description %></div>
           </div>
-          <div class="link"><%= link_to ico('02-chevron-right'), event %></div>
+          <div class="link"><%= link_to ico('02-chevron-right'), event_path(event, back: catalog_events_path) %></div>
         </div>
       <% end %>
     <% end %>

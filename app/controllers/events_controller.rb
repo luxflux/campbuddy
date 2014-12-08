@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)
-      redirect_to @event
+      redirect_to event_path(@event, back: params[:back])
     else
       render action: 'edit'
     end

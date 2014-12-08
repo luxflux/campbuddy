@@ -9,5 +9,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
 
+  <%= hidden_field_tag :back, params[:back] %>
+
   <%= f.button :submit, class: 'red' %>
 <% end %>

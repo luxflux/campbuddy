@@ -1,5 +1,5 @@
 <div class="detail-nav">
-  <%= back_or_default_link @event %>
+  <%= back_link event_path(@event, back: params[:back]) %>
   <h1>Event</h1>
   <p>bearbeiten</p>
 </div>
