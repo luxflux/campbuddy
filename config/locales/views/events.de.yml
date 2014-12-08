@@ -11,4 +11,7 @@ de:
         title: Events
     show:
       attendance: Teilnehmen?
+      full: Leider hats keinen Platz mehr
+      groups_only: Gruppenevent
+      mandatory: Für alle obligatorisch
       you_take_part: Du nimmst teil
