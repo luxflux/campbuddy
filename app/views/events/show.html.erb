@@ -10,7 +10,7 @@
   <p><%= @event.category.name %></p>
   <% if can? :edit, @event %>
     <div class="edit">
-      <%= link_to edit_event_path do %>
+      <%= link_to edit_event_path(back: params[:back]) do %>
         <%= ico '48-clipboard' %>
       <% end %>
     </div>

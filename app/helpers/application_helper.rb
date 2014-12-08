@@ -16,6 +16,10 @@ module ApplicationHelper
   end
 
   def back_or_default_link(default)
-    link_to ico(:"01-chevron-left"), request.referrer || default
+    back_link (params[:back] || default)
+  end
+
+  def back_link(url)
+    link_to ico(:"01-chevron-left"), url
   end
 end
