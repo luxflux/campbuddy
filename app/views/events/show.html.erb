@@ -1,9 +1,3 @@
-<%=
-#if can? :update, @event
-#  link_to "edit", edit_event_path(@event)
-#end
-%>
-
 <div class="detail-nav">
   <%= back_or_default_link events_path %>
   <h1><%= @event.title %></h1>
