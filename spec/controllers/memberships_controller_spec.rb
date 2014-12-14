@@ -74,24 +74,6 @@ describe MembershipsController do
           expect(response).to redirect_to(Membership.last)
         end
       end
-
-      describe "with invalid params" do
-        it "assigns a newly created but unsaved membership as @membership" do
-          pending "no html stuff"
-          # Trigger the behavior that occurs when invalid params are submitted
-          allow_any_instance_of(Membership).to receive(:save).and_return(false)
-          post :create, {:membership => { "user" => "invalid value" }}, valid_session
-          expect(assigns(:membership)).to be_a_new(Membership)
-        end
-
-        it "re-renders the 'new' template" do
-          pending "no html stuff"
-          # Trigger the behavior that occurs when invalid params are submitted
-          allow_any_instance_of(Membership).to receive(:save).and_return(false)
-          post :create, {:membership => { "user" => "invalid value" }}, valid_session
-          expect(response).to render_template("new")
-        end
-      end
     end
 
     describe "PUT update" do
