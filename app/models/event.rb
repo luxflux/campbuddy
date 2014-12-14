@@ -1,10 +1,15 @@
 class Event < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
   belongs_to :category
+
   has_many :attendances
-  has_many :users, through: :attendances
+  has_many :self_attended_users, through: :attendances, source: :user
+
   has_many :group_attendances
   has_many :groups, through: :group_attendances
+
+  has_many :group_attendees, through: :groups, source: :users
+  has_many :group_leader_attendees, through: :groups, source: :leader
 
   validates :owner, presence: true
   validates :category, presence: true
@@ -21,17 +26,26 @@ class Event < ActiveRecord::Base
   scope :today, -> { on_date(Date.current) }
   scope :in_future, -> { where('starts > ?', Time.zone.now) }
   scope :mandatory_only, -> { where(mandatory: true) }
-  scope :except_mandatory, -> { where(mandatory: [false, nil]) }
-  scope :except_group_events, -> { where(groups_only: [false, nil]) }
+  scope :except_mandatory, -> { where(mandatory: false) }
+  scope :except_group_events, -> { where(groups_only: false) }
 
   mount_uploader :impression, ImageUploader
 
   date_time_attribute :starts
   date_time_attribute :ends
 
+  def users
+    return User.all if mandatory?
+    ids = [owner_id]
+    ids.concat self_attended_user_ids
+    ids.concat group_attendee_ids
+    ids.concat group_leader_attendee_ids
+    User.where(id: ids)
+  end
+
   def attendance_places_left
     return nil unless max_attendees
-    max_attendees - users.count
+    max_attendees - self_attended_users.count
   end
 
   def any_places_left?
