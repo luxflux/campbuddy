@@ -32,7 +32,7 @@ RSpec.describe Event, :type => :model do
     subject { event.attended_by_user?(user) }
 
     context 'user attends' do
-      before { event.users << user }
+      before { event.self_attended_users << user }
       it { is_expected.to eq(true) }
     end
 
@@ -64,7 +64,7 @@ RSpec.describe Event, :type => :model do
 
       context 'with one attendee' do
         before do
-          event.users << FactoryGirl.create(:user)
+          event.self_attended_users << FactoryGirl.create(:user)
         end
 
         describe '#attendance_places_left' do
@@ -85,8 +85,8 @@ RSpec.describe Event, :type => :model do
 
       context 'full' do
         before do
-          event.users << FactoryGirl.create(:user)
-          event.users << FactoryGirl.create(:user)
+          event.self_attended_users << FactoryGirl.create(:user)
+          event.self_attended_users << FactoryGirl.create(:user)
         end
 
         describe '#attendance_places_left' do
@@ -146,6 +146,74 @@ RSpec.describe Event, :type => :model do
           it { is_expected.to eq(false) }
         end
       end
+    end
+  end
+
+  describe '#users' do
+    let(:user) { FactoryGirl.create(:user, name: 'Normal User') }
+    let(:owner) { FactoryGirl.create(:user, name: 'Owner') }
+    let(:group_leader) { FactoryGirl.create(:user, name: 'Group Leader') }
+    let(:group_member) { FactoryGirl.create(:user, name: 'Group Member') }
+    let(:group) { FactoryGirl.create(:group, leader: group_leader) }
+
+    let(:mandatory) { false }
+    let(:groups_only) { false }
+    let(:event) { FactoryGirl.create(:event, owner: owner, mandatory: mandatory, groups_only: groups_only) }
+
+    subject { event.users }
+
+    before do
+      group.users << group_member
+      user.save
+      owner.save
+    end
+
+    context 'mandatory event' do
+      let(:mandatory) { true }
+
+      it { is_expected.to include(user) }
+      it { is_expected.to include(owner) }
+      it { is_expected.to include(group_leader) }
+      it { is_expected.to include(group_member) }
+    end
+
+    context 'group event' do
+      let(:groups_only) { true }
+
+      before do
+        event.groups << group
+      end
+
+      it { is_expected.to_not include(user) }
+      it { is_expected.to include(owner) }
+      it { is_expected.to include(group_leader) }
+      it { is_expected.to include(group_member) }
+    end
+
+    context 'open event' do
+      context 'without attendees' do
+        it { is_expected.to_not include(user) }
+        it { is_expected.to include(owner) }
+        it { is_expected.to_not include(group_leader) }
+        it { is_expected.to_not include(group_member) }
+      end
+
+      context 'with attendees' do
+        before do
+          event.self_attended_users << user
+        end
+
+        it { is_expected.to include(user) }
+        it { is_expected.to include(owner) }
+        it { is_expected.to_not include(group_leader) }
+        it { is_expected.to_not include(group_member) }
+      end
+    end
+
+    it 'handles duplication' do
+      group_leader.events << event
+      group.events << event
+      expect(subject.ids.sort).to eq(subject.uniq.ids.sort)
     end
   end
 end

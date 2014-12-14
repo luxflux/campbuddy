@@ -1,10 +1,15 @@
 class Event < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
   belongs_to :category
+
   has_many :attendances
-  has_many :users, through: :attendances
+  has_many :self_attended_users, through: :attendances, source: :user
+
   has_many :group_attendances
   has_many :groups, through: :group_attendances
+
+  has_many :group_attendees, through: :groups, source: :users
+  has_many :group_leader_attendees, through: :groups, source: :leader
 
   validates :owner, presence: true
   validates :category, presence: true
@@ -29,9 +34,18 @@ class Event < ActiveRecord::Base
   date_time_attribute :starts
   date_time_attribute :ends
 
+  def users
+    return User.all if mandatory?
+    ids = [owner_id]
+    ids.concat self_attended_user_ids
+    ids.concat group_attendee_ids
+    ids.concat group_leader_attendee_ids
+    User.where(id: ids)
+  end
+
   def attendance_places_left
     return nil unless max_attendees
-    max_attendees - users.count
+    max_attendees - self_attended_users.count
   end
 
   def any_places_left?
