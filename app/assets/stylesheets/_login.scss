@@ -1,5 +1,5 @@
-.clearance-sessions-new,
-.clearance-sessions-create {
+.sessions-new,
+.sessions-create {
   height: 100%;
 
   #main-wrapper,
@@ -44,6 +44,14 @@
   .other-links {
     text-align: center;
     margin: 1.5em;
+  }
+
+  .other-links a {
+    display: block;
+
+    & + a {
+      margin-top: .5em;
+    }
   }
 
   a {
