@@ -25,6 +25,11 @@ gem 'flutie'
 gem 'font-awesome-rails'
 gem 'pickadate-rails'
 
+group :production do
+  gem 'therubyracer'
+end
+
+
 group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
