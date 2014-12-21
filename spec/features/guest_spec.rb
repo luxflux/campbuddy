@@ -37,4 +37,9 @@ feature 'Guest View' do
     end
   end
 
+  describe 'main navigation' do
+    scenario 'is not visible' do
+      expect(page).to_not have_css('nav.main')
+    end
+  end
 end

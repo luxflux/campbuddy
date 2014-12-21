@@ -20,7 +20,7 @@
 </head>
 <body class="<%= body_class %>">
   <div id="main-wrapper">
-    <% if signed_in? %>
+    <% if signed_in? && can_see_navigation? %>
       <nav class="main">
         <%= nav_link "92-expand", news_index_path %>
         <%= nav_link "98-file-minus", events_path %>

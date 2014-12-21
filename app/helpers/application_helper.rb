@@ -22,4 +22,8 @@ module ApplicationHelper
   def back_link(url)
     link_to ico(:"01-chevron-left"), url
   end
+
+  def can_see_navigation?
+    !current_user.guest?
+  end
 end
