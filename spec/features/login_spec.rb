@@ -26,13 +26,13 @@ feature 'Login' do
     end
   end
 
-  # context 'as guest' do
-  #   scenario 'login is allowed' do
-  #     visit root_url
+  context 'as guest' do
+    scenario 'login is allowed' do
+      visit root_url
 
-  #     click_link 'Als Gast einloggen'
+      click_link 'Als Gast einloggen'
 
-  #     expect(page).to have_content 'Katalog'
-  #   end
-  # end
+      expect(page).to have_content 'Events'
+    end
+  end
 end

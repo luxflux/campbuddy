@@ -2,8 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= Guest.new
-
     case
     when user.admin?
       can :manage, :all
@@ -27,6 +25,8 @@ class Ability
       can :read, News
 
     when user.guest?
+      can :catalog, Event
+      can :show, Event
     end
   end
 end
