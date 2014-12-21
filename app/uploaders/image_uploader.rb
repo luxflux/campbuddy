@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    name = [mounted_as, 'default', version_name].compact.join('_')
+    name = [mounted_as, version_name].compact.join('_')
     "fallback/#{name}.png"
   end
 
