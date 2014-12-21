@@ -10,8 +10,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    name = [mounted_as, version_name, 'default.png'].compact.join('_')
-    "fallback/#{name}"
+    name = [mounted_as, version_name].compact.join('_')
+    "fallback/#{name}.png"
   end
 
   version :small do # 350x350 non retina
