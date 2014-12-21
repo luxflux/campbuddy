@@ -25,6 +25,8 @@ gem 'flutie'
 gem 'font-awesome-rails'
 gem 'pickadate-rails'
 
+gem 'rollbar'
+
 group :production do
   gem 'therubyracer'
 end

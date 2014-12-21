@@ -10,16 +10,14 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 set :keep_releases, 5
 
+task :notify_rollbar do
+  on roles(:app) do |h|
+    revision = `git log -n 1 --pretty=format:"%H"`
+    local_user = `whoami`
+    rollbar_token = '12d291e5253a4c0dbc7fc20e66e5ba5a'
+    rails_env = fetch(:rails_env, 'production')
+    execute "curl -s -o /dev/null https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{rails_env} -F revision=#{revision} -F local_username=#{local_user}", :once => true
+  end
+end
 
-# namespace :deploy do
-
-#   after :restart, :clear_cache do
-#     on roles(:web), in: :groups, limit: 3, wait: 10 do
-#       # Here we can do anything such as:
-#       # within release_path do
-#       #   execute :rake, 'cache:clear'
-#       # end
-#     end
-#   end
-
-# end
+after :deploy, 'notify_rollbar'
