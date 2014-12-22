@@ -74,7 +74,7 @@
         <p><%= l @event.starts %> - <%= l @event.ends, format: :time_only %></p>
       </div>
     </li>
-    <% unless @event.meeting_point.empty? %>
+    <% unless @event.meeting_point.to_s.empty? %>
     <li class="meeting_point">
       <div class="icon"><%= ico(:"26-heart") %></div>
       <div class="text">
