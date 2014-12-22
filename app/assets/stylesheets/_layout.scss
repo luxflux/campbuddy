@@ -2,6 +2,34 @@ html { height: 100% }
 body {
   margin: 0;
   font-weight: 300;
+
+  &.webapp {
+    padding-top: 20px;
+
+    #status-bar {
+      display: block;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: $green;
+      box-shadow: 0 0 4px $medium-gray;
+    }
+
+    .detail-nav {
+      top: 20px;
+    }
+    .title-pic {
+      top: 105px;
+    }
+  }
+}
+
+#status-bar {
+  display: none;
 }
 
 small {
@@ -28,10 +56,6 @@ section.content {
 
 div.image_preview {
    @include clearfix;
-}
-
-nav.day{
-  padding: 4px;
 }
 
 img.avatar {

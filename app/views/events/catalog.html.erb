@@ -1,28 +1,50 @@
 <% if @events.any? %>
+<div class="nav-wrapper">
   <nav class="events">
     <% @categories.each do |category| %>
       <%= link_to category.name, '#', data: { filter: category.identifier } %>
     <% end %>
   </nav>
-
+</div>
   <div class="events">
     <% @events.group_by { |e| e.starts.to_date }.each do |date, events| %>
       <h1><%= l date, format: :weekday_only %></h1>
       <% events.each do |event| %>
-        <div class="event <%= event.category.identifier %>">
-          <div class="impression">
-            <%= image_tag event.impression.catalog_preview.url %>
-          </div>
-          <div class="details">
-            <div class="title"><%= event.title %></div>
-            <div class="description"><%= event.description %></div>
-          </div>
-          <div class="link"><%= link_to ico('02-chevron-right'), event_path(event, back: catalog_events_path) %></div>
+        <div class="event-entry <%= event.category.identifier %>">
+          <a alt="link zur Deteilansicht" href="<%= event_path(event, back: catalog_events_path) %>">
+            <span class="color-stripe">&nbsp;</span>
+            <span class="event-infos">
+              <div class="event-image">
+                <%= image_tag event.impression.catalog_preview.url %>
+              </div>
+
+              <span class="info">
+                <span class="title"><%= event.title %></span>
+                <span class="description"><%= event.description %></span>
+              </span>
+
+              <span class="link"><i class="icon-essential-light-02-chevron-right">&nbsp;</i></span>
+            </span>
+          </a>
         </div>
       <% end %>
     <% end %>
   </div>
+
 <% else %>
   <h1><%= t('.no_events.title') %></h1>
   <p><%= t('.no_events.text') %></p>
 <% end %>
+
+
+
+        <!--<div class="event <-%= event.category.identifier %>">
+          <div class="impression">
+            <-%= image_tag event.impression.catalog_preview.url %>
+          </div>
+          <div class="details">
+            <div class="title"><-%= event.title %></div>
+            <div class="description"><-%= event.description %></div>
+          </div>
+          <div class="link"><-%= link_to ico('02-chevron-right'), event_path(event, back: catalog_events_path) %></div>
+        </div>-->

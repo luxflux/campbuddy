@@ -16,39 +16,39 @@ ActiveRecord::Schema.define(version: 20141214115905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendances", force: true do |t|
+  create_table "attendances", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_id"
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "identifier"
   end
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "title"
+    t.string   "title",         limit: 255
     t.text     "description"
-    t.string   "meeting_point"
+    t.string   "meeting_point", limit: 255
     t.datetime "starts"
     t.datetime "ends"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "max_attendees"
     t.integer  "category_id"
-    t.string   "impression"
-    t.boolean  "mandatory",     default: false
-    t.boolean  "groups_only",   default: false
+    t.string   "impression",    limit: 255
+    t.boolean  "mandatory",                 default: false
+    t.boolean  "groups_only",               default: false
   end
 
   add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
 
-  create_table "group_attendances", force: true do |t|
+  create_table "group_attendances", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "event_id"
     t.datetime "created_at"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20141214115905) do
   add_index "group_attendances", ["event_id"], name: "index_group_attendances_on_event_id", using: :btree
   add_index "group_attendances", ["group_id"], name: "index_group_attendances_on_group_id", using: :btree
 
-  create_table "groups", force: true do |t|
-    t.string   "name"
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.integer  "leader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20141214115905) do
 
   add_index "groups", ["leader_id"], name: "index_groups_on_leader_id", using: :btree
 
-  create_table "memberships", force: true do |t|
+  create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
     t.datetime "created_at"
@@ -76,25 +76,25 @@ ActiveRecord::Schema.define(version: 20141214115905) do
 
   add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true, using: :btree
 
-  create_table "news", force: true do |t|
-    t.string   "message"
+  create_table "news", force: :cascade do |t|
+    t.string   "message",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "visible_until"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "firstname"
-    t.string   "email"
+  create_table "users", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.string   "firstname",          limit: 255
+    t.string   "email",              limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
     t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
-    t.string   "avatar"
-    t.string   "invitation_token"
+    t.string   "avatar",             limit: 255
+    t.string   "invitation_token",   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
