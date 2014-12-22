@@ -33,6 +33,9 @@
   }
 
   .news-entries {
+    float: none;
+    clear: both;
+    
     .icon {
       float: left;
       width: 9%;
