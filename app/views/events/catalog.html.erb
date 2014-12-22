@@ -1,10 +1,11 @@
 <% if @events.any? %>
+<div class="nav-wrapper">
   <nav class="events">
     <% @categories.each do |category| %>
       <%= link_to category.name, '#', data: { filter: category.identifier } %>
     <% end %>
   </nav>
-
+</div>
   <div class="events">
     <% @events.group_by { |e| e.starts.to_date }.each do |date, events| %>
       <h1><%= l date, format: :weekday_only %></h1>
