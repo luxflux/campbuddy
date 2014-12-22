@@ -85,10 +85,6 @@
 
 .events .event {
   @include outer-container;
-
-  /*border-left: 6px solid $medium-gray;
-  border-top: 1px solid $light-gray;
-  min-height: 85px;*/
 }
 
 .events-show {
@@ -101,6 +97,8 @@
     width: 100%;
     overflow: hidden;
     background-size: cover;
+
+    -webkit-transform: translate3d(0, 0, 0);
   }
 
   .title-pic img{
@@ -115,6 +113,8 @@
   position: relative;
   margin-top: 265px;
   background-color: #fff;
+
+  -webkit-transform: translate3d(0, 0, 0);
 
   .partipicate, .partipicate-mandatory {
     position: absolute;
