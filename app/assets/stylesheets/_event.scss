@@ -1,3 +1,88 @@
+.event-entry {
+  @include outer-container;
+  position: relative;
+  height: 5.5em;
+  box-shadow: 0 1px 0 $light-gray;
+  clear: both;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+  }
+  .color-stripe {
+    display: block;
+    float: left;
+    background-color: $medium-gray;
+    height: 100%;
+    width: 0.4em;
+  }
+  .event-infos {
+    display: block;
+    float: left;
+    width: calc(100% - 0.4em);
+
+
+    .start-time, .event-image {
+      @include span-columns(4);
+      display: block;
+      float: left;
+      text-transform: uppercase;
+      font-size: 1.9em;
+      line-height: 28px;
+      padding: 0.5em 0 0 0.5em;
+    }
+    .event-image{
+      padding: 0;
+      overflow: hidden;
+      height: 2.9em;
+
+      img {
+        height: 2.9em;
+      }
+    }
+    .info {
+      display: block;
+      @include span-columns(7);
+      margin: 1em 0 0 0;
+      line-height: 1em;
+
+      .title {
+        @include small-bold-title;
+        line-height: 1.25;
+        display: block;
+      }
+      .description {
+        font-size: .9em;
+      }
+    }
+    .link i {
+      color: #ededef;
+      font-size: 2em;
+      position: absolute;
+      top: 0.8em;
+      right: -.2em;
+    }
+  }
+
+  &.red .color-stripe {
+    background-color: $red;
+  }
+  &.green .color-stripe {
+    background-color: $green;
+  }
+  &.blue .color-stripe {
+    background-color: $blue;
+  }
+  &.royal .color-stripe {
+    background-color: $dark-blue;
+  }
+  &.yellow .color-stripe {
+    background-color: $yellow;
+  }
+}
+
 .events .event {
   @include outer-container;
 
