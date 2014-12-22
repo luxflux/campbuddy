@@ -86,68 +86,9 @@
 .events .event {
   @include outer-container;
 
-  border-left: 6px solid $medium-gray;
+  /*border-left: 6px solid $medium-gray;
   border-top: 1px solid $light-gray;
-  min-height: 85px;
-
-  .impression {
-    @include span-columns(4);
-  }
-
-  .date-time {
-    @include span-columns(4);
-    text-transform: uppercase;
-    font-size: $date-time-size;
-    padding: 8px 0 0 0;
-    line-height: 28px;
-    padding-left: 0.2em;
-
-    p {
-      margin-left: 8px;
-    }
-  }
-
-  .details {
-    @include span-columns(7);
-    .title {
-      @include small-bold-title;
-      margin-top: 10px;
-      line-height: 1.25;
-    }
-    .description{
-      font-size: .9em;
-      line-height: 1.2em;
-    }
-  }
-
-  .link {
-    @include span-columns(1);
-    margin: 20px 0 0 0;
-    font-size: 2.3em;
-    padding: 0;
-    height: 100%;
-    a {
-      color: $light-gray;
-      position: absolute;
-      right: 0;
-    }
-  }
-
-  &.red{
-    border-left-color: $red;
-  }
-  &.green{
-    border-left-color: $green;
-  }
-  &.blue{
-    border-left-color: $blue;
-  }
-  &.royal{
-    border-left-color: $dark-blue;
-  }
-  &.yellow{
-    border-left-color: $yellow;
-  }
+  min-height: 85px;*/
 }
 
 .events-show {
