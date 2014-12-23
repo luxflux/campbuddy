@@ -1,3 +1,6 @@
+.nav-wrapper {
+  padding: 0.4em 0.4em 0.5em 0.4em;
+}
 nav {
   font-size: 0;
   a {
@@ -58,6 +61,7 @@ nav.day {
     min-width: 30px;
     width: 11.1875%;
     margin-right: 1.5%;
+    margin-bottom: 0.6em;
 
     line-height: 25px;
     font-size: 12px;
@@ -82,16 +86,13 @@ nav.day {
 nav.events {
   @include outer-container;
   font-size: $base-font-size;
-  padding: 0px 6px 8px 6px;
   a {
     @include span-columns(4);
     @include omega(3n);
 
-    margin-top: 0.4em;
-
-    line-height: 28px; /*was 35*/
-    font-size: 12px;
-    font-weight: 400;
+    line-height: 2.2em;
+    font-size: .8em;
+    font-weight: 600;
     text-transform: uppercase;
 
     color: #fff;

@@ -1,10 +1,11 @@
-<nav class="day">
-  <% ((Date.today.at_beginning_of_week - 1)..Date.today.end_of_week).each do |date| %>
-    <a href="<%= events_path(date: date) %>" class="<%= 'active' if date == @selected_date %>">
-      <%= l date, format: :short_weekday_only %>
-    </a>
-  <% end %>
-</nav>
+<div class="nav-wrapper">
+  <nav class="day">
+    <% ((Date.today.at_beginning_of_week - 1)..Date.today.end_of_week).each do |date| %>
+      <a href="<%= events_path(date: date) %>" class="<%= 'active' if date == @selected_date %>">
+        <%= l date, format: :short_weekday_only %>
+      </a>
+    <% end %>
+  </nav>
 
 <% if @events.any? %>
   <nav class="events">
@@ -12,11 +13,13 @@
       <%= link_to category.name, '#', data: { filter: category.identifier } %>
     <% end %>
   </nav>
+</div>
 
-  <div class="events">
-    <%= render @events %>
-  </div>
+<div class="events">
+  <%= render @events %>
+</div>
 <% else %>
+</div>
   <h1><%= t('.no_events.title') %></h1>
   <p><%= t('.no_events.text') %></p>
 <% end %>

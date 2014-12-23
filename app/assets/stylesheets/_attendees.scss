@@ -1,30 +1,49 @@
-.attendees {
-  li {
-    display: inline-block;
-    width: 60px;
-    margin: 5px;
-  }
+ .attendees {
+    li {
+      display: block;
+      width: 60px;
+      float: left;
+      margin-right: 0.5em;
 
-  .image {
-    box-shadow: 0 0 20px -5px $medium-gray;
-    border-radius: 56px;
-    overflow: hidden;
-    width: 56px;
-    height: 56px;
-    margin: 0 2px 2px 2px;
-  }
+      &.space {
+        color: $red;
+        .count {
+          box-shadow: 0 0 20px -5px #535a6a;
+          border-radius: 56px;
+          width: 56px;
+          height: 56px;
+          margin: 0 2px 2px 2px;
+          text-align: center;
+          box-sizing: border-box;
+          padding-top: 4px;
+          font-size: 2em;
+          font-weight: 300;
+          color: #fff;
+          background-color: $red;
+        }
+      }
+    }
+    
+    .image {
+      box-shadow: 0 0 20px -5px $medium-gray;
+      border-radius: 56px;
+      overflow: hidden;
+      width: 56px;
+      height: 56px;
+      margin: 0 2px 2px 2px;
+    }
 
-  .image > img {
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    margin: 0;
-  }
+    .image > img {
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      margin: 0;
+    }
 
-  .name {
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    margin: 0 0 2px 0;
+    .name {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      margin: 0 0 2px 0;
+    }
   }
-}

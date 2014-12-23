@@ -19,6 +19,7 @@
   <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/welcome-screen.png">
 </head>
 <body class="<%= body_class %>">
+  <div id="status-bar">&nbsp</div>
   <div id="main-wrapper">
     <% if signed_in? && can_see_navigation? %>
       <nav class="main">

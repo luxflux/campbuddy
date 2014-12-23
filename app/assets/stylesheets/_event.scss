@@ -1,68 +1,90 @@
+.event-entry {
+  @include outer-container;
+  position: relative;
+  height: 5.5em;
+  box-shadow: 0 1px 0 $light-gray;
+  clear: both;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+  }
+  .color-stripe {
+    display: block;
+    float: left;
+    background-color: $medium-gray;
+    height: 100%;
+    width: 0.4em;
+  }
+  .event-infos {
+    display: block;
+    float: left;
+    width: calc(100% - 0.4em);
+
+
+    .start-time, .event-image {
+      @include span-columns(4);
+      display: block;
+      float: left;
+      text-transform: uppercase;
+      font-size: 1.9em;
+      line-height: 28px;
+      padding: 0.5em 0 0 0.5em;
+    }
+    .event-image{
+      padding: 0;
+      overflow: hidden;
+      height: 2.9em;
+
+      img {
+        height: 2.9em;
+      }
+    }
+    .info {
+      display: block;
+      @include span-columns(7);
+      margin: 1em 0 0 0;
+      line-height: 1em;
+
+      .title {
+        @include small-bold-title;
+        line-height: 1.25;
+        display: block;
+      }
+      .description {
+        font-size: .9em;
+      }
+    }
+    .link i {
+      color: #ededef;
+      font-size: 2em;
+      position: absolute;
+      top: 0.8em;
+      right: -.2em;
+    }
+  }
+
+  &.red .color-stripe {
+    background-color: $red;
+  }
+  &.green .color-stripe {
+    background-color: $green;
+  }
+  &.blue .color-stripe {
+    background-color: $blue;
+  }
+  &.royal .color-stripe {
+    background-color: $dark-blue;
+  }
+  &.yellow .color-stripe {
+    background-color: $yellow;
+  }
+}
+
 .events .event {
   @include outer-container;
-
-  border-left: 6px solid $medium-gray;
-  border-top: 1px solid $light-gray;
-  min-height: 85px;
-
-  .impression {
-    @include span-columns(4);
-  }
-
-  .date-time {
-    @include span-columns(4);
-    text-transform: uppercase;
-    font-size: $date-time-size;
-    padding: 8px 0 0 0;
-    line-height: 28px;
-    padding-left: 0.2em;
-
-    p {
-      margin-left: 8px;
-    }
-  }
-
-  .details {
-    @include span-columns(7);
-    .title {
-      @include small-bold-title;
-      margin-top: 10px;
-      line-height: 1.25;
-    }
-    .description{
-      font-size: .9em;
-      line-height: 1.2em;
-    }
-  }
-
-  .link {
-    @include span-columns(1);
-    margin: 20px 0 0 0;
-    font-size: 2.3em;
-    padding: 0;
-    height: 100%;
-    a {
-      color: $light-gray;
-      position: absolute;
-      right: 0;
-    }
-  }
-
-  &.red{
-    border-left-color: $red;
-  }
-  &.green{
-    border-left-color: $green;
-  }
-  &.blue{
-    border-left-color: $blue;
-  }
-  &.royal{
-    border-left-color: $dark-blue;
-  }
-  &.yellow{
-    border-left-color: $yellow;
-  }
 }
 
 .events-show {
@@ -75,6 +97,8 @@
     width: 100%;
     overflow: hidden;
     background-size: cover;
+
+    -webkit-transform: translate3d(0, 0, 0);
   }
 
   .title-pic img{
@@ -89,6 +113,8 @@
   position: relative;
   margin-top: 265px;
   background-color: #fff;
+
+  -webkit-transform: translate3d(0, 0, 0);
 
   .partipicate, .partipicate-mandatory {
     position: absolute;
@@ -139,27 +165,6 @@
 
     ul {
       padding: 0;
-    }
-  }
-  .attendees > li {
-    margin: 0;
-
-    &.space {
-      color: $red;
-      .count {
-        box-shadow: 0 0 20px -5px #535a6a;
-        border-radius: 56px;
-        width: 56px;
-        height: 56px;
-        margin: 0 2px 2px 2px;
-        text-align: center;
-        box-sizing: border-box;
-        padding-top: 4px;
-        font-size: 2em;
-        font-weight: 300;
-        color: #fff;
-        background-color: $red;
-      }
     }
   }
 
