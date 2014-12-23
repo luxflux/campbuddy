@@ -42,5 +42,5 @@ Rails.application.routes.draw do
     mount MailPreview => 'mail_view'
   end
 
-  root 'news#index'
+  root 'root#show'
 end
