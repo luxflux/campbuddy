@@ -1,10 +1,11 @@
 jQuery ->
   filters = $('nav.events a')
-  events = $('div.events .event')
+  events = $('div.events .event-entry')
 
 
   filters.on 'click', (event) ->
     element = $(@)
+
     if element.hasClass('active')
       events.slideDown()
       filters.removeClass('active filtered-out')

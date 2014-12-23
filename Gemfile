@@ -46,6 +46,9 @@ group :development, :test do
   gem 'timecop'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
+  gem 'database_cleaner'
 
   gem 'rails-erd'
   gem 'foreman'
