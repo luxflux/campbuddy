@@ -35,4 +35,11 @@ feature 'Login' do
       expect(page).to have_content 'Events'
     end
   end
+
+  describe 'main navigation' do
+    scenario 'is not displayed' do
+      visit root_url
+      expect(page).to_not have_css('nav.main')
+    end
+  end
 end

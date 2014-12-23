@@ -38,8 +38,9 @@ feature 'Guest View' do
   end
 
   describe 'main navigation' do
-    scenario 'is not visible' do
-      expect(page).to_not have_css('nav.main')
+    scenario 'has only logout' do
+      expect(page).to_not have_css('nav.main.five')
+      expect(page).to have_css('nav.main.single')
     end
   end
 end
