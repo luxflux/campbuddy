@@ -6,4 +6,6 @@ Rollbar.configure do |config|
   unless Rails.env.production?
     config.enabled = false
   end
+
+  config.exception_level_filters.merge!('ActionController::RoutingError' => 'ignore')
 end
