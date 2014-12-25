@@ -36,10 +36,19 @@ feature 'Login' do
     end
   end
 
-  describe 'main navigation' do
+  describe 'main navigation on login screen' do
     scenario 'is not displayed' do
       visit root_url
       expect(page).to_not have_css('nav.main')
+    end
+  end
+
+  context 'as logged in user' do
+    it 'redirects to the root url' do
+      visit sign_in_url
+      click_link 'Als Gast einloggen'
+      visit sign_in_url
+      expect(current_path).to eq(catalog_events_path)
     end
   end
 end
