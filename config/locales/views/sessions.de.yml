@@ -2,8 +2,9 @@
 de:
   sessions:
     form:
-      forgot_password: Passwort vergessen?
       sign_up: Einloggen
     new:
+      as_guest: Als Gast einloggen
+      forgot_password: Passwort vergessen?
       text: Willkommen im One Youth CampPlaner
       title: CampPlaner

@@ -4,10 +4,20 @@ describe User do
   let(:user) { FactoryGirl.build(:user) }
 
   context 'validations' do
-    it 'validates that the email exists' do
-      user = User.new
-      user.valid?
-      expect(user).to have(3).error_on(:email)
+    context 'normal user' do
+      it { is_expected.to validate_presence_of :email }
+      it { is_expected.to validate_presence_of :password }
+      it { is_expected.to validate_presence_of :firstname }
+      it { is_expected.to validate_presence_of :name }
+    end
+
+    context 'a guest' do
+      subject { User.new(guest: true) }
+
+      it { is_expected.to_not validate_presence_of :email }
+      it { is_expected.to_not validate_presence_of :password }
+      it { is_expected.to_not validate_presence_of :firstname }
+      it { is_expected.to_not validate_presence_of :name }
     end
   end
 

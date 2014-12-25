@@ -13,9 +13,8 @@ class User < ActiveRecord::Base
   has_many :group_events, through: :groups, source: :events
   has_many :leaded_group_events, through: :leaded_groups, source: :events
 
-  validates :email, presence: true
-  validates :firstname, presence: true
-  validates :name, presence: true
+  validates :firstname, presence: true, unless: :guest?
+  validates :name, presence: true, unless: :guest?
 
   mount_uploader :avatar, ImageUploader
 
@@ -46,16 +45,16 @@ class User < ActiveRecord::Base
     Event.where(id: ids)
   end
 
-  def admin?
-    !!admin
-  end
-
   def user?
-    !admin?
+    !admin? && !guest?
   end
 
-  def guest?
-    false
+  def email_optional?
+    guest?
+  end
+
+  def password_optional?
+    guest?
   end
 
   def fullname

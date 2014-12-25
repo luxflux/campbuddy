@@ -22,13 +22,19 @@
   <div id="status-bar">&nbsp</div>
   <div id="main-wrapper">
     <% if signed_in? %>
-      <nav class="main">
-        <%= nav_link "92-expand", news_index_path %>
-        <%= nav_link "98-file-minus", events_path %>
-        <%= nav_link "60-question-circle", catalog_events_path %>
-        <%= nav_link "99-statistic-pie", groups_path %>
-        <%= nav_link "53-mobile", user_path(current_user) %>
-      </nav>
+      <% if can_see_navigation? %>
+        <nav class="main five">
+          <%= nav_link "92-expand", news_index_path %>
+          <%= nav_link "98-file-minus", events_path %>
+          <%= nav_link "60-question-circle", catalog_events_path %>
+          <%= nav_link "99-statistic-pie", groups_path %>
+          <%= nav_link "53-mobile", user_path(current_user) %>
+        </nav>
+      <% else %>
+        <nav class="main single">
+          <%= nav_link "49-magnifier", sign_out_path, method: :delete %>
+        </nav>
+      <% end %>
     <% end %>
 
     <div id="flash">

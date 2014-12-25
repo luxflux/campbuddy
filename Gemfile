@@ -45,6 +45,10 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'timecop'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
+  gem 'database_cleaner'
 
   gem 'rails-erd'
   gem 'foreman'

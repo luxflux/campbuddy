@@ -75,7 +75,7 @@ describe Ability do
   end
 
   context 'as guest' do
-    let(:current_user) { nil }
+    let(:current_user) { FactoryGirl.create(:user, admin: false, guest: true) }
 
     it { should_not be_able_to(:manage, :all) }
     it { should_not be_able_to(:read, Event) }
@@ -83,5 +83,7 @@ describe Ability do
     it { should_not be_able_to(:read, Group) }
     it { should_not be_able_to(:read, Membership) }
     it { should_not be_able_to(:read, News) }
+    it { should be_able_to(:catalog, Event) }
+    it { should be_able_to(:show, Event) }
   end
 end

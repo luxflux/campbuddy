@@ -31,7 +31,6 @@ nav.main {
     /*font-size: 16px;*/
     font-size: 30px;
     padding: 0;
-    width: 20%;
     border-left: 1px solid $light-gray;
     color: #fff;
 
@@ -45,6 +44,13 @@ nav.main {
     &:focus,&:active,&:hover {
       color: $medium-gray;
     }
+  }
+
+  &.five a {
+    width: 20%;
+  }
+  &.single a {
+    width: 100%;
   }
 }
 
