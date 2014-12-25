@@ -58,6 +58,12 @@ RailsAdmin.config do |config|
     configure :leaded_group_events do
       hide
     end
+
+    edit do
+      configure :send_mail, :boolean do
+        show
+      end
+    end
   end
 
   config.model 'Event' do
