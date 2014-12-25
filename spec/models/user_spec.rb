@@ -101,4 +101,52 @@ describe User do
       end
     end
   end
+
+  describe '#send_mail=' do
+    let(:send_mail) { nil }
+
+    subject { FactoryGirl.build :user }
+
+    before do
+      subject.send_mail = send_mail
+    end
+
+    context 'a new user' do
+      context 'true' do
+        let(:send_mail) { true }
+
+        it 'sends the invitation mail' do
+          expect { subject.save }.to change { ActionMailer::Base.deliveries.count }.by(1)
+        end
+      end
+
+      context 'false' do
+        let(:send_mail) { false }
+
+        it 'does not send invitation mail' do
+          expect { subject.save }.to_not change { ActionMailer::Base.deliveries.count }
+        end
+      end
+
+      context 'nil' do
+        let(:send_mail) { nil }
+
+        it 'does not send invitation mail' do
+          expect { subject.save }.to_not change { ActionMailer::Base.deliveries.count }
+        end
+      end
+    end
+
+    context 'an existing user' do
+      subject { FactoryGirl.create :user }
+
+      context 'true' do
+        let(:send_mail) { true }
+
+        it 'does not send invitation mail' do
+          expect { subject.save }.to_not change { ActionMailer::Base.deliveries.count }
+        end
+      end
+    end
+  end
 end

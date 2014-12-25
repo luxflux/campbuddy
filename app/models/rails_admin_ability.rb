@@ -7,6 +7,7 @@ class RailsAdminAbility
       can :dashboard
 
       can :read, User
+      can :create, User
       can :read, Category
       can :manage, Event
       can :manage, Group
