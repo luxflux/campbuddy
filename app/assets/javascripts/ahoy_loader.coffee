@@ -1,2 +1,0 @@
-ahoy.trackView()
-ahoy.trackClicks()

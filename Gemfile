@@ -27,8 +27,6 @@ gem 'pickadate-rails'
 
 gem 'rollbar'
 
-gem 'ahoy_matey'
-
 group :production do
   gem 'therubyracer'
 end
