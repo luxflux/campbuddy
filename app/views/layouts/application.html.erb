@@ -17,6 +17,8 @@
   <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/assets/welcome-screen.png">
   <!-- iPhone 5 Retina 640x1096-->
   <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/welcome-screen.png">
+
+  <%= analytics_init if Rails.env.production? %>
 </head>
 <body class="<%= body_class %>">
   <div id="status-bar">&nbsp;</div>

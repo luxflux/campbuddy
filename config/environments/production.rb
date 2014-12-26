@@ -80,4 +80,6 @@ Rails.application.configure do
   # Use sendmail for mailings
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.default_url_options = { host: 'campplaner.yux.ch' }
+
+  GA.tracker = 'UA-58000793-1'
 end
