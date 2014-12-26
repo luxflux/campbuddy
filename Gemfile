@@ -26,6 +26,7 @@ gem 'font-awesome-rails'
 gem 'pickadate-rails'
 
 gem 'rollbar'
+gem 'google-analytics-rails'
 
 group :production do
   gem 'therubyracer'
