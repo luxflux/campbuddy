@@ -1,7 +1,7 @@
 <div class="padded-row">
   <h1><%= @user.fullname %><small><%= @user.email %></small></h1>
 
-  <%= image_tag @user.avatar.small.url, class: :avatar %>
+  <%= image_tag @user.avatar.thumb.url, class: :avatar %>
 </div>
 
 <% if @events.any? %>
