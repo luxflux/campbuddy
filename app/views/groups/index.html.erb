@@ -2,6 +2,8 @@
 <% if @groups.any? %>
   <%= render @groups %>
 <% else %>
-  <h1><%= t('.no_groups.title') %></h1>
-  <p><%= t('.no_groups.text') %></p>
+  <div class="no-entity">
+    <h1><%= t('.no_groups.title') %></h1>
+    <p><%= t('.no_groups.text') %></p>
+  </div>
 <% end %>

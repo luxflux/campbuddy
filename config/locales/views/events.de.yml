@@ -4,11 +4,11 @@ de:
     catalog:
       no_events:
         text: Leider gibt es noch keine Events.
-        title: Events
+        title: Keine Events
     index:
       no_events:
-        text: Leider hat es an diesem Tag keine Events.
-        title: Events
+        text: Leider gibt es an diesem Tag keine Events.
+        title: Keine Events
     show:
       attendance: Teilnehmen?
       full: Leider hats keinen Platz mehr

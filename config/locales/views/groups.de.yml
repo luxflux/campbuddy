@@ -5,5 +5,5 @@ de:
       no_events: Es stehen keine Events an.
     index:
       no_groups:
-        text: Leider bist du keiner Gruppe zugewiesen.
-        title: Keine Gruppen gefunden
+        text: Du bist noch keiner Gruppe zugewiesen.
+        title: Keine Gruppen
