@@ -44,10 +44,12 @@ section.content {
 .full-row {
   padding: 0em;
   margin: 0em;
+  @include clearfix;
 }
 
 .padded-row {
   padding: .4em 1em;
+  @include clearfix;
 }
 
 .full-row + .padded-row {

@@ -16,7 +16,9 @@
         <%= render group.events %>
       </div>
     <% else %>
-      <%= t('.no_events') %>
+      <div class="no-entity">
+        <%= t('.no_events') %>
+      </div>
     <% end %>
   </div>
 </div>

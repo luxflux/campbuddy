@@ -1,14 +1,3 @@
-<!--<div class="event <%= event.category.identifier %>">
-  <div class="date-time">
-    <p><%= event.starts.strftime('%a') %><br><%= event.starts.strftime('%H:%M') %></p>
-  </div>
-  <div class="details">
-    <div class="title"><%= event.title %></div>
-    <div class="description"><%= event.description %></div>
-  </div>
-  <div class="link"><%= link_to ico('02-chevron-right'), event_path(event, back: request.fullpath) %></div>
-</div>-->
-
 <div class="event-entry <%= event.category.identifier %>">
   <a alt="link zur Deteilansicht" href="<%= event_path(event, back: request.fullpath) %>">
     <span class="color-stripe">&nbsp;</span>
