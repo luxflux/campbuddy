@@ -37,7 +37,7 @@ small {
 }
 
 section.content {
-	margin-bottom: 34px;
+	padding-bottom: 34px;
   @include outer-container;
 }
 
@@ -55,7 +55,7 @@ section.content {
 }
 
 div.image_preview {
-   @include clearfix;
+  @include clearfix;
 }
 
 img.avatar {
