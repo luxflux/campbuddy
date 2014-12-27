@@ -28,7 +28,6 @@ nav.main {
   height: 36px;
 
   a {
-    /*font-size: 16px;*/
     font-size: 30px;
     padding: 0;
     border-left: 1px solid $light-gray;
@@ -46,9 +45,11 @@ nav.main {
     }
   }
 
+
   &.five a {
     width: 20%;
   }
+
   &.single a {
     width: 100%;
   }
@@ -176,5 +177,19 @@ nav.events {
   & > p {
     @include small-bold-title();
     margin: 0 0 0 50px;
+  }
+}
+
+@media (min-width: 600px){
+  nav.main.five {
+    padding-left: 50%;
+
+    a {
+      width: 4em;
+      
+      &:first-child {
+        margin-left: calc(-4em*5/2);
+      }
+    }
   }
 }
