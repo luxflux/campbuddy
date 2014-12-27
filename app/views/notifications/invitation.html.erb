@@ -1,20 +1,47 @@
 <html>
 <head>
-  <style>
-    body {
-      font-family: "Open Sans" "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-    }
+  <style type="text/css">
+  a { color: rgb(249, 112, 116); transition: all 1s ease; cursor: pointer; text-decoration: underline;}
+  a:hover { color: rgb(249, 112, 116); text-shadow: 0 0 3px #aaa;}
   </style>
 </head>
-<body>
-  <h1>Hallo <%= @user.firstname %></h1>
-
-  <p>Du bist herzlich eingeladen deinen Account beim Campplaner zu aktivieren.</p>
-
-  <p>Klicke <%= link_to "hier", onboarding_start_url(token: @user.invitation_token) %> um zu starten.</p>
-
-  <p>Viele Grüsse</p>
-
-  <p>Das Team</p>
+<body style="color: rgb(30, 30, 30); -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" style="width: 600px; margin:auto;">
+  <tr>
+    <td>
+      <h1 style="font-size: 32px; font-weight: 300; height: 40px; line-height: 40px; margin-top: 45px; margin-bottom: 25px; text-align: center;">CampPlaner</h1>
+      <p style="font-size: 16px;font-weight: 300;height: 24px;line-height: 24px;margin-bottom: 6px;margin-top: 6px;text-align: center;">Einladung zum One Youth CampPlaner</p>
+      <p style="font-size: 22px; font-weight: 300; height: 72px; line-height: 72px; margin-bottom: 4px; margin-top: 4px; text-align: center;">
+        <span style="color: rgb(38, 225, 160); padding-right: 8px; padding-left: 8px;">&#8226;</span>
+        <span style="color: rgb(249, 112, 116); padding-right: 8px; padding-left: 8px;">&#8226;</span>
+        <span style="color: rgb(34, 200, 219); padding-right: 8px; padding-left: 8px;">&#8226;</span>
+      </p>
+    </td>  
+  </tr>
+  <tr>
+    <td><h1 style="font-size: 32px; font-weight: 300; height: 40px; line-height: 40px; margin-top: 45px; margin-bottom: 25px;">Hallo <%= @user.firstname %></h1></td>
+  </tr>
+  <tr>
+    <td>
+      <p style="font-size: 16px; font-weight: 300; line-height: 24px;margin-bottom: 6px;margin-top: 6px;">
+        Da du für das One Youth Wintercamp 2015 angemeldet bist, erhälst du dieses E-Mail von dem Wintercamp CampPlaner.<br>
+        Der CampPlaner gibt dir eine Übersicht über alle angebotenen Workshops und Events im Camp. Für diese kannst du dich
+        auch schon im voraus anmelden.<br>
+        Du bist herzlich eingeladen deinen Account beim CampPlaner zu aktivieren.<br>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p style="font-size: 16px;font-weight: 300; line-height: 24px;margin-bottom: 6px;margin-top: 6px;">Klicke <span style="color: rgb(249, 112, 116);"><%= link_to "hier", onboarding_start_url(token: @user.invitation_token) %></span> um zu starten.</p>
+    </td>
+  </tr>
+  <tr><td>
+    <p style="font-size: 16px;font-weight: 300; line-height: 24px; margin-bottom: 6px; margin-top: 45px;">
+      Mit freundlichen Grüssen<br>
+      Dein One Youth Wintercamp Team
+    </p>
+  </td></tr>
+</table>
 </body>
 </html>

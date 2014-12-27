@@ -1,9 +1,14 @@
+One Youth Wintercamp 2015 CampPlaner
+
+
 Hallo <%= @user.firstname %>
 
-Du bist herzlich eingeladen deinen Account beim Campplaner zu aktivieren.
+Da du für das One Youth Wintercamp 2015 angemeldet bist, erhälst du dieses E-Mail von dem Wintercamp CampPlaner.
+Der CampPlaner gibt dir eine Übersicht über alle angebotenen Workshops und Events im Camp. Für diese kannst du dich
+auch schon im voraus anmelden.
+Du bist herzlich eingeladen deinen Account beim CampPlaner zu aktivieren.
 
 Folge diesem Link um zu starten: <%= url_for onboarding_start_url(token: @user.invitation_token) %>
 
-Viele Grüsse
-
-Das Team
+Mit freundlichen Grüssen
+Dein One Youth Wintercamp Team
