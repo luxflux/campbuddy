@@ -8,6 +8,13 @@ class EventsController < ApplicationController
     rescue ArgumentError
       @selected_date = Date.current
     end
+    if @selected_date < Setting.camp_start
+      @selected_date = Setting.camp_start
+    end
+    if @selected_date > Setting.camp_end
+      @selected_date = Setting.camp_end
+    end
+
     @events = Event.on_date(@selected_date).order(:starts)
     @categories = Category.where(id: @events.pluck(:category_id))
   end

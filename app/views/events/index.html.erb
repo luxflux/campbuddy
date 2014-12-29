@@ -1,6 +1,6 @@
 <div class="nav-wrapper">
   <nav class="day">
-    <% ((Date.today.at_beginning_of_week - 1)..Date.today.end_of_week).each do |date| %>
+    <% (Setting.camp_start..Setting.camp_end).each do |date| %>
       <a href="<%= events_path(date: date) %>" class="<%= 'active' if date == @selected_date %>">
         <%= l date, format: :short_weekday_only %>
       </a>

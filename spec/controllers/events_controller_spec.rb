@@ -35,13 +35,45 @@ describe EventsController do
       end
 
       context 'without a date selected' do
-        it 'assigns the current date as selection' do
-          get :index, {}
-          expect(assigns(:selected_date)).to eq(Date.current)
+        context 'current date in camp timeframe' do
+          before do
+            Timecop.travel Setting.camp_start + 1.day
+          end
+
+          it 'assigns the current date as selection' do
+            get :index, {}
+            expect(assigns(:selected_date)).to eq(Date.current)
+          end
+        end
+
+        context 'current date before camp timeframe' do
+          before do
+            Timecop.travel Setting.camp_start - 1.day
+          end
+
+          it 'assigns the camp start date as selection' do
+            get :index, {}
+            expect(assigns(:selected_date)).to eq(Setting.camp_start)
+          end
+        end
+
+        context 'current date after camp timeframe' do
+          before do
+            Timecop.travel Setting.camp_end + 7.days
+          end
+
+          it 'assigns the camp start date as selection' do
+            get :index, {}
+            expect(assigns(:selected_date)).to eq(Setting.camp_end)
+          end
         end
       end
 
       context 'with an invalid date selected' do
+        before do
+          Timecop.travel Setting.camp_start + 1.day
+        end
+
         it 'assigns the current date as selection' do
           get :index, { date: 'asd' }
           expect(assigns(:selected_date)).to eq(Date.current)
@@ -49,9 +81,9 @@ describe EventsController do
       end
 
       context 'with an valid date selected' do
-        it 'assigns the current date as selection' do
-          get :index, { date: '2014-04-01' }
-          expect(assigns(:selected_date)).to eq(Date.new(2014,4,1))
+        it 'assigns the date as selection' do
+          get :index, { date: Setting.camp_start + 1.day }
+          expect(assigns(:selected_date)).to eq(Setting.camp_start + 1.day)
         end
       end
     end

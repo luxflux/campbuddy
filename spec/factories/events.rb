@@ -7,8 +7,8 @@ FactoryGirl.define do
     title 'Gardening'
     description 'Gardening in the backyard'
     meeting_point 'Backyard'
-    starts Time.current + 1.day
-    ends Time.current + 1.day + 4.hours
+    starts Setting.camp_start + 1.day + 8.hours
+    ends Setting.camp_start + 1.day + 12.hours
     mandatory false
     groups_only false
   end
