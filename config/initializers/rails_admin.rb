@@ -124,6 +124,9 @@ RailsAdmin.config do |config|
     configure :updated_at do
       hide
     end
+    configure :events do
+      hide
+    end
 
     configure :identifier, :enum do
       searchable false
@@ -136,7 +139,7 @@ RailsAdmin.config do |config|
       end
 
       def form_value
-        bindings[:object].role
+        bindings[:object].identifier
       end
     end
   end
