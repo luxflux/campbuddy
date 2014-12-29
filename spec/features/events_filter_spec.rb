@@ -4,11 +4,25 @@ feature 'Events Filters' do
 
   let(:red_category) { FactoryGirl.create :category, name: 'Red Category', identifier: :red }
   let(:blue_category) { FactoryGirl.create :category, name: 'Blue Category', identifier: :blue }
-  let(:red_event) { FactoryGirl.create :event, title: 'Red Event', category: red_category, starts_date: '2014-02-01', starts_time: '11:00' }
-  let(:blue_event) { FactoryGirl.create :event, title: 'Blue Event', category: blue_category, starts_date: '2014-02-01', starts_time: '11:00' }
+
+  let(:red_event) do
+    FactoryGirl.create :event,
+      title: 'Red Event',
+      category: red_category,
+      starts_date: Setting.camp_start,
+      starts_time: '11:00'
+  end
+
+  let(:blue_event) do
+    FactoryGirl.create :event,
+      title: 'Blue Event',
+      category: blue_category,
+      starts_date: Setting.camp_start,
+      starts_time: '11:00'
+  end
 
   background do
-    Timecop.travel '2014-02-01 04:00:00'
+    Timecop.travel Setting.camp_start
     red_event.save!
     blue_event.save
 

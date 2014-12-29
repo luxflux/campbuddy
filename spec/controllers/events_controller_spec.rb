@@ -27,8 +27,10 @@ describe EventsController do
       it 'assigns all the categories of the events as @categories' do
         category1 = FactoryGirl.create(:category, identifier: :red)
         category2 = FactoryGirl.create(:category, identifier: :yellow)
-        FactoryGirl.create(:event, category: category2, starts: Time.current - 24.hours)
+        FactoryGirl.create(:event, category: category2, starts: Setting.camp_start)
         event = FactoryGirl.create(:event, category: category1)
+
+        Timecop.travel Setting.camp_start + 2.days
 
         get :index, { date: event.starts }
         expect(assigns(:categories)).to eq([category1])
@@ -90,9 +92,11 @@ describe EventsController do
 
     describe 'GET catalog' do
       it 'assigns all Events in the future as @events' do
-        passed_event = FactoryGirl.create(:event, starts: Time.now + 1.hour)
-        future_event = FactoryGirl.create(:event, starts: Time.now + 3.hours)
-        Timecop.freeze Time.now + 2.hours
+        passed_event = FactoryGirl.create(:event, starts: Setting.camp_start + 1.hour)
+        future_event = FactoryGirl.create(:event, starts: Setting.camp_start + 3.hours)
+
+        Timecop.travel Setting.camp_start + 2.hours
+
         get :catalog
         expect(assigns(:events)).to eq([future_event])
       end
@@ -112,9 +116,10 @@ describe EventsController do
       it 'assigns all the categories of the events as @categories' do
         category1 = FactoryGirl.create(:category, identifier: :red)
         category2 = FactoryGirl.create(:category, identifier: :yellow)
-        FactoryGirl.create(:event, category: category2, starts: Time.current - 24.hours)
-        FactoryGirl.create(:event, category: category1, starts: Time.current + 4.hours)
+        FactoryGirl.create(:event, category: category2, starts: Setting.camp_start + 1.day)
+        FactoryGirl.create(:event, category: category1, starts: Setting.camp_start + 1.day + 4.hours)
 
+        Timecop.travel Setting.camp_start + 1.day + 2.hours
         get :catalog
         expect(assigns(:categories)).to eq([category1])
       end
