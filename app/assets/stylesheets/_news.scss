@@ -1,7 +1,6 @@
 /*activity date and time*/
 
-.news-feed {
-  padding: 15px 0 0 15px;
+.news-index {
 
   .call {
     color: $red;
@@ -35,7 +34,7 @@
   .news-entries {
     float: none;
     clear: both;
-    
+
     .icon {
       float: left;
       width: 9%;
@@ -51,12 +50,7 @@
   }
 
 
-  h1.left {
-    float: left;
-  }
-  .hashtag {
-    position: relative;
-    top: 0.4em;
-    left: 0.6em;
+  small {
+    font-size: .5em;
   }
 }
