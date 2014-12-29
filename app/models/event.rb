@@ -21,6 +21,10 @@ class Event < ActiveRecord::Base
   validates :ends, presence: true
   validates :ends_date, presence: true
   validates :ends_time, presence: true
+  validates_date :starts, between: Setting.camp_start..Setting.camp_end#, before: ->(event) { event.ends }
+  validates_date :ends, between: Setting.camp_start..Setting.camp_end#, after: ->(event) { event.starts }
+  validates_datetime :starts, before: ->(event) { event.ends }
+  validates_datetime :ends, after: ->(event) { event.starts }
 
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
   scope :today, -> { on_date(Date.current) }
