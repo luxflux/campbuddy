@@ -1,0 +1,7 @@
+.instagram-feed {
+  a {
+    @include span-columns(4);
+    @include omega(3n);
+    margin-top: .3em;
+  }
+}
