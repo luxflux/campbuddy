@@ -67,10 +67,22 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Event' do
+    configure :self_attended_users do
+      hide
+    end
     configure :attendances do
       hide
     end
     configure :group_attendances do
+      hide
+    end
+    configure :groups do
+      hide
+    end
+    configure :group_attendees do
+      hide
+    end
+    configure :group_leader_attendees do
       hide
     end
     configure :created_at do
@@ -114,6 +126,14 @@ RailsAdmin.config do |config|
     end
     configure :updated_at do
       hide
+    end
+
+    configure :events do
+      associated_collection_scope do
+        Proc.new do |scope|
+          scope = Event.group_events
+        end
+      end
     end
   end
 

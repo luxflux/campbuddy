@@ -32,6 +32,7 @@ class Event < ActiveRecord::Base
   scope :mandatory_only, -> { where(mandatory: true) }
   scope :except_mandatory, -> { where(mandatory: false) }
   scope :except_group_events, -> { where(groups_only: false) }
+  scope :group_events, -> { where(groups_only: true) }
 
   mount_uploader :impression, ImageUploader
 
