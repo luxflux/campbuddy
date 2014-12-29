@@ -8,11 +8,17 @@ describe OnboardingController do
   end
 
   describe 'GET start' do
-    before do
-      get :start, token: user.invitation_token
+    context 'existing token' do
+      before do
+        get :start, token: user.invitation_token
+      end
+
+      specify { expect(assigns(:user)).to eq(user) }
     end
 
-    specify { expect(assigns(:user)).to eq(user) }
+    context 'nonexisting token' do
+      specify { expect { get :start, token: 'invalid' }.to raise_error(ActiveRecord::RecordNotFound) }
+    end
   end
 
   describe 'POST finish' do

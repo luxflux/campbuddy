@@ -3,7 +3,7 @@ class OnboardingController < ApplicationController
   skip_before_action :authorize
 
   def start
-    @user = User.where(invitation_token: params[:token]).first
+    @user = User.where(invitation_token: params[:token]).first!
   end
 
   def finish
