@@ -36,21 +36,21 @@ e1 = Event.create! owner: andi,
                    title: "Foto",
                    description: "Fotographie-Kurs",
                    max_attendees: 2,
-                   starts: Time.now + 4.hours,
-                   ends: Time.now + 5.hours
+                   starts: Setting.camp_start + 1.day + 4.hours,
+                   ends: Setting.camp_start + 1.day + 5.hours
 e2 = Event.create! owner: andi,
                    category: p,
                    title: "Snowboard-Kurs",
                    max_attendees: 4,
                    description: "Späte Action auf der Piste, es wird SUPER!",
-                   starts: Time.now + 4.hours,
-                   ends: Time.now + 5.hours
+                   starts: Setting.camp_start + 2.days + 4.hours,
+                   ends: Setting.camp_start + 2.days + 5.hours
 e3 = Event.create! owner: simi,
                    category: c,
                    title: "camping",
                    description: "Lagerfeuer am Abend in der Celebration-Hall! Es gibt super Würste!",
-                   starts: Time.now + 4.hours,
-                   ends: Time.now + 5.hours
+                   starts: Setting.camp_start + 2.days + 8.hours,
+                   ends: Setting.camp_start + 2.days + 10.hours
 
 e1.users << robi
 e1.users << simi
@@ -62,15 +62,25 @@ e3.users << robi
 
 
 # Groups
-#visionteam = Group.create! name: 'Smallgroup', leader: admin
-
 smallgroup = Group.create! name: 'Smallgroup', leader: robi
 smallgroup.users << simi
 smallgroup.users << andi
 
-smallgroup.events.create! owner: robi, category: c, title: 'Smallgroup', description: 'Smallgroup zum Thema Grillwürste', starts: Time.now + 3.hours, ends: Time.now + 4.hours, groups_only: true
+smallgroup.events.create! owner: robi,
+                          category: c,
+                          title: 'Smallgroup',
+                          description: 'Smallgroup zum Thema Grillwürste',
+                          starts: Setting.camp_start + 1.day + 8.hours,
+                          ends: Setting.camp_start + 1.day + 10.hours,
+                          groups_only: true
 
 cleaning_group = Group.create! name: 'WC-Putzer', leader: robi
 cleaning_group.users << simi
 cleaning_group.users << andi
-cleaning_group.events.create! owner: robi, category: c, title: 'WC Putzen', description: 'Muss alles sauber sein!', starts: Time.now + 1.day, ends: Time.now + 1.day + 4.hours, groups_only: true
+cleaning_group.events.create! owner: robi,
+                              category: c,
+                              title: 'WC Putzen',
+                              description: 'Muss alles sauber sein!',
+                              starts: Setting.camp_end + 10.hours,
+                              ends: Setting.camp_end + 12.hours,
+                              groups_only: true

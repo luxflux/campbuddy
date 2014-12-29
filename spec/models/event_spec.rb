@@ -4,9 +4,12 @@ RSpec.describe Event, :type => :model do
 
   describe '.in_future' do
     it 'only shows events in the future' do
-      today_passed = FactoryGirl.create(:event, starts: Time.now - 3.hours, ends: Time.now - 1.hour)
-      today_future = FactoryGirl.create(:event, starts: Time.now + 3.hours, ends: Time.now + 4.hours)
+      today_passed = FactoryGirl.
+        create(:event, starts: Setting.camp_start + 1.hour, ends: Setting.camp_start + 2.hours)
+      today_future = FactoryGirl.
+        create(:event, starts: Setting.camp_start + 8.hours, ends: Setting.camp_start + 10.hours)
 
+      Timecop.travel Setting.camp_start + 5.hours
       expect(Event.in_future).to eq([today_future])
     end
   end

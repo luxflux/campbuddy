@@ -110,6 +110,7 @@ ignore_unused:
   - 'sessions.new.title'
   - 'users.new.sign_in'
   - 'users.new.title'
+  - 'validates_timeliness.error_value_formats.*'
 
 ## Exclude these keys from `i18n-tasks eq-base' report
 # ignore_eq_base:
