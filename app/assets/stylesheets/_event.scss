@@ -24,7 +24,7 @@
     width: calc(100% - 0.4em);
 
     .start-time, .event-image {
-      @include span-columns(4);
+      width: 34%;
       display: block;
       float: left;
       text-transform: uppercase;
@@ -43,7 +43,8 @@
     }
     .info {
       display: block;
-      @include span-columns(7);
+      width: 56%;
+      float: left;
       margin: 1em 0 0 0;
       line-height: 1em;
 
@@ -60,14 +61,12 @@
       display: inline-block;
       position: relative;
       top: 1.6em;
-      width: 2.5em;
+      width: 10%;
       overflow: hidden;
 
       i {
         color: #ededef;
         font-size: 2em;
-        position: relative;
-        right: -.3em;
       }
     }
   }
