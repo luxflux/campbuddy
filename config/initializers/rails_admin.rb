@@ -58,6 +58,15 @@ RailsAdmin.config do |config|
     configure :leaded_group_events do
       hide
     end
+    configure :leaded_groups do
+      hide
+    end
+    configure :groups do
+      hide
+    end
+    configure :guest do
+      hide
+    end
 
     edit do
       configure :send_mail, :boolean do
@@ -90,6 +99,14 @@ RailsAdmin.config do |config|
     end
     configure :updated_at do
       hide
+    end
+
+    configure :owner do
+      associated_collection_scope do
+        Proc.new do |scope|
+          scope = User.real_users
+        end
+      end
     end
 
     list do
@@ -126,6 +143,22 @@ RailsAdmin.config do |config|
     end
     configure :updated_at do
       hide
+    end
+
+    configure :leader do
+      associated_collection_scope do
+        Proc.new do |scope|
+          scope = User.real_users
+        end
+      end
+    end
+
+    configure :users do
+      associated_collection_scope do
+        Proc.new do |scope|
+          scope = User.real_users
+        end
+      end
     end
 
     configure :events do

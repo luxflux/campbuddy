@@ -18,6 +18,24 @@ de:
         ends_time: Endzeit
         impression: Bild
         max_attendees: Max. Teilnehmer
+        groups_only: Nur für Gruppen
+      user:
+        firstname: Vorname
+        name: Nachname
+        email: E-Mail
+        admin: Administrator?
+        password: Passwort
+        password_confirmation: Passwortbestätigung
+        guest: Gast?
+        send_mail: E-Mail senden?
+      news:
+        message: Nachricht
+        visible_until: Sichtbar bis
+      group:
+        name: Name
+        leader: Leiter
+        users: Teilnehmer
+        events: Events
     models:
       event:
         one: Event

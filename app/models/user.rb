@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
 
   after_create :invite, if: :send_mail
 
+  scope :real_users, -> { where(guest: false) }
+  scope :guests, -> { where(guest: true) }
+
   attr_accessor :send_mail
 
   def self.import(file)
