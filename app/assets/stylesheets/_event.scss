@@ -23,7 +23,6 @@
     float: left;
     width: calc(100% - 0.4em);
 
-
     .start-time, .event-image {
       @include span-columns(4);
       display: block;
@@ -57,12 +56,19 @@
         font-size: .9em;
       }
     }
-    .link i {
-      color: #ededef;
-      font-size: 2em;
-      position: absolute;
-      top: 0.8em;
-      right: -.2em;
+    .link{
+      display: inline-block;
+      position: relative;
+      top: 1.6em;
+      width: 2.5em;
+      overflow: hidden;
+
+      i {
+        color: #ededef;
+        font-size: 2em;
+        position: relative;
+        right: -.3em;
+      }
     }
   }
 
