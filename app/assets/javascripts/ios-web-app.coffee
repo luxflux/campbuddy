@@ -8,9 +8,9 @@ jQuery ->
     $.getScript "http://www.steve.org.uk/jquery/autoajax/jquery.autoajax.js", (data, textStatus, jqxhr) ->
 
       if jqxhr.status is 200
+        $('body').attr("id", "body")
         $("nav.main a").each (index) ->
           href = $(this).attr("href")
-          $('body').attr("id", "body")
           $(this).attr("href", href + "#body")
 
         #make transitions between loading the sites smooth

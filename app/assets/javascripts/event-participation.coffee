@@ -1,7 +1,4 @@
 jQuery ->
-
-
-
   $('.partipicate').on 'click', () ->
     element = $(@)
     element.toggleClass('yes')

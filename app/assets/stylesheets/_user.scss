@@ -3,7 +3,7 @@
     display: block;
   }
 
-  img {
+  img.avatar {
     display: block;
     margin: 2em auto;
     width: 12em;
@@ -24,5 +24,60 @@
 .users.users-edit {
   form {
     margin-top: 85px;
+  }
+}
+
+/*neuer vorschlag für profil seite*/
+.profil {
+  width: 100%;
+  padding: 1em 0 2em 0;
+  @include clearfix;
+
+  .image{
+    width: 32%;
+    padding: 0 2% 0 0;
+    float: left;
+
+    img.avatar {
+      height: auto;
+      border-radius: 10em;
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+  .info {
+    width: 66%;
+    float: left;
+
+    ul {
+      padding-left: 0.4em;
+      li {
+        padding: 0;
+        margin: 0;
+        line-height: 1.4em;
+
+        &:first-child {
+          @include small-bold-title();
+          padding: 0;
+        }
+        &:nth-child(2){
+          border-bottom: 1px solid $light-gray;
+          padding-bottom: 0.4em;
+        }
+
+        &:nth-child(3){
+          padding-top: 0.4em;
+        }
+      }
+    }
+  }
+}
+
+.logout {
+  width: 100%;
+  text-align: center;
+  padding-top: 3em;
+  a {
+    color: #fff;
   }
 }

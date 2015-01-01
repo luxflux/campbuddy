@@ -5,7 +5,9 @@ de:
       sign_in: Einloggen
       title: Neuen User erstellen
     show:
-      administration: Administrationsoberfläche
+      administration: Administration
       edit: Profil bearbeiten
+      my_profil: Mein Profil
       my_links: Meine Links
+      my_events: Meine Events
       sign_out: Ausloggen

@@ -1,7 +1,26 @@
-<div class="padded-row">
+<div class="padded-row users-show">
+  <!--
   <h1><%= @user.fullname %><small><%= @user.email %></small></h1>
 
   <%= image_tag @user.avatar.thumb.url, class: :avatar %>
+  -->
+  <h1><%= t('.my_profil') %></h1>
+  <div class="profil">
+    <div class="image"><%= image_tag @user.avatar.thumb.url, class: :avatar %></div>
+    <div class="info">
+      <ul class="links">
+        <li><%= @user.fullname %></li>
+        <li><%= @user.email %></li>
+      <% if can? :edit, @user %>
+        <li><%= link_to t('.edit'), edit_user_path(@user) %></li>
+      <% end %>
+      <% if can? :access, :administration %>
+        <li><%= link_to t('.administration'), '/admin' %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <h2><%= t('.my_events') %></h2>
 </div>
 
 <% if @events.any? %>
@@ -11,7 +30,7 @@
     </div>
   </div>
 <% end %>
-
+<!--
 <div class="padded-row">
   <h2><%= t('.my_links') %></h2>
   <ul class="links">
@@ -26,3 +45,8 @@
     <% end %>
   </ul>
 </div>
+-->
+  <div></div>
+    <% if signed_in? && current_user == @user %>
+      <div class="logout"><%= link_to t('.sign_out'), sign_out_path, method: :delete, class: "btn red" %></div>
+    <% end %>
