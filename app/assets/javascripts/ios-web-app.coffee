@@ -1,5 +1,5 @@
 jQuery ->
-  if window.navigator.standalone
+  if !window.navigator.standalone
 
     $("body").append($('<div>').attr("id","status-bar"))
     $('body').addClass "webapp"
@@ -9,16 +9,16 @@ jQuery ->
 
       if jqxhr.status is 200
         $('body').attr("id", "body")
-        $("nav.main a").each (index) ->
+        $("nav.main.five a").each (index) ->
           href = $(this).attr("href")
           $(this).attr("href", href + "#body")
 
         #make transitions between loading the sites smooth
-        $("nav.main a").on "click", ->
+        $("nav.main.five a").on "click", ->
           $("body").append($('<div>').addClass("site-fader").attr("style", "display:none;"))
           $(".site-fader").fadeIn("fast")
 
-        $("nav.main a").autoajax oncomplete: ->
+        $("nav.main.five a").autoajax oncomplete: ->
           #alert "completed"
           $("body").append($('<div>').addClass("site-fader"))
           $(".site-fader").fadeOut("fast")
