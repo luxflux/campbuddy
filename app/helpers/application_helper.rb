@@ -8,8 +8,10 @@ module ApplicationHelper
   end
 
   def ico_nav(type, text)
-    content_tag(:span, content_tag(:i, "", class: "icon-essential-light-#{type}") + content_tag(:span, text, class: "hide-mobile"))
-    #content_tag(:i, "", class: "icon-essential-light-#{type}")
+    content_tag :span do
+      content_tag(:i, "", class: "icon-essential-light-#{type}") +
+        content_tag(:span, text, class: :text)
+    end
   end
 
   def nav_link(icon_type, url, text, options = {})

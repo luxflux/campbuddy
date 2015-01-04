@@ -16,7 +16,7 @@ nav {
       color: $medium-gray;
     }
   }
-  .hide-mobile {
+  .text {
       display: none;
       width: 0;
   }
@@ -148,7 +148,6 @@ nav.events {
 }
 
 @media (max-width: 1250px){
-  /*Main navigation - bottom*/
   nav.main {
     z-index: 15;
     position: fixed;
@@ -187,24 +186,7 @@ nav.events {
   }
 }
 
-
-
-
-
-  
 @media (min-width: 1251px){
-
-/*  nav.main.five {
-    padding-left: 50%;
-
-    a {
-      width: 4em;
-      
-      &:first-child {
-        margin-left: calc(-4em*5/2);
-      }
-    }
-  }*/
 
   nav.main {
     position: fixed;
@@ -234,7 +216,7 @@ nav.events {
           background: $light-black;
           text-shadow: 0 0 10px #000;
         }
-        .hide-mobile {
+        .text {
           display: inline-block;
           width: auto;
           position: relative;
