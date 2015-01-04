@@ -25,18 +25,18 @@
     <% if signed_in? %>
       <% if can_see_navigation? %>
         <nav class="main five">
-          <%= nav_link "92-expand", news_index_path, "News" %>
-          <%= nav_link "98-file-minus", events_path, "Tagesübersicht" %>
-          <%= nav_link "60-question-circle", catalog_events_path, "Katalog" %>
-          <%= nav_link "99-statistic-pie", groups_path, "Gruppen" %>
-          <%= nav_link "53-mobile", user_path(current_user), "Mein Profil" %>
+          <%= nav_link "92-expand", news_index_path, t('navigation.news') %>
+          <%= nav_link "98-file-minus", events_path, t('navigation.overview') %>
+          <%= nav_link "60-question-circle", catalog_events_path, t('navigation.catalog') %>
+          <%= nav_link "99-statistic-pie", groups_path, t('navigation.groups') %>
+          <%= nav_link "53-mobile", user_path(current_user), t('navigation.me') %>
           <% if can? :access, :administration %>
-            <%= nav_link "74-control-fastforward", rails_admin_path, "Administration" %>
+            <%= nav_link "74-control-fastforward", rails_admin_path, t('navigation.administration') %>
           <% end %>
         </nav>
       <% else %>
         <nav class="main single">
-          <%= nav_link "49-magnifier", sign_out_path, method: :delete %>
+          <%= nav_link "49-magnifier", sign_out_path, t('navigation.sign_out'), method: :delete %>
         </nav>
       <% end %>
     <% end %>
