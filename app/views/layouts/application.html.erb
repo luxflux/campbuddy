@@ -25,11 +25,14 @@
     <% if signed_in? %>
       <% if can_see_navigation? %>
         <nav class="main five">
-          <%= nav_link "92-expand", news_index_path %>
-          <%= nav_link "98-file-minus", events_path %>
-          <%= nav_link "60-question-circle", catalog_events_path %>
-          <%= nav_link "99-statistic-pie", groups_path %>
-          <%= nav_link "53-mobile", user_path(current_user) %>
+          <%= nav_link "92-expand", news_index_path, "News" %>
+          <%= nav_link "98-file-minus", events_path, "Tagesübersicht" %>
+          <%= nav_link "60-question-circle", catalog_events_path, "Katalog" %>
+          <%= nav_link "99-statistic-pie", groups_path, "Gruppen" %>
+          <%= nav_link "53-mobile", user_path(current_user), "Mein Profil" %>
+          <% if can? :access, :administration %>
+            <%= nav_link "74-control-fastforward", rails_admin_path, "Administration" %>
+          <% end %>
         </nav>
       <% else %>
         <nav class="main single">
