@@ -7,7 +7,7 @@ de:
     show:
       administration: Administration
       edit: Profil bearbeiten
-      my_profil: Mein Profil
-      my_links: Meine Links
       my_events: Meine Events
+      my_links: Meine Links
+      my_profil: Mein Profil
       sign_out: Ausloggen
