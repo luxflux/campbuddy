@@ -12,10 +12,10 @@
         <li><%= @user.fullname %></li>
         <li><%= @user.email %></li>
       <% if can? :edit, @user %>
-        <li><%= link_to t('.edit'), edit_user_path(@user) %></li>
+        <li><%= ico '48-clipboard' %> <%= link_to t('.edit'), edit_user_path(@user) %></li>
       <% end %>
       <% if can? :access, :administration %>
-        <li><%= link_to t('.administration'), '/admin' %></li>
+        <li><%= ico '74-control-fastforward' %> <%= link_to t('.administration'), '/admin' %></li>
       <% end %>
       </ul>
     </div>

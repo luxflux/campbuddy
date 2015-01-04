@@ -12,10 +12,16 @@
 
   ul.links {
     li {
-      padding: .2em 0em;
+      padding: .2em 0;
 
       &:first-child {
         padding-top: .8em;
+      }
+
+      i {
+        color: $blue;
+        position: relative;
+        bottom: -2px;
       }
     }
   }
@@ -76,7 +82,7 @@
 .logout {
   width: 100%;
   text-align: center;
-  padding-top: 2em 0;
+  padding: 2em 0;
   a {
     color: #fff;
   }
