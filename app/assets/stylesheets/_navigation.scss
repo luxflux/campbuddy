@@ -207,6 +207,11 @@ nav.events {
       line-height: 1em;
       text-align: left;
       padding: 0.35em;
+      
+      -moz-transition: none;
+      -webkit-transition: none;
+      -o-transition: color 0 ease-in;
+      transition: none;
     }
 
     &:hover {
