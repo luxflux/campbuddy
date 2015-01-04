@@ -19,6 +19,7 @@ nav {
   .text {
       display: none;
       width: 0;
+      padding-left: 0.2em;
   }
 }
 
@@ -197,6 +198,7 @@ nav.events {
     z-index: 15;
     font-size: 1em;
     background: $medium-gray;
+    overflow: hidden;
 
     a {
       display: block;
@@ -214,7 +216,13 @@ nav.events {
       transition: none;
     }
 
+    i {
+      position: relative;
+      bottom: -0.15em;
+    }
+
     &:hover {
+      box-shadow: 0 0 22px $dark-gray;
       a {
         width: auto;
         &:hover{
@@ -224,8 +232,6 @@ nav.events {
         .text {
           display: inline-block;
           width: auto;
-          position: relative;
-          top: -0.15em;
           padding-left: 0.2em;
         }
 

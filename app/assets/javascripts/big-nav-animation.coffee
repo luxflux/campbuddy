@@ -1,24 +1,22 @@
 jQuery ->
-  if window.navigator.standalone
+  navigation_text = $("nav .text")
 
-    $("body").append($('<div>').attr("id","status-bar"))
-    $('body').addClass "webapp"
+  $("nav.main").hover (->
+    navigation_text.css "display", "none"
 
-    #load auto ajax script to make the website behave more like a native app
-    $.getScript "http://www.steve.org.uk/jquery/autoajax/jquery.autoajax.js", (data, textStatus, jqxhr) ->
+    $("nav.main").stop(true).animate
+      "min-width": "420px"
+    , 100, ->
+      navigation_text.fadeIn "fast"
+      return
+    return
+  ), ->
+  
+    navigation_text.fadeOut("slow")
+    $("nav.main").animate
+      "min-width": "80px"
+    , 500, ->
+      navigation_text.fadeOut("slow")
+      return
+    return
 
-      if jqxhr.status is 200
-        $('body').attr("id", "body")
-        $("nav.main.five a").each (index) ->
-          href = $(this).attr("href")
-          $(this).attr("href", href + "#body")
-
-        #make transitions between loading the sites smooth
-        $("nav.main.five a").on "click", ->
-          $("body").append($('<div>').addClass("site-fader").attr("style", "display:none;"))
-          $(".site-fader").fadeIn("fast")
-
-        $("nav.main.five a").autoajax oncomplete: ->
-          #alert "completed"
-          $("body").append($('<div>').addClass("site-fader"))
-          $(".site-fader").fadeOut("fast")
