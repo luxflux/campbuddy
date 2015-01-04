@@ -1,5 +1,5 @@
 jQuery ->
-  if !window.navigator.standalone
+  if window.navigator.standalone
 
     $("body").append($('<div>').attr("id","status-bar"))
     $('body').addClass "webapp"
