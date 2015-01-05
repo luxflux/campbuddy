@@ -3,7 +3,9 @@
     <span class="color-stripe">&nbsp;</span>
     <span class="event-infos">
       <span class="start-time">
-        <%= event.starts.strftime('%a') %><br><%= event.starts.strftime('%H:%M') %>
+        <%= l event.starts.to_date, format: :short_weekday_only %>
+        <br>
+        <%= l event.starts, format: :time_only %>
       </span>
 
       <span class="info">
