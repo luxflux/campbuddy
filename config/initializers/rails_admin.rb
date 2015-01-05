@@ -67,6 +67,9 @@ RailsAdmin.config do |config|
     configure :guest do
       hide
     end
+    configure :password_confirmation do
+      hide
+    end
 
     edit do
       configure :send_mail, :boolean do
