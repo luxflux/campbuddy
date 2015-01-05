@@ -34,6 +34,8 @@ class Event < ActiveRecord::Base
   scope :except_group_events, -> { where(groups_only: false) }
   scope :group_events, -> { where(groups_only: true) }
 
+  default_scope -> { order(:starts) }
+
   mount_uploader :impression, ImageUploader
 
   date_time_attribute :starts
