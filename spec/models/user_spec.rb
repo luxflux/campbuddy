@@ -57,7 +57,7 @@ describe User do
     it 'handles duplication' do
       user.events << owned_event
       group.events << owned_event
-      expect(subject.ids.sort).to eq(subject.uniq.ids.sort)
+      expect(subject.ids.sort).to eq(subject.ids.uniq.sort)
     end
   end
 
