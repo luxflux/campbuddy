@@ -77,6 +77,7 @@ class User < ActiveRecord::Base
 
   def invite
     generate_invitation_token
+    save
     Notifications.invitation(self).deliver_now
   end
 end
