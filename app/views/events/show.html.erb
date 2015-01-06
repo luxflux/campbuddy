@@ -17,7 +17,7 @@
 
 
 <div class="event">
-  <% if can? :create, :attendance %>
+  <% if can? :create, Attendance %>
     <% if @event.mandatory? %>
       <div class="partipicate-mandatory">
         <div class="mandatory">
