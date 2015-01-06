@@ -76,6 +76,10 @@ RailsAdmin.config do |config|
         show
       end
     end
+
+    list do
+      scopes %i(real_users guests)
+    end
   end
 
   config.model 'Event' do
