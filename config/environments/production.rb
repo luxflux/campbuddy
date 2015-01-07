@@ -78,9 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Use sendmail for mailings
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'campplaner.yux.ch' }
-
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
     port: 25,
