@@ -80,4 +80,11 @@ Rails.application.configure do
   # Use sendmail for mailings
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.default_url_options = { host: 'campplaner.yux.ch' }
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mandrillapp.com',
+    port: 25,
+    user_name: Rails.application.secrets.mandrill_user_name,
+    password: Rails.application.secrets.mandrill_password,
+  }
 end
