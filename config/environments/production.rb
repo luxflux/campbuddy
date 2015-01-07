@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # Use sendmail for mailings
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'campplaner.yux.ch' }
+  config.action_mailer.default_url_options = { host: 'campplaner.oneyouth.ch' }
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
     port: 25,
