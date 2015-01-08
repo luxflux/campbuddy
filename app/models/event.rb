@@ -36,7 +36,7 @@ class Event < ActiveRecord::Base
 
   default_scope -> { order(:starts) }
 
-  mount_uploader :impression, ImageUploader
+  mount_uploader :impression, ImpressionUploader
 
   date_time_attribute :starts
   date_time_attribute :ends

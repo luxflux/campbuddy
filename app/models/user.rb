@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true, unless: :guest?
   validates :name, presence: true, unless: :guest?
 
-  mount_uploader :avatar, ImageUploader
+  mount_uploader :avatar, AvatarUploader
 
   after_create :invite, if: :send_mail
 
