@@ -30,14 +30,15 @@ class User < ActiveRecord::Base
       email = row.field('email')
 
       if email.include? "@"
-        attributes = row.to_hash
+        attributes = row.to_hash.slice(*%w(name firstname email))
         attributes[:password] = Kernel.rand
 
-        unless User.where(:email => email).any?
-          user = User.new(attributes)
-          user.generate_invitation_token
-          user.save!
-        end
+        User.where(email: email.downcase).first_or_create(attributes)
+        # unless User.where(:email => email).any?
+        #   user = User.new(attributes)
+        #   # user.generate_invitation_token
+        #   user.save!
+        # end
       end
     end
   end
