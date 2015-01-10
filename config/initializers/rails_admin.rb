@@ -83,29 +83,19 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Event' do
-    configure :self_attended_users do
-      hide
-    end
-    configure :attendances do
-      hide
-    end
-    configure :group_attendances do
-      hide
-    end
-    configure :groups do
-      hide
-    end
-    configure :group_attendees do
-      hide
-    end
-    configure :group_leader_attendees do
-      hide
-    end
-    configure :created_at do
-      hide
-    end
-    configure :updated_at do
-      hide
+    edit do
+      field :title
+      field :owner
+      field :teaser
+      field :description
+      field :meeting_point
+      field :starts
+      field :ends
+      field :max_attendees
+      field :category
+      field :mandatory
+      field :groups_only
+      field :impression
     end
 
     configure :owner do

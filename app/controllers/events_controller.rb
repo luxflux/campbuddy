@@ -49,7 +49,9 @@ class EventsController < ApplicationController
         require(:event).
         permit :starts_date, :starts_time,
                :ends_date, :ends_time,
-               :title, :description, :meeting_point,
+               :title,
+               :teaser, :description,
+               :meeting_point,
                :impression
     end
 end

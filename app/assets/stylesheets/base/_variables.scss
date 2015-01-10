@@ -57,9 +57,14 @@ $success-color: $light-green;
 $form-border-color: $base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
 $form-border-color-focus: $base-accent-color;
+$form-border-color-error: $red;
+$form-border-color-hover-error: darken($red, 10);
+$form-border-color-focus-error: $red;
 $form-border-radius: $base-border-radius;
 $form-box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
+$form-box-shadow-error: inset 0 1px 3px rgba(0,0,0,0.06);
+$form-box-shadow-focus-error: $form-box-shadow-error, 0 0 5px rgba(darken($red, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
 

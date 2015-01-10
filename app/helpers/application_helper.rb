@@ -34,8 +34,4 @@ module ApplicationHelper
   def can_see_navigation?
     !current_user.guest?
   end
-
-  def truncate_text(text)
-    truncate text, length: 50, separator: ' ', omission: ' ...'
-  end
 end

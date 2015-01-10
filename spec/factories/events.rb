@@ -5,6 +5,7 @@ FactoryGirl.define do
     owner factory: :user
     category
     title 'Gardening'
+    teaser 'Garending, yeah!'
     description 'Gardening in the backyard'
     meeting_point 'Backyard'
     starts Setting.camp_start + 1.day + 8.hours

@@ -200,7 +200,9 @@
   }
 }
 
-.events.events-edit {
+.events.events-edit,
+.events.events-update
+{
   form {
     margin-top: 85px;
   }
