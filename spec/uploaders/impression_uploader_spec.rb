@@ -1,21 +1,21 @@
 require 'rails_helper'
 require 'carrierwave/test/matchers'
 
-describe ImageUploader do
+describe ImpressionUploader do
   include CarrierWave::Test::Matchers
 
   let(:user) { FactoryGirl.create(:user) }
   let(:image_file) { Rails.root.join('spec', 'support', 'huge.jpg') }
 
-  subject { ImageUploader.new(user, :avatar) }
+  subject { ImpressionUploader.new(user, :avatar) }
 
   before do
-    ImageUploader.enable_processing = true
+    ImpressionUploader.enable_processing = true
     subject.store!(File.open(image_file))
   end
 
   after do
-    ImageUploader.enable_processing = false
+    ImpressionUploader.enable_processing = false
     subject.remove!
   end
 
