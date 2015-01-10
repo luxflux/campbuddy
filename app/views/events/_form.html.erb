@@ -1,16 +1,19 @@
 <%= simple_form_for @event do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+
   <%= f.input :starts_date, input_html: { class: :datepicker, value: l(f.object.starts_date.to_date) } %>
   <%= f.input :starts_time, input_html: { class: :timepicker, value: l(f.object.starts_time.to_time, format: :time_only) } %>
   <%= f.input :ends_date,   input_html: { class: :datepicker, value: l(f.object.ends_date.to_date) } %>
   <%= f.input :ends_time,   input_html: { class: :timepicker, value: l(f.object.ends_time.to_time, format: :time_only) } %>
 
-  <%= f.input :impression, as: :image_preview, input_html: {preview_version: :catalog_preview} %>
-
-  <%= f.input :title %>
-  <%= f.input :description %>
   <%= f.input :meeting_point %>
+
+  <%= f.input :impression, as: :image_preview, input_html: {preview_version: :catalog_preview} %>
 
   <%= hidden_field_tag :back, params[:back] %>
 
-  <%= f.button :submit, class: 'red' %>
+  <div class="actions">
+    <%= f.button :submit, class: 'red' %>
+  </div>
 <% end %>
