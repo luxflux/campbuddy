@@ -17,7 +17,10 @@ describe OnboardingController do
     end
 
     context 'nonexisting token' do
-      specify { expect { get :start, token: 'invalid' }.to raise_error(ActiveRecord::RecordNotFound) }
+      it 'redirects to the root url' do
+        get :start, token: 'invalid'
+        expect(response).to redirect_to(root_url)
+      end
     end
   end
 
@@ -31,32 +34,55 @@ describe OnboardingController do
       expect(assigns(:user)).to eq(user)
     end
 
-    it 'sets the password' do
-      expect {
+    context 'valid password' do
+      it 'sets the password' do
+        expect {
+          post :finish, params
+        }.to change { user.reload.encrypted_password }
+      end
+
+      it 'signs the user in' do
+        expect {
+          post :finish, params
+        }.to change { controller.current_user }.from(nil).to(user)
+      end
+
+      it 'redirects to the events' do
         post :finish, params
-      }.to change { user.reload.encrypted_password }
-    end
+        expect(response).to redirect_to root_url
+      end
 
-    it 'signs the user in' do
-      expect {
+      it 'removes the token' do
+        expect {
+          post :finish, params
+        }.to change { user.reload.invitation_token }.to(nil)
+      end
+
+      it 'sets a flash message' do
         post :finish, params
-      }.to change { controller.current_user }.from(nil).to(user)
+        expect(flash[:success]).to_not be_blank
+      end
     end
 
-    it 'redirects to the events' do
-      post :finish, params
-      expect(response).to redirect_to events_path
-    end
+    context 'invalid password' do
+      let(:params) { { user: { token: user.invitation_token, password: '' } } }
 
-    it 'removes the token' do
-      expect {
+      it 'does not set the password' do
+        expect { post :finish, params }.to_not change { user.reload.encrypted_password }
+      end
+
+      it 'does not sign the user in' do
+        expect { post :finish, params }.to_not change { controller.current_user }.from(nil)
+      end
+
+      it 'renders the template again' do
         post :finish, params
-      }.to change { user.reload.invitation_token }.to(nil)
-    end
+        expect(response).to render_template('start')
+      end
 
-    it 'sets a flash message' do
-      post :finish, params
-      expect(flash[:success]).to_not be_blank
+      it 'does not remove the token' do
+        expect { post :finish, params }.to_not change { user.reload.invitation_token }
+      end
     end
   end
 end

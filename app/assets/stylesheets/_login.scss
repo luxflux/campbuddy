@@ -1,5 +1,8 @@
 .sessions-new,
-.sessions-create {
+.sessions-create,
+.onboarding-start,
+.onboarding-finish
+{
   height: 100%;
 
   #main-wrapper,
@@ -7,36 +10,34 @@
     height: 100%;
   }
 
-  #clearance {
-    margin: 2em auto;
-    width: 80%;
-    text-align: center;
+  margin: 2em auto;
+  width: 80%;
+  text-align: center;
 
-    form {
-      text-align: left;
+  form {
+    text-align: left;
+  }
+
+  h1 {
+    margin: 0 0 .8em;
+  }
+
+  p {
+    margin: .4em 0;
+  }
+
+  p.dots {
+    font-size: 3em;
+    margin: .1em 0;
+
+    .green {
+      color: $green;
     }
-
-    h1 {
-      margin: 0 0 .8em;
+    .red {
+      color: $red;
     }
-
-    p {
-      margin: .4em 0;
-    }
-
-    p.dots {
-      font-size: 3em;
-      margin: .1em 0;
-
-      .green {
-        color: $green;
-      }
-      .red {
-        color: $red;
-      }
-      .blue {
-        color: $blue;
-      }
+    .blue {
+      color: $blue;
     }
   }
 

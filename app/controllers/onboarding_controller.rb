@@ -8,10 +8,15 @@ class OnboardingController < ApplicationController
 
   def finish
     @user = User.where(invitation_token: params[:user][:token]).first
-    @user.invitation_token = nil
     @user.update_password params[:user][:password]
-    sign_in @user
-    flash[:success] = I18n.t('onboarding.password_set')
-    redirect_to events_path
+    if @user.valid?
+      @user.invitation_token = nil
+      @user.save
+      sign_in @user
+      flash[:success] = I18n.t('onboarding.password_set')
+      redirect_to root_path
+    else
+      render :start
+    end
   end
 end
