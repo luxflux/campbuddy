@@ -17,42 +17,38 @@
 
 <% if can? :create, Attendance %>
   <div class="participation padded-row">
-  <% if @event.mandatory? %>
-    <div class="mandatory">
-    <%= ico(:"71-control-stop") %><span><%= t('.mandatory') %></span>
-  </div>
+    <% if @event.mandatory? %>
+      <div class="mandatory">
+        <%= ico(:"71-control-stop") %><span><%= t('.mandatory') %></span>
+      </div>
 
-<% elsif @event.groups_only? %>
-    <div class="group-only">
-    <%= ico(:"71-control-stop") %><span><%= t('.groups_only') %></span>
-  </div>
+    <% elsif @event.groups_only? %>
+      <div class="group-only">
+        <%= ico(:"71-control-stop") %><span><%= t('.groups_only') %></span>
+      </div>
 
-<% elsif @event.owner == current_user %>
-    <div class="owner">
-    <%= ico(:"71-control-stop") %><span><%= t('.you_are_owner') %></span>
-  </div>
+    <% elsif @event.owner == current_user %>
+      <div class="owner">
+        <%= ico(:"71-control-stop") %><span><%= t('.you_are_owner') %></span>
+      </div>
 
-<% elsif @event.attended_by_user?(current_user) %>
-    <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
-    <div class="checked">
-      <%= ico(:"05-tick") %><span><%= t('.you_take_part') %></span>
-    </div>
-  </div>
+    <% elsif @event.attended_by_user?(current_user) %>
+      <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
+        <%= ico(:"05-tick") %><span><%= t('.you_take_part') %></span>
+      </div>
 
-<% elsif @event.no_places_left? %>
-    <div class="occupied">
-    <span><%= t('.full') %></span>
-  </div>
+    <% elsif @event.no_places_left? %>
+      <div class="occupied">
+        <span><%= t('.full') %></span>
+      </div>
 
-<% else %>
-    <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
-    <div class="unchecked">
-      <%= ico(:"28-trash") %><span><%= t('.attendance') %></span>
-    </div>
+    <% else %>
+      <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
+        <%= ico(:"28-trash") %><span><%= t('.attendance') %></span>
+      </div>
+    <% end %>
   </div>
 <% end %>
-</div>
-  <% end %>
 
 <div class="event padded-row">
   <ul>

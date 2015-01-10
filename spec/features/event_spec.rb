@@ -29,14 +29,35 @@ feature 'Event View' do
 
   describe 'attendance' do
     context 'event can be attended' do
-      scenario 'allows to attend', js: true do
-        expect(page).to have_css 'div.partipicate'
-        expect(page).to_not have_content('Für alle obligatorisch')
-        expect(page).to_not have_content('Gruppenevent')
+      context 'user does not attend' do
+        scenario 'allows to attend', js: true do
+          expect(page).to_not have_content('Für alle obligatorisch')
+          expect(page).to_not have_content('Gruppenevent')
 
-        expect(page).to_not have_css 'div.partipicate.yes'
-        page.find('div.partipicate').click
-        expect(page).to have_css 'div.partipicate.yes'
+          expect(page).to_not have_css '.participation .yes'
+          expect(page).to have_css '.participation .no'
+          page.find('div.participation').click
+          expect(page).to have_css '.participation .yes'
+          expect(page).to_not have_css '.participation .no'
+        end
+      end
+
+      context 'user attends' do
+        background do
+          event.self_attended_users << user
+          visit event_path(event)
+        end
+
+        scenario 'allows to unattend', js: true do
+          expect(page).to_not have_content('Für alle obligatorisch')
+          expect(page).to_not have_content('Gruppenevent')
+
+          expect(page).to have_css '.participation .yes'
+          expect(page).to_not have_css '.participation .no'
+          page.find('div.participation').click
+          expect(page).to_not have_css '.participation .yes'
+          expect(page).to have_css '.participation .no'
+        end
       end
     end
 
