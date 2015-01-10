@@ -3,15 +3,11 @@
 class ImpressionUploader < ImageUploader
   process :convert_to_grayscale
 
-  version :small do # 350x350 non retina
-    process resize_to_fit: [700, 700]
+  version :detail do # 1440 non retina
+    process resize_to_fit: [2880, 2880]
   end
 
-  version :thumb do # 100x100 non retina
-    process resize_to_fill: [200, 200]
-  end
-
-  version :catalog_preview do # 100x85 non retina
+  version :catalog do # 100x85 non retina
     process resize_to_fill: [200, 170]
   end
 
