@@ -5,6 +5,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   storage :file
 
+  process :jpgize
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -17,13 +19,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg gif png bmp tif tiff)
   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{uuid}.#{file.extension}" if original_filename
+    "#{uuid}.jpg" if original_filename
+  end
+
+  def uses_fallback?
+    url == default_url
   end
 
   private
@@ -31,5 +37,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   def uuid
     var = :"@#{mounted_as}_uuid"
     model.instance_variable_get(var) || model.instance_variable_set(var, SecureRandom.uuid)
+  end
+
+  def jpgize
+    manipulate! do |img|
+      img.format('jpg') do |convert|
+        convert <<         '+profile'
+        convert.+          '*'
+        convert.profile    "#{Rails.root}/lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"
+        convert.colorspace "sRGB"
+      end
+      img
+    end
   end
 end
