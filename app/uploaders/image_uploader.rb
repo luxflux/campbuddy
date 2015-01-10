@@ -38,6 +38,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{uuid}.#{file.extension}" if original_filename
   end
 
+  def uses_fallback?
+    url == default_url
+  end
+
   private
 
   def uuid

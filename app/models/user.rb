@@ -25,24 +25,6 @@ class User < ActiveRecord::Base
 
   attr_accessor :send_mail
 
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      email = row.field('email')
-
-      if email.include? "@"
-        attributes = row.to_hash.slice(*%w(name firstname email))
-        attributes[:password] = Kernel.rand
-
-        User.where(email: email.downcase).first_or_create(attributes)
-        # unless User.where(:email => email).any?
-        #   user = User.new(attributes)
-        #   # user.generate_invitation_token
-        #   user.save!
-        # end
-      end
-    end
-  end
-
   def events
     ids = []
     ids.concat self_attended_event_ids
