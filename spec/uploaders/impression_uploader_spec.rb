@@ -19,21 +19,21 @@ describe ImpressionUploader do
     subject.remove!
   end
 
-  context 'the thumb version' do
+  context 'the catalog version' do
     it 'should scale down a landscape image to be exactly 200 by 200 pixels' do
-      expect(subject.thumb).to have_dimensions(200, 200)
+      expect(subject.catalog).to have_dimensions(200, 170)
     end
   end
 
-  context 'the small version' do
+  context 'the detail version' do
     it 'should scale down a landscape image to fit within 700 by 700 pixels' do
-      expect(subject.small).to be_no_larger_than(700, 700)
+      expect(subject.detail).to be_no_larger_than(2880, 2880)
     end
   end
 
   context 'upon recreation' do
     it 'does not rename the images' do
-      expect { subject.recreate_versions! }.to_not change { subject.thumb.current_path }
+      expect { subject.recreate_versions! }.to_not change { subject.catalog.current_path }
     end
   end
 end
