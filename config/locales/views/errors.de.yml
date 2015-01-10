@@ -14,7 +14,7 @@ de:
       even: muss gerade sein
       exclusion: ist nicht verfügbar
       extension_black_list_error: 'Sie sind nicht berechtigt %{extension} Dateien hochzuladen, verbotene Typen: %{prohibited_types}'
-      extension_white_list_error: "Sie sind nicht berechtigt %{extension} Dateien hochzuladen, erlaubte Typen: %{allowed_types}"
+      extension_white_list_error: 'Sie sind nicht berechtigt %{extension} Dateien hochzuladen, erlaubte Typen: %{allowed_types}'
       greater_than: muss grösser als %{count} sein
       greater_than_or_equal_to: muss grösser oder gleich %{count} sein
       inclusion: ist kein gültiger Wert

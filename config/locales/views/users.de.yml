@@ -1,6 +1,8 @@
 ---
 de:
   users:
+    edit:
+      title: Profil
     new:
       sign_in: Einloggen
       title: Neuen User erstellen
