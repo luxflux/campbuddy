@@ -64,7 +64,7 @@ namespace :campplaner do
 
   desc 'Regenerate all event impressions'
   task regenerate_impressions: :environment do
-    Event.find_each do |user|
+    Event.find_each do |event|
       next unless event.impression?
       event.impression.recreate_versions!
       event.save!
