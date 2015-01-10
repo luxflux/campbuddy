@@ -18,10 +18,16 @@ describe EventsController do
     let(:category) { FactoryGirl.create(:category) }
 
     describe "GET index" do
-      it "assigns all events as @events" do
+      it 'assigns events as @events' do
         event = FactoryGirl.create(:event)
         get :index, { date: event.starts }
         expect(assigns(:events)).to eq([event])
+      end
+
+      it 'does not assign group events as @events' do
+        event = FactoryGirl.create(:event, groups_only: true)
+        get :index, { date: event.starts }
+        expect(assigns(:events)).to_not include(event)
       end
 
       it 'assigns all the categories of the events as @categories' do

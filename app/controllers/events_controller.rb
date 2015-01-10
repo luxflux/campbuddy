@@ -15,7 +15,7 @@ class EventsController < ApplicationController
       @selected_date = Setting.camp_end
     end
 
-    @events = Event.on_date(@selected_date).order(:starts)
+    @events = Event.on_date(@selected_date).except_group_events.order(:starts)
     @categories = Category.where(id: @events.pluck(:category_id))
   end
 
