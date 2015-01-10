@@ -23,12 +23,12 @@ module ApplicationHelper
     :active if current_page? url
   end
 
-  def back_or_default_link(default)
-    back_link (params[:back] || default)
+  def back_or_default_link(default, options = {})
+    back_link (params[:back] || default), options
   end
 
-  def back_link(url)
-    link_to ico(:"01-chevron-left"), url
+  def back_link(url, options = {})
+    link_to ico(:"01-chevron-left"), url, options
   end
 
   def can_see_navigation?

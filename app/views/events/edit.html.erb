@@ -1,7 +1,9 @@
-<div class="detail-nav">
-  <%= back_link event_path(@event, back: params[:back]) %>
-  <h1>Event</h1>
-  <p>bearbeiten</p>
+<div class="detail-nav full-row">
+  <%= back_link event_path(@event, back: params[:back]), class: 'back' %>
+  <div class="title">
+    <h1><%= Event.model_name.human %></h1>
+    <h2><%= t('shared.edit') %></h2>
+  </div>
 </div>
 
 <div class="padded-row">

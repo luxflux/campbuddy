@@ -111,41 +111,36 @@ nav.events {
 }
 
 .detail-nav {
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  right: 0;
-  height: 85px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: $light-white;
+  padding: .7em .5em .7em .3em;
 
-  .edit{
-    position: absolute;
-    right: .6em;
-    top: .8em;
-    font-size: 1.4em;
+  @include outer-container;
 
-    a {
-      color: $red;
+  .back {
+    @include span-columns(1);
+
+    font-size: 1.5em;
+    line-height: 1.7em;
+    height: 100%;
+    font-weight: 600;
+    color: $dark-gray;
+  }
+
+  .title {
+    @include span-columns(10);
+    h1 {
+      font-size: 1.7em;
+    }
+    h2 {
+      font-size: 1em;
     }
   }
 
-  & > a {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: $dark-gray;
-    margin: 20px 0 0 15px;
-  }
-  & > h1 {
-    @include title();
-    display: inline-block;
-    margin: 10px 0 0 10px;
-    padding-top: 5px;
-  }
-  & > p {
-    @include small-bold-title();
-    margin: 0 0 0 50px;
+  .edit{
+    @include span-columns(1);
+
+    font-size: 1.5em;
+    line-height: 1.7em;
+    color: $red;
   }
 }
 
@@ -210,7 +205,7 @@ nav.events {
       line-height: 1em;
       text-align: left;
       padding: 0.35em;
-      
+
       -moz-transition: none;
       -webkit-transition: none;
       -o-transition: color 0 ease-in;

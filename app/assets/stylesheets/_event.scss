@@ -100,11 +100,6 @@
 
 .events-show {
   .title-pic {
-    z-index: 0;
-    position: fixed;
-    top: 85px;
-    right: 0;
-    height: 180px;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -117,96 +112,78 @@
     min-width: 320px;
     min-height: 180px;
   }
-}
 
-.events-show .event {
-  z-index: 2;
-  position: relative;
-  margin-top: 265px;
-  background-color: #fff;
+ .event {
+    .partipicate, .partipicate-mandatory {
+      text-align: right;
+      padding-right: 15px;
+      color: #333;
+      font-size: 1.3em;
+      background: rgba(255,255,255,0.8);
+      cursor: pointer;
 
-  -webkit-transform: translate3d(0, 0, 0);
-
-  .partipicate, .partipicate-mandatory {
-    position: absolute;
-    top: -35px;
-    right: 0;
-    left: 0;
-    text-align: right;
-    padding-right: 15px;
-    color: #333;
-    font-size: 1.3em;
-    background: rgba(255,255,255,0.8);
-    cursor: pointer;
-
-    .checked, .mandatory, .occupied{
-      display: none;
-    }
-    .checked i {
-      color: $green;
-    }
-    .mandatory i {
-      color: $red;
-    }
-    i {
-      position: relative;
-      top: 3px;
-    }
-    &.yes {
-      .checked{
-        display: inline;
+      .checked, .mandatory, .occupied{
+        display: none;
       }
-      .unchecked {
+      .checked i {
+        color: $green;
+      }
+      .mandatory i {
+        color: $red;
+      }
+      i {
+        position: relative;
+        top: 3px;
+      }
+      &.yes {
+        .checked{
+          display: inline;
+        }
+        .unchecked {
+          display: none;
+        }
+      }
+    }
+
+    .partipicate-mandatory {
+      .occupied, .mandatory{
+        display: block;
+      }
+      .unchecked, .checked {
         display: none;
       }
     }
-  }
-
-  .partipicate-mandatory {
-    .occupied, .mandatory{
-      display: block;
-    }
-    .unchecked, .checked {
-      display: none;
-    }
-  }
-
-  ul {
-    padding: 16px 0 0 13px;
 
     ul {
-      padding: 0;
+      padding: 16px 0 0 13px;
+
+      ul {
+        padding: 0;
+      }
+    }
+
+    li {
+      @include clearfix;
+    }
+    .icon {
+      float: left;
+      width: 9%;
+      max-width: 2em;
+      font-size: 1.4em;
+      color: #000;
+    }
+    .text {
+      float: left;
+      width: 85%;
+      margin: 2px 16px 0 0;
+    }
+    .text > h1 {
+      margin: 4px 0 0 0;
+      @include small-bold-title();
     }
   }
-
-  li {
-    @include clearfix;
-  }
-  .icon {
-    float: left;
-    width: 9%;
-    max-width: 2em;
-    font-size: 1.4em;
-    color: #000;
-  }
-  .text {
-    float: left;
-    width: 85%;
-    margin: 2px 16px 0 0;
-  }
-  .text > h1 {
-    margin: 4px 0 0 0;
-    @include small-bold-title();
-  }
 }
 
-.events.events-edit,
-.events.events-update
-{
-  form {
-    margin-top: 85px;
-  }
-}
 .no-entity{
   padding: 20px;
   text-align: center;

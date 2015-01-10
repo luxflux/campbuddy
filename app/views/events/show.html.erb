@@ -1,13 +1,13 @@
-<div class="detail-nav">
-  <%= back_or_default_link events_path %>
-  <h1><%= @event.title %></h1>
-  <p><%= @event.category.name %></p>
+<div class="detail-nav full-row">
+  <%= back_or_default_link events_path, class: 'back' %>
+  <div class="title">
+    <h1><%= @event.title %></h1>
+    <h2><%= @event.category.name %></h2>
+  </div>
   <% if can? :edit, @event %>
-    <div class="edit">
-      <%= link_to edit_event_path(back: params[:back]) do %>
-        <%= ico '48-clipboard' %>
-      <% end %>
-    </div>
+    <%= link_to edit_event_path(back: params[:back]), class: 'edit' do %>
+      <%= ico '48-clipboard' %>
+    <% end %>
   <% end %>
 </div>
 

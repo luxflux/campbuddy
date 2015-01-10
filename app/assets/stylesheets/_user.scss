@@ -27,10 +27,10 @@
   }
 }
 
-.users.users-edit {
+.users.users-edit,
+.users.users-update,
+{
   form {
-    margin-top: 85px;
-
     .user_avatar img {
       border-radius: 100%;
     }

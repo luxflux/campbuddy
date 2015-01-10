@@ -1,8 +1,11 @@
-<div class="detail-nav">
-  <%= back_link @user %>
-  <h1>Profil</h1>
-  <p>bearbeiten</p>
+<div class="detail-nav full-row">
+  <%= back_link @user, class: 'back' %>
+  <div class="title">
+    <h1><%= t('.title') %></h1>
+    <h2><%= t('shared.edit') %></h2>
+  </div>
 </div>
-<div class="form-stuff padded-row">
+
+<div class="padded-row">
   <%= render 'form' %>
 </div>
