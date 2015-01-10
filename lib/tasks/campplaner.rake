@@ -33,7 +33,6 @@ namespace :campplaner do
         picture_extension = picture_path.split('.').last.downcase
         url = "http://wintercamp.oneyouth.ch/#{URI.escape(picture_path)}"
         uri = URI.parse(url)
-        puts url
         Net::HTTP.start(uri.host, uri.port) do |http|
           resp = http.get(uri.path)
           tmpfile = Tempfile.new(['picture-', ".#{picture_extension}"])
@@ -41,13 +40,15 @@ namespace :campplaner do
           tmpfile.write(resp.body)
           tmpfile.flush
 
-          user.avatar = file
+          resp = http.get(uri.path)
+          user.avatar = tmpfile
           user.save!
           tmpfile.unlink
         end
       rescue => error
         $stderr.puts row.to_s
         $stderr.puts "  #{error.class}: #{error.message}"
+        $stderr.puts ''
       end
     end
   end
