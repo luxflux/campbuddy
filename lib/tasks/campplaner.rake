@@ -53,4 +53,21 @@ namespace :campplaner do
     end
   end
 
+  desc 'Regenerate all user avatars'
+  task regenerate_avatars: :environment do
+    User.find_each do |user|
+      next unless user.avatar?
+      user.avatar.recreate_versions!
+      user.save!
+    end
+  end
+
+  desc 'Regenerate all event impressions'
+  task regenerate_avatars: :environment do
+    Event.find_each do |user|
+      next unless event.impression?
+      event.impression.recreate_versions!
+      event.save!
+    end
+  end
 end
