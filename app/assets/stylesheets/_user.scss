@@ -30,10 +30,13 @@
 .users.users-edit {
   form {
     margin-top: 85px;
+
+    .user_avatar img {
+      border-radius: 100%;
+    }
   }
 }
 
-/*neuer vorschlag für profil seite*/
 .profil {
   width: 100%;
   padding: 1em 0 2em 0;
@@ -46,7 +49,7 @@
 
     img.avatar {
       height: auto;
-      border-radius: 10em;
+      border-radius: 100%;
       overflow: hidden;
       margin: 0;
     }
