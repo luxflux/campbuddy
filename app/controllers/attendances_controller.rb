@@ -8,7 +8,7 @@ class AttendancesController < ApplicationController
 
   # POST /attendances
   def create
-    @attendance = Attendance.new(attendance_params)
+    @attendance.user = current_user
     @attendance.save!
     render json: @attendance, status: 200
   rescue ActiveRecord::RecordInvalid
