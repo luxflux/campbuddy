@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221220359) do
+ActiveRecord::Schema.define(version: 20150110163809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141221220359) do
     t.string   "impression",    limit: 255
     t.boolean  "mandatory",                 default: false
     t.boolean  "groups_only",               default: false
+    t.string   "teaser"
   end
 
   add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree

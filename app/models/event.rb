@@ -15,14 +15,18 @@ class Event < ActiveRecord::Base
   validates :category, presence: true
   validates :title, presence: true
   validates :description, presence: true
+  validates :teaser, presence: true, length: { maximum: 50 }
+
   validates :starts, presence: true
   validates :starts_date, presence: true
   validates :starts_time, presence: true
+
   validates :ends, presence: true
   validates :ends_date, presence: true
   validates :ends_time, presence: true
-  validates_date :starts, between: Setting.camp_start..Setting.camp_end#, before: ->(event) { event.ends }
-  validates_date :ends, between: Setting.camp_start..Setting.camp_end#, after: ->(event) { event.starts }
+
+  validates_date :starts, between: Setting.camp_start..Setting.camp_end
+  validates_date :ends, between: Setting.camp_start..Setting.camp_end
   validates_datetime :starts, before: ->(event) { event.ends }
   validates_datetime :ends, after: ->(event) { event.starts }
 
