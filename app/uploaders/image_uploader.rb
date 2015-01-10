@@ -14,18 +14,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     "fallback/#{name}.png"
   end
 
-  version :small do # 350x350 non retina
-    process resize_to_fit: [700, 700]
-  end
-
-  version :thumb do # 100x100 non retina
-    process resize_to_fill: [200, 200]
-  end
-
-  version :catalog_preview do # 100x85 non retina
-    process resize_to_fill: [200, 170]
-  end
-
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
