@@ -5,17 +5,24 @@ de:
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
+      carrierwave_download_error: konnte nicht heruntergeladen werden
+      carrierwave_integrity_error: ist kein erlaubter Dateityp
+      carrierwave_processing_error: konnte nicht verarbeitet werden
       confirmation: stimmt nicht mit %{attribute} überein
       empty: muss ausgefüllt werden
       equal_to: muss genau %{count} sein
       even: muss gerade sein
       exclusion: ist nicht verfügbar
+      extension_black_list_error: 'Sie sind nicht berechtigt %{extension} Dateien hochzuladen, verbotene Typen: %{prohibited_types}'
+      extension_white_list_error: "Sie sind nicht berechtigt %{extension} Dateien hochzuladen, erlaubte Typen: %{allowed_types}"
       greater_than: muss grösser als %{count} sein
       greater_than_or_equal_to: muss grösser oder gleich %{count} sein
       inclusion: ist kein gültiger Wert
       invalid: ist nicht gültig
       less_than: muss kleiner als %{count} sein
       less_than_or_equal_to: muss kleiner oder gleich %{count} sein
+      mime_types_processing_error: 'Verarbeitung mit MIME::Types fehlgeschlagen, vielleicht kein gültiger content-type? Original Fehler: %{e}'
+      mini_magick_processing_error: 'Verarbeitung mit MiniMagick fehlgeschlagen, vielleicht ist es kein Bild? Original Fehler: %{e}'
       not_a_number: ist keine Zahl
       not_an_integer: muss ganzzahlig sein
       odd: muss ungerade sein
@@ -25,6 +32,7 @@ de:
       restrict_dependent_destroy:
         many: Datensatz kann nicht gelöscht werden, da abhängige %{record} existieren.
         one: Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz existiert.
+      rmagick_processing_error: 'Verarbeitung mit rmagick fehlgeschlagen, vielleicht ist es kein Bild? Original Fehler: %{e}'
       taken: ist bereits vergeben
       too_long: ist zu lang (nicht mehr als %{count} Zeichen)
       too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
