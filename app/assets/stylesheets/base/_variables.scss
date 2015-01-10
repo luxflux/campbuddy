@@ -2,7 +2,7 @@
 $open-sans: 'Open Sans Light';
 $sans-serif: $helvetica;
 $serif: $georgia;
-$base-font-family: $open-sans $sans-serif;
+$base-font-family: $open-sans, $sans-serif;
 $header-font-family: $base-font-family;
 
 // Sizes
