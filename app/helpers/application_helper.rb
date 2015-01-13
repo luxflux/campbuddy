@@ -14,7 +14,7 @@ module ApplicationHelper
     end
   end
 
-  def nav_link(icon_type, url, text, options = {})
+  def nav_link(icon, url, text, options = {})
     options.merge! class: active_if_current_page(url)
     link_to ico_nav(icon_type, text), url, options
   end

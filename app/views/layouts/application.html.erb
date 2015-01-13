@@ -25,11 +25,31 @@
     <% if signed_in? %>
       <% if can_see_navigation? %>
         <nav class="main five">
-          <%= nav_link "92-expand", news_index_path, t('navigation.news') %>
-          <%= nav_link "98-file-minus", events_path, t('navigation.overview') %>
-          <%= nav_link "60-question-circle", catalog_events_path, t('navigation.catalog') %>
-          <%= nav_link "99-statistic-pie", groups_path, t('navigation.groups') %>
-          <%= nav_link "53-mobile", user_path(current_user), t('navigation.me') %>
+          <%= link_to news_index_path do %>
+            <%= icon_home %>
+            <span class="text"><%= t('navigation.news') %></span>
+          <% end %>
+          <%= link_to events_path do %>
+            <%= icon_calendar %>
+            <span class="text"><%= t('navigation.overview') %></span>
+          <% end %>
+          <%= link_to catalog_events_path do %>
+            <%= icon_discover %>
+            <span class="text"><%= t('navigation.catalog') %></span>
+          <% end %>
+          <%= link_to groups_path do %>
+            <%= icon_group %>
+            <span class="text"><%= t('navigation.groups') %></span>
+          <% end %>
+          <%= link_to user_path(current_user) do %>
+            <%= icon_one %>
+            <span class="text"><%= t('navigation.me') %></span>
+          <% end %>
+          <%# <%= nav_link "92-expand", news_index_path, t('navigation.news') %1> %>
+          <%# <%= nav_link "98-file-minus", events_path, t('navigation.overview') %1> %>
+          <%# <%= nav_link "60-question-circle", catalog_events_path, t('navigation.catalog') %1> %>
+          <%# <%= nav_link "99-statistic-pie", groups_path, t('navigation.groups') %1> %>
+          <%# <%= nav_link "53-mobile", user_path(current_user), t('navigation.me') %1> %>
           <% if can? :access, :administration %>
             <%= nav_link "74-control-fastforward", rails_admin_path, t('navigation.administration') %>
           <% end %>
