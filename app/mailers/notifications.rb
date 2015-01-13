@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  default from: 'root@yux.ch'
+  default from: 'campplaner@oneyouth.ch'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
