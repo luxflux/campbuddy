@@ -5,7 +5,7 @@ module IconsHelper
   end
 
   def icon_app_icon
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" enable-background="new 0 0 512 512"><path fill="#05E29E" d="M0 .4h512v512H0z"/><g fill="#fff"><path d="M336.9 185.1l-3.6 6.2-107.9 187.6h111.7l111.2-.1zM177.7 157.7l-55.9 96.9-56 97.1 112-.1h47l32.2-56zM265.2 281.4l42.5-73.9-52-90-42.5 73.7z"/></g></svg>'.html_safe
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" enable-background="new 0 0 512 512"><rect y=".4" fill="#05E29E" width="512" height="512"/><g fill="#fff"><polygon points="336.9,185.1 333.3,191.3 225.4,378.9 337.1,378.9 448.3,378.8"/><polygon points="177.7,157.7 121.8,254.6 65.8,351.7 177.8,351.6 224.8,351.6 257,295.6"/><polygon points="265.2,281.4 307.7,207.5 255.7,117.5 213.2,191.2"/></g></svg>'.html_safe
   end
 
   def icon_attendees
@@ -21,11 +21,11 @@ module IconsHelper
   end
 
   def icon_discover
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><g fill="#fff"><path d="M78.9 21.2l-.6 1.2-20.2 35.1h41.7zM49.1 16.1L38.7 34.2 28.2 52.4H58l6-10.5zM65.5 39.2l8-13.8-9.7-16.9-8 13.8z"/></g></svg>'.html_safe
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><g fill="#fff"><polygon points="78.9,21.2 78.3,22.4 58.1,57.5 79,57.5 99.8,57.5"/><polygon points="49.1,16.1 38.7,34.2 28.2,52.4 49.2,52.4 58,52.4 64,41.9"/><polygon points="65.5,39.2 73.5,25.4 63.8,8.5 55.8,22.3"/></g></svg>'.html_safe
   end
 
   def icon_drugstore
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" enable-background="new 0 0 41 41"><g><path fill="#05E29E" d="M20.5 40.5c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20zm0-39c-10.5 0-19 8.5-19 19s8.5 19 19 19 19-8.5 19-19-8.5-19-19-19z"/><g fill="#05E29E"><path d="M17 10.1h7v20.8h-7zM10.1 17h20.8v7H10.1z"/></g></g></svg>'.html_safe
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" enable-background="new 0 0 41 41"><g><path fill="#05E29E" d="M20.5 40.5c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20zm0-39c-10.5 0-19 8.5-19 19s8.5 19 19 19 19-8.5 19-19-8.5-19-19-19z"/><g fill="#05E29E"><rect x="17" y="10.1" width="7" height="20.8"/><rect x="10.1" y="17" width="20.8" height="7"/></g></g></svg>'.html_safe
   end
 
   def icon_edit
@@ -41,11 +41,11 @@ module IconsHelper
   end
 
   def icon_group
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><g><circle fill="#fff" cx="40.8" cy="22.4" r="7.4"/><circle fill="#fff" cx="87.2" cy="22.4" r="7.4"/><circle fill="#fff" cx="64.1" cy="23.4" r="10.9"/><path fill="#fff" d="M64.1 12.5c6 0 10.9 4.9 10.9 10.9s-4.9 10.9-10.9 10.9-10.9-4.9-10.9-10.9c-.1-6 4.8-10.9 10.9-10.9"/><path fill="#fff" d="M69.4 39.1H58.7L40.9 50v6.5h46.3V50zM69.4 39.1L87.2 50v6.5H40.9V50l17.8-10.9h10.7"/><path fill="#fff" d="M52.7 38.1L44.4 33h-7.3L25 40.4v4.5h16.5zM90.9 33h-7.3l-8.2 5 11.2 6.9H103v-4.5z"/></g></svg>'.html_safe
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><g><circle fill="#fff" cx="40.8" cy="22.4" r="7.4"/><circle fill="#fff" cx="87.2" cy="22.4" r="7.4"/><circle fill="#fff" cx="64.1" cy="23.4" r="10.9"/><path fill="#fff" d="M64.1 12.5c6 0 10.9 4.9 10.9 10.9s-4.9 10.9-10.9 10.9-10.9-4.9-10.9-10.9c-.1-6 4.8-10.9 10.9-10.9"/><polygon fill="#fff" points="69.4,39.1 58.7,39.1 40.9,50 40.9,56.5 87.2,56.5 87.2,50"/><polyline fill="#fff" points="69.4,39.1 87.2,50 87.2,56.5 40.9,56.5 40.9,50 58.7,39.1 69.4,39.1"/><polygon fill="#fff" points="52.7,38.1 44.4,33 37.1,33 25,40.4 25,44.9 41.5,44.9"/><polygon fill="#fff" points="90.9,33 83.6,33 75.4,38 86.6,44.9 103,44.9 103,40.4"/></g></svg>'.html_safe
   end
 
   def icon_home
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><path fill="#fff" d="M95.6 39.7L64.4 8.5l-.7-.7-31.9 31.9h10.5v19.1h22.1V45.5h10.7v13.3h10V39.7z"/></svg>'.html_safe
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><polygon fill="#fff" points="95.6,39.7 64.4,8.5 63.7,7.8 31.8,39.7 42.3,39.7 42.3,58.8 64.4,58.8 64.4,45.5 75.1,45.5 75.1,58.8 85.1,58.8 85.1,39.7"/></svg>'.html_safe
   end
 
   def icon_information
@@ -65,7 +65,7 @@ module IconsHelper
   end
 
   def icon_one
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><g fill="#fff"><circle cx="64.1" cy="23.4" r="10.9"/><path d="M64.1 12.5c6 0 10.9 4.9 10.9 10.9s-4.9 10.9-10.9 10.9-10.9-4.9-10.9-10.9c-.1-6 4.8-10.9 10.9-10.9"/><path d="M69.4 39.1H58.7L40.9 50v6.5h46.3V50zM69.4 39.1L87.2 50v6.5H40.9V50l17.8-10.9h10.7"/></g></svg>'.html_safe
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 68" enable-background="new 0 0 128 68"><g fill="#fff"><circle cx="64.1" cy="23.4" r="10.9"/><path d="M64.1 12.5c6 0 10.9 4.9 10.9 10.9s-4.9 10.9-10.9 10.9-10.9-4.9-10.9-10.9c-.1-6 4.8-10.9 10.9-10.9"/><polygon points="69.4,39.1 58.7,39.1 40.9,50 40.9,56.5 87.2,56.5 87.2,50"/><polyline points="69.4,39.1 87.2,50 87.2,56.5 40.9,56.5 40.9,50 58.7,39.1 69.4,39.1"/></g></svg>'.html_safe
   end
 
   def icon_question
