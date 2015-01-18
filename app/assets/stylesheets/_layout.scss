@@ -72,3 +72,33 @@ img.avatar {
   z-index:14;
 }
 
+.icon {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+
+  svg {
+    fill: $dark-gray;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.red {
+    svg {
+      fill: $red;
+    }
+  }
+
+  &.green {
+    svg {
+      fill: $green;
+    }
+  }
+
+  &.blue {
+    svg {
+      fill: $blue;
+    }
+  }
+}

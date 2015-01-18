@@ -11,8 +11,8 @@ File.open(FILENAME, 'w') do |helper|
     name = icon.split('/').last.tr('-','_').gsub(/\.svg$/,'')
     puts "#{name}: #{svg.size} bytes"
 
-    helper.write "  def icon_#{name}\n"
-    helper.write "    '<span class=\"icon\">#{svg}</span>'.html_safe\n"
+    helper.write "  def icon_#{name}(css_class: nil)\n"
+    helper.write "    %Q{<span class=\"icon \#{css_class}\">#{svg}</span>}.html_safe\n"
     helper.write "  end\n\n"
   end
 

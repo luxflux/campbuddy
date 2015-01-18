@@ -10,9 +10,9 @@ de:
         text: Leider gibt es an diesem Tag keine Events.
         title: Keine Events
     show:
-      attendance: Teilnehmen?
+      attendance: Du bist nicht dabei
       full: Leider hats keinen Platz mehr
       groups_only: Gruppenevent
       mandatory: Für alle obligatorisch
       you_are_owner: Du bist der Leiter
-      you_take_part: Du nimmst teil
+      you_take_part: Du bist dabei

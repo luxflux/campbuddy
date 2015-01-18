@@ -109,50 +109,54 @@
   }
 
   .participation {
-    padding-top: .5em;
-    color: #333;
-    cursor: pointer;
+    font-size: 1.3em;
 
-    & > * {
-      font-size: 1.3em;
-    }
+    div {
+      .icon {
+        height: 2em;
+        width: 1.5em;
+      }
 
-    .yes i {
-      color: $green;
-    }
+      &.group-only,
+      &.mandatory {
+        svg {
+          fill: $red;
+        }
+      }
 
-    .group-only i,
-    .mandatory i {
-      color: $red;
-    }
-
-    i {
-      font-size: 1.4em;
-      position: relative;
-      top: 7px;
-      left: -2px;
+      &.yes, &.no {
+        cursor: pointer;
+      }
     }
   }
 
- .event {
+  .event {
+    li {
+      @include outer-container;
+      margin-top: 1em;
 
+      li {
+        margin-top: 0;
+      }
+    }
     .icon {
-      float: left;
-      width: 9%;
       max-width: 2em;
-      font-size: 1.4em;
-      color: #000;
+      height: 2em;
+      @include span-columns(2);
     }
 
     .text {
-      float: left;
-      width: 85%;
-      margin: 2px 16px 0 0;
+      @include span-columns(10);
+      padding-top: .3em;
     }
 
-    .text > h1 {
-      margin: 4px 0 0 0;
+    .text > .title {
       @include small-bold-title();
+    }
+
+    .attendees + .title {
+      margin-top: 1.3em;
+      display: inline-block;
     }
   }
 }

@@ -23,7 +23,7 @@ feature 'Event View' do
     end
 
     scenario 'it shows the owner' do
-      expect(page).to have_css('li.owner')
+      expect(page).to have_content('Leiter')
     end
   end
 
