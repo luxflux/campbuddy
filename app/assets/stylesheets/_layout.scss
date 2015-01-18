@@ -75,6 +75,7 @@ img.avatar {
 .icon {
   display: inline-block;
   width: 100%;
+  max-width: 3em;
   position: relative;
 
   svg {

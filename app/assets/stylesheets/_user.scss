@@ -1,28 +1,35 @@
 .users-show {
-  h1 small {
-    display: block;
+  .profile {
+    @include outer-container();
   }
 
-  img.avatar {
-    display: block;
-    margin: 2em auto;
-    width: 12em;
-    height: 12em;
+  .image {
+    @include span-columns(4);
+    padding: .4em .5em;
+  }
+  .info {
+    @include span-columns(8);
   }
 
-  ul.links {
+  .avatar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+
+  .links {
     li {
       padding: .2em 0;
+      font-size: 1em;
+    }
 
-      &:first-child {
-        padding-top: .8em;
-      }
-
-      i {
-        color: $blue;
-        position: relative;
-        bottom: -2px;
-      }
+    .icon {
+      height: 1.5em;
+      width: 1.5em;
+    }
+    a {
+      vertical-align: top;
     }
   }
 }
@@ -33,51 +40,6 @@
   form {
     .user_avatar img {
       border-radius: 100%;
-    }
-  }
-}
-
-.profil {
-  width: 100%;
-  padding: 1em 0 2em 0;
-  @include clearfix;
-
-  .image{
-    width: 32%;
-    padding: 0 2% 0 0;
-    float: left;
-
-    img.avatar {
-      height: auto;
-      border-radius: 100%;
-      overflow: hidden;
-      margin: 0;
-    }
-  }
-  .info {
-    width: 66%;
-    float: left;
-
-    ul {
-      padding-left: 0.4em;
-      li {
-        padding: 0;
-        margin: 0;
-        line-height: 1.4em;
-
-        &:first-child {
-          @include small-bold-title();
-          padding: 0;
-        }
-        &:nth-child(2){
-          border-bottom: 1px solid $light-gray;
-          padding-bottom: 0.4em;
-        }
-
-        &:nth-child(3){
-          padding-top: 0.4em;
-        }
-      }
     }
   }
 }
