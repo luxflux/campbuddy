@@ -30,9 +30,6 @@
           <%= nav_link icon_discover, catalog_events_path, t('navigation.catalog') %>
           <%= nav_link icon_group, groups_path, t('navigation.groups') %>
           <%= nav_link icon_one, user_path(current_user), t('navigation.me') %>
-          <% if can? :access, :administration %>
-            <%= nav_link icon_administration, rails_admin_path, t('navigation.administration') %>
-          <% end %>
         </nav>
       <% else %>
         <nav class="main single">
