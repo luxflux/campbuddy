@@ -25,45 +25,18 @@
     <% if signed_in? %>
       <% if can_see_navigation? %>
         <nav class="main five">
-          <%= link_to news_index_path do %>
-            <%= icon_home %>
-            <span class="text"><%= t('navigation.news') %></span>
-          <% end %>
-          <%= link_to events_path do %>
-            <%= icon_calendar %>
-            <span class="text"><%= t('navigation.overview') %></span>
-          <% end %>
-          <%= link_to catalog_events_path do %>
-            <%= icon_discover %>
-            <span class="text"><%= t('navigation.catalog') %></span>
-          <% end %>
-          <%= link_to groups_path do %>
-            <%= icon_group %>
-            <span class="text"><%= t('navigation.groups') %></span>
-          <% end %>
-          <%= link_to user_path(current_user) do %>
-            <%= icon_one %>
-            <span class="text"><%= t('navigation.me') %></span>
-          <% end %>
-          <%# <%= nav_link "92-expand", news_index_path, t('navigation.news') %1> %>
-          <%# <%= nav_link "98-file-minus", events_path, t('navigation.overview') %1> %>
-          <%# <%= nav_link "60-question-circle", catalog_events_path, t('navigation.catalog') %1> %>
-          <%# <%= nav_link "99-statistic-pie", groups_path, t('navigation.groups') %1> %>
-          <%# <%= nav_link "53-mobile", user_path(current_user), t('navigation.me') %1> %>
+          <%= nav_link icon_home, news_index_path, t('navigation.news') %>
+          <%= nav_link icon_calendar, events_path, t('navigation.overview') %>
+          <%= nav_link icon_discover, catalog_events_path, t('navigation.catalog') %>
+          <%= nav_link icon_group, groups_path, t('navigation.groups') %>
+          <%= nav_link icon_one, user_path(current_user), t('navigation.me') %>
           <% if can? :access, :administration %>
-            <%# <%= nav_link "74-control-fastforward", rails_admin_path, t('navigation.administration') %1> %>
-            <%= link_to rails_admin_path do %>
-              <%= icon_administration %>
-              <span class="text"><%= t('navigation.administration') %></span>
-            <% end %>
+            <%= nav_link icon_administration, rails_admin_path, t('navigation.administration') %>
           <% end %>
         </nav>
       <% else %>
         <nav class="main single">
-          <%= link_to sign_out_path, method: :delete do %>
-            <%= icon_logout %>
-            <span class="text"><%= t('navigation.sign_out') %></span>
-          <% end %>
+          <%= nav_link icon_logout, sign_out_path, t('navigation.sign_out'), method: :delete %>
         </nav>
       <% end %>
     <% end %>

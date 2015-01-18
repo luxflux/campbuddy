@@ -237,6 +237,7 @@ nav.main {
       background: $medium-gray;
       color: $light-gray;
       font-size: 2em;
+      line-height: 2em;
       text-align: left;
       padding: .5em .4em;
 
@@ -245,9 +246,16 @@ nav.main {
       }
       span.icon {
         width: 1.5em;
+        height: 2em;
+        position: relative;
+
+        svg {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
       span.text {
-        vertical-align: top;
         display: none;
       }
     }

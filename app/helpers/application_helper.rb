@@ -7,16 +7,11 @@ module ApplicationHelper
     content_tag(:i, "", class: "icon-essential-light-#{type}")
   end
 
-  def ico_nav(type, text)
-    content_tag :span do
-      content_tag(:i, "", class: "icon-essential-light-#{type}") +
-        content_tag(:span, text, class: :text)
-    end
-  end
-
   def nav_link(icon, url, text, options = {})
     options.merge! class: active_if_current_page(url)
-    link_to ico_nav(icon_type, text), url, options
+    link_to url, options do
+      icon + content_tag(:span, text, class: :text)
+    end
   end
 
   def active_if_current_page(url)
