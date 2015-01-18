@@ -51,12 +51,19 @@
           <%# <%= nav_link "99-statistic-pie", groups_path, t('navigation.groups') %1> %>
           <%# <%= nav_link "53-mobile", user_path(current_user), t('navigation.me') %1> %>
           <% if can? :access, :administration %>
-            <%= nav_link "74-control-fastforward", rails_admin_path, t('navigation.administration') %>
+            <%# <%= nav_link "74-control-fastforward", rails_admin_path, t('navigation.administration') %1> %>
+            <%= link_to rails_admin_path do %>
+              <%= icon_administration %>
+              <span class="text"><%= t('navigation.administration') %></span>
+            <% end %>
           <% end %>
         </nav>
       <% else %>
         <nav class="main single">
-          <%= nav_link "49-magnifier", sign_out_path, t('navigation.sign_out'), method: :delete %>
+          <%= link_to sign_out_path, method: :delete do %>
+            <%= icon_logout %>
+            <span class="text"><%= t('navigation.sign_out') %></span>
+          <% end %>
         </nav>
       <% end %>
     <% end %>
