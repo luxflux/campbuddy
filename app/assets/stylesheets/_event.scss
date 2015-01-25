@@ -2,8 +2,12 @@
   @include outer-container;
   position: relative;
   height: 5.5em;
-  box-shadow: 0 1px 0 $light-gray;
+  border-bottom: 1px solid $light-gray;
   clear: both;
+
+  &:first-child {
+    border-top: 1px solid $light-gray;
+  }
 
   a {
     display: block;
@@ -22,55 +26,43 @@
     display: block;
     float: left;
     width: calc(100% - 0.4em);
+  }
 
-    .start-time, .event-image {
-      width: 34%;
-      display: block;
-      float: left;
-      text-transform: uppercase;
-      font-size: 1.9em;
-      line-height: 28px;
-      padding: 0.5em 0 0 0.5em;
-    }
-    .event-image{
-      padding: 0;
-      overflow: hidden;
+  .start-time, .event-image {
+    width: 34%;
+    float: left;
+    text-transform: uppercase;
+    font-size: 1.9em;
+    line-height: 28px;
+    padding: 0.5em 0 0 0.5em;
+  }
+  .event-image{
+    display: none;
+    padding: 0;
+    overflow: hidden;
+    height: 2.9em;
+
+    img {
       height: 2.9em;
-
-      img {
-        height: 2.9em;
-      }
     }
-    .info {
+  }
+  .info {
+    display: block;
+    width: 66%;
+    float: left;
+    padding: .5em 0em;
+    line-height: 1em;
+
+    .title {
+      @include small-bold-title;
+      line-height: 1.25;
       display: block;
-      width: 56%;
-      float: left;
-      padding: .5em 0em;
-      line-height: 1em;
-
-      .title {
-        @include small-bold-title;
-        line-height: 1.25;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .description {
-        font-size: .9em;
-      }
-    }
-    .link{
-      display: inline-block;
-      position: relative;
-      top: 1.6em;
-      width: 10%;
+      white-space: nowrap;
       overflow: hidden;
-
-      i {
-        color: #ededef;
-        font-size: 2em;
-      }
+      text-overflow: ellipsis;
+    }
+    .description {
+      font-size: .9em;
     }
   }
 
@@ -88,6 +80,15 @@
   }
   &.yellow .color-stripe {
     background-color: $yellow;
+  }
+}
+
+.events-catalog {
+  .start-time {
+    display: none;
+  }
+  .event-image {
+    display: block;
   }
 }
 

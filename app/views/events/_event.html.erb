@@ -1,19 +1,20 @@
 <div class="event-entry <%= event.category.identifier %>">
-  <a alt="link zur Deteilansicht" href="<%= event_path(event, back: request.fullpath) %>">
+  <%= link_to event_path(event, back: request.fullpath) do %>
     <span class="color-stripe">&nbsp;</span>
     <span class="event-infos">
-      <span class="start-time">
+      <div class="start-time">
         <%= l event.starts.to_date, format: :short_weekday_only %>
         <br>
         <%= l event.starts, format: :time_only %>
-      </span>
+      </div>
+      <div class="event-image">
+        <%= image_tag event.impression.catalog.url %>
+      </div>
 
       <span class="info">
         <span class="title"><%= event.title %></span>
         <span class="description"><%= event.teaser %></span>
       </span>
-
-      <span class="link"><i class="icon-essential-light-02-chevron-right">&nbsp;</i></span>
     </span>
-  </a>
+  <% end %>
 </div>
