@@ -31,21 +31,18 @@
     }
   }
 
-  .news-entries {
-    float: none;
-    clear: both;
+  .news-entry {
+    @include outer-container();
 
     .icon {
-      float: left;
-      width: 9%;
       max-width: 2em;
-      font-size: 1.4em;
-      color: #000;
+      height: 2em;
+      @include span-columns(2);
     }
+
     .text {
-      float: left;
-      width: 85%;
-      margin: 2px 16px 0 0;
+      @include span-columns(10);
+      padding-top: .3em;
     }
   }
 
