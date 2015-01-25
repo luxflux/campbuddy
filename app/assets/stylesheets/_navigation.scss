@@ -110,16 +110,6 @@ nav.events {
 
   @include outer-container;
 
-  .back {
-    @include span-columns(1);
-
-    font-size: 1.5em;
-    line-height: 1.7em;
-    height: 100%;
-    font-weight: 600;
-    color: $dark-gray;
-  }
-
   .title {
     @include span-columns(9);
     h1 {
@@ -130,15 +120,22 @@ nav.events {
     }
   }
 
-  .edit{
-    @include span-columns(2);
+  .back, .edit {
     height: 3em;
-    text-align: right;
 
     .icon {
       max-width: 3em;
       height: 100%;
     }
+  }
+
+  .edit {
+    @include span-columns(2);
+    text-align: right;
+  }
+
+  .back {
+    @include span-columns(1);
   }
 }
 

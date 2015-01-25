@@ -23,7 +23,7 @@ module ApplicationHelper
   end
 
   def back_link(url, options = {})
-    link_to ico(:"01-chevron-left"), url, options
+    link_to icon_back, url, options
   end
 
   def can_see_navigation?
