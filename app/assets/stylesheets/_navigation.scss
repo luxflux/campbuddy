@@ -111,7 +111,7 @@ nav.events {
   @include outer-container;
 
   .title {
-    @include span-columns(9);
+    @include span-columns(8);
     h1 {
       font-size: 1.7em;
     }
@@ -135,7 +135,7 @@ nav.events {
   }
 
   .back {
-    @include span-columns(1);
+    @include span-columns(2);
   }
 }
 
