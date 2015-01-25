@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+FILENAME = 'app/helpers/icons_helper.rb'
+
+puts "Generating helper #{FILENAME}"
+File.open(FILENAME, 'w') do |helper|
+  helper.write "module IconsHelper\n\n"
+
+  Dir.glob(File.join('app', 'assets', 'images', 'icons', '*.svg')).each do |icon|
+    svg = File.read(icon).delete("\n").delete("\r").delete("\t")
+    name = icon.split('/').last.tr('-','_').gsub(/\.svg$/,'')
+    puts "#{name}: #{svg.size} bytes"
+
+    helper.write "  def icon_#{name}(css_class: nil)\n"
+    helper.write "    %Q{<span class=\"icon \#{css_class}\">#{svg}</span>}.html_safe\n"
+    helper.write "  end\n\n"
+  end
+
+  helper.write 'end'
+end

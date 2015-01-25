@@ -1,25 +1,32 @@
-<div class="padded-row users-show">
-  <!--
-  <h1><%= @user.fullname %><small><%= @user.email %></small></h1>
-
-  <%= image_tag @user.avatar.thumb.url, class: :avatar %>
-  -->
+<div class="padded-row">
   <h1><%= t('.my_profil') %></h1>
-  <div class="profil">
+</div>
+
+<div class="padded-row">
+  <div class="profile">
     <div class="image"><%= image_tag @user.avatar.thumb.url, class: :avatar %></div>
     <div class="info">
+      <h2><%= @user.fullname %></h2>
+      <p><%= @user.email %></p>
       <ul class="links">
-        <li><%= @user.fullname %></li>
-        <li><%= @user.email %></li>
-      <% if can? :edit, @user %>
-        <li><%= ico '48-clipboard' %> <%= link_to t('.edit'), edit_user_path(@user) %></li>
-      <% end %>
-      <% if can? :access, :administration %>
-        <li><%= ico '74-control-fastforward' %> <%= link_to t('.administration'), '/admin' %></li>
-      <% end %>
+        <% if can? :edit, @user %>
+          <li>
+            <%= icon_edit %>
+            <%= link_to t('.edit'), edit_user_path(@user) %>
+          </li>
+        <% end %>
+        <% if can? :access, :administration %>
+          <li>
+            <%= icon_administration %>
+            <%= link_to t('.administration'), '/admin' %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
+</div>
+
+<div class="padded-row">
   <h2><%= t('.my_events') %></h2>
 </div>
 
@@ -30,23 +37,7 @@
     </div>
   </div>
 <% end %>
-<!--
-<div class="padded-row">
-  <h2><%= t('.my_links') %></h2>
-  <ul class="links">
-    <% if can? :edit, @user %>
-      <li><%= link_to t('.edit'), edit_user_path(@user) %></li>
-    <% end %>
-    <% if can? :access, :administration %>
-      <li><%= link_to t('.administration'), '/admin' %></li>
-    <% end %>
-    <% if signed_in? && current_user == @user %>
-      <li><%= link_to t('.sign_out'), sign_out_path, method: :delete %></li>
-    <% end %>
-  </ul>
-</div>
--->
-  <div></div>
-    <% if signed_in? && current_user == @user %>
-      <div class="logout"><%= link_to t('.sign_out'), sign_out_path, method: :delete, class: "btn red" %></div>
-    <% end %>
+
+<% if signed_in? && current_user == @user %>
+  <div class="logout"><%= link_to t('.sign_out'), sign_out_path, method: :delete, class: "btn red" %></div>
+<% end %>

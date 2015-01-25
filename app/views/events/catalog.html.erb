@@ -9,25 +9,7 @@
   <div class="events">
     <% @events.group_by { |e| e.starts.to_date }.each do |date, events| %>
       <h1><%= l date, format: :weekday_only %></h1>
-      <% events.each do |event| %>
-        <div class="event-entry <%= event.category.identifier %>">
-          <a alt="link zur Deteilansicht" href="<%= event_path(event, back: catalog_events_path) %>">
-            <span class="color-stripe">&nbsp;</span>
-            <span class="event-infos">
-              <div class="event-image">
-                <%= image_tag event.impression.catalog.url %>
-              </div>
-
-              <span class="info">
-                <span class="title"><%= event.title %></span>
-                <span class="description"><%= event.teaser %></span>
-              </span>
-
-              <span class="link"><i class="icon-essential-light-02-chevron-right">&nbsp;</i></span>
-            </span>
-          </a>
-        </div>
-      <% end %>
+      <%= render events %>
     <% end %>
   </div>
 

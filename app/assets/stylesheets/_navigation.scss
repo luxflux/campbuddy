@@ -16,11 +16,6 @@ nav {
       color: $medium-gray;
     }
   }
-  .text {
-      display: none;
-      width: 0;
-      padding-left: 0.2em;
-  }
 }
 
 body.events-show nav.main {
@@ -115,18 +110,8 @@ nav.events {
 
   @include outer-container;
 
-  .back {
-    @include span-columns(1);
-
-    font-size: 1.5em;
-    line-height: 1.7em;
-    height: 100%;
-    font-weight: 600;
-    color: $dark-gray;
-  }
-
   .title {
-    @include span-columns(10);
+    @include span-columns(8);
     h1 {
       font-size: 1.7em;
     }
@@ -135,23 +120,69 @@ nav.events {
     }
   }
 
-  .edit{
-    @include span-columns(1);
+  .back, .edit {
+    height: 3em;
 
-    font-size: 1.5em;
-    line-height: 1.7em;
-    color: $red;
+    .icon {
+      max-width: 3em;
+      height: 100%;
+    }
+  }
+
+  .edit {
+    @include span-columns(2);
+    text-align: right;
+  }
+
+  .back {
+    @include span-columns(2);
   }
 }
 
-@media (max-width: 1250px){
+nav.main {
+  a {
+    svg {
+      fill: white;
+    }
+    svg .background {
+      fill: none;
+    }
+
+    color: white;
+    background-color: $medium-gray;
+
+    &.active {
+      background-color: $dark-gray;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      color: $medium-gray;
+      background-color: white;
+
+      svg {
+        fill: $medium-gray;
+
+        .background {
+          fill: none;
+        }
+      }
+    }
+  }
+  .text {
+    display: none;
+    padding-left: 0.2em;
+  }
+}
+
+@media (max-width: 1300px) {
   nav.main {
     z-index: 15;
     position: fixed;
     bottom: 0;
     right: 0;
     width: 100%;
-    background-color: $medium-gray;
     height: 36px;
 
     a {
@@ -159,19 +190,21 @@ nav.events {
       padding: 0;
       border-left: 1px solid $light-gray;
       color: #fff;
+      position: relative;
 
       &:first-child {
         border-left: none;
       }
 
-      &.active {
-        background-color: $dark-gray;
+      .icon {
+        width: 30px;
+        height: 30px;
       }
-      &:focus,&:active,&:hover {
-        color: $medium-gray;
+
+      .text {
+        display: none;
       }
     }
-
 
     &.five a {
       width: 20%;
@@ -183,7 +216,7 @@ nav.events {
   }
 }
 
-@media (min-width: 1251px){
+@media (min-width: 1301px) {
 
   nav.main {
     position: fixed;
@@ -194,45 +227,35 @@ nav.events {
     z-index: 15;
     font-size: 1em;
     background: $medium-gray;
-    overflow: hidden;
+
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
 
     a {
       display: block;
       background: $medium-gray;
-      width: 1.75em;
       color: $light-gray;
-      font-size: 3em;
-      line-height: 1em;
+      font-size: 2em;
+      line-height: 2em;
       text-align: left;
-      padding: 0.35em;
+      padding: .5em .4em;
 
-      -moz-transition: none;
-      -webkit-transition: none;
-      -o-transition: color 0 ease-in;
-      transition: none;
-    }
-
-    i {
-      position: relative;
-      bottom: -0.15em;
+      span {
+        display: inline-block;
+      }
+      span.icon {
+        width: 1.5em;
+        height: 2em;
+      }
+      span.text {
+        display: none;
+      }
     }
 
     &:hover {
       box-shadow: 0 0 22px $dark-gray;
-      a {
-        width: auto;
-        &:hover{
-          background: $light-black;
-          text-shadow: 0 0 10px #000;
-        }
-        .text {
-          display: inline-block;
-          width: auto;
-          padding-left: 0.2em;
-        }
-
-      }
     }
-
   }
 }

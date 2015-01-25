@@ -71,3 +71,35 @@ img.avatar {
   left:0;
   z-index:14;
 }
+
+.icon {
+  display: inline-block;
+  width: 100%;
+  max-width: 3em;
+  position: relative;
+
+  svg {
+    fill: $dark-gray;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.red {
+    svg {
+      fill: $red;
+    }
+  }
+
+  &.green {
+    svg {
+      fill: $green;
+    }
+  }
+
+  &.blue {
+    svg {
+      fill: $blue;
+    }
+  }
+}

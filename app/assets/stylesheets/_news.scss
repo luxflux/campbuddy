@@ -1,54 +1,36 @@
-/*activity date and time*/
-
 .news-index {
+  .emergency {
+    @include span-columns(12);
+    @include small-bold-title;
 
-  .call {
-    color: $red;
-    text-decoration: none;
-    display: block;
     text-align: right;
-    padding: 0.7em 0.5em 0 0;
-
-    span {
-      @include small-bold-title;
-      color: $dark-gray;
-    }
-    i {
-      margin: 0 .2em 0 -.2em;
-      position: relative;
-      top: 4px;
-      font-size: 1.2em;
-
-      &.red {
-        color: $red;
-      }
-      &.green {
-        color: $green;
-      }
-      &.blue {
-        color: $blue;
-      }
-    }
-  }
-
-  .news-entries {
-    float: none;
-    clear: both;
+    color: $dark-gray;
 
     .icon {
-      float: left;
-      width: 9%;
-      max-width: 2em;
-      font-size: 1.4em;
-      color: #000;
-    }
-    .text {
-      float: left;
-      width: 85%;
-      margin: 2px 16px 0 0;
+      height: 1.7em;
+      width: 1.7em;
+      vertical-align: bottom;
+
+      svg {
+        fill: $red;
+      }
     }
   }
 
+  .news-entry {
+    @include outer-container();
+
+    .icon {
+      max-width: 2em;
+      height: 2em;
+      @include span-columns(2);
+    }
+
+    .text {
+      @include span-columns(10);
+      padding-top: .3em;
+    }
+  }
 
   small {
     font-size: .5em;

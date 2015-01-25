@@ -6,7 +6,7 @@
   </div>
   <% if can? :edit, @event %>
     <%= link_to edit_event_path(back: params[:back]), class: 'edit' do %>
-      <%= ico '48-clipboard' %>
+      <%= icon_edit %>
     <% end %>
   <% end %>
 </div>
@@ -19,32 +19,37 @@
   <div class="participation padded-row">
     <% if @event.mandatory? %>
       <div class="mandatory">
-        <%= ico(:"71-control-stop") %><span><%= t('.mandatory') %></span>
+        <%= icon_exclamation %>
+        <span class="text"><%= t('.mandatory') %></span>
       </div>
 
     <% elsif @event.groups_only? %>
       <div class="group-only">
-        <%= ico(:"71-control-stop") %><span><%= t('.groups_only') %></span>
+        <%= icon_exclamation %>
+        <span class="text"><%= t('.groups_only') %></span>
       </div>
 
     <% elsif @event.owner == current_user %>
       <div class="owner">
-        <%= ico(:"71-control-stop") %><span><%= t('.you_are_owner') %></span>
+        <%= icon_exclamation %>
+        <span class="text"><%= t('.you_are_owner') %></span>
       </div>
 
     <% elsif @event.attended_by_user?(current_user) %>
       <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
-        <%= ico(:"05-tick") %><span><%= t('.you_take_part') %></span>
+        <%= icon_tick css_class: 'green' %><%= icon_cross %>
+        <span class="text"><%= t('.you_take_part') %></span>
       </div>
 
     <% elsif @event.no_places_left? %>
       <div class="occupied">
-        <span><%= t('.full') %></span>
+        <span class="text"><%= t('.full') %></span>
       </div>
 
     <% else %>
       <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
-        <%= ico(:"28-trash") %><span><%= t('.attendance') %></span>
+        <%= icon_tick %><%= icon_cross css_class: 'red' %>
+        <span class="text"><%= t('.attendance') %></span>
       </div>
     <% end %>
   </div>
@@ -53,30 +58,25 @@
 <div class="event padded-row">
   <ul>
     <li class="description">
-      <div class="icon"><%= ico(:"72-control-pause") %></div>
-      <div class="text">
-        <p><%= @event.description %></p>
-      </div>
+      <%= icon_info %>
+      <span class="text"><%= @event.description %></span>
     </li>
     <li class="time">
-      <div class="icon"><%= ico(:"100-statistic-graph") %></div>
-      <div class="text">
-        <p><%= l @event.starts %> - <%= l @event.ends, format: :time_only %></p>
-      </div>
+      <%= icon_clock %>
+      <span class="text"><%= l @event.starts %> - <%= l @event.ends, format: :time_only %></span>
     </li>
     <% if @event.meeting_point.present? %>
     <li class="meeting_point">
-      <div class="icon"><%= ico(:"26-heart") %></div>
-      <div class="text">
-        <p><%= Event.human_attribute_name :meeting_point %> <%= @event.meeting_point %></p>
-      </div>
+      <%= icon_meeting_point %>
+      <span class="text"><%= Event.human_attribute_name :meeting_point %> <%= @event.meeting_point %></span>
     </li>
     <% end %>
     <% if !@event.mandatory? && can?(:read, User) %>
       <li class="partipicants">
-        <div class="icon"><%= ico(:"23-forbidden") %></div>
-        <div class="text">
-          <p><%= Event.human_attribute_name :users %></p>
+        <%= icon_attendees %>
+        <span class="text">
+          <span class="title"><%= Event.human_attribute_name :users %></span>
+
           <ul class="attendees">
             <%= render (@event.users - [@event.owner]) %>
             <% if @event.attendance_places_left %>
@@ -86,21 +86,15 @@
               </li>
             <% end %>
           </ul>
-        </div>
-      </li>
-    <% end %>
-    <% if can? :read, @event.owner %>
-      <li class="owner">
-        <div class="icon"><%= ico(:"70-control-play") %></div>
-        <div class="text">
-          <p><%= Event.human_attribute_name :owner %></p>
+
+          <span class="title"><%= Event.human_attribute_name :owner %></span>
           <ul class="attendees">
             <li>
               <div class="image"><%= image_tag @event.owner.avatar.thumb.url %></div>
               <div class="name"><%= @event.owner.fullname %></div>
             </li>
           </ul>
-        </div>
+        </span>
       </li>
     <% end %>
   </ul>
