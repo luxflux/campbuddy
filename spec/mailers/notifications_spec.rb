@@ -12,7 +12,7 @@ RSpec.describe Notifications, :type => :mailer do
     let(:mail) { Notifications.invitation(user) }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq('Einladung zum CampPlaner')
+      expect(mail.subject).to eq('Einladung zum Camp Buddy')
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(['campplaner@oneyouth.ch'])
     end
