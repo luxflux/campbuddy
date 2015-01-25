@@ -1,55 +1,96 @@
 .event-entry {
   @include outer-container;
-  position: relative;
-  height: 5.5em;
-  border-bottom: 1px solid $light-gray;
-  clear: both;
 
+  border-bottom: 1px solid $medium-gray;
+  box-sizing: content-box;
+  height: 5.5em;
+
+  h1 + &,
   &:first-child {
-    border-top: 1px solid $light-gray;
+    border-top: 1px solid $medium-gray;
+  }
+
+  &:before {
+    content: "\00a0";
+    display: block;
+    float: left;
+    height: calc(100% + 1px);
+    position: relative;
+    top: -1px;
+    width: 2%;
+
+    @include media($medium-screen-up) {
+      width: 1%;
+    }
+  }
+
+  &:last-child {
+    &:before {
+      height: calc(100% + 2px);
+    }
+  }
+
+  &.red {
+    &:before {
+      background-color: $red;
+    }
+  }
+  &.green {
+    &:before {
+      background-color: $green;
+    }
+  }
+  &.blue {
+    &:before {
+      background-color: $blue;
+    }
+  }
+  &.royal {
+    &:before {
+      background-color: $dark-blue;
+    }
+  }
+  &.yellow {
+    &:before {
+      background-color: $yellow;
+    }
+  }
+  &.gray {
+    &:before {
+      background-color: $medium-gray;
+    }
   }
 
   a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: #000;
-  }
-  .color-stripe {
-    display: block;
-    float: left;
-    background-color: $medium-gray;
-    height: 100%;
-    width: 0.4em;
-  }
-  .event-infos {
-    display: block;
-    float: left;
-    width: calc(100% - 0.4em);
+    color: $dark-gray;
   }
 
   .start-time, .event-image {
-    width: 34%;
-    float: left;
+    @include span-columns(4);
     text-transform: uppercase;
-    font-size: 1.9em;
-    line-height: 28px;
-    padding: 0.5em 0 0 0.5em;
+    line-height: calc(5.5em / 4);
+    width: 29.7615656014%; // YES, this is ugly but I don't know a better way.. :'(
+    @include media($medium-screen-up) {
+      width: 30.7615656014%
+    }
   }
+
+  .start-time {
+    font-size: 1.9em;
+  }
+
   .event-image{
     display: none;
-    padding: 0;
-    overflow: hidden;
-    height: 2.9em;
+    height: 100%;
 
     img {
-      height: 2.9em;
+      height: calc(100% + 1px);
+      position: relative;
+      top: -1px;
     }
   }
   .info {
-    display: block;
-    width: 66%;
-    float: left;
+    @include span-columns(8);
     padding: .5em 0em;
     line-height: 1em;
 
@@ -64,22 +105,6 @@
     .description {
       font-size: .9em;
     }
-  }
-
-  &.red .color-stripe {
-    background-color: $red;
-  }
-  &.green .color-stripe {
-    background-color: $green;
-  }
-  &.blue .color-stripe {
-    background-color: $blue;
-  }
-  &.royal .color-stripe {
-    background-color: $dark-blue;
-  }
-  &.yellow .color-stripe {
-    background-color: $yellow;
   }
 }
 
@@ -98,8 +123,6 @@
 
 .events > h1 {
   padding: 0.3em 0.3em 0.1em 0.3em;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(221,221,221,0.45)), color-stop(60%,rgba(255,255,255,0)));  /*Chrome,Safari4+ */
-  background: gradient(linear, left bottom, left top, color-stop(0%,rgba(221,221,221,0.65)), color-stop(60%,rgba(255,255,255,0)));
 }
 
 .events-show {
