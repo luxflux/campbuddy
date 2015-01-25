@@ -143,6 +143,11 @@
         width: 1.5em;
       }
 
+      .text {
+        position: relative;
+        top: -0.2em;
+      }
+
       &.group-only,
       &.mandatory {
         svg {
@@ -166,9 +171,10 @@
       }
     }
     .icon {
-      max-width: 2em;
-      height: 2em;
       @include span-columns(2);
+      margin-top: 0.15em;
+      max-width: 1.5em;
+      height: 2em;
     }
 
     .text {
