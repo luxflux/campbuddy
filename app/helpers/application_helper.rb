@@ -1,12 +1,4 @@
 module ApplicationHelper
-  def icon(type)
-    content_tag(:i, "", class: "fa fa-#{type}")
-  end
-
-  def ico(type)
-    content_tag(:i, "", class: "icon-essential-light-#{type}")
-  end
-
   def nav_link(icon, url, text, options = {})
     options.merge! class: active_if_current_page(url)
     link_to url, options do

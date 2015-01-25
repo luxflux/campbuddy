@@ -366,7 +366,6 @@ DEPENDENCIES
   date_time_attribute
   factory_girl_rails
   flutie
-  font-awesome-rails
   foreman
   guard
   guard-rspec
