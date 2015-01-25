@@ -31,19 +31,19 @@ feature 'Events Filters' do
   end
 
   scenario 'allows filtering the events', js: true do
-    expect(page).to have_content red_event.title
-    expect(page).to have_content blue_event.title
+    expect(page).to have_content red_event.title.upcase
+    expect(page).to have_content blue_event.title.upcase
 
     click_on 'Red Category'
-    expect(page).to have_content red_event.title
-    expect(page).to_not have_content blue_event.title
+    expect(page).to have_content red_event.title.upcase
+    expect(page).to_not have_content blue_event.title.upcase
 
     click_on 'Blue Category'
-    expect(page).to_not have_content red_event.title
-    expect(page).to have_content blue_event.title
+    expect(page).to_not have_content red_event.title.upcase
+    expect(page).to have_content blue_event.title.upcase
 
     click_on 'Blue Category'
-    expect(page).to have_content red_event.title
-    expect(page).to have_content blue_event.title
+    expect(page).to have_content red_event.title.upcase
+    expect(page).to have_content blue_event.title.upcase
   end
 end
