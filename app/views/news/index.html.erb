@@ -1,9 +1,22 @@
 <div class="padded-row">
-  <a href="tel:0041433667661" class="emergency">
+  <div class="emergency" id="trigger-emergency">
     <span class="text"><%= t '.emergency' %></span>
     <%= icon_emergency %>
-  </a>
+  </div>
   <hr>
+</div>
+
+<div class="emergency-box">
+  <div class="overlay">
+    <div class="prompt">
+      <%= icon_cross %>
+      <label>Info-Point</label><a href="tel:0041433667661">043 366 76 61</a><br>
+      <label>Camp-Notfall</label><a href="tel:0041433667661">043 366 76 61</a><br>
+      <hr>
+      <label>Rega</label><a href="tel:1414">1414</a><br>
+      <label>Polizei</label><a href="tel:117">117</a><br>
+    </div>
+  </div>
 </div>
 
 <div class="padded-row">
