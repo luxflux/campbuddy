@@ -1,14 +1,11 @@
 .group-detail {
-  position: relative;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(221,221,221,0.45)), color-stop(60%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-  background: gradient(linear, left bottom, left top, color-stop(0%,rgba(221,221,221,0.45)), color-stop(60%,rgba(255,255,255,0)));
-
   h1 {
     padding: .5em 0;
 
     .avatar {
-      font-size: 0.4em;
       vertical-align: middle;
+      height: 56px;
+      width: 56px;
     }
   }
 
