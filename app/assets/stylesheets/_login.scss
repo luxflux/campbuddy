@@ -27,8 +27,10 @@
   }
 
   p.dots {
-    font-size: 3em;
-    margin: .1em 0;
+    font-size: 5em;
+    font-family: monospace;
+    line-height: 1em;
+    margin: 0;
 
     .green {
       color: $green;
@@ -44,7 +46,11 @@
   .actions,
   .other-links {
     text-align: center;
-    margin: 1.5em;
+    margin: 1.5em 0em;
+
+    input {
+      width: 100%;
+    }
   }
 
   .other-links a {
