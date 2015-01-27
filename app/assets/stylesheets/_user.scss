@@ -1,6 +1,7 @@
 .users-show {
   .profile {
     @include outer-container();
+    padding-bottom: 2em;
   }
 
   .image {

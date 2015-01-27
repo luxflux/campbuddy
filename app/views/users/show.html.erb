@@ -21,6 +21,12 @@
             <%= link_to t('.administration'), '/admin' %>
           </li>
         <% end %>
+        <% if signed_in? && current_user == @user %>
+          <li>
+            <%= icon_logout %>
+            <%= link_to t('.sign_out'), sign_out_path, method: :delete %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -36,8 +42,4 @@
       <%= render @events %>
     </div>
   </div>
-<% end %>
-
-<% if signed_in? && current_user == @user %>
-  <div class="logout"><%= link_to t('.sign_out'), sign_out_path, method: :delete, class: "btn red" %></div>
 <% end %>

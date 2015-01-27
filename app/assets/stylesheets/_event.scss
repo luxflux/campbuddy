@@ -1,13 +1,13 @@
 .event-entry {
   @include outer-container;
 
-  border-bottom: 1px solid $medium-gray;
+  border-bottom: 1px solid $light-gray;
   box-sizing: content-box;
   height: 5.5em;
 
   h1 + &,
   &:first-child {
-    border-top: 1px solid $medium-gray;
+    border-top: 1px solid $light-gray;
   }
 
   &:before {
