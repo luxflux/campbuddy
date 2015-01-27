@@ -1,0 +1,20 @@
+<div class="padded-row">
+  <div id="clearance" class="password-reset">
+    <h2><%= t '.title' %></h2>
+    <p class="dots">
+      <span class="green">&#8226;</span><span class="red">&#8226;</span><span class="blue">&#8226;</span>
+    </p>
+    <p><%= t '.description' %></p>
+
+    <%= form_for :password, url: passwords_path do |form| %>
+      <div class="text-field">
+        <%= form.label :email %>
+        <%= form.text_field :email, type: 'email' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit class: 'btn red' %>
+      </div>
+    <% end %>
+  </div>
+</div>
