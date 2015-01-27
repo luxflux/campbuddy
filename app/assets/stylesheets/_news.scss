@@ -37,6 +37,17 @@
   small {
     font-size: .5em;
   }
+
+  .padded-row {
+    border-top: 1px solid $light-gray;
+    padding-top: 1em;
+    margin-bottom: .4em;
+
+    &:first-child {
+      padding-top: .4em;
+      margin-bottom: 0;
+    }
+  }
 }
 .emergency-box {
   display: none;
