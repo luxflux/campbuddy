@@ -128,10 +128,21 @@
 }
 
 .events-show {
-  .title-pic img {
-    width: 100%;
-    min-width: 320px;
-    min-height: 180px;
+  .title-pic {
+    &.red { background-color: $red; }
+    &.green { background-color: $green; }
+    &.blue { background-color: $blue; }
+    &.royal { background-color: $dark-blue; }
+    &.yellow { background-color: $yellow; }
+    &.gray { background-color: $medium-gray; }
+
+    img {
+      float: right;
+      width: 98%;
+      @include media($medium-screen-up) {
+        width: 99%;
+      }
+    }
   }
 
   .participation {
