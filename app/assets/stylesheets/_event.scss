@@ -173,6 +173,7 @@
   }
 
   .event {
+
     li {
       @include outer-container;
       margin-top: 1em;
@@ -180,12 +181,31 @@
       li {
         margin-top: 0;
       }
+
+      &.participation {
+        font-size: 1em;
+         .text {
+          clear: both;
+          margin-left: 2.4em;
+         }
+      }
     }
     .icon {
       @include span-columns(2);
       margin-top: 0.15em;
       max-width: 1.5em;
       height: 2em;
+
+      &.partipicate {
+        margin: 0 5px 0 0;
+        width: 1.9em;
+        height: 1.9em;
+
+        svg {
+          width: 1.9em;
+          height: 1.9em;
+        }
+      }
     }
 
     .text {

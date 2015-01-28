@@ -15,48 +15,56 @@
   <%= image_tag @event.impression.detail.url %>
 </div>
 
-<% if can? :create, Attendance %>
-  <div class="participation padded-row">
-    <% if @event.mandatory? %>
-      <div class="mandatory">
-        <%= icon_exclamation %>
-        <span class="text"><%= t('.mandatory') %></span>
-      </div>
-
-    <% elsif @event.groups_only? %>
-      <div class="group-only">
-        <%= icon_exclamation %>
-        <span class="text"><%= t('.groups_only') %></span>
-      </div>
-
-    <% elsif @event.owner == current_user %>
-      <div class="owner">
-        <%= icon_exclamation %>
-        <span class="text"><%= t('.you_are_owner') %></span>
-      </div>
-
-    <% elsif @event.attended_by_user?(current_user) %>
-      <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
-        <%= icon_tick css_class: 'green' %><%= icon_cross %>
-        <span class="text"><%= t('.you_take_part') %></span>
-      </div>
-
-    <% elsif @event.no_places_left? %>
-      <div class="occupied">
-        <span class="text"><%= t('.full') %></span>
-      </div>
-
-    <% else %>
-      <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
-        <%= icon_tick %><%= icon_cross css_class: 'red' %>
-        <span class="text"><%= t('.attendance') %></span>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-
 <div class="event padded-row">
   <ul>
+<% if can? :create, Attendance %>
+    <% if @event.mandatory? %>
+      <li class="mandatory">
+        <%= icon_tick_circle %>
+        <span class="text"><%= t('.mandatory') %></span>
+      </li>
+
+    <% elsif @event.groups_only? %>
+      <li class="group-only">
+        <%= icon_tick_circle %>
+        <span class="text"><%= t('.groups_only') %></span>
+      </li>
+
+    <% elsif @event.owner == current_user %>
+      <li class="owner">
+        <%= icon_tick_circle(css_class:"red") %>
+        <span class="text"><%= t('.you_are_owner') %></span>
+      </li>
+
+    <% elsif @event.attended_by_user?(current_user) %>
+      <li class="participation">
+        <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
+
+          <%= icon_tick_circle %>
+          <%= icon_tick css_class: 'green partipicate' %>
+          <%= icon_cross css_class: 'partipicate' %>
+          <span class="text"><%= t('.you_take_part') %></span>
+        </div>
+      </li>
+
+    <% elsif @event.no_places_left? %>
+      <li class="occupied">
+        <%= icon_tick_circle %>
+        <span class="text"><%= t('.full') %></span>
+      </li>
+
+    <% else %>
+      <li class="participation">
+        <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
+
+          <%= icon_tick_circle %>
+          <%= icon_tick css_class: 'partipicate' %>
+          <%= icon_cross css_class: 'red partipicate' %>
+          <span class="text"><%= t('.attendance') %></span>
+        </div>
+      </li>
+    <% end %>
+<% end %>
     <li class="description">
       <%= icon_info %>
       <span class="text"><%= @event.description %></span>
