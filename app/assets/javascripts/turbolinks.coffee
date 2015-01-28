@@ -1,0 +1,2 @@
+->
+  Turbolinks.enableTransitionCache()
