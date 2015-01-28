@@ -12,5 +12,7 @@ bundle install
 ## Deployment
 
 ```bash
+eval $(ssh-agent)
+ssh-add
 cap production deploy
 ```
