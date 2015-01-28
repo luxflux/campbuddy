@@ -34,15 +34,15 @@ feature 'Events Filters' do
     expect(page).to have_content red_event.title.upcase
     expect(page).to have_content blue_event.title.upcase
 
-    click_on 'Red Category'
+    page.find('a[data-filter=red]').click
     expect(page).to have_content red_event.title.upcase
     expect(page).to_not have_content blue_event.title.upcase
 
-    click_on 'Blue Category'
+    page.find('a[data-filter=blue]').click
     expect(page).to_not have_content red_event.title.upcase
     expect(page).to have_content blue_event.title.upcase
 
-    click_on 'Blue Category'
+    page.find('a[data-filter=blue]').click
     expect(page).to have_content red_event.title.upcase
     expect(page).to have_content blue_event.title.upcase
   end
