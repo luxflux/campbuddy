@@ -184,15 +184,15 @@
 
       &.participation {
         font-size: 1em;
-         .text {
+        .text {
           clear: both;
-          margin-left: 2.4em;
-         }
+          margin-left: calc(1.5em + 2.4%);
+        }
       }
     }
     .icon {
       @include span-columns(2);
-      margin-top: 0.15em;
+      margin-top: 0.25em;
       max-width: 1.5em;
       height: 2em;
 

@@ -116,6 +116,7 @@ nav.events {
       font-size: 1.7em;
     }
     h2 {
+      @include small-bold-title();
       font-size: 1em;
     }
   }
@@ -124,7 +125,8 @@ nav.events {
     height: 3em;
 
     .icon {
-      max-width: 3em;
+      margin: 0.2em 0 0 0.5em;
+      max-width: 2em;
       height: 100%;
     }
   }
