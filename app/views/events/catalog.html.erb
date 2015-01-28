@@ -2,7 +2,7 @@
 <div class="nav-wrapper">
   <nav class="events">
     <% @categories.each do |category| %>
-      <%= link_to category.name, '#', data: { filter: category.identifier } %>
+      <%= content_tag :a, category.name, data: { filter: category.identifier } %>
     <% end %>
   </nav>
 </div>
