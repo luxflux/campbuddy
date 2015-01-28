@@ -1,65 +1,8 @@
 <div class="padded-row">
-  <div class="emergency" id="trigger-emergency">
+  <%= link_to emergency_numbers_path, class: :emergency do %>
     <span class="text"><%= t '.emergency' %></span>
     <%= icon_emergency %>
-  </div>
-</div>
-
-<div class="emergency-box">
-  <div class="overlay">
-    <div class="prompt">
-<br>
-<br>
-      <div class="padded-row">
-        <h1>Fragen & Hilfe</h1>
-
-        <div class="emergency-number">
-          <%= icon_emergency %>
-          <a href="tel:0041433667622">Camp-Hotline</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency css_class: "blue" %>
-          <a href="tel:0041433667633">Pisten-Onkel (U16)</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:0041433667644">Pisten-Leiter (Unfälle)</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "green") %>
-          <a href="tel:0041433667665">Camp-Apotheke</a>
-        </div>
-      </div>
-
-      <div class="padded-row">
-      <h1>Notfall</h1>
-
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:1414">Rega</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:144">Sanität</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:117">Polizei</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:118">Feuerwehr</a>
-        </div>
-      </div>
-
-      <%= icon_cross %>
-      <label>Info-Point</label><a href="tel:0041433667661">043 366 76 61</a><br>
-      <label>Camp-Notfall</label><a href="tel:0041433667661">043 366 76 61</a><br>
-      <hr>
-      <label>Rega</label><a href="tel:1414">1414</a><br>
-      <label>Polizei</label><a href="tel:117">117</a><br>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="padded-row">

@@ -5,4 +5,7 @@ class NewsController < ApplicationController
   def index
     @news = @news.visible
   end
+
+  def emergency
+  end
 end

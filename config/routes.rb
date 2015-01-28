@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :news, only: [:index]
 
+  resources :emergency_numbers, only: [:index]
+
   resources :memberships, except: [:new, :index]
 
   resources :groups, only: [:index]
