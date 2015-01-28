@@ -3,6 +3,14 @@ form {
     border-bottom: 1px solid $light-gray;
   }
 
+  input {
+    box-shadow: none!important;
+
+    &:hover, &:active {
+      border: 1px solid $red!important;
+    }
+  }
+
   label {
     display: inline-block;
     width: 150px;

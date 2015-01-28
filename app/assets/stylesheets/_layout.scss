@@ -81,9 +81,13 @@ img.avatar {
   svg {
     fill: $dark-gray;
     position: relative;
-    top: 50%;
+    /*top: 50%;
     transform: translateY(-50%);
-    -webkit-transform: translateY(-55%);
+    -webkit-transform: translateY(-55%);*/
+
+    /*safari svg fix*/
+    position: absolute;
+    left: 0;
   }
 
   &.red {
