@@ -11,7 +11,7 @@ jQuery ->
         type: 'DELETE'
 
       .done (response)->
-        window.location = "/events/#{event_id}"
+        Turbolinks.visit "/events/#{event_id}"
 
     element.children('.no').each ->
       event_id = $(@).data('event-id')
@@ -24,4 +24,5 @@ jQuery ->
             event_id: event_id
 
       .done (response)->
-        window.location = "/events/#{event_id}"
+        Turbolinks.visit "/events/#{event_id}"
+
