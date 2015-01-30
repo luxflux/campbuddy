@@ -19,6 +19,8 @@ gem 'date_time_attribute'
 gem 'jc-validates_timeliness'
 gem 'rails_admin'
 
+gem 'influxdb-rails'
+
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
