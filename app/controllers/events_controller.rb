@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @events = Event.on_date(@selected_date).except_group_events.order(:starts)
     @categories = Category.where(id: @events.pluck(:category_id))
 
-    fresh_when @events.maximum(:updated_at)
+    fresh_when @events.maximum(:updated_at).to_s, last_modified: @events.maximum(:updated_at)
   end
 
   # GET /events/catalog
