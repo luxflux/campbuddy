@@ -36,7 +36,7 @@ feature 'Event View' do
 
           expect(page).to_not have_css '.participation .yes'
           expect(page).to have_css '.participation .no'
-          page.find('div.participation').click
+          page.find('.participation').click
           expect(page).to have_css '.participation .yes'
           expect(page).to_not have_css '.participation .no'
         end
@@ -54,7 +54,7 @@ feature 'Event View' do
 
           expect(page).to have_css '.participation .yes'
           expect(page).to_not have_css '.participation .no'
-          page.find('div.participation').click
+          page.find('.participation').click
           expect(page).to_not have_css '.participation .yes'
           expect(page).to have_css '.participation .no'
         end
@@ -65,7 +65,7 @@ feature 'Event View' do
       let(:event) { FactoryGirl.create :event, mandatory: true }
 
       scenario 'shows the mandatoryness' do
-        expect(page).to_not have_css 'div.partipicate'
+        expect(page).to_not have_css '.partipicate'
         expect(page).to have_content('Für alle obligatorisch')
         expect(page).to_not have_content('Gruppenevent')
       end
@@ -75,7 +75,7 @@ feature 'Event View' do
       let(:event) { FactoryGirl.create :event, groups_only: true }
 
       scenario 'shows the group only stuff' do
-        expect(page).to_not have_css 'div.partipicate'
+        expect(page).to_not have_css '.partipicate'
         expect(page).to_not have_content('Für alle obligatorisch')
         expect(page).to have_content('Gruppenevent')
       end

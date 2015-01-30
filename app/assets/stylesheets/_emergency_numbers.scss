@@ -1,0 +1,34 @@
+.emergency_numbers {
+  .emergency-numbers {
+    @include span-columns(12);
+
+    padding: 1em 2.5em;
+
+    &:first-child {
+      padding: 0em 2.5em 1em;
+      border-bottom: 1px solid $light-gray;
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(6);
+      padding: 0em 3em 1em;
+
+      &:first-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .emergency-numbers li {
+    line-height: 2.1em;
+
+    .icon {
+      height: 2em;
+      width: 3em;
+    }
+
+    a {
+      color: $dark-gray;
+    }
+  }
+}

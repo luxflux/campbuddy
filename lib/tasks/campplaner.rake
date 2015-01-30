@@ -11,7 +11,7 @@ namespace :campplaner do
 
     sql = 'SELECT name, firstname, email, profilbild FROM wc15_users'
     mysql_command = "mysql -h #{mysql_host} -u #{mysql_user} --password=#{mysql_password} oneyouth -e '#{sql}'"
-    awk = "awk -F \\t '{print $1\",\"$2\",\"$3\",\"$4}'"
+    awk = 'awk -F \\\t \'{print $1","$2","$3","$4}\''
 
     sh "#{mysql_command} | #{awk} > #{Rails.root.join('tmp/users.csv')}"
   end

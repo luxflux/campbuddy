@@ -1,60 +1,8 @@
 <div class="padded-row">
-  <div class="emergency" id="trigger-emergency">
+  <%= link_to emergency_numbers_path, class: :emergency do %>
     <span class="text"><%= t '.emergency' %></span>
     <%= icon_emergency %>
-  </div>
-</div>
-
-<div class="emergency-box">
-  <div class="overlay">
-    <div class="prompt">
-<br>
-<br>
-      <div class="padded-row">
-        <h1>Fragen & Hilfe</h1>
-
-        <div class="emergency-number">
-          <%= icon_emergency %>
-          <a href="tel:0041433667622">Camp-Hotline</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency css_class: "blue" %>
-          <a href="tel:0041433667633">Pisten-Onkel (U16)</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:0041433667644">Pisten-Leiter (Unfälle)</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "green") %>
-          <a href="tel:0041433667665">Camp-Apotheke</a>
-        </div>
-      </div>
-
-      <div class="padded-row">
-      <h1>Notfall</h1>
-
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:1414">Rega</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:144">Sanität</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:117">Polizei</a>
-        </div>
-        <div class="emergency-number">
-          <%= icon_emergency(css_class: "red") %>
-          <a href="tel:118">Feuerwehr</a>
-        </div>
-      </div>
-
-      <%= icon_cross %>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="padded-row">

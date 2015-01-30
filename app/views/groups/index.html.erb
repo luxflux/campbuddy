@@ -1,5 +1,4 @@
-<%= render @leading %>
-<% if @groups.any? %> <!-- or current_user.owned_events.any? -->
+<% if @groups.any? %>
   <%= render @groups %>
 <% else %>
   <div class="no-entity">

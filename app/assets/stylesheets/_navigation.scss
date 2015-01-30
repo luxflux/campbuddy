@@ -107,6 +107,7 @@ nav.events {
 
 .detail-nav {
   padding: .7em .5em .7em .3em;
+  border-bottom: 1px solid $light-gray;
 
   @include outer-container;
 
@@ -138,6 +139,10 @@ nav.events {
 
   .back {
     @include span-columns(2);
+
+    @include media($medium-screen-up) {
+      @include span-columns(1);
+    }
   }
 }
 

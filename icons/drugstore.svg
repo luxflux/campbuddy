@@ -3,6 +3,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 57.7 57.7" enable-background="new 0 0 57.7 57.7" xml:space="preserve">
+<g id="_x32_1-zurück" display="none">
+	<g display="inline">
+		<path fill="none" d="M16.9,28.8L36.1,9.6l4.4,4.4L25.7,28.8l14.8,14.8L36.1,48L16.9,28.8z"/>
+	</g>
+</g>
 <g id="_x32_0-nichtteilnehmen" display="none">
 	<g display="inline">
 		<path fill="none" d="M57.8,57.8H0V0h57.8V57.8z M43.3,17.7L40,14.5c-0.3-0.3-0.6-0.4-1-0.4c-0.4,0-0.8,0.1-1.1,0.4l-9.1,9.1
@@ -161,13 +166,11 @@
 </g>
 <g id="_x30_2_apotheke">
 	<g>
-		<g>
-			<path fill="none" d="M28.8,48.8c-11,0-20-9-20-20s9-20,20-20s20,9,20,20S39.9,48.8,28.8,48.8z M28.8,9.8c-10.5,0-19,8.5-19,19
-				c0,10.5,8.5,19,19,19c10.5,0,19-8.5,19-19C47.9,18.3,39.3,9.8,28.8,9.8z"/>
-		</g>
-		<g>
-		</g>
+		<path fill="none" d="M28.8,48.8c-11,0-20-9-20-20s9-20,20-20s20,9,20,20S39.9,48.8,28.8,48.8z M28.8,9.8c-10.5,0-19,8.5-19,19
+			c0,10.5,8.5,19,19,19c10.5,0,19-8.5,19-19C47.9,18.3,39.3,9.8,28.8,9.8z"/>
 	</g>
+	<polygon fill="none" points="39.2,25.3 32.3,25.3 32.3,18.5 25.3,18.5 25.3,25.3 18.5,25.3 18.5,32.3 25.3,32.3 25.3,39.2 
+		32.3,39.2 32.3,32.3 39.2,32.3 	"/>
 </g>
 <g id="_x30_1_notfall" display="none">
 	<g display="inline">

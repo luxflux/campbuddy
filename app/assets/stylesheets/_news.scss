@@ -2,7 +2,7 @@
   .emergency {
     @include span-columns(12);
     @include small-bold-title;
-    cursor: pointer;
+
     text-align: right;
     color: $dark-gray;
     height: 2.5em;
@@ -16,21 +16,6 @@
       svg {
         fill: $red;
       }
-    }
-  }
-
-  .emergency-number {
-    position: relative;
-
-    .icon {
-      position: relative;
-      width: 2em;
-      height: 2em;
-    }
-
-    a {
-      color: #000;
-      font-weight: 600;
     }
   }
 
@@ -61,41 +46,6 @@
     &:first-child {
       padding-top: .4em;
       margin-bottom: 0;
-    }
-  }
-}
-.emergency-box {
-  display: none;
-
-  .overlay {
-    position: fixed;
-    z-index: 16;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-
-    .prompt {
-      position: relative;
-      width: 100%;
-      label {
-        margin: 1em 0 0 0;
-      }
-
-      .icon {
-        display: block;
-        width: 2em;
-        position: absolute;
-        right: 0.2em;
-        top: 0.2em;
-        cursor: pointer;
-
-        svg {
-          top: 0;
-          transform: none;
-          -webkit-transform: none;
-        }
-      }
     }
   }
 }
