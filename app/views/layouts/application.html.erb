@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Camp Buddy</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,6 +19,8 @@
   <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="<%=image_path("welcome-screen.png")%>">
   <!-- iOS Web App Icon -->
   <link rel="apple-touch-icon" href="<%=image_path("logo.png")%>">
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body class="<%= body_class %>">
   <div id="main-wrapper">
@@ -48,7 +50,6 @@
       <%= yield %>
     </section>
   </div>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= render 'analytics' %>
 </body>
 </html>
