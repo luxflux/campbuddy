@@ -17,20 +17,26 @@ class EventsController < ApplicationController
 
     @events = Event.on_date(@selected_date).except_group_events.order(:starts)
     @categories = Category.where(id: @events.pluck(:category_id))
+
+    fresh_when @events.maximum(:updated_at)
   end
 
   # GET /events/catalog
   def catalog
     @events = @events.in_future.except_mandatory.except_group_events
     @categories = Category.where(id: @events.pluck(:category_id))
+
+    fresh_when @events.maximum(:updated_at)
   end
 
   # GET /events/1
   def show
+    fresh_when [@event.cache_key, @event.attended_by_user?(current_user)].join
   end
 
   # GET /events/1/edit
   def edit
+    fresh_when @event
   end
 
   # PATCH/PUT /events/1
