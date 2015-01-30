@@ -148,15 +148,15 @@ nav.events {
 
 nav.main {
   a {
+    color: white;
+    background-color: $medium-gray;
+
     svg {
       fill: white;
     }
     svg .background {
       fill: none;
     }
-
-    color: white;
-    background-color: $medium-gray;
 
     &.active {
       background-color: $dark-gray;
@@ -245,14 +245,16 @@ nav.main {
       background: $medium-gray;
       color: $light-gray;
       font-size: 2em;
-      line-height: 2em;
+      line-height: 1em;
       text-align: left;
-      padding: .5em .4em;
+      padding: .5em .4em 1.4em .4em;
 
       span {
         display: inline-block;
       }
       span.icon {
+        position: relative;
+        top: 0.75em;
         width: 1.5em;
         height: 2em;
       }
