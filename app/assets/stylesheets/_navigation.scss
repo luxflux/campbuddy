@@ -263,6 +263,7 @@ nav.main {
         height: 2em;
       }
       span.text {
+        padding-left: 0.8em;
         display: none;
       }
     }
@@ -270,12 +271,6 @@ nav.main {
     &:hover {
       box-shadow: 0 0 10px $dark-gray;
       width: 300px;
-
-      a {
-        span.text {
-          /*display: inline;*/
-        }
-      }
     }
   }
 }
