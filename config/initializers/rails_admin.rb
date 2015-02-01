@@ -80,6 +80,10 @@ RailsAdmin.config do |config|
     list do
       scopes %i(real_users guests)
     end
+
+    object_label_method do
+      :fullname
+    end
   end
 
   config.model 'Event' do
