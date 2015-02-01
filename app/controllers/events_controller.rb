@@ -36,7 +36,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    fresh_when @event
   end
 
   # PATCH/PUT /events/1
