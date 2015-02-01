@@ -79,7 +79,7 @@
       <span class="text"><%= Event.human_attribute_name :meeting_point %> <%= @event.meeting_point %></span>
     </li>
     <% end %>
-    <% if !@event.mandatory? && can?(:read, User) %>
+    <% if !@event.mandatory? && !@event.groups_only? && can?(:read, User) %>
       <li class="partipicants">
         <%= icon_attendees %>
         <span class="text">
