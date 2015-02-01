@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def back_or_default_link(default, options = {})
-    back_link (params[:back] || default), options
+    back_link (params[:back].presence || default), options
   end
 
   def back_link(url, options = {})
