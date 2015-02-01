@@ -38,10 +38,26 @@ describe Ability do
       end
 
       it { should be_able_to(:read, Attendance) }
-      it { should be_able_to(:create, own_attendance) }
       it { should_not be_able_to(:update, own_attendance) }
-      it { should be_able_to(:destroy, own_attendance) }
       it { should_not be_able_to(:write, other_attendance) }
+
+      context 'during open registration time' do
+        before do
+          Timecop.travel Setting.open_registration + 5.hours
+        end
+
+        it { should be_able_to(:create, own_attendance) }
+        it { should be_able_to(:destroy, own_attendance) }
+      end
+
+      context 'before open registration time' do
+        before do
+          Timecop.travel Setting.open_registration - 1.day
+        end
+
+        it { should_not be_able_to(:create, own_attendance) }
+        it { should_not be_able_to(:destroy, own_attendance) }
+      end
     end
 
     describe 'Group' do

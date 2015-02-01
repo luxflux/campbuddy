@@ -12,8 +12,11 @@ class Ability
       can :update, Event, owner_id: user.id
 
       can :read, Attendance, event_id: user.self_attended_event_ids
-      can :create, Attendance, user_id: user.id
-      can :destroy, Attendance, user_id: user.id
+
+      if Setting.registration_open?
+        can :create, Attendance, user_id: user.id
+        can :destroy, Attendance, user_id: user.id
+      end
 
       can :read, Membership
 
