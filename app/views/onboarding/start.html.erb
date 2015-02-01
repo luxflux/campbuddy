@@ -2,9 +2,7 @@
   <h1><%= t('.welcome') %></h1>
   <p><%= t('.welcome_description') %></p>
   <p class="dots">
-    <span class="green">&#8226;</span>
-    <span class="red">&#8226;</span>
-    <span class="blue">&#8226;</span>
+    <span class="green">&#8226;</span><span class="red">&#8226;</span><span class="blue">&#8226;</span>
   </p>
 
   <%= simple_form_for @user, url: onboarding_finish_path, method: :post do |f| %>
