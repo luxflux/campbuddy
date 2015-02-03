@@ -29,7 +29,8 @@ describe User do
   describe '#events' do
     subject { user.events }
 
-    let!(:mandatory_event) { FactoryGirl.create(:event, mandatory: true, title: 'Mandatory') }
+    let(:mandatory_category) { FactoryGirl.create(:category, mandatory_events: true) }
+    let!(:mandatory_event) { FactoryGirl.create(:event, category: mandatory_category, title: 'Mandatory') }
     let!(:owned_event) { FactoryGirl.create(:event, owner: user, title: 'Owned Event') }
     let(:group_event) { FactoryGirl.create(:event, title: 'Group Event') }
     let(:event) { FactoryGirl.create(:event, title: 'Event') }

@@ -108,7 +108,8 @@ describe EventsController do
       end
 
       it 'does not fetch mandatory events' do
-        mandatory_event = FactoryGirl.create(:event, mandatory: true)
+        category = FactoryGirl.create(:category, mandatory_events: true)
+        mandatory_event = FactoryGirl.create(:event, category: category)
         get :catalog
         expect(assigns(:events)).to eq([])
       end

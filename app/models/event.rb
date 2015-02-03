@@ -33,8 +33,8 @@ class Event < ActiveRecord::Base
   scope :on_date, ->(date) { where('DATE(starts) = ?', date) }
   scope :today, -> { on_date(Date.current) }
   scope :in_future, -> { where('starts > ?', Time.zone.now) }
-  scope :mandatory_only, -> { where(mandatory: true) }
-  scope :except_mandatory, -> { where(mandatory: false) }
+  scope :mandatory_only, -> { joins(:category).where(categories: { mandatory_events: true}) }
+  scope :except_mandatory, -> { joins(:category).where(categories: { mandatory_events: false}) }
   scope :except_group_events, -> { where(groups_only: false) }
   scope :group_events, -> { where(groups_only: true) }
 
@@ -69,5 +69,9 @@ class Event < ActiveRecord::Base
 
   def attended_by_user?(user)
     users.include? user
+  end
+
+  def mandatory?
+    category.mandatory_events?
   end
 end

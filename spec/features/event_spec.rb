@@ -64,9 +64,10 @@ feature 'Event View' do
     end
 
     context 'event is mandatory' do
-      let(:event) { FactoryGirl.create :event, mandatory: true }
+      let(:category) { FactoryGirl.create :category, mandatory_events: true }
+      let(:event) { FactoryGirl.create :event, category: category }
 
-      scenario 'shows the mandatoryness' do
+      scenario 'shows the mandatoriness' do
         expect(page).to_not have_css '.partipicate'
         expect(page).to have_content('Für alle obligatorisch')
         expect(page).to_not have_content('Gruppenevent')

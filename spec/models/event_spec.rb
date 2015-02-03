@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Event, :type => :model do
+  let(:mandatory_category) { FactoryGirl.build(:category, mandatory_events: true) }
+  let(:open_category) { FactoryGirl.build(:category, mandatory_events: false) }
 
   describe '.in_future' do
     it 'only shows events in the future' do
@@ -14,15 +16,41 @@ RSpec.describe Event, :type => :model do
     end
   end
 
+  describe '.mandatory_only' do
+    before do
+      mandatory_category.save
+      open_category.save
+    end
+
+    it 'returns the events belonging to a mandatory category only' do
+      mandatory_event = FactoryGirl.create :event, category: mandatory_category
+      FactoryGirl.create :event, category: open_category
+      expect(Event.mandatory_only).to eq([mandatory_event])
+    end
+  end
+
+  describe '.except_mandatory' do
+    before do
+      mandatory_category.save
+      open_category.save
+    end
+
+    it 'returns the events belonging to a mandatory category only' do
+      FactoryGirl.create :event, category: mandatory_category
+      open_event = FactoryGirl.create :event, category: open_category
+      expect(Event.except_mandatory).to eq([open_event])
+    end
+  end
+
   describe '#mandatory?' do
     context 'mandatory event' do
-      let(:event) { FactoryGirl.build(:event, mandatory: true) }
+      let(:event) { FactoryGirl.build(:event, category: mandatory_category) }
       subject { event.mandatory? }
       it { is_expected.to eq(true) }
     end
 
     context 'voluntary event' do
-      let(:event) { FactoryGirl.build(:event, mandatory: false) }
+      let(:event) { FactoryGirl.build(:event, category: open_category) }
       subject { event.mandatory? }
       it { is_expected.to eq(false) }
     end
@@ -159,9 +187,9 @@ RSpec.describe Event, :type => :model do
     let(:group_member) { FactoryGirl.create(:user, name: 'Group Member') }
     let(:group) { FactoryGirl.create(:group, leader: group_leader) }
 
-    let(:mandatory) { false }
+    let(:category) { open_category }
     let(:groups_only) { false }
-    let(:event) { FactoryGirl.create(:event, owner: owner, mandatory: mandatory, groups_only: groups_only) }
+    let(:event) { FactoryGirl.create(:event, owner: owner, category: category, groups_only: groups_only) }
 
     subject { event.users }
 
@@ -172,7 +200,7 @@ RSpec.describe Event, :type => :model do
     end
 
     context 'mandatory event' do
-      let(:mandatory) { true }
+      let(:category) { mandatory_category }
 
       it { is_expected.to include(user) }
       it { is_expected.to include(owner) }
