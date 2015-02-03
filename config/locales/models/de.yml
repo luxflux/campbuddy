@@ -36,6 +36,9 @@ de:
         leader: Leiter
         users: Teilnehmer
         events: Events
+      category:
+        mandatory_events: Events obligatorisch
+        info_events: Events ohne Anmeldung
     models:
       event:
         one: Event
