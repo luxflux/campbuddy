@@ -74,6 +74,18 @@ feature 'Event View' do
       end
     end
 
+    context 'event is info only' do
+      let(:category) { FactoryGirl.create :category, info_events: true }
+      let(:event) { FactoryGirl.create :event, category: category }
+
+      scenario 'shows that its info only' do
+        expect(page).to_not have_css '.partipicate'
+        expect(page).to_not have_content('Für alle obligatorisch')
+        expect(page).to have_content('Anmeldung nicht nötig')
+        expect(page).to_not have_content('Gruppenevent')
+      end
+    end
+
     context 'group event' do
       let(:event) { FactoryGirl.create :event, groups_only: true }
 

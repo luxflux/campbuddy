@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Event, :type => :model do
   let(:mandatory_category) { FactoryGirl.build(:category, mandatory_events: true) }
   let(:open_category) { FactoryGirl.build(:category, mandatory_events: false) }
+  let(:info_category) { FactoryGirl.build(:category, mandatory_events: false, info_events: true) }
 
   describe '.in_future' do
     it 'only shows events in the future' do
@@ -52,6 +53,20 @@ RSpec.describe Event, :type => :model do
     context 'voluntary event' do
       let(:event) { FactoryGirl.build(:event, category: open_category) }
       subject { event.mandatory? }
+      it { is_expected.to eq(false) }
+    end
+  end
+
+  describe '#info_only?' do
+    context 'info only event' do
+      let(:event) { FactoryGirl.build(:event, category: info_category) }
+      subject { event.info_only? }
+      it { is_expected.to eq(true) }
+    end
+
+    context 'other event' do
+      let(:event) { FactoryGirl.build(:event, category: open_category) }
+      subject { event.info_only? }
       it { is_expected.to eq(false) }
     end
   end

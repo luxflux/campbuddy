@@ -74,4 +74,8 @@ class Event < ActiveRecord::Base
   def mandatory?
     category.mandatory_events?
   end
+
+  def info_only?
+    category.info_events?
+  end
 end
