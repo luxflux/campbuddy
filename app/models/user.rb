@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   def events
     ids = []
     ids.concat self_attended_event_ids
-    ids.concat Event.mandatory_only.ids
+    ids.concat Event.mandatory.ids
     ids.concat group_event_ids
     ids.concat leaded_group_events.ids
     ids.concat owned_event_ids

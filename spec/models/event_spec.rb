@@ -17,7 +17,7 @@ RSpec.describe Event, :type => :model do
     end
   end
 
-  describe '.mandatory_only' do
+  describe '.mandatory' do
     before do
       mandatory_category.save
       open_category.save
@@ -26,11 +26,11 @@ RSpec.describe Event, :type => :model do
     it 'returns the events belonging to a mandatory category only' do
       mandatory_event = FactoryGirl.create :event, category: mandatory_category
       FactoryGirl.create :event, category: open_category
-      expect(Event.mandatory_only).to eq([mandatory_event])
+      expect(Event.mandatory).to eq([mandatory_event])
     end
   end
 
-  describe '.except_mandatory' do
+  describe '.without_mandatory' do
     before do
       mandatory_category.save
       open_category.save
@@ -39,7 +39,7 @@ RSpec.describe Event, :type => :model do
     it 'returns the events belonging to a mandatory category only' do
       FactoryGirl.create :event, category: mandatory_category
       open_event = FactoryGirl.create :event, category: open_category
-      expect(Event.except_mandatory).to eq([open_event])
+      expect(Event.without_mandatory).to eq([open_event])
     end
   end
 

@@ -125,7 +125,7 @@ RailsAdmin.config do |config|
       field :max_attendees
       field :category
 
-      scopes %i(all today in_future mandatory_only group_events except_mandatory except_group_events)
+      scopes %i(all today in_future mandatory info group_events without_mandatory without_group_events)
     end
   end
 
