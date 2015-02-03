@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110163809) do
+ActiveRecord::Schema.define(version: 20150203183833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,13 @@ ActiveRecord::Schema.define(version: 20150110163809) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",             limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "identifier"
+    t.integer  "order"
+    t.boolean  "mandatory_events",             default: false
+    t.boolean  "info_events",                  default: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -42,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150110163809) do
     t.integer  "max_attendees"
     t.integer  "category_id"
     t.string   "impression",    limit: 255
-    t.boolean  "mandatory",                 default: false
     t.boolean  "groups_only",               default: false
     t.string   "teaser"
   end

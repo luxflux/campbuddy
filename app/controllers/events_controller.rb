@@ -15,13 +15,13 @@ class EventsController < ApplicationController
       @selected_date = Setting.camp_end
     end
 
-    @events = Event.on_date(@selected_date).except_group_events.order(:starts)
+    @events = Event.on_date(@selected_date).without_group_events.order(:starts)
     @categories = Category.where(id: @events.pluck(:category_id))
   end
 
   # GET /events/catalog
   def catalog
-    @events = @events.in_future.except_mandatory.except_group_events
+    @events = @events.in_future.without_mandatory.without_group_events.without_info
     @categories = Category.where(id: @events.pluck(:category_id))
   end
 

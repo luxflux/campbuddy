@@ -2,7 +2,6 @@ jQuery ->
   filters = $('nav.events a')
   events = $('div.events .event-entry')
 
-
   filters.on 'click', (event) ->
     element = $(@)
 
@@ -25,8 +24,3 @@ jQuery ->
           ele.slideDown()
         else
           ele.slideUp()
-
-  events.on 'click', (event) ->
-    element = $(@)
-
-    window.location = element.find('a').first().attr('href')

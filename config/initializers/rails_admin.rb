@@ -97,7 +97,6 @@ RailsAdmin.config do |config|
       field :ends
       field :max_attendees
       field :category
-      field :mandatory
       field :groups_only
       field :impression
     end
@@ -111,7 +110,6 @@ RailsAdmin.config do |config|
     end
 
     list do
-      field :mandatory
       field :owner
       field :title
       field :starts do
@@ -127,7 +125,7 @@ RailsAdmin.config do |config|
       field :max_attendees
       field :category
 
-      scopes %i(all today in_future mandatory_only group_events except_mandatory except_group_events)
+      scopes %i(all today in_future mandatory info group_events without_mandatory without_group_events)
     end
   end
 

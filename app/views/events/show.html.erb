@@ -24,6 +24,12 @@
         <span class="text"><%= t('.mandatory') %></span>
       </li>
 
+    <% elsif @event.info_only? %>
+      <li class="mandatory">
+        <%= icon_tick_circle %>
+        <span class="text"><%= t('.info_only') %></span>
+      </li>
+
     <% elsif @event.groups_only? %>
       <li class="group-only">
         <%= icon_tick_circle %>

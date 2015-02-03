@@ -10,7 +10,6 @@ FactoryGirl.define do
     meeting_point 'Backyard'
     starts Setting.camp_start + 1.day + 8.hours
     ends Setting.camp_start + 1.day + 12.hours
-    mandatory false
     groups_only false
   end
 end
