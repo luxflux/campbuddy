@@ -115,7 +115,14 @@ describe EventsController do
       end
 
       it 'does not fetch group events' do
-        mandatory_event = FactoryGirl.create(:event, groups_only: true)
+        group_event = FactoryGirl.create(:event, groups_only: true)
+        get :catalog
+        expect(assigns(:events)).to eq([])
+      end
+
+      it 'does not fetch info events' do
+        category = FactoryGirl.create(:category, info_events: true)
+        info_event = FactoryGirl.create(:event, category: category)
         get :catalog
         expect(assigns(:events)).to eq([])
       end
