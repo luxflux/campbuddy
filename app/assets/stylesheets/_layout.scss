@@ -31,6 +31,12 @@ section.content {
   @include outer-container;
 }
 
+.line-row {
+  height: 2px;
+  border-bottom: 1px solid $light-gray;
+  margin: 0 0 2px 0;
+}
+
 .full-row {
   padding: 0;
   margin: 0;
