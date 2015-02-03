@@ -97,7 +97,6 @@ RailsAdmin.config do |config|
       field :ends
       field :max_attendees
       field :category
-      field :mandatory
       field :groups_only
       field :impression
     end
@@ -111,7 +110,6 @@ RailsAdmin.config do |config|
     end
 
     list do
-      field :mandatory
       field :owner
       field :title
       field :starts do
