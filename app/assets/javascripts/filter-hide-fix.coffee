@@ -1,3 +1,4 @@
+###
 jQuery ->
   catalog = $('a[href$="/events/catalog"]')
 
@@ -14,3 +15,4 @@ jQuery ->
         $(".event-entry." + filterColor).css {"display": "none"}
 
         console.log index + ': ' +filterColor+ " " + $(this).text()
+###
