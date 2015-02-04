@@ -3,10 +3,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    events = @user.events.in_future.without_group_events
-    events += current_user.group_events
-    @events = events.sort! {|e| e.starts.to_date}
-
+    #@events = @user.events.in_future
+    @events = @user.events.in_future.without_group_events
 =begin
     #filter out gruop events where you don't take part
     @events.each do |event|
