@@ -37,9 +37,23 @@
 </div>
 
 <% if @events.any? %>
+  <% Rails.logger.debug "#{@events.inspect}" %>
   <div class="full-row">
     <div class="events">
       <%= render @events %>
+      <%= @events %>
     </div>
   </div>
 <% end %>
+
+
+<div class="padded-row">
+  <h2>Gruppen Events</h2>
+</div>
+
+<% group_events = current_user.group_events %>
+<div class="full-row">
+  <div class="events">
+    <%= render group_events %>
+  </div>
+</div>
