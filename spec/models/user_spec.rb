@@ -32,9 +32,11 @@ describe User do
     let(:mandatory_category) { FactoryGirl.create(:category, mandatory_events: true) }
     let!(:mandatory_event) { FactoryGirl.create(:event, category: mandatory_category, title: 'Mandatory') }
     let!(:owned_event) { FactoryGirl.create(:event, owner: user, title: 'Owned Event') }
-    let(:group_event) { FactoryGirl.create(:event, title: 'Group Event') }
+    let(:group_event) { FactoryGirl.create(:event, title: 'Group Event', groups_only: true) }
     let(:event) { FactoryGirl.create(:event, title: 'Event') }
     let(:group_as_leader_event) { FactoryGirl.create(:event, title: 'Group As Leader Event') }
+    let!(:unattended_group_event_in_mandatory_category) { FactoryGirl.create(:event, title: 'Campleader Group Event', groups_only: true, category: mandatory_category) }
+    let!(:attended_group_event_in_mandatory_category) { FactoryGirl.create(:event, title: 'Campmember Group Event', groups_only: true, category: mandatory_category) }
 
     let(:group) { FactoryGirl.create(:group) }
     let(:group_as_leader) { FactoryGirl.create(:group, leader: user) }
@@ -47,6 +49,8 @@ describe User do
       group.events << group_event
 
       group_as_leader.events << group_as_leader_event
+
+      group.events << attended_group_event_in_mandatory_category
     end
 
     it { is_expected.to include mandatory_event }
@@ -54,6 +58,14 @@ describe User do
     it { is_expected.to include event }
     it { is_expected.to include owned_event }
     it { is_expected.to include group_as_leader_event }
+
+    it 'does not include group events of groups the user does not belong to in an mandatory category' do
+      expect(subject).to_not include unattended_group_event_in_mandatory_category
+    end
+
+    it 'includes group events of groups the user belongs to in an mandatory category' do
+      expect(subject).to include attended_group_event_in_mandatory_category
+    end
 
     it 'handles duplication' do
       user.events << owned_event
