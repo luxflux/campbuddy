@@ -6,6 +6,19 @@ class UsersController < ApplicationController
     events = @user.events.in_future.without_group_events
     events += current_user.group_events
     @events = events.sort! {|e| e.starts.to_date}
+
+=begin
+    #filter out gruop events where you don't take part
+    @events.each do |event|
+      if (event.groups_only == true)
+        event.groups.each do |group|
+          if (group.leader == current_user) || (group.users.where(email: current_user.email))
+            delete(event)
+          end
+        end
+      end
+    end
+=end
   end
 
   # GET /users/1/edit
