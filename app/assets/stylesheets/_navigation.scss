@@ -183,6 +183,21 @@ nav.main {
   }
 }
 
+@media (max-width: 764px) {
+  nav.main a:focus, nav.main a:active, nav.main a:hover {
+    color: white;
+    background-color: $dark-gray;
+
+    svg {
+      fill: white;
+
+      .background {
+        fill: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 1300px) {
   nav.main {
     z-index: 15;
