@@ -2,5 +2,5 @@
 de:
   clearance_mailer:
     change_password:
-      closing: Wenn du die das nicht beantragt hast, ignoriere diese E-Mail. Dein Passwort wird nicht geändert.
+      closing: Wenn du die Änderung nicht beantragt hast, ignoriere diese E-Mail. Dein Passwort wird nicht geändert.
       opening: Jemand, hoffentlich du, möchte das Passwort von deinem Camp Buddy Account zurücksetzen.
