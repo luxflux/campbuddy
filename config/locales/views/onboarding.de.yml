@@ -3,6 +3,6 @@ de:
   onboarding:
     password_set: Passwort gesetzt. Viel Spass mit der App!
     start:
-      save_password: Passwort setzen und Einloggen
+      save_password: Passwort setzen
       welcome: Willkommen beim Camp Buddy
       welcome_description: Definiere hier dein Passwort für den zukünftigen Login in die Camp Buddy App.
