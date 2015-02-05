@@ -1,5 +1,14 @@
 .flash{
   min-height: 25px;
+  text-align: center;
+
+  animation: alert-success 2s 1;
+  -webkit-animation: alert-success 2s 1;
+  animation-fill-mode: forwards;
+
+  animation-delay: 4s;
+  -webkit-animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
 }
 .flash.notice {
   @extend %flash-notice;
@@ -12,4 +21,18 @@
 }
 .flash.alert {
   @extend %flash-alert;
+}
+
+@-webkit-keyframes alert-success{
+    0%   {opacity: 1;}
+    70%  {opacity: 1;}
+    90% {opacity: 1;-webkit-transform: translateY(0px);}
+    100% {opacity: 0;-webkit-transform: translateY(-30px);}
+}
+
+@keyframes alert-success {
+    0%   {opacity: 1;}
+    70%  {opacity: 1;}
+    90% {opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+    100% {opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px);}
 }
