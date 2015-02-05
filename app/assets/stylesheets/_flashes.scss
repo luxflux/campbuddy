@@ -1,11 +1,16 @@
 .flash{
   min-height: 25px;
   text-align: center;
-
+  position: fixed;
+  z-index: 12;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  
   animation: alert-success 2s 1;
   -webkit-animation: alert-success 2s 1;
   animation-fill-mode: forwards;
-
   animation-delay: 4s;
   -webkit-animation-delay: 4s;
   -webkit-animation-fill-mode: forwards;
