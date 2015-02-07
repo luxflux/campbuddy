@@ -80,4 +80,9 @@ class Event < ActiveRecord::Base
   def info_only?
     category.info_events?
   end
+
+  def event_label
+    #for admin
+    "#{title} #{starts.to_datetime} #{teaser}"
+  end
 end

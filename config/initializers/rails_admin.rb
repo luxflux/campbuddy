@@ -127,6 +127,10 @@ RailsAdmin.config do |config|
 
       scopes %i(all today in_future mandatory info group_events without_mandatory without_group_events)
     end
+
+    object_label_method do
+      :event_label
+    end
   end
 
   config.model 'Group' do
