@@ -83,6 +83,6 @@ class Event < ActiveRecord::Base
 
   def event_label
     #for admin
-    "#{title} #{starts.to_datetime} #{teaser}"
+    "#{title} #{starts} #{teaser}"
   end
 end
