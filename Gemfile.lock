@@ -155,11 +155,6 @@ GEM
       i18n
       term-ansicolor
       terminal-table
-    influxdb (0.1.8)
-      json
-    influxdb-rails (0.1.10)
-      influxdb
-      railties
     jc-validates_timeliness (3.1.1)
       timeliness (~> 0.3.7)
     jquery-rails (4.0.3)
@@ -385,7 +380,6 @@ DEPENDENCIES
   guard
   guard-rspec
   i18n-tasks
-  influxdb-rails
   jc-validates_timeliness
   jquery-rails
   jquery-turbolinks
