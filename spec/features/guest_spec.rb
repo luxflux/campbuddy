@@ -9,6 +9,7 @@ feature 'Guest View' do
   let(:event) { FactoryGirl.create :event }
 
   scenario 'allows listing events catalog' do
+    Timecop.travel Setting.camp_start + 1.day
     event.touch
     visit catalog_events_url
     expect(page).to have_content event.title
