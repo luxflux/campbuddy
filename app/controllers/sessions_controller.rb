@@ -1,5 +1,5 @@
 class SessionsController < Clearance::SessionsController
-  skip_before_action :authorize, only: :start_guest
+  skip_before_action :require_login, only: :start_guest
 
   def new
     if signed_in?

@@ -1,6 +1,6 @@
 class OnboardingController < ApplicationController
   layout 'onboarding'
-  skip_before_action :authorize
+  skip_before_action :require_login
 
   def start
     @user = User.where(invitation_token: params[:token]).first!
