@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203183833) do
+ActiveRecord::Schema.define(version: 20150511165900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20150203183833) do
     t.datetime "updated_at"
     t.integer  "event_id"
   end
+
+  create_table "camps", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "subdomain",       null: false
+    t.string   "schema_name",     null: false
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "camps", ["schema_name"], name: "index_camps_on_schema_name", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -84,6 +95,13 @@ ActiveRecord::Schema.define(version: 20150203183833) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "visible_until"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "domain",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
