@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
+  belongs_to :organization
+
   has_many :owned_events,  class_name: 'Event', foreign_key: 'owner_id'
   has_many :leaded_groups, class_name: 'Group', foreign_key: 'leader_id'
 
