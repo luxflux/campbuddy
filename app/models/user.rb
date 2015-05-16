@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
+  belongs_to :organization
+
   has_many :owned_events,  class_name: 'Event', foreign_key: 'owner_id'
   has_many :leaded_groups, class_name: 'Group', foreign_key: 'leader_id'
 
@@ -12,6 +14,9 @@ class User < ActiveRecord::Base
 
   has_many :group_events, through: :groups, source: :events
   has_many :leaded_group_events, through: :leaded_groups, source: :events
+
+  has_many :camp_attendances
+  has_many :camps, through: :camp_attendances
 
   validates :firstname, presence: true, unless: :guest?
   validates :name, presence: true, unless: :guest?

@@ -18,6 +18,7 @@ gem 'simple_form_fancy_uploads'
 gem 'date_time_attribute'
 gem 'jc-validates_timeliness'
 gem 'rails_admin'
+gem 'apartment'
 
 gem 'bourbon'
 gem 'neat'
