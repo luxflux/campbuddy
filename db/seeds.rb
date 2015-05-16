@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+orga = Organization.where(name: 'Example Inc.', domain: 'example.org').first_or_create!
+orga.camps.where(name: 'Devel Camp', subdomain: 'devel').first_or_create!
+
+Apartment::Tenant.switch!('devel_example_org')
+
 admin = User.where(email: 'admin@example.org')
 if admin.first
   puts 'Admin already existed with email admin@example.org'
