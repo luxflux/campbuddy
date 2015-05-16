@@ -1,0 +1,12 @@
+<div class="padded-row">
+  <div class="sign-in">
+    <h1><%= t '.title', name: @camp.name %></h1>
+    <p><%= t '.text', name: @camp.name %></p>
+
+    <p class="dots">
+      <span class="green">&#8226;</span><span class="red">&#8226;</span><span class="blue">&#8226;</span>
+    </p>
+
+    <%= render 'form' %>
+  </div>
+</div>

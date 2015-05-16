@@ -12,6 +12,8 @@ RSpec.configure do |config|
     Apartment::Tenant.drop('www_example_com') rescue nil
     orga = Organization.create! name: 'default2', domain: 'example.com'
     Camp.create! name: 'default2', subdomain: 'www', organization: orga
+
+    Apartment::Tenant.switch!('www_example_com')
   end
 
   config.before(:each) do

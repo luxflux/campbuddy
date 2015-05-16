@@ -1,14 +1,38 @@
 require 'rails_helper'
 
 describe UsersController do
+  let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
 
   context 'a guest' do
-    before do
-      user = FactoryGirl.create(:user)
-      get :show, {:id => user.to_param}
+    describe 'GET show' do
+      before do
+        user = FactoryGirl.create(:user)
+        get :show, {:id => user.to_param}
+      end
+
+      it { should deny_access }
     end
 
-    it { should deny_access }
+    describe 'GET new' do
+      before do
+        get :new
+      end
+
+      specify { expect(assigns(:user)).to_not be_persisted }
+    end
+
+    describe 'POST create' do
+      context 'valid attributes' do
+        before do
+          post :create, user: valid_attributes
+        end
+
+        specify { expect(assigns(:user)).to be_persisted }
+        it 'redirects to the root url' do
+          expect(response).to redirect_to('/')
+        end
+      end
+    end
   end
 
   context 'a user' do
@@ -16,11 +40,6 @@ describe UsersController do
     before do
       sign_in_as(user)
     end
-
-    # This should return the minimal set of attributes required to create a valid
-    # User. As you add validations to User, be sure to
-    # adjust the attributes here as well.
-    let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
 
     describe "GET show" do
       let(:event) { FactoryGirl.create :event }
