@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :group_events, through: :groups, source: :events
   has_many :leaded_group_events, through: :leaded_groups, source: :events
 
+  has_many :camp_attendances
+  has_many :camps, through: :camp_attendances
+
   validates :firstname, presence: true, unless: :guest?
   validates :name, presence: true, unless: :guest?
 
