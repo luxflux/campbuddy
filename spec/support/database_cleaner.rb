@@ -20,6 +20,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
   config.around(:each, js: true) do |block|
     DatabaseCleaner.strategy = :truncation
 
@@ -30,11 +34,6 @@ RSpec.configure do |config|
     Apartment::Tenant.switch('127_0_0_1') do
       block.call
     end
-
-    # tables have been emptied as we used :truncation
-    Apartment::Tenant.drop('www_example_com') rescue nil
-    orga = Organization.create! name: 'default2', domain: 'example.com'
-    Camp.create! name: 'default2', subdomain: 'www', organization: orga
   end
 
   config.before(:each) do
@@ -43,5 +42,14 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.after(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+
+    # tables have been emptied as we used :truncation
+    Apartment::Tenant.drop('www_example_com') rescue nil
+    orga = Organization.create! name: 'default2', domain: 'example.com'
+    Camp.create! name: 'default2', subdomain: 'www', organization: orga
   end
 end
