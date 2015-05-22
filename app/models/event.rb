@@ -25,8 +25,11 @@ class Event < ActiveRecord::Base
   validates :ends_date, presence: true
   validates :ends_time, presence: true
 
-  validates_date :starts, between: Setting.camp_start..Setting.camp_end
-  validates_date :ends, between: Setting.camp_start..Setting.camp_end
+  validates_datetime :starts, before: ->(event) { Setting.camp_ends }
+  validates_datetime :starts, after: ->(event) { Setting.camp_starts }
+  validates_datetime :ends, before: ->(event) { Setting.camp_ends }
+  validates_datetime :ends, after: ->(event) { Setting.camp_starts }
+
   validates_datetime :starts, before: ->(event) { event.ends }
   validates_datetime :ends, after: ->(event) { event.starts }
 

@@ -7,7 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 orga = Organization.where(name: 'Example Inc.', domain: 'example.org').first_or_create!
-orga.camps.where(name: 'Devel Camp', subdomain: 'devel').first_or_create!
+orga.camps.
+  where(name: 'Devel Camp', subdomain: 'devel').
+  first_or_create!(hashtag: 'devcamp',
+                   starts: Time.now + 1.month,
+                   ends: Time.now + 1.month + 1.week,
+                   registration_opens: Time.now + 1.month - 1.week)
 
 Apartment::Tenant.switch!('devel_example_org')
 

@@ -11,8 +11,12 @@
 </div>
 
 <div class="padded-row">
-  <h1>Insta Feed
-    <small>#oywintercamp</small>
+  <h1>
+    <%= t('.instagram_feed') %>
+    <small><%= @camp.hashtag %></small>
   </h1>
 </div>
-<div class="full-row instagram-feed" data-instagram-tag="oywintercamp" data-instagram-client-id="5f65f602eea445458472fa91247231de"></div>
+<div class="full-row instagram-feed"
+     data-instagram-tag="<%= @camp.hashtag %>"
+     data-instagram-client-id="5f65f602eea445458472fa91247231de">
+</div>

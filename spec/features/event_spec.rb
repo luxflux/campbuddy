@@ -5,7 +5,7 @@ feature 'Event View' do
   let(:event) { FactoryGirl.create :event }
 
   background do
-    Timecop.travel Setting.open_registration
+    Timecop.travel Setting.registration_opens
 
     visit sign_in_path
     fill_in 'E-Mail', with: user.email

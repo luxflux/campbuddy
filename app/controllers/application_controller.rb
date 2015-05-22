@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
     raise "Cannot find camp for #{Apartment::Tenant.current}"
   end
+
+  def current_ability
+    @current_ability ||= ::Ability.new(current_user, @camp)
+  end
 end
