@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Camp, type: :model do
   let(:camp) { FactoryGirl.build :camp }
   it 'creates a tenant after creation' do
-    expect(Apartment::Tenant).to receive(:create).with('example_example_test')
+    expect(Apartment::Tenant).to receive(:create).with('127_0_0_1')
     camp.save!
   end
 

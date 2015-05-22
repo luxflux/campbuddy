@@ -2,7 +2,8 @@ require 'rails_helper'
 require 'cancan/matchers'
 
 describe Ability do
-  subject(:ability) { Ability.new(current_user) }
+  let(:camp) { Setting.current_camp }
+  subject(:ability) { Ability.new(current_user, camp) }
 
   context 'for an admin' do
     let(:current_user) { FactoryGirl.create(:user, admin: true) }
@@ -43,7 +44,7 @@ describe Ability do
 
       context 'during open registration time' do
         before do
-          Timecop.travel Setting.open_registration + 5.hours
+          Timecop.travel camp.registration_opens + 5.hours
         end
 
         it { should be_able_to(:create, own_attendance) }
@@ -52,7 +53,7 @@ describe Ability do
 
       context 'before open registration time' do
         before do
-          Timecop.travel Setting.open_registration - 1.day
+          Timecop.travel camp.registration_opens - 1.day
         end
 
         it { should_not be_able_to(:create, own_attendance) }

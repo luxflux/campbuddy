@@ -7,7 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 orga = Organization.where(name: 'Example Inc.', domain: 'example.org').first_or_create!
-orga.camps.where(name: 'Devel Camp', subdomain: 'devel').first_or_create!
+orga.camps.
+  where(name: 'Devel Camp', subdomain: 'devel').
+  first_or_create!(hashtag: 'devcamp',
+                   starts: Time.now + 1.month,
+                   ends: Time.now + 1.month + 1.week,
+                   registration_opens: Time.now + 1.month - 1.week)
 
 Apartment::Tenant.switch!('devel_example_org')
 
@@ -42,23 +47,23 @@ e1 = Event.create! owner: andi,
                    title: "Foto",
                    description: "Fotographie-Kurs",
                    max_attendees: 2,
-                   starts: Setting.camp_start + 1.day + 4.hours,
-                   ends: Setting.camp_start + 1.day + 5.hours
+                   starts: Setting.camp_starts + 1.day + 4.hours,
+                   ends: Setting.camp_starts + 1.day + 5.hours
 e2 = Event.create! owner: andi,
                    category: p,
                    teaser: 'Snowboards!',
                    title: "Snowboard-Kurs",
                    max_attendees: 4,
                    description: "Späte Action auf der Piste, es wird SUPER!",
-                   starts: Setting.camp_start + 2.days + 4.hours,
-                   ends: Setting.camp_start + 2.days + 5.hours
+                   starts: Setting.camp_starts + 2.days + 4.hours,
+                   ends: Setting.camp_starts + 2.days + 5.hours
 e3 = Event.create! owner: simi,
                    category: c,
                    teaser: 'Camping!',
                    title: "camping",
                    description: "Lagerfeuer am Abend in der Celebration-Hall! Es gibt super Würste!",
-                   starts: Setting.camp_start + 2.days + 8.hours,
-                   ends: Setting.camp_start + 2.days + 10.hours
+                   starts: Setting.camp_starts + 2.days + 8.hours,
+                   ends: Setting.camp_starts + 2.days + 10.hours
 
 e1.users << robi
 e1.users << simi
@@ -79,8 +84,8 @@ smallgroup.events.create! owner: robi,
                           title: 'Smallgroup',
                           teaser: 'Smallgroup!',
                           description: 'Smallgroup zum Thema Grillwürste',
-                          starts: Setting.camp_start + 1.day + 8.hours,
-                          ends: Setting.camp_start + 1.day + 10.hours,
+                          starts: Setting.camp_starts + 1.day + 8.hours,
+                          ends: Setting.camp_starts + 1.day + 10.hours,
                           groups_only: true
 
 cleaning_group = Group.create! name: 'WC-Putzer', leader: robi
@@ -91,6 +96,6 @@ cleaning_group.events.create! owner: robi,
                               title: 'WC Putzen',
                               teaser: 'Putzy putzy!',
                               description: 'Muss alles sauber sein!',
-                              starts: Setting.camp_end + 10.hours,
-                              ends: Setting.camp_end + 12.hours,
+                              starts: Setting.camp_ends - 12.hours,
+                              ends: Setting.camp_ends - 10.hours,
                               groups_only: true

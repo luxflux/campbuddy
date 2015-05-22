@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, camp)
     case
     when user.admin?
       can :manage, :all
@@ -13,7 +13,7 @@ class Ability
 
       can :read, Attendance, event_id: user.self_attended_event_ids
 
-      if Setting.registration_open?
+      if camp.registration_open?
         can :create, Attendance, user_id: user.id
         can :destroy, Attendance, user_id: user.id
       end

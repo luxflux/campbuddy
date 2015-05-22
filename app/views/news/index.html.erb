@@ -1,9 +1,11 @@
-<div class="padded-row">
-  <%= link_to emergency_numbers_path, class: :emergency do %>
-    <span class="text"><%= t '.emergency' %></span>
-    <%= icon_emergency %>
-  <% end %>
-</div>
+<% if @camp.emergency_numbers.any? %>
+  <div class="padded-row">
+    <%= link_to emergency_numbers_path, class: :emergency do %>
+      <span class="text"><%= t '.emergency' %></span>
+      <%= icon_emergency %>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="padded-row">
   <h1><%= News.model_name.human count: 2 %></h1>
@@ -11,8 +13,12 @@
 </div>
 
 <div class="padded-row">
-  <h1>Insta Feed
-    <small>#oywintercamp</small>
+  <h1>
+    <%= t('.instagram_feed') %>
+    <small>#<%= @camp.hashtag %></small>
   </h1>
 </div>
-<div class="full-row instagram-feed" data-instagram-tag="oywintercamp" data-instagram-client-id="5f65f602eea445458472fa91247231de"></div>
+<div class="full-row instagram-feed"
+     data-instagram-tag="<%= @camp.hashtag %>"
+     data-instagram-client-id="5f65f602eea445458472fa91247231de">
+</div>

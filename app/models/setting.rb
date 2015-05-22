@@ -1,17 +1,21 @@
 class Setting
-  def self.camp_start
-    @camp_start ||= '2015-02-07'.to_date
+  def self.camp_starts
+    current_camp.starts
   end
 
-  def self.camp_end
-    @camp_end ||= '2015-02-14'.to_date
+  def self.camp_ends
+    current_camp.ends
   end
 
-  def self.open_registration
-    @open_registration ||= camp_start - 1.day
+  def self.registration_opens
+    current_camp.registration_opens
   end
 
   def self.registration_open?
-    Date.current >= open_registration
+    Date.current >= registration_opens
+  end
+
+  def self.current_camp
+    Camp.find_by_schema_name!(Apartment::Tenant.current)
   end
 end

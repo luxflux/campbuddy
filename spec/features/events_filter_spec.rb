@@ -9,7 +9,7 @@ feature 'Events Filters' do
     FactoryGirl.create :event,
       title: 'Red Event',
       category: red_category,
-      starts_date: Setting.camp_start,
+      starts_date: Setting.camp_starts,
       starts_time: '11:00'
   end
 
@@ -17,12 +17,12 @@ feature 'Events Filters' do
     FactoryGirl.create :event,
       title: 'Blue Event',
       category: blue_category,
-      starts_date: Setting.camp_start,
+      starts_date: Setting.camp_starts,
       starts_time: '11:00'
   end
 
   background do
-    Timecop.travel Setting.camp_start
+    Timecop.travel Setting.camp_starts
     red_event.save!
     blue_event.save
 
