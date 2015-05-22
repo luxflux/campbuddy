@@ -33,7 +33,7 @@ describe EventsController do
       it 'assigns all the categories of the events as @categories' do
         category1 = FactoryGirl.create(:category, identifier: :red)
         category2 = FactoryGirl.create(:category, identifier: :yellow)
-        FactoryGirl.create(:event, category: category2, starts: Setting.camp_starts)
+        FactoryGirl.create(:event, category: category2, starts: Setting.camp_starts + 1.hour)
         event = FactoryGirl.create(:event, category: category1)
 
         Timecop.travel Setting.camp_starts + 2.days
