@@ -9,6 +9,7 @@
     <%= render partial: '/sessions/form' %>
 
     <div class="other-links">
+      <%= link_to t('.sign_up', name: @camp.name), sign_up_path %>
       <%= link_to t('.forgot_password'), new_password_path %>
       <%= link_to t('.as_guest'), start_guest_session_path, method: :post %>
     </div>

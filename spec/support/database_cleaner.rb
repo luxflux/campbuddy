@@ -6,12 +6,14 @@ RSpec.configure do |config|
 
     # feature tests
     Apartment::Tenant.drop('127_0_0_1') rescue nil
-    orga = Organization.create! name: 'default', domain: '0.0.1'
-    Camp.create! name: 'default', subdomain: '127', organization: orga
+    orga = Organization.create! name: 'default2', domain: '0.0.1'
+    Camp.create! name: 'default2', subdomain: '127', organization: orga
+  end
 
-    Apartment::Tenant.drop('www_example_com') rescue nil
-    orga = Organization.create! name: 'default2', domain: 'example.com'
-    Camp.create! name: 'default2', subdomain: 'www', organization: orga
+  config.around(:each) do |block|
+    Apartment::Tenant.switch('127_0_0_1') do
+      block.call
+    end
   end
 
   config.before(:each) do
@@ -22,17 +24,24 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.around(:each, js: true) do |block|
-    Apartment::Tenant.switch('127_0_0_1') do
-      block.call
-    end
+  config.before(:each, type: :feature) do
+    port = 3002
+    host = '127.0.0.1'
+    default_url_options[:host] = host
+    Capybara.app_host = "http://#{host}:#{port}"
+    Capybara.server_port = port
   end
 
   config.before(:each) do
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after(:each) do |example|
     DatabaseCleaner.clean
+    if example.metadata[:js]
+      Apartment::Tenant.drop('127_0_0_1') rescue nil
+      orga = Organization.create! name: 'default2', domain: '0.0.1'
+      Camp.create! name: 'default2', subdomain: '127', organization: orga
+    end
   end
 end

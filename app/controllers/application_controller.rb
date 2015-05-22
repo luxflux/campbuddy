@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :set_camp
   before_action :require_login
   before_action :set_locale
 
@@ -18,5 +19,11 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = :de
+  end
+
+  def set_camp
+    @camp = Camp.find_by_schema_name!(Apartment::Tenant.current)
+  rescue ActiveRecord::RecordNotFound
+    raise "Cannot find camp for #{Apartment::Tenant.current}"
   end
 end

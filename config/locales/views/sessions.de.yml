@@ -6,5 +6,6 @@ de:
     new:
       as_guest: Als Gast einloggen
       forgot_password: Passwort vergessen?
+      sign_up: Anmelden an %{name}
       text: Willkommen beim One Youth Camp Buddy
       title: Camp Buddy

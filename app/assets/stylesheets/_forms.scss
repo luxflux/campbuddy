@@ -4,11 +4,7 @@ form {
   }
 
   input {
-    box-shadow: none!important;
-
-    &:hover, &:active {
-      border: 1px solid $red!important;
-    }
+    box-shadow: none !important;
   }
 
   label {
