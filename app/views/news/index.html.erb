@@ -1,9 +1,11 @@
-<div class="padded-row">
-  <%= link_to emergency_numbers_path, class: :emergency do %>
-    <span class="text"><%= t '.emergency' %></span>
-    <%= icon_emergency %>
-  <% end %>
-</div>
+<% if @camp.emergency_numbers.any? %>
+  <div class="padded-row">
+    <%= link_to emergency_numbers_path, class: :emergency do %>
+      <span class="text"><%= t '.emergency' %></span>
+      <%= icon_emergency %>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="padded-row">
   <h1><%= News.model_name.human count: 2 %></h1>

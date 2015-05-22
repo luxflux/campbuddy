@@ -27,4 +27,8 @@ class Camp < ActiveRecord::Base
   def registration_open?
     DateTime.current >= registration_opens
   end
+
+  def emergency_numbers
+    []
+  end
 end
