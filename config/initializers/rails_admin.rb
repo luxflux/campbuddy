@@ -99,6 +99,7 @@ RailsAdmin.config do |config|
       field :category
       field :groups_only
       field :impression
+      field :youtube_url
     end
 
     configure :owner do

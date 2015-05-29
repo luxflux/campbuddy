@@ -52,6 +52,7 @@ class EventsController < ApplicationController
                :title,
                :teaser, :description,
                :meeting_point,
-               :impression
+               :impression,
+               :youtube_url
     end
 end

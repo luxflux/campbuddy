@@ -12,7 +12,11 @@
 </div>
 
 <div class="title-pic full-row <%= @event.category.identifier %>">
-  <%= image_tag @event.impression.detail.url %>
+  <% if @event.youtube_url %>
+    <%= raw youtube_embed(@event.youtube_url) %>
+  <% else %>
+    <%= image_tag @event.impression.detail.url %>
+  <% end %>
 </div>
 
 <div class="event padded-row">
