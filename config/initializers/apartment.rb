@@ -69,5 +69,6 @@ end
 Rails.application.config.middleware.use 'Apartment::Elevators::Generic', lambda { |request|
   schema = request.host.downcase.gsub(/\./, '_') # lala.example.org => lala_example_org
   schema.gsub!('_campplaner_dev', '') if Rails.env.development?
+  schema.gsub!('_127_0_0_1_xip_io', '') if Rails.env.development?
   schema
 }

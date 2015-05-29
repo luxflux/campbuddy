@@ -7,7 +7,16 @@ For camps, you know.
 
 ```bash
 bundle install
+rake db:create db:schema:load db:seed
 ```
+
+## Development
+
+```bash
+rails server
+```
+
+Go to http://devel.example.org.127.0.0.1.xip.io:3000/ .
 
 ## Deployment
 
