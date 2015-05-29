@@ -42,6 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def jpgize
     manipulate! do |img|
       img.format('jpg') do |convert|
+        convert <<         '-auto-orient'
         convert <<         '+profile'
         convert.+          '*'
         convert.profile    "#{Rails.root}/lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"
