@@ -11,6 +11,7 @@
   <%= f.input :meeting_point %>
 
   <%= f.input :impression, as: :image_preview, input_html: {preview_version: :catalog} %>
+  <%= f.input :youtube_url %>
 
   <%= hidden_field_tag :back, params[:back] %>
 

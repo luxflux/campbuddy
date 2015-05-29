@@ -136,7 +136,7 @@
     &.yellow { background-color: $yellow; }
     &.gray { background-color: $medium-gray; }
 
-    img {
+    img, iframe {
       float: right;
       width: 98%;
       @include media($medium-screen-up) {

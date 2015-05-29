@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
   validates :ends_date, presence: true
   validates :ends_time, presence: true
 
-  validates :youtube_url, format: YOUTUBE_REGEX
+  validates :youtube_url, format: YOUTUBE_REGEX, allow_blank: true
 
   validates_datetime :starts, before: ->(event) { Setting.camp_ends }
   validates_datetime :starts, after: ->(event) { Setting.camp_starts }
