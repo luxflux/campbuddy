@@ -13,7 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def default_url
     name = [mounted_as, version_name].compact.join('_')
-    "fallback/#{name}.png"
+    "fallback/#{name}.jpg"
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -42,6 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def jpgize
     manipulate! do |img|
       img.format('jpg') do |convert|
+        convert <<         '-auto-orient'
         convert <<         '+profile'
         convert.+          '*'
         convert.profile    "#{Rails.root}/lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"
