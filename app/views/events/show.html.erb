@@ -12,8 +12,8 @@
 </div>
 
 <div class="title-pic full-row <%= @event.category.identifier %>">
-  <% if @event.youtube_url %>
-    <%= raw youtube_embed(@event.youtube_url) %>
+  <% if @event.youtube_url.present? %>
+    <%= youtube_embed(@event.youtube_url) %>
   <% else %>
     <%= image_tag @event.impression.detail.url %>
   <% end %>

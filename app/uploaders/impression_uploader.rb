@@ -19,4 +19,9 @@ class ImpressionUploader < ImageUploader
       img
     end
   end
+
+  def default_url
+    id = [1, 2, 3].shuffle.first
+    "fallback/impression/#{id}/#{version_name}.jpg"
+  end
 end

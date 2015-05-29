@@ -13,7 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def default_url
     name = [mounted_as, version_name].compact.join('_')
-    "fallback/#{name}.png"
+    "fallback/#{name}.jpg"
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
