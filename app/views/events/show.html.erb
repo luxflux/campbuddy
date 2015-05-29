@@ -81,7 +81,13 @@
     </li>
     <li class="time">
       <%= icon_clock %>
-      <span class="text"><%= l @event.starts %> - <%= l @event.ends, format: :time_only %></span>
+      <span class="text">
+        <% if @event.starts.to_date != @event.ends.to_date %>
+          <%= l @event.starts, format: :weekday_time %> - <%= l @event.ends, format: :weekday_time %>
+        <% else %>
+          <%= l @event.starts, format: :weekday_time %> - <%= l @event.ends, format: :time_only %>
+        <% end %>
+      </span>
     </li>
     <% if @event.meeting_point.present? %>
     <li class="meeting_point">
