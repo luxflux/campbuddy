@@ -262,4 +262,24 @@ RSpec.describe Event, :type => :model do
       expect(subject.ids.sort).to eq(subject.uniq.ids.sort)
     end
   end
+
+  describe '#youtube_url=' do
+    let(:event) { Event.new }
+
+    context 'valid input' do
+      it 'sets the regular youtube url' do
+        event.youtube_url = 'http://youtu.be/OPf0YbXqDm0'
+        event.valid?
+        expect(event).to have(0).errors_on(:youtube_url)
+      end
+    end
+
+    context 'invalid input' do
+      it 'marks it as invalid' do
+        event.youtube_url = 'http://youtu.e/something'
+        event.valid?
+        expect(event).to have(1).errors_on(:youtube_url)
+      end
+    end
+  end
 end

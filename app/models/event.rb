@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  YOUTUBE_REGEX = %r(\A(http[s]*:\/\/)?(www.)?(youtube.com|youtu.be)\/(watch\?v=){0,1}([a-zA-Z0-9_-]{11})\z)
+
   belongs_to :owner, class_name: 'User'
   belongs_to :category
 
@@ -24,6 +26,8 @@ class Event < ActiveRecord::Base
   validates :ends, presence: true
   validates :ends_date, presence: true
   validates :ends_time, presence: true
+
+  validates :youtube_url, format: YOUTUBE_REGEX
 
   validates_datetime :starts, before: ->(event) { Setting.camp_ends }
   validates_datetime :starts, after: ->(event) { Setting.camp_starts }
