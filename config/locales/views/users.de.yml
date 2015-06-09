@@ -5,7 +5,6 @@ de:
       title: Profil
     new:
       sign_in: Einloggen
-      text: Mit dem Absenden des Formulars meldest Du dich verbindlich an %{name} an.
       title: Anmelden an %{name}
     show:
       administration: Administration
