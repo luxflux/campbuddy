@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_action :set_camp
   before_action :require_login
   before_action :set_locale
+  before_action :mailer_set_url_options
 
   rescue_from 'CanCan::AccessDenied' do |exception|
     redirect_to main_app.root_url
@@ -29,5 +30,9 @@ class ApplicationController < ActionController::Base
 
   def current_ability
     @current_ability ||= ::Ability.new(current_user, @camp)
+  end
+
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
   end
 end
