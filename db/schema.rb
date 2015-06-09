@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529170225) do
+ActiveRecord::Schema.define(version: 20150609165326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150529170225) do
     t.date     "starts"
     t.date     "ends"
     t.datetime "registration_opens"
+    t.string   "welcome_text"
   end
 
   add_index "camps", ["schema_name"], name: "index_camps_on_schema_name", using: :btree
