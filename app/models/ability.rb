@@ -3,6 +3,11 @@ class Ability
 
   def initialize(user, camp)
     case
+    when user.nil?
+      if camp.allow_sign_up?
+        can :create, User
+      end
+
     when user.admin?
       can :manage, :all
 
