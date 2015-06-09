@@ -103,4 +103,29 @@ describe Ability do
     it { should be_able_to(:catalog, Event) }
     it { should be_able_to(:show, Event) }
   end
+
+  context 'as an undecided user' do
+    let(:current_user) { nil }
+
+    context 'camp allows to sign up' do
+      let(:camp) { FactoryGirl.build :camp, allow_sign_up: true }
+
+      it { should be_able_to(:create, User) }
+    end
+
+    context 'camp does not allow to sign up' do
+      let(:camp) { FactoryGirl.build :camp, allow_sign_up: false }
+
+      it { should_not be_able_to(:create, User) }
+    end
+
+    it { should_not be_able_to(:manage, :all) }
+    it { should_not be_able_to(:read, Event) }
+    it { should_not be_able_to(:read, Attendance) }
+    it { should_not be_able_to(:read, Group) }
+    it { should_not be_able_to(:read, Membership) }
+    it { should_not be_able_to(:read, News) }
+    it { should_not be_able_to(:catalog, Event) }
+    it { should_not be_able_to(:show, Event) }
+  end
 end

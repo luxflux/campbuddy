@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource except: %i(new create)
+  load_and_authorize_resource
   skip_before_filter :require_login, only: [:create, :new]
   skip_before_filter :authorize, only: [:create, :new]
 
