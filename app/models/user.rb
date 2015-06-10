@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true, unless: :guest?
   validates :name, presence: true, unless: :guest?
+  validates :birthday, presence: true, unless: :guest?
+  validates :cellphone, presence: true, phony_plausible: true, unless: :guest?
 
   mount_uploader :avatar, AvatarUploader
 
@@ -24,6 +26,8 @@ class User < ActiveRecord::Base
 
   scope :real_users, -> { where(guest: false) }
   scope :guests, -> { where(guest: true) }
+
+  phony_normalize :cellphone, default_country_code: 'CH'
 
   attr_accessor :send_mail
 

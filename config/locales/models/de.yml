@@ -28,6 +28,8 @@ de:
         password_confirmation: Passwortbestätigung
         guest: Gast?
         send_mail: E-Mail senden?
+        cellphone: Handynummer
+        birthday: Geburtstag
       news:
         message: Nachricht
         visible_until: Sichtbar bis
