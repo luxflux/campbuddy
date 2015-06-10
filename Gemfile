@@ -19,6 +19,7 @@ gem 'date_time_attribute'
 gem 'jc-validates_timeliness'
 gem 'rails_admin'
 gem 'apartment'
+gem 'phony_rails'
 
 gem 'bourbon'
 gem 'neat'

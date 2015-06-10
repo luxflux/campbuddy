@@ -110,6 +110,10 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
+    countries (0.11.4)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    currencies (0.4.2)
     database_cleaner (1.4.1)
     date_time_attribute (0.1.2)
       activesupport (>= 3.0.0)
@@ -165,6 +169,7 @@ GEM
       i18n
       term-ansicolor
       terminal-table
+    i18n_data (0.7.0)
     jc-validates_timeliness (3.1.1)
       timeliness (~> 0.3.7)
     jquery-rails (4.0.3)
@@ -212,6 +217,11 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (0.18.1)
+    phony (2.14.2)
+    phony_rails (0.12.6)
+      activesupport (>= 3.0)
+      countries (~> 0.8, >= 0.8.2)
+      phony (~> 2.12)
     pickadate-rails (3.5.5.0)
       railties (>= 3.1.0)
     pry (0.10.1)
@@ -400,6 +410,7 @@ DEPENDENCIES
   mini_magick
   neat
   pg
+  phony_rails
   pickadate-rails
   puma
   rails (~> 4.2.0)
