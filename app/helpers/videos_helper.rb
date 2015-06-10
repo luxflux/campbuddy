@@ -9,11 +9,11 @@ module VideosHelper
   # @param width [String] width of embedded video. Can be any valid CSS unit
   # @param height [String] height of embedded video. Can be any valid CSS unit
   # @return [String] HTML string of embedded video
-  def youtube_embed(url, width = "100%", height = "250px")
+  def youtube_embed(url)
     youtube_id = find_youtube_id(url)
 
-    result = %(<iframe title="YouTube video player" width="#{width}"
-                height="#{height}" src="//www.youtube.com/embed/#{ youtube_id }"
+    result = %(<iframe title="YouTube video player"
+                src="//www.youtube.com/embed/#{ youtube_id }?autoplay=1&controls=0&disablekb=1&loop=1&playsinline=1&rel=0&showinfo=0"
                 frameborder="0" allowfullscreen></iframe>)
     result.html_safe
   end

@@ -13,7 +13,11 @@
 
 <div class="title-pic full-row <%= @event.category.identifier %>">
   <% if @event.youtube_url.present? %>
-    <%= youtube_embed(@event.youtube_url) %>
+    <div class="sixteen-nine">
+      <div class="sixteen-nine-content-wrapper">
+        <%= youtube_embed(@event.youtube_url) %>
+      </div>
+    </div>
   <% else %>
     <%= image_tag @event.impression.detail.url %>
   <% end %>

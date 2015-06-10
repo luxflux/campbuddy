@@ -136,12 +136,12 @@
     &.yellow { background-color: $yellow; }
     &.gray { background-color: $medium-gray; }
 
-    img, iframe {
+    padding-left: 2%;
+    @include media($medium-screen-up) {
+      padding-left: 1%;
+    }
+    img {
       float: right;
-      width: 98%;
-      @include media($medium-screen-up) {
-        width: 99%;
-      }
     }
   }
 
