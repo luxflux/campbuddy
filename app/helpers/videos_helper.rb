@@ -13,7 +13,7 @@ module VideosHelper
     youtube_id = find_youtube_id(url)
 
     result = %(<iframe title="YouTube video player"
-                src="//www.youtube.com/embed/#{ youtube_id }?autoplay=1&controls=0&disablekb=1&loop=1&playsinline=1&rel=0&showinfo=0"
+                src="//www.youtube.com/embed/#{ youtube_id }?controls=0&disablekb=1&loop=1&playsinline=1&rel=0&showinfo=0"
                 frameborder="0" allowfullscreen></iframe>)
     result.html_safe
   end
