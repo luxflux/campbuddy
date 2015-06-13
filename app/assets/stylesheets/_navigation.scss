@@ -24,13 +24,10 @@ body.events-show nav.main, body.emergency_numbers-index nav.main {
 
 /*Day navigation - top*/
 nav.day {
-  text-align: justify;
-  text-align-last: justify;
   a {
-    display: inline-block;
-    min-width: 30px;
-    width: 10.785714286%;
-    margin-right: 4%;
+    @include span-columns(1.7);
+    @include omega(7n);
+
     margin-bottom: 0.6em;
 
     line-height: 25px;
@@ -39,15 +36,10 @@ nav.day {
     text-transform: uppercase;
 
     border: 1px solid $medium-gray;
-    cursor: pointer;
 
     &.active, &:focus, &:active, &:hover {
       background-color: $medium-gray;
       color: #fff;
-    }
-
-    &:nth-child(7n) {
-      margin-right: 0;
     }
   }
 }
