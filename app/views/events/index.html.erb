@@ -1,6 +1,5 @@
 <div class="nav-wrapper">
   <nav class="day">
-@camp.starts.to_date.step(@camp.ends.to_date).map { |a| a }
     <% (@camp.starts..@camp.ends).each do |date| %>
       <a href="<%= events_path(date: date) %>" class="<%= 'active' if date == @selected_date %>">
         <%= l date, format: :short_weekday_only %>
