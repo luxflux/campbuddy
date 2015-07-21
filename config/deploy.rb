@@ -10,6 +10,9 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/upl
 
 set :keep_releases, 5
 
+set :rbenv_type, :system
+set :rbenv_ruby, '2.2.2'
+
 task :notify_rollbar do
   on roles(:app) do |h|
     revision = `git log -n 1 --pretty=format:"%H"`
@@ -20,4 +23,13 @@ task :notify_rollbar do
   end
 end
 
-after :deploy, 'notify_rollbar'
+namespace :deploy do
+  task :restart do
+    on roles(:web), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
+end
+
+# after :deploy, 'notify_rollbar'
+after 'deploy:publishing', 'deploy:restart'

@@ -15,16 +15,11 @@ test:
   username:
   password:
 
-staging:
-  adapter: postgresql
-  database: campplaner_staging
-  pool: 5
-  username:
-  password:
-
 production:
+  reconnect: true
   adapter: postgresql
-  database: campplaner_production
-  pool: 5
-  username:
-  password:
+  database: campplaner
+  encoding: utf-8
+  pool: 16
+  username: campplaner
+  password: <%= ENV['DATABASE_PASSWORD'] %>

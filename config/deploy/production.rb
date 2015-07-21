@@ -1,1 +1,1 @@
-server 'ruffy.nine.ch', user: 'campplaner', roles: %w{web app db}
+server 'web.yux.ch', user: 'campplaner', roles: %w{web app db}

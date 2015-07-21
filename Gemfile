@@ -29,6 +29,8 @@ gem 'pickadate-rails'
 
 gem 'rollbar'
 
+gem 'puma'
+
 group :production do
   gem 'therubyracer'
 end
@@ -59,9 +61,7 @@ group :development, :test do
 
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'capistrano-rails-console'
   gem 'capistrano-rails-tail-log'
-  gem 'capistrano-passenger'
-
-  gem 'puma'
 end
