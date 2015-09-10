@@ -14,6 +14,8 @@
 #= require jquery.turbolinks
 #= require jquery_ujs
 #= require turbolinks
+#= require nprogress
+#= require nprogress-turbolinks
 #= require pickadate/picker
 #= require pickadate/picker.date
 #= require pickadate/picker.time
