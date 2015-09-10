@@ -42,6 +42,11 @@ de:
         registration_opens: Anmelden an Events erlaubt ab
         welcome_text: Text beim Sign Up Formular
         allow_sign_up: User dürfen sich selbst anmelden
+      emergency_number:
+        name: Name
+        number: Nummer
+        order: Reihenfolge
+        color: Farbe
       group:
         name: Name
         leader: Leiter

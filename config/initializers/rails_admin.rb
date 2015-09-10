@@ -216,6 +216,7 @@ RailsAdmin.config do |config|
   end
 
   config.model 'EmergencyNumber' do
+    configure(:id) { hide }
     configure(:created_at) { hide }
     configure(:updated_at) { hide }
 
