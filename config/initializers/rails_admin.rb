@@ -214,4 +214,24 @@ RailsAdmin.config do |config|
       end
     end
   end
+
+  config.model 'EmergencyNumber' do
+    configure(:created_at) { hide }
+    configure(:updated_at) { hide }
+
+    configure :color, :enum do
+      searchable false
+      enum do
+        EmergencyNumber.colors.map { |k,_| [k.titleize, k] }
+      end
+
+      pretty_value do
+        bindings[:object].send(:color).titleize
+      end
+
+      def form_value
+        bindings[:object].color
+      end
+    end
+  end
 end

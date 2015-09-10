@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610070551) do
+ActiveRecord::Schema.define(version: 20150910183738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 20150610070551) do
     t.integer  "order"
     t.boolean  "mandatory_events", default: false
     t.boolean  "info_events",      default: false
+  end
+
+  create_table "emergency_numbers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "number"
+    t.integer  "color"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|

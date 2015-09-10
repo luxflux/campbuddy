@@ -11,6 +11,7 @@ class RailsAdminAbility
       can :manage, Event
       can :manage, Group
       can :manage, News
+      can :manage, EmergencyNumber
 
       can :update, Camp, schema_name: Apartment::Tenant.current
       can :read, Camp, schema_name: Apartment::Tenant.current

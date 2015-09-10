@@ -4,6 +4,7 @@ class NewsController < ApplicationController
   # GET /memberships
   def index
     @news = @news.visible
+    @emergency_numbers = EmergencyNumber.all
   end
 
   def emergency
