@@ -52,6 +52,7 @@ de:
         leader: Leiter
         users: Teilnehmer
         events: Events
+        order: Reihenfolge
       category:
         mandatory_events: Events obligatorisch
         info_events: Events ohne Anmeldung
@@ -63,3 +64,12 @@ de:
       news:
         one: Neuigkeiten
         other: News Feed
+      category:
+        one: Kategorie
+        other: Kategorien
+      group:
+        one: Gruppe
+        other: Gruppen
+      emergency_number:
+        one: Notfallnummer
+        other: Notfallnummern

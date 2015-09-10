@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Group do
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_presence_of :leader }
+  it { is_expected.to validate_presence_of :order }
 
   describe '#name_with_leader' do
     let(:user) { FactoryGirl.build :user }
