@@ -41,28 +41,28 @@ ActiveRecord::Schema.define(version: 20150610070551) do
   add_index "camps", ["schema_name"], name: "index_camps_on_schema_name", using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",             limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "identifier"
     t.integer  "order"
-    t.boolean  "mandatory_events",             default: false
-    t.boolean  "info_events",                  default: false
+    t.boolean  "mandatory_events", default: false
+    t.boolean  "info_events",      default: false
   end
 
   create_table "events", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "title",         limit: 255
+    t.string   "title"
     t.text     "description"
-    t.string   "meeting_point", limit: 255
+    t.string   "meeting_point"
     t.datetime "starts"
     t.datetime "ends"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "max_attendees"
     t.integer  "category_id"
-    t.string   "impression",    limit: 255
-    t.boolean  "groups_only",               default: false
+    t.string   "impression"
+    t.boolean  "groups_only",   default: false
     t.string   "teaser"
     t.string   "youtube_url"
   end
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150610070551) do
   add_index "group_attendances", ["group_id"], name: "index_group_attendances_on_group_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.integer  "leader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20150610070551) do
   add_index "memberships", ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true, using: :btree
 
   create_table "news", force: :cascade do |t|
-    t.string   "message",       limit: 255
+    t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "visible_until"
@@ -112,17 +112,17 @@ ActiveRecord::Schema.define(version: 20150610070551) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.string   "firstname",          limit: 255
-    t.string   "email",              limit: 255
+    t.string   "name"
+    t.string   "firstname"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
     t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
-    t.string   "avatar",             limit: 255
-    t.string   "invitation_token",   limit: 255
+    t.string   "avatar"
+    t.string   "invitation_token"
     t.boolean  "guest",                          default: false
     t.integer  "organization_id"
     t.date     "birthday"

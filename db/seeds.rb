@@ -10,6 +10,7 @@ orga = Organization.where(name: 'Example Inc.', domain: 'example.org').first_or_
 orga.camps.
   where(name: 'Devel Camp', subdomain: 'devel').
   first_or_create!(hashtag: 'devcamp',
+                   welcome_text: 'Hoi!!!!',
                    starts: Time.now + 1.month,
                    ends: Time.now + 1.month + 1.week,
                    registration_opens: Time.now + 1.month - 1.week)
@@ -20,21 +21,21 @@ admin = User.where(email: 'admin@example.org')
 if admin.first
   puts 'Admin already existed with email admin@example.org'
 else
-  admin.first_or_create!(firstname: 'Mr', name: 'Admin', password: 'adminpass', admin: true)
+  admin.first_or_create!(firstname: 'Mr', name: 'Admin', password: 'adminpass', admin: true, birthday: '01-01-1990', cellphone: '+41 77 777 77 77')
   puts 'Created admin: admin@example.org/adminpass'
 end
 
 andi = User.
   where(email: 'test@test.com').
-  create_with(firstname: 'Andreas', name: 'Pluss', password: 'robidog', admin: true).
+  create_with(firstname: 'Andreas', name: 'Pluss', password: 'robidog', admin: true, birthday: '01-01-2015', cellphone: '+41 99 888 77 66').
   first_or_create
 robi = User.
   where(email: 'robi@dogi.com').
-  create_with(firstname: 'Robi', name: 'Dogi', password: 'robidog', admin: false).
+  create_with(firstname: 'Robi', name: 'Dogi', password: 'robidog', admin: false, birthday: '01-01-2015', cellphone: '+41 88 888 88 88').
   first_or_create
 simi = User.
   where(email: 'widdi@test.com').
-  create_with(firstname: 'Simon', name: 'Wittwer', password: 'robidog', admin: false).
+  create_with(firstname: 'Simon', name: 'Wittwer', password: 'robidog', admin: false, birthday: '01-01-2015', cellphone: '+41 88 888 88 88').
   first_or_create
 
 a = Category.red.where(name: 'Activities').first_or_create
