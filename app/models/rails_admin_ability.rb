@@ -7,11 +7,13 @@ class RailsAdminAbility
       can :dashboard
 
       can :manage, User
-      can :create, User
       can :manage, Category
       can :manage, Event
       can :manage, Group
       can :manage, News
+
+      can :update, Camp, schema_name: Apartment::Tenant.current
+      can :read, Camp, schema_name: Apartment::Tenant.current
     end
   end
 end

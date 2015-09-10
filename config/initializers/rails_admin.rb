@@ -12,6 +12,15 @@ RailsAdmin.config do |config|
     show_in_app
   end
 
+  config.model 'Camp' do
+    configure(:id) { hide }
+    configure(:created_at) { hide }
+    configure(:updated_at) { hide }
+    configure(:schema_name) { hide }
+    configure(:subdomain) { hide }
+    configure(:organization) { hide }
+  end
+
   config.model 'News' do
     configure :id do
       hide

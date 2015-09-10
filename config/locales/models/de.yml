@@ -33,6 +33,15 @@ de:
       news:
         message: Nachricht
         visible_until: Sichtbar bis
+      camp:
+        name: Name
+        subdomain: Subdomain
+        hashtag: HashTag
+        starts: Started am
+        ends: Endet am
+        registration_opens: Registrierung offen ab
+        welcome_text: Text beim Login Formular
+        allow_sign_up: User dürfen sich selbst anmelden
       group:
         name: Name
         leader: Leiter
