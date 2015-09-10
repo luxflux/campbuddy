@@ -27,7 +27,7 @@ de:
         password: Passwort
         password_confirmation: Passwortbestätigung
         guest: Gast?
-        send_mail: E-Mail senden?
+        send_mail: Einladungs E-Mail senden?
         cellphone: Handynummer
         birthday: Geburtstag
       news:
