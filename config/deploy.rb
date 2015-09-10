@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:ICFMovement/camp-workshops.git'
 set :deploy_to, '/srv/www/campplaner.yux.ch'
 
 set :linked_files, -> { %W{config/database.yml config/secrets.yml} }
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads public/assets}
 
 set :keep_releases, 5
 
