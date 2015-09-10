@@ -31,6 +31,7 @@ gem 'pickadate-rails'
 gem 'rollbar'
 
 gem 'puma'
+gem 'skylight'
 
 group :production do
   gem 'therubyracer'
