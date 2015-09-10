@@ -1,5 +1,7 @@
 class Group < ActiveRecord::Base
-  validates :name, :leader, presence: true
+  default_scope ->{ order(:order) }
+
+  validates :name, :leader, :order, presence: true
 
   belongs_to :leader, class_name: 'User'
 

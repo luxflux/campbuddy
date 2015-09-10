@@ -76,7 +76,7 @@ e3.users << robi
 
 
 # Groups
-smallgroup = Group.create! name: 'Smallgroup', leader: robi
+smallgroup = Group.create! name: 'Smallgroup', leader: robi, order: 10
 smallgroup.users << simi
 smallgroup.users << andi
 
@@ -89,7 +89,7 @@ smallgroup.events.create! owner: robi,
                           ends: Setting.camp_starts + 1.day + 10.hours,
                           groups_only: true
 
-cleaning_group = Group.create! name: 'WC-Putzer', leader: robi
+cleaning_group = Group.create! name: 'WC-Putzer', leader: robi, order: 15
 cleaning_group.users << simi
 cleaning_group.users << andi
 cleaning_group.events.create! owner: robi,
