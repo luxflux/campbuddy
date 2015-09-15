@@ -9,14 +9,11 @@
 <div class="padded-row">
   <div class="emergency-numbers">
     <ul>
-      <% @emergency_numbers.each do |number| %>
         <li>
-          <a href="tel:<%= number.number %>">
-            <%= icon_emergency(css_class: number.color) %>
-            <span class="text"><%= number.name %></span>
+          <a href="tel:123">
+            <span class="text">asdf</span>
           </a>
         </li>
-      <% end %>
     </ul>
   </div>
 </div>
