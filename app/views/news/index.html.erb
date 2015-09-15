@@ -1,9 +1,15 @@
 <% if @emergency_numbers.any? %>
   <div class="padded-row">
-    <%= link_to emergency_numbers_path, class: :emergency do %>
-      <span class="text"><%= t '.emergency' %></span>
-      <%= icon_emergency %>
-    <% end %>
+    <div class="start-links">
+      <%= link_to emergency_numbers_path, class: :emergency do %>
+        <span class="text"><%= t '.emergency' %></span>
+        <%= icon_emergency %>
+      <% end %>
+      <%= link_to map_index_path, class: :emergency do %>
+        <span class="text"><%= t '.emergency' %></span>
+        <%= icon_map %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 

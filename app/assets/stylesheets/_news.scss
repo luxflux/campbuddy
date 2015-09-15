@@ -1,5 +1,5 @@
 .news-index {
-  .emergency {
+  .emergency, .map {
     @include span-columns(12);
     @include small-bold-title;
 
@@ -17,6 +17,9 @@
         fill: $red;
       }
     }
+  }
+  .map {
+    
   }
 
   .news-entry {

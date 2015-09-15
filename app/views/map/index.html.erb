@@ -1,0 +1,22 @@
+<div class="detail-nav full-row">
+  <%= back_or_default_link news_index_path, class: 'back' %>
+  <div class="title">
+    <h1><%= t '.title' %></h1>
+    <h2><%= t '.subtitle' %></h2>
+  </div>
+</div>
+
+<div class="padded-row">
+  <div class="emergency-numbers">
+    <ul>
+      <% @emergency_numbers.each do |number| %>
+        <li>
+          <a href="tel:<%= number.number %>">
+            <%= icon_emergency(css_class: number.color) %>
+            <span class="text"><%= number.name %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
