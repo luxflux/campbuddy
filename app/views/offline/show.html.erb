@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camp Buddy Offline</title>
+  <%= render 'meta' %>
+</head>
+<body class="<%= body_class %>">
+  <div id="main-wrapper">
+    <section class="content">
+      <div class="detail-nav full-row">
+        <div class="title">
+          <h1><%= t '.title' %></h1>
+          <h2><%= t '.subtitle' %></h2>
+        </div>
+      </div>
+
+      <div class="padded-row">
+        <h2><%= t('.emergency_numbers') %></h2>
+      </div>
+      <div class="padded-row">
+        <div class="emergency-numbers">
+          <ul>
+            <% @emergency_numbers.each do |number| %>
+              <li>
+                <a href="tel:<%= number.number %>">
+                  <%= icon_emergency(css_class: number.color) %>
+                  <span class="text"><%= number.name %></span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="padded-row">
+        <h2><%= t('.my_events') %></h2>
+      </div>
+      <% if @events.any? %>
+        <div class="full-row">
+          <div class="events">
+            <%= render @events %>
+          </div>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</body>
+</html>

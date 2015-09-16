@@ -34,11 +34,12 @@ Rails.application.routes.draw do
     end
   end
 
-
   scope '/onboarding', controller: :onboarding, as: :onboarding do
     get 'start/:token', action: :start, as: :start
     post 'finish'
   end
+
+  get 'offline', to: 'offline#show'
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'
