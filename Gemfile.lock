@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rails/turbolinks.git
+  revision: 6d2ffc0e9eadb047ca5febbc08da8d92acab78c4
+  specs:
+    turbolinks (3.0.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -368,8 +375,6 @@ GEM
     timers (4.0.1)
       hitimes
     tins (1.5.1)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -434,5 +439,5 @@ DEPENDENCIES
   spring-commands-rspec
   therubyracer
   timecop
-  turbolinks
+  turbolinks!
   uglifier (>= 1.3.0)

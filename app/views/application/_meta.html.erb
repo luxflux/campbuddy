@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Camp Buddy">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="shortcut icon" type="image/png" href="<%=image_path("logo.png")%>">
+
+<!-- iPhone 3 and 4 Non-Retina 320x460-->
+<link rel="apple-touch-startup-image" media="(device-width: 320px)" href="<%=image_path("welcome-screen.png")%>">
+<!-- iPhone 4 Retina 640x920-->
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="<%=image_path("welcome-screen.png")%>">
+<!-- iPhone 5 Retina 640x1096-->
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="<%=image_path("welcome-screen.png")%>">
+<!-- iOS Web App Icon -->
+<link rel="apple-touch-icon" href="<%=image_path("logo.png")%>">
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

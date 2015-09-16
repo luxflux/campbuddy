@@ -1,40 +1,15 @@
-.emergency_numbers {
-  .emergency-numbers {
-    @include span-columns(12);
+.emergency-numbers li {
+  @include span-columns(6);
+  line-height: 3em;
 
-    padding: 1em 2.5em;
-
-    &:first-child {
-      padding: 0em 2.5em 1em;
-      border-bottom: 1px solid $light-gray;
-    }
-
-    @include media($medium-screen-up) {
-      @include span-columns(6);
-      padding: 0em 3em 1em;
-
-      &:first-child {
-        border-bottom: none;
-      }
-    }
+  .icon {
+    height: 1.9em;
+    width: 3em;
   }
 
-  .emergency-numbers li {
-    line-height: 3em;
-
-    &:first-child {
-      margin-top: 0.8em;
-    }
-
-    .icon {
-      height: 1.9em;
-      width: 3em;
-    }
-
-    a {
-      color: $dark-gray;
-      font-weight: 600;
-      font-size: 0.9em;
-    }
+  a {
+    color: $dark-gray;
+    font-weight: 600;
+    font-size: 0.9em;
   }
 }
