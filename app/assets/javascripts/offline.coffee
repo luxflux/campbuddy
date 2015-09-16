@@ -5,4 +5,6 @@ jQuery ->
         Turbolinks.replace data
 
       $(window).on 'online', (event) ->
-        location.reload()
+        setTimeout ->
+          location.reload()
+        , 4000
