@@ -1,6 +1,6 @@
 .emergency-numbers li {
   @include span-columns(6);
-  @include omega(2);
+  @include omega(2n);
 
   line-height: 3em;
 
