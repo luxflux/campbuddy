@@ -20,10 +20,8 @@ RailsAdmin.config do |config|
     configure(:subdomain) { hide }
     configure(:organization) { hide }
 
-    configure :welcome_mail, :code_mirror do |code_mirror_config|
-      code_mirror_config.html_attributes cols: 70, rows: 20
-      code_mirror_config.config mode: 'markdown'
-      code_mirror_config.assets mode: '/assets/codemirror/modes/markdown.js'
+    configure :welcome_mail do
+      html_attributes cols: 70, rows: 20
     end
   end
 
