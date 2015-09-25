@@ -1,0 +1,21 @@
+<div class="detail-nav full-row">
+  <%= back_or_default_link news_index_path, class: 'back' %>
+  <div class="title">
+    <h1><%= t '.title' %></h1>
+    <h2><%= t '.subtitle' %></h2>
+  </div>
+</div>
+
+<div class="padded-row">
+  <ul>
+  <% @maps.each do |map| %>
+    <li>
+      <h3><%= map.name %></h3>
+      <p><%= map.description %></p>
+      <%= link_to map.map.url, class: 'magnifik' do %>
+        <%= image_tag map.map.url %>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>

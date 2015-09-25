@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :emergency_numbers, only: [:index]
 
-  resources :map, only: [:index]
+  resources :maps, only: [:index]
 
   resources :memberships, except: [:new, :index]
 
