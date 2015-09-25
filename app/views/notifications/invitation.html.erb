@@ -2,13 +2,15 @@
 <head>
   <style type="text/css">
   body {
-    color: rgb(30, 30, 30);
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizelegibility;
+    color: rgb(30, 30, 30);
     font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
     font-size: 1em;
-    max-width: 38em;
+    font-weight: 300;
+    line-height: 24px;
     margin: auto;
+    max-width: 38em;
+    text-rendering: optimizelegibility;
   }
   h1 {
     font-weight: 300;
@@ -24,11 +26,8 @@
     color: rgb(249, 112, 116);
     text-shadow: 0 0 3px #aaa;
   }
-  header { text-align: center; }
+  .header { text-align: center; }
   p {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 24px;
     margin-bottom: 6px;
     margin-top: 6px;
   }
@@ -54,14 +53,14 @@
   </style>
 </head>
 <body>
-  <header>
+  <div class="header">
     <h1>Camp Buddy</h1>
     <p class="dots">
       <span class="green">•</span><span class="red">•</span><span class="blue">•</span>
     </p>
-  </header>
-  <section>
+  </div>
+  <div>
     <%= raw GitHub::Markup.render('mail.md', replace_variables(@text)) %>
-  </section>
+  </div>
 </body>
 </html>
