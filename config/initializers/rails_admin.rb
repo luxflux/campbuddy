@@ -19,6 +19,12 @@ RailsAdmin.config do |config|
     configure(:schema_name) { hide }
     configure(:subdomain) { hide }
     configure(:organization) { hide }
+
+    configure :invitation_mail, :code_mirror do |code_mirror_config|
+      code_mirror_config.html_attributes cols: 70, rows: 20
+      code_mirror_config.config mode: 'markdown'
+      code_mirror_config.assets mode: '/assets/codemirror/modes/markdown.js'
+    end
   end
 
   config.model 'News' do

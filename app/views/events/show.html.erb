@@ -105,8 +105,8 @@
         <span class="text">
           <span class="title"><%= Event.human_attribute_name :users %></span>
 
-          <ul class="attendees">
-            <%= render (@event.users - [@event.owner]) %>
+          <ul class="avatar-list">
+            <%= render 'users/avatars', users: (@event.users - [@event.owner]) %>
             <% if @event.attendance_places_left %>
               <li class="space">
                 <div class="count"><%= @event.attendance_places_left %></div>
@@ -116,11 +116,8 @@
           </ul>
 
           <span class="title"><%= Event.human_attribute_name :owner %></span>
-          <ul class="attendees">
-            <li>
-              <div class="image"><%= image_tag @event.owner.avatar.thumb.url %></div>
-              <div class="name"><%= @event.owner.fullname %></div>
-            </li>
+          <ul class="avatar-list">
+            <%= render 'users/avatars', users: [@event.owner] %>
           </ul>
         </span>
       </li>

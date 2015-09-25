@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  after_create :invite, if: :send_mail
+  after_save :send_welcome_mail, if: :send_mail
 
   scope :real_users, -> { where(guest: false) }
   scope :guests, -> { where(guest: true) }
@@ -58,15 +58,18 @@ class User < ActiveRecord::Base
   end
 
   def generate_invitation_token
-    self.invitation_token ||= loop do
-      token = SecureRandom.hex
-      break token unless self.class.where(invitation_token: token).any?
-    end
+    update_column :invitation_token, User.invitation_token
   end
 
-  def invite
+  def send_welcome_mail
     generate_invitation_token
-    save
-    Notifications.invitation(self).deliver_now
+    Notifications.welcome(self, Camp.current).deliver_now
+  end
+
+  def self.invitation_token
+    loop do
+      token = SecureRandom.hex
+      break token unless where(invitation_token: token).any?
+    end
   end
 end

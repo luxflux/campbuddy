@@ -5,8 +5,8 @@
       <%= group.name %>
     </h1>
 
-    <ul class="attendees">
-      <%= render group.users %>
+    <ul class="avatar-list">
+      <%= render 'users/avatars', users: group.users %>
     </ul>
   </div>
 

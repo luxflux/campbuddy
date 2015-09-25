@@ -1,5 +1,5 @@
 ---
 de:
   notifications:
-    invitation:
-      subject: Wintercamp 2015 | Einladung zum Camp Buddy
+    welcome:
+      subject: Einladung zum Camp Buddy
