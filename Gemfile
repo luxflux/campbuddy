@@ -35,7 +35,6 @@ gem 'skylight'
 
 gem 'github-markup', require: 'github/markup'
 gem 'redcarpet'
-gem 'codemirror-rails'
 
 group :production do
   gem 'therubyracer'
