@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :emergency_numbers, only: [:index]
 
+  resources :maps, only: [:index]
+
   resources :memberships, except: [:new, :index]
 
   resources :groups, only: [:index]

@@ -221,6 +221,18 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'Map' do
+    configure(:id) { hide }
+    configure(:created_at) { hide }
+    configure(:updated_at) { hide }
+
+    list do
+      field :name
+      field :description
+      field :order
+    end
+  end
+
   config.model 'EmergencyNumber' do
     configure(:id) { hide }
     configure(:created_at) { hide }

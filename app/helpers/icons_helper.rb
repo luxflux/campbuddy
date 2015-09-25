@@ -60,6 +60,10 @@ module IconsHelper
     %Q{<span class="icon #{css_class}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.7 57.7" enable-background="new 0 0 57.7 57.7"><path d="M29.1 8.9c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm-.8 6c0-.6.4-1.1 1-1.1s1.1.5 1.1 1.1v8.5c0 .5-.5 1-1.1 1-.5 0-1-.4-1-1v-8.5zm.8 26.8c-7.2 0-13-5.8-13-13 0-4.7 2.6-9.1 6.8-11.4 1-.5 2.2-.2 2.7.8s.2 2.2-.8 2.7c-2.9 1.6-4.7 4.6-4.7 7.9 0 5 4 9 9 9s9-4 9-9c0-3.2-1.6-6.1-4.4-7.7-.9-.6-1.3-1.8-.7-2.7.6-.9 1.8-1.3 2.7-.7 4 2.4 6.3 6.5 6.3 11.1.1 7.2-5.8 13-12.9 13z"/></svg></span>}.html_safe
   end
 
+  def icon_map(css_class: nil)
+    %Q{<span class="icon #{css_class}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.7 57.7" enable-background="new 0 0 57.7 57.7">  <ellipse     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"     id="path3342"     cx="28.849998"     cy="-28.972246"     rx="19.803814"     ry="20.170551"     transform="scale(1,-1)" />  <ellipse     style="fill:#ffffff;stroke:none"     id="path4200"     cx="29.052544"     cy="23.330515"     rx="8.8610182"     ry="8.7745771" />  <path     style="fill:#ffffff;fill-rule:nonzero;stroke:none"     d="m 37.331272,26.484679 -8.409491,16.31621 -8.18819,-16.757183 15.522272,-0.0032 z"     id="rect4204"/></svg></span>}.html_safe
+  end
+
   def icon_meeting_point(css_class: nil)
     %Q{<span class="icon #{css_class}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.7 57.7" enable-background="new 0 0 57.7 57.7"><g><path d="M28.8 48.8c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-8.9 20-20 20zm1.1-34.6c0-.6-.5-1.1-1.1-1.1s-1 .5-1 1.1v3.2c0 .6.5 1 1 1s1.1-.5 1.1-1v-3.2zm0 26c0-.6-.5-1.1-1.1-1.1s-1 .5-1 1.1v3.2c0 .6.5 1.1 1 1.1s1.1-.5 1.1-1.1v-3.2zm13-10.3c.6 0 1.1-.5 1.1-1.1s-.5-1-1-1h-3.2c-.6 0-1 .5-1.1 1.1s.4 1 1 1h3.2zm-25.6 0c.6 0 1.1-.5 1.1-1.1 0-.6-.5-1-1-1h-3.2c-.6 0-1 .5-1.1 1.1 0 .6.4 1 1 1h3.2zm11.5-7.1c-3.3 0-6.1 2.7-6.1 6.1 0 3.3 2.7 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-3.4-2.7-6.1-6.1-6.1z"/></g></svg></span>}.html_safe
   end

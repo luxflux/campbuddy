@@ -48,6 +48,10 @@ de:
         number: Nummer
         order: Reihenfolge
         color: Farbe
+      map:
+        name: Name
+        description: Beschreibung
+        map: Karte
       group:
         name: Name
         leader: Leiter
@@ -74,3 +78,6 @@ de:
       emergency_number:
         one: Notfallnummer
         other: Notfallnummern
+      map:
+        one: Karte
+        other: Karten
