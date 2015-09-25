@@ -33,6 +33,10 @@ gem 'rollbar'
 gem 'puma'
 gem 'skylight'
 
+gem 'github-markup', require: 'github/markup'
+gem 'redcarpet'
+gem 'codemirror-rails'
+
 group :production do
   gem 'therubyracer'
 end
@@ -57,9 +61,6 @@ group :development, :test do
   gem 'launchy'
   gem 'letter_opener'
   gem 'database_cleaner'
-  gem 'github-markup', require: 'github/markup'
-  gem 'redcarpet'
-  gem 'codemirror-rails'
 
   gem 'rails-erd'
   gem 'foreman'
