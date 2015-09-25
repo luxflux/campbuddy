@@ -42,7 +42,7 @@ de:
         registration_opens: Anmelden an Events erlaubt ab
         welcome_text: Text beim Sign Up Formular
         allow_sign_up: User dürfen sich selbst anmelden
-        invitation_mail: Einladungsmail
+        welcome_mail: Einladungsmail
       emergency_number:
         name: Name
         number: Nummer
