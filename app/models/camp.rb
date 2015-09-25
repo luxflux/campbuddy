@@ -20,6 +20,7 @@ class Camp < ActiveRecord::Base
   validates_datetime :ends, after: ->(event) { event.starts }
 
   def set_schema_name
+    return unless organization
     self.schema_name = "#{subdomain}.#{organization.domain}".gsub('.', '_')
   end
 

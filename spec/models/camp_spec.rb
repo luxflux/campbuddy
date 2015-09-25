@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe Camp, type: :model do
   let(:camp) { FactoryGirl.build :camp }
 
-  it { is_expected.to validate_presence_of(:schema) }
+  it { is_expected.to validate_presence_of(:schema_name) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:subdomain) }
   it { is_expected.to validate_presence_of(:organization) }
   it { is_expected.to validate_presence_of(:welcome_text) }
   it { is_expected.to validate_presence_of(:welcome_mail) }
   it { is_expected.to validate_presence_of(:starts) }
-  it { is_expected.to validate_presence_of(:sends) }
+  it { is_expected.to validate_presence_of(:ends) }
   it { is_expected.to validate_presence_of(:registration_opens) }
   it { is_expected.to validate_presence_of(:reply_to) }
 
