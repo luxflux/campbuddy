@@ -108,8 +108,8 @@
           <ul class="avatar-list">
             <%= render 'users/avatars', users: (@event.users - [@event.owner]) %>
             <% if @event.attendance_places_left %>
-              <li class="space">
-                <div class="count"><%= @event.attendance_places_left %></div>
+              <li class="counter space-left">
+                <div class="number"><%= @event.attendance_places_left %></div>
                 <div class="name"><%= Event.human_attribute_name :attendance_places_left %></div>
               </li>
             <% end %>
