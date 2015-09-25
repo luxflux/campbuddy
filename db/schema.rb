@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919052940) do
+ActiveRecord::Schema.define(version: 20150925135122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150919052940) do
     t.datetime "registration_opens"
     t.string   "welcome_text"
     t.boolean  "allow_sign_up",      default: false
-    t.text     "invitation_mail"
+    t.text     "welcome_mail"
   end
 
   add_index "camps", ["schema_name"], name: "index_camps_on_schema_name", using: :btree

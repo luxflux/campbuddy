@@ -9,6 +9,6 @@ FactoryGirl.define do
     registration_opens Time.now + 3.days
     welcome_text 'LALA!'
     allow_sign_up true
-    invitation_mail '# Hoi du! Klick da: {{invitation_url}}'
+    welcome_mail '# Hoi du! Klick da: {{invitation_url}}'
   end
 end

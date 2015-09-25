@@ -5,19 +5,19 @@ RSpec.describe Notifications, type: :mailer do
 
   describe 'invitation' do
     before do
-      user.invite
+      user.generate_invitation_token
     end
 
-    let(:mail) { Notifications.invitation(user, Camp.current) }
+    let(:mail) { Notifications.welcome(user, Camp.current) }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq('Wintercamp 2015 | Einladung zum Camp Buddy')
+      expect(mail.subject).to eq("#{Camp.current.name} | Einladung zum Camp Buddy")
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(['buddy@oneyouth.ch'])
     end
 
     it 'renders the body' do
-      expect(mail.body.encoded).to match('<h1>Hoi du! Klick da: http://test.example.org/onboarding/start')
+      expect(mail.body.encoded).to match('<h1>Hoi du! Klick da: http://')
     end
   end
 end

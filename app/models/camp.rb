@@ -9,7 +9,7 @@ class Camp < ActiveRecord::Base
   validates :subdomain, presence: true
   validates :organization, presence: true
   validates :welcome_text, presence: true
-  validates :invitation_mail, presence: true
+  validates :welcome_mail, presence: true
 
   validates :starts, presence: true
   validates :ends, presence: true
