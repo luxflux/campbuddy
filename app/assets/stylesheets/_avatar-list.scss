@@ -1,4 +1,4 @@
-.attendees {
+.avatar-list {
   padding-top: .4em;
 
   li {
@@ -7,18 +7,32 @@
     vertical-align: top;
     text-align: center;
 
-    &.space {
-      color: $red;
-      .count {
+    &.counter {
+      .number {
         border-radius: 100%;
         width: 56px;
         height: 56px;
         text-align: center;
         padding-top: 4px;
-        font-size: 2em;
+        font-size: 1.9em;
         font-weight: 300;
         color: #fff;
+      }
+    }
+
+    &.counter.space-left {
+      color: $red;
+
+      .number {
         background-color: $red;
+      }
+    }
+
+    &.counter.more {
+      color: $blue;
+
+      .number {
+        background-color: $blue;
       }
     }
   }
