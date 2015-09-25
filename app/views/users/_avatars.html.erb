@@ -1,0 +1,7 @@
+<%= render users.take(10) %>
+<% if users.length > 10 %>
+  <li class="counter more">
+    <div class="number"><%= users.count - 10 %></div>
+    <div class="name"><%= t('.more') %></div>
+  </li>
+<% end %>
