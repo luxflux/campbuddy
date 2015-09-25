@@ -59,6 +59,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'github-markup', require: 'github/markup'
   gem 'redcarpet'
+  gem 'codemirror-rails'
 
   gem 'rails-erd'
   gem 'foreman'
