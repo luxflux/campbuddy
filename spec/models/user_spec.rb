@@ -115,8 +115,8 @@ describe User do
       context 'true' do
         let(:send_mail) { true }
 
-        it 'does not send invitation mail' do
-          expect { subject.save }.to_not change { ActionMailer::Base.deliveries.count }
+        it 'allows to send a new invitation mail' do
+          expect { subject.save }.to change { ActionMailer::Base.deliveries.count }
         end
       end
     end

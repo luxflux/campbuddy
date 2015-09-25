@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Notifications, :type => :mailer do
+RSpec.describe Notifications, type: :mailer do
   let(:user) { FactoryGirl.create :user }
 
   describe 'invitation' do
     before do
-      user.generate_invitation_token
-      user.save!
+      user.invite
     end
 
     let(:mail) { Notifications.invitation(user) }

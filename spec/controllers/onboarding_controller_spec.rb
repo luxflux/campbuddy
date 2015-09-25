@@ -3,8 +3,7 @@ require 'rails_helper'
 describe OnboardingController do
   let(:user) { FactoryGirl.create(:user) }
   before do
-    user.generate_invitation_token
-    user.save!
+    user.invite
   end
 
   describe 'GET start' do
