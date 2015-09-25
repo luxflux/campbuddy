@@ -1,14 +1,5 @@
-Einladung zum One Youth Wintercamp Buddy
+Camp Buddy
 
-- - -
+• • •
 
-Hallo <%= @user.firstname %>
-
-Du erhältst dieses E-Mail vom Wintercamp Buddy, weil du für das One Youth Wintercamp 2015 angemeldet bist oder uns im Camp besuchen kommst.
-Der Camp Buddy ist eine mobile Website und gibt dir eine Übersicht über alles, was im Camp läuft. Zudem kannst du dich ab Freitagnachmittag für verschiedenste Workshops, Activities und Pistenkurse anmelden.
-Du bist herzlich eingeladen, deinen Account beim Camp Buddy jetzt schon zu aktivieren und dir anzuschauen, was es alles für Angebote geben wird.
-
-Klicke auf folgenden Link um zu starten: <%= url_for onboarding_start_url(token: @user.invitation_token) %>
-
-Liebe Grüsse
-dein One Youth Team
+<%= replace_variables @text %>

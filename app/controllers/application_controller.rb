@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_camp
-    @camp = Camp.find_by_schema_name!(Apartment::Tenant.current)
+    @camp = Camp.current
   rescue ActiveRecord::RecordNotFound
     raise "Cannot find camp for #{Apartment::Tenant.current}"
   end

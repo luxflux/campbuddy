@@ -9,6 +9,7 @@ class Camp < ActiveRecord::Base
   validates :subdomain, presence: true
   validates :organization, presence: true
   validates :welcome_text, presence: true
+  validates :invitation_mail, presence: true
 
   validates :starts, presence: true
   validates :ends, presence: true
@@ -27,5 +28,9 @@ class Camp < ActiveRecord::Base
 
   def registration_open?
     DateTime.current >= registration_opens
+  end
+
+  def self.current
+    @camp = Camp.find_by_schema_name!(Apartment::Tenant.current)
   end
 end

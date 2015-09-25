@@ -6,8 +6,10 @@ class Notifications < ActionMailer::Base
   #
   #   en.notifications.invitation.subject
   #
-  def invitation(user)
+  def invitation(user, camp)
     @user = user
+    @camp = camp
+    @text = @camp.invitation_mail
 
     mail to: user.email
   end
