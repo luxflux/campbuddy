@@ -10,5 +10,6 @@ FactoryGirl.define do
     welcome_text 'LALA!'
     allow_sign_up true
     welcome_mail '# Hoi du! Klick da: {{invitation_url}}'
+    reply_to 'mail@example.org'
   end
 end

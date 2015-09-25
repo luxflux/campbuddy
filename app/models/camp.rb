@@ -10,6 +10,7 @@ class Camp < ActiveRecord::Base
   validates :organization, presence: true
   validates :welcome_text, presence: true
   validates :welcome_mail, presence: true
+  validates :reply_to, presence: true
 
   validates :starts, presence: true
   validates :ends, presence: true

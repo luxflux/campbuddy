@@ -43,6 +43,7 @@ de:
         welcome_text: Text beim Sign Up Formular
         allow_sign_up: User dürfen sich selbst anmelden
         welcome_mail: Einladungsmail
+        reply_to: Antwort-Adresse für E-Mails
       emergency_number:
         name: Name
         number: Nummer

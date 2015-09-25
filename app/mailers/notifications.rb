@@ -11,6 +11,8 @@ class Notifications < ActionMailer::Base
     @camp = camp
     @text = @camp.welcome_mail
 
-    mail to: user.email, subject: "#{@camp.name} | #{I18n.t('notifications.welcome.subject')}"
+    mail to: user.email,
+         reply_to: @camp.reply_to,
+         subject: "#{@camp.name} | #{I18n.t('notifications.welcome.subject')}"
   end
 end
