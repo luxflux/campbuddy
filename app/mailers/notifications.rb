@@ -11,6 +11,6 @@ class Notifications < ActionMailer::Base
     @camp = camp
     @text = @camp.invitation_mail
 
-    mail to: user.email
+    mail to: user.email, subject: "#{@camp.name} | #{I18n.t('notifications.invitation.subject')}"
   end
 end
