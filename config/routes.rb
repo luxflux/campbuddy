@@ -41,9 +41,5 @@ Rails.application.routes.draw do
 
   get 'offline', to: 'offline#show'
 
-  if Rails.env.development?
-    mount MailPreview => 'mail_view'
-  end
-
   root 'root#show'
 end
