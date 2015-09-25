@@ -1,25 +1,28 @@
 .news-index {
-  .emergency, .map {
-    @include span-columns(12);
+  .emergency,
+  .maps {
+    @include span-columns(6);
     @include small-bold-title;
 
-    text-align: right;
+    padding: 0.4em 1em;
     color: $dark-gray;
-    height: 2.5em;
     margin-top: 0.7em;
 
     .icon {
       height: 1.7em;
       width: 1.7em;
       vertical-align: bottom;
-
-      svg {
-        fill: $red;
-      }
     }
   }
-  .map {
-    
+
+  .maps {
+    text-align: right;
+  }
+
+  .emergency {
+    svg {
+      fill: $red;
+    }
   }
 
   .news-entry {

@@ -1,21 +1,27 @@
-<% if @emergency_numbers.any? %>
-  <div class="padded-row">
-    <div class="start-links">
+<% if @emergency_numbers.any? || @maps.any? %>
+  <div class="full-row">
+    <% if @emergency_numbers.any? %>
       <%= link_to emergency_numbers_path, class: :emergency do %>
         <span class="text"><%= t '.emergency' %></span>
         <%= icon_emergency %>
       <% end %>
-      <%= link_to maps_path, class: :map do %>
+    <% end %>
+    <% if @maps.any? %>
+      <%= link_to maps_path, class: :maps do %>
         <span class="text"><%= t '.maps' %></span>
         <%= icon_map %>
       <% end %>
-    </div>
+    <% end %>
   </div>
 <% end %>
 
 <div class="padded-row">
   <h1><%= News.model_name.human count: 2 %></h1>
-  <%= render @news %>
+  <% if @news.any? %>
+    <%= render @news %>
+  <% else %>
+    <%= render [News.new(message: t('.no_news'))] %>
+  <% end %>
 </div>
 
 <div class="padded-row">

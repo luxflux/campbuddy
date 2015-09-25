@@ -5,6 +5,7 @@ class NewsController < ApplicationController
   def index
     @news = @news.visible
     @emergency_numbers = EmergencyNumber.all
+    @maps = Map.all
   end
 
   def emergency

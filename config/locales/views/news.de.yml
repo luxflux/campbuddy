@@ -3,5 +3,6 @@ de:
   news:
     index:
       emergency: Notfall
-      map: Map
       instagram_feed: Insta feed
+      maps: Karten
+      no_news: Keine Neuigkeiten im Moment
