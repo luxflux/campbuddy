@@ -56,11 +56,12 @@ class Event < ActiveRecord::Base
 
   def users
     return User.all if mandatory?
-    ids = [owner_id]
-    ids.concat self_attended_user_ids
-    ids.concat group_attendee_ids
-    ids.concat group_leader_attendee_ids
-    User.where(id: ids)
+    User.where do
+      id.in(my { self_attended_users }) |
+        id.in(my { group_attendees }) |
+        id.in(my { group_leader_attendees }) |
+        id.in(my { owner })
+    end
   end
 
   def attendance_places_left

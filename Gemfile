@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'squeel'
 gem 'nprogress-rails'
 gem 'rails', '~> 4.2.0'
 gem 'sass-rails', '~> 4.0.3'

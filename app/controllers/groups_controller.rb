@@ -3,6 +3,6 @@ class GroupsController < ApplicationController
 
   # GET /groups
   def index
-    @groups = current_user.leaded_groups | current_user.groups
+    @groups = current_user.all_groups.includes(:users, :events, :leader)
   end
 end

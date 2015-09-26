@@ -32,13 +32,20 @@ class User < ActiveRecord::Base
   attr_accessor :send_mail
 
   def events
-    ids = []
-    ids.concat self_attended_event_ids
-    ids.concat Event.without_group_events.mandatory.ids
-    ids.concat group_event_ids
-    ids.concat leaded_group_events.ids
-    ids.concat owned_event_ids
-    Event.where(id: ids)
+    Event.where do
+      id.in(my { self_attended_events }) |
+        id.in(my { group_events }) |
+        id.in(Event.without_group_events.mandatory) |
+        id.in(my { leaded_group_events }) |
+        id.in(my { owned_events })
+    end
+  end
+
+  def all_groups
+    Group.where do
+      id.in(my { leaded_groups }) |
+        id.in(my { groups })
+    end
   end
 
   def user?
