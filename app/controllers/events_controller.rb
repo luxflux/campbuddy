@@ -15,8 +15,8 @@ class EventsController < ApplicationController
       @selected_date = @camp.ends
     end
 
-    @events = Event.on_date(@selected_date).without_group_events.order(:starts)
-    @categories = Category.where(id: @events.pluck(:category_id))
+    @events = Event.on_date(@selected_date).without_group_events.order(:starts).includes(:category)
+    @categories = @events.map(&:category).uniq
   end
 
   # GET /events/catalog
