@@ -3,7 +3,7 @@ class OfflineController < ApplicationController
   layout false
 
   def show
-    @events = current_user.events.in_future
+    @events = current_user.events.in_future.includes(:category)
     @emergency_numbers = EmergencyNumber.all
   end
 end
