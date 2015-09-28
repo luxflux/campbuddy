@@ -7,7 +7,7 @@ class OnboardingController < ApplicationController
   end
 
   def finish
-    @user = User.where(invitation_token: params[:user][:token]).first
+    @user = User.where(invitation_token: params[:user][:token]).first!
     @user.update_password params[:user][:password]
     if @user.valid?
       @user.invitation_token = nil

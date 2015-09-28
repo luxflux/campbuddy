@@ -83,5 +83,13 @@ describe OnboardingController do
         expect { post :finish, params }.to_not change { user.reload.invitation_token }
       end
     end
+
+    context 'nonexisting token' do
+      it 'redirects to the root url' do
+        params[:user][:token] = 'invalid'
+        post :finish, params
+        expect(response).to redirect_to(root_url)
+      end
+    end
   end
 end
