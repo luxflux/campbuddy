@@ -1,6 +1,6 @@
 <div class="news-entry">
   <%= icon_exclamation %>
   <span class="text">
-    <%= news.message %>
+    <%= raw GitHub::Markup.render 'news.md', news.message %>
   </span>
 </div>
