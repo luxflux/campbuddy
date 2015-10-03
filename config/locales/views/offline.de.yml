@@ -3,6 +3,7 @@ de:
   offline:
     show:
       emergency_numbers: Notfallnummern
+      maps: Karten
       my_events: Meine Events
       subtitle: Du hast im Moment kein Internet
       title: Offline

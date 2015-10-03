@@ -46,6 +46,25 @@
         </div>
       <% end %>
     </section>
+
+    <% if @maps.any? %>
+      <section class="content">
+        <div class="padded-row">
+          <h2><%= t('.maps') %></h2>
+          <ul>
+            <% @maps.each do |map| %>
+              <li>
+                <h3><%= map.name %></h3>
+                <p><%= map.description %></p>
+                <%= link_to map.map.url, class: 'magnifik' do %>
+                  <%= image_tag map.map.url %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </section>
+    <% end %>
   </div>
 </body>
 </html>

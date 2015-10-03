@@ -5,5 +5,6 @@ class OfflineController < ApplicationController
   def show
     @events = current_user.events.in_future.includes(:category)
     @emergency_numbers = EmergencyNumber.all
+    @maps = Map.all
   end
 end

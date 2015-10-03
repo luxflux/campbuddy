@@ -22,6 +22,7 @@ RSpec.describe OfflineController, type: :controller do
     describe 'GET show' do
       let(:event) { FactoryGirl.create :event }
       let!(:emergency_numbers) { FactoryGirl.create_list :emergency_number, 2 }
+      let!(:maps) { FactoryGirl.create_list :map, 2 }
 
       before do
         user.events << event
@@ -30,6 +31,7 @@ RSpec.describe OfflineController, type: :controller do
 
       specify { expect(assigns(:emergency_numbers)).to eq(emergency_numbers) }
       specify { expect(assigns(:events).map(&:id)).to eq(user.events.in_future.map(&:id)) }
+      specify { expect(assigns(:maps)).to eq(maps) }
     end
   end
 end
