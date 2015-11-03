@@ -93,4 +93,13 @@ namespace :campplaner do
       event.save!
     end
   end
+
+  task create_applications: :environment do
+    paw = Doorkeeper::Application.where(name: 'Paw').first_or_create!(redirect_uri: 'urn:ietf:wg:oauth:2.0:oob', scopes: %w(read write))
+    puts 'Paw'
+    puts '---'
+    puts "Client ID: #{paw.uid}"
+    puts "Client Secret: #{paw.secret}"
+    puts "Redirect URL: #{paw.redirect_uri}"
+  end
 end

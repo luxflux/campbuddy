@@ -28,6 +28,7 @@ gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'doorkeeper'
 gem 'wine_bouncer'
+gem 'api-pagination'
 
 gem 'bourbon'
 gem 'neat'

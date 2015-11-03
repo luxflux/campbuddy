@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/sign_up' => 'users#new', as: 'sign_up'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount CampBuddy::API => '/'
+  mount CampBuddy::API => '/api'
 
   resources :news, only: [:index]
 
