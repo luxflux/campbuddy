@@ -23,6 +23,9 @@ gem 'rails_admin'
 gem 'apartment'
 gem 'phony_rails'
 
+gem 'grape'
+gem 'grape-entity'
+
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
