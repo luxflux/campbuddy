@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
   resource :session, controller: 'sessions', only: [:create] do
     collection do

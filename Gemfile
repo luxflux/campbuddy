@@ -25,6 +25,9 @@ gem 'phony_rails'
 
 gem 'grape'
 gem 'grape-entity'
+gem 'hashie-forbidden_attributes'
+gem 'doorkeeper'
+gem 'wine_bouncer'
 
 gem 'bourbon'
 gem 'neat'

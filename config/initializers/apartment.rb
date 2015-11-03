@@ -1,7 +1,7 @@
 require 'apartment/elevators/generic'
 
 Apartment.configure do |config|
-  config.excluded_models = %w{Organization Camp}
+  config.excluded_models = %w{Organization Camp Doorkeeper::Application}
   config.tenant_names = lambda { Camp.pluck :schema_name }
 end
 
