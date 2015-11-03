@@ -13,7 +13,10 @@ orga.camps.
                    welcome_text: 'Hoi!!!!',
                    starts: Time.now + 1.month,
                    ends: Time.now + 1.month + 1.week,
-                   registration_opens: Time.now + 1.month - 1.week)
+                   registration_opens: Time.now + 1.month - 1.week,
+                   reply_to: 'no-reply@example.org',
+                   welcome_mail: '# Fancy text',
+                  )
 
 Apartment::Tenant.switch!('devel_example_org')
 
