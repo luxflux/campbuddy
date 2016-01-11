@@ -39,10 +39,14 @@ namespace :campplaner do
       begin
         birthday = Date.parse(birthday)
       rescue ArgumentError
-        birthday = Date.strptime birthday, '%d.%m.%y' rescue nil
+        begin
+          birthday = Date.strptime birthday, '%d.%m.%y'
+        rescue ArgumentError
+          birthday = Date.strptime birthday, '%m/%d/%y'
+        end
       end
 
-      cellphone = row.field('cellphone').split('/').first
+      cellphone = row.field('cellphone').try { gsub(/[^\d]/, '') }
 
       attributes = row.to_hash.slice(*%w(name firstname email))
       attributes[:password] = Kernel.rand
