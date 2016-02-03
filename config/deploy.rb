@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'campplaner'
-set :repo_url, 'git@github.com:ICFMovement/camp-workshops.git'
+set :repo_url, 'git@github.com:devkitchen/campbuddy.git'
 set :deploy_to, '/srv/www/campplaner.yux.ch'
 
 set :linked_files, -> { %W{config/database.yml config/secrets.yml} }
