@@ -25,3 +25,20 @@ eval $(ssh-agent)
 ssh-add
 cap production deploy
 ```
+
+## Send Welcome Mail
+
+### Writing
+
+Available Variables:
+
+* `{{firstname}}` replaced by the firstname of the user
+* `{{invitation_url}}` replaced by the invite url to get the user started
+
+### Sending
+
+```ruby
+Apartment::Tenant.switch 'tenant'
+ActionMailer::Base.default_url_options = { host: 'tenant.host' }
+User.find_each(&:send_welcome_mail)
+```
