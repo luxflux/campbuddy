@@ -13,16 +13,6 @@ set :keep_releases, 5
 set :rbenv_type, :system
 set :rbenv_ruby, '2.2.2'
 
-task :notify_rollbar do
-  on roles(:app) do |h|
-    revision = `git log -n 1 --pretty=format:"%H"`
-    local_user = `whoami`
-    rollbar_token = 'e61ee5cf47784faa84a7deb14bb6385c'
-    rails_env = fetch(:rails_env, 'production')
-    execute "curl -s -o /dev/null https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{rails_env} -F revision=#{revision} -F local_username=#{local_user}", :once => true
-  end
-end
-
 namespace :deploy do
   task :restart do
     on roles(:web), in: :sequence, wait: 5 do
@@ -32,4 +22,3 @@ namespace :deploy do
 end
 
 after 'deploy:publishing', 'deploy:restart'
-after 'deploy:restart', 'notify_rollbar'
