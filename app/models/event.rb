@@ -29,10 +29,10 @@ class Event < ActiveRecord::Base
 
   validates :youtube_url, format: YOUTUBE_REGEX, allow_blank: true
 
-  validates_datetime :starts, before: ->(event) { Setting.camp_ends }
-  validates_datetime :starts, after: ->(event) { Setting.camp_starts }
-  validates_datetime :ends, before: ->(event) { Setting.camp_ends }
-  validates_datetime :ends, after: ->(event) { Setting.camp_starts }
+  validates_date :starts, on_or_before: ->(event) { Setting.camp_ends }
+  validates_date :starts, on_or_after: ->(event) { Setting.camp_starts }
+  validates_date :ends, on_or_before: ->(event) { Setting.camp_ends }
+  validates_date :ends, on_or_after: ->(event) { Setting.camp_starts }
 
   validates_datetime :starts, before: ->(event) { event.ends }
   validates_datetime :ends, after: ->(event) { event.starts }
