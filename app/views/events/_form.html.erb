@@ -4,9 +4,9 @@
   <%= f.input :description %>
 
   <%= f.input :starts_date, input_html: { class: :datepicker, value: l(f.object.starts_date.to_date) } %>
-  <%= f.input :starts_time, input_html: { class: :timepicker, value: l(f.object.starts_time.to_time, format: :time_only) } %>
+  <%= f.input :starts_time, input_html: { class: :timepicker, value: l(f.object.starts_time, format: :time_only) } %>
   <%= f.input :ends_date,   input_html: { class: :datepicker, value: l(f.object.ends_date.to_date) } %>
-  <%= f.input :ends_time,   input_html: { class: :timepicker, value: l(f.object.ends_time.to_time, format: :time_only) } %>
+  <%= f.input :ends_time,   input_html: { class: :timepicker, value: l(f.object.ends_time, format: :time_only) } %>
 
   <%= f.input :meeting_point %>
 
