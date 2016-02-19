@@ -227,7 +227,6 @@ GEM
     notiffany (0.0.6)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    nprogress-rails (0.1.6.7)
     pg (0.18.1)
     phony (2.14.2)
     phony_rails (0.12.6)
@@ -430,7 +429,6 @@ DEPENDENCIES
   letter_opener
   mini_magick
   neat
-  nprogress-rails
   pg
   phony_rails
   pickadate-rails
