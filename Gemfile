@@ -36,6 +36,8 @@ gem 'skylight'
 gem 'github-markup', require: 'github/markup'
 gem 'redcarpet'
 
+gem 'rails_12factor'
+
 group :production do
   gem 'therubyracer'
 end
