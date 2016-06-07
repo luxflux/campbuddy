@@ -1,5 +1,9 @@
 #!/bin/sh
-if [ "$RAILS_ENV" == "production" ]; then
+
+set -e
+set -x
+
+if [ "$RAILS_ENV" -eq "production" ]; then
   bundle exec puma --preload -p $PORT
 else
   bundle exec puma --preload -b unix://$SOCKET_DIR/campplaner
