@@ -9,6 +9,6 @@ module Clearance::Authorization
 end
 
 Clearance.configure do |config|
-  config.mailer_sender = 'buddy@oneyouth.ch'
+  config.mailer_sender = 'buddy@campbuddy.ch'
   config.routes = false
 end

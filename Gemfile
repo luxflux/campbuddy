@@ -40,6 +40,8 @@ gem 'redcarpet'
 
 gem 'rails_12factor'
 
+gem 'postmark-rails'
+
 group :production do
   gem 'therubyracer'
 end

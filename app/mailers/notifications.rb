@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  default from: 'buddy@oneyouth.ch'
+  default from: 'buddy@campbuddy.ch'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -13,6 +13,7 @@ class Notifications < ActionMailer::Base
 
     mail to: user.email,
          reply_to: @camp.reply_to,
-         subject: "#{@camp.name} | #{I18n.t('notifications.welcome.subject')}"
+         subject: "#{@camp.name} | #{I18n.t('notifications.welcome.subject')}",
+         track_opens: true
   end
 end

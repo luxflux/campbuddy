@@ -77,12 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Use sendmail for mailings
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.mandrillapp.com',
-    port: 25,
-    user_name: Rails.application.secrets.mandrill_user_name,
-    password: Rails.application.secrets.mandrill_password,
-  }
+  # Postmark
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
 end
