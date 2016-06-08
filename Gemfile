@@ -68,10 +68,4 @@ group :development, :test do
   gem 'rails-erd'
   gem 'foreman'
   gem 'i18n-tasks'
-
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rails-tail-log'
 end
