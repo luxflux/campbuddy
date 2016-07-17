@@ -165,8 +165,10 @@
           fill: $red;
         }
       }
+    }
 
-      &.yes, &.no {
+    &.enabled {
+      div.yes, div.no {
         cursor: pointer;
       }
     }

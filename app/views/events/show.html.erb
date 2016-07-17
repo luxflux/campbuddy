@@ -51,8 +51,13 @@
         </li>
 
       <% elsif @event.attended_by_user?(current_user) %>
-        <li class="participation">
-          <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
+        <% if @event.locked? %>
+          <li class="participation disabled">
+            <div class="yes">
+          <% else %>
+            <li class="participation enabled">
+              <div class="yes" data-attendance-id="<%= @event.attendances.where(user_id: current_user.id).first.id %>" data-event-id="<%= @event.id %>">
+          <% end %>
 
             <%= icon_tick_circle %>
             <%= icon_tick css_class: 'green partipicate' %>
@@ -68,8 +73,13 @@
         </li>
 
       <% else %>
-        <li class="participation">
-          <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
+        <% if @event.locked? %>
+          <li class="participation disabled">
+            <div class="no">
+        <% else %>
+          <li class="participation enabled">
+            <div class="no" data-user-id="<%= current_user.id %>" data-event-id="<%= @event.id %>">
+        <% end %>
 
             <%= icon_tick_circle %>
             <%= icon_tick css_class: 'partipicate' %>

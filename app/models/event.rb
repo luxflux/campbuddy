@@ -29,6 +29,7 @@ class Event < ActiveRecord::Base
 
   validates :youtube_url, format: YOUTUBE_REGEX, allow_blank: true
 
+  validates_datetime :lock_at, on_or_before: :starts
   validates_date :starts, on_or_before: ->(event) { Setting.camp_ends }
   validates_date :starts, on_or_after: ->(event) { Setting.camp_starts }
   validates_date :ends, on_or_before: ->(event) { Setting.camp_ends }
@@ -53,6 +54,9 @@ class Event < ActiveRecord::Base
 
   date_time_attribute :starts
   date_time_attribute :ends
+  date_time_attribute :lock_at
+
+  after_validation :copy_lock_at_errors
 
   def users
     return User.all if mandatory?
@@ -92,5 +96,15 @@ class Event < ActiveRecord::Base
   def event_label
     #for admin
     "#{title} #{starts} #{teaser}"
+  end
+
+  def copy_lock_at_errors
+    errors[:lock_at].each do |error|
+      errors.add(:lock_at_time, error)
+    end
+  end
+
+  def locked?
+    lock_at <= Time.zone.now
   end
 end
