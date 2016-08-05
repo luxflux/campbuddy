@@ -165,8 +165,10 @@
           fill: $red;
         }
       }
+    }
 
-      &.yes, &.no {
+    &.enabled {
+      div.yes, div.no {
         cursor: pointer;
       }
     }
@@ -221,6 +223,19 @@
       margin-top: 1.3em;
       display: inline-block;
     }
+  }
+
+  .lock-status-open,
+  .lock-status-locked {
+    border-bottom: 1px solid $light-gray;
+  }
+
+  .lock-status-open {
+    background-color: lighten($green, 30%);
+  }
+
+  .lock-status-locked {
+    background-color: lighten($red, 20%);
   }
 }
 

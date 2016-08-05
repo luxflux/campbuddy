@@ -116,6 +116,7 @@ RailsAdmin.config do |config|
       field :meeting_point
       field :starts
       field :ends
+      field :lock_at
       field :max_attendees
       field :category
       field :groups_only

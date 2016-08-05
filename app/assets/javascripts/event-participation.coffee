@@ -1,5 +1,5 @@
 jQuery ->
-  $('.participation').on 'click', () ->
+  $('.participation.enabled').on 'click', () ->
     element = $(@)
 
     element.children('.yes').each ->

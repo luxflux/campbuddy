@@ -3,10 +3,20 @@
   <%= f.input :teaser %>
   <%= f.input :description %>
 
-  <%= f.input :starts_date, input_html: { class: :datepicker, value: l(f.object.starts_date.to_date) } %>
-  <%= f.input :starts_time, input_html: { class: :timepicker, value: l(f.object.starts_time, format: :time_only) } %>
-  <%= f.input :ends_date,   input_html: { class: :datepicker, value: l(f.object.ends_date.to_date) } %>
-  <%= f.input :ends_time,   input_html: { class: :timepicker, value: l(f.object.ends_time, format: :time_only) } %>
+  <div class="one-line">
+    <%= f.input :starts_date, input_html: { class: :datepicker, value: l(f.object.starts_date.to_date) } %>
+    <%= f.input :starts_time, input_html: { class: :timepicker, value: l(f.object.starts_time, format: :time_only) } %>
+  </div>
+  <div class="one-line">
+    <%= f.input :ends_date,   input_html: { class: :datepicker, value: l(f.object.ends_date.to_date) } %>
+    <%= f.input :ends_time,   input_html: { class: :timepicker, value: l(f.object.ends_time, format: :time_only) } %>
+  </div>
+  <div class="one-line">
+    <% value = (f.object.lock_at_date || f.object.starts_date).to_date %>
+    <%= f.input :lock_at_date, input_html: { class: :datepicker, value: l(value) } %>
+    <% value = (f.object.lock_at_time || f.object.starts_time) %>
+    <%= f.input :lock_at_time, input_html: { class: :timepicker, value: l(value, format: :time_only) } %>
+  </div>
 
   <%= f.input :meeting_point %>
 

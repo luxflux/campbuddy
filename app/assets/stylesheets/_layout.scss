@@ -113,3 +113,11 @@ img.avatar {
     }
   }
 }
+
+.one-line {
+  @include display(flex);
+
+  > * {
+    @include flex(1);
+  }
+}

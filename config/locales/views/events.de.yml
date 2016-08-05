@@ -13,7 +13,9 @@ de:
       attendance: Du bist nicht dabei
       full: Leider hats keinen Platz mehr
       groups_only: Gruppenevent
+      has_been_locked: An-/Abmeldung nicht mehr möglich.
       info_only: Anmeldung nicht nötig
       mandatory: Für alle obligatorisch
+      will_be_locked_at: An-/Abmeldung bis %{timestamp} möglich.
       you_are_owner: Du bist der Leiter
       you_take_part: Du bist dabei
