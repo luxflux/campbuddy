@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true, unless: :guest?
   validates :name, presence: true, unless: :guest?
-  validates :birthday, presence: true, unless: :guest?
-  validates :cellphone, presence: true, phony_plausible: true, unless: :guest?
+  validates :cellphone, phony_plausible: true, unless: :guest?
 
   mount_uploader :avatar, AvatarUploader
 
@@ -78,5 +77,9 @@ class User < ActiveRecord::Base
       token = SecureRandom.hex
       break token unless where(invitation_token: token).any?
     end
+  end
+
+  def before_import_save(_csv_row)
+    self.password ||= SecureRandom.hex
   end
 end
