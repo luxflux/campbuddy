@@ -6,8 +6,9 @@ namespace :campplaner do
     tenant = ENV['IMPORT_TENANT']
 
     raise 'You need to specify USER_FILE_PATH env variable' unless users_file
-    raise 'You need to specify IMPORT_PICTURES_HOSTNAME env variable' unless hostname
     raise 'You need to specify IMPORT_TENANT env variable' unless tenant
+
+    puts "No IMPORT_PICTURES_HOSTNAME given, won't fetch any pictures" unless hostname
 
     Apartment::Tenant.switch! tenant
 
@@ -17,13 +18,15 @@ namespace :campplaner do
       picture_path = row.field('profilbild')
       birthday = row.field('birthday')
 
-      begin
-        birthday = Date.parse(birthday)
-      rescue ArgumentError
+      if birthday
         begin
-          birthday = Date.strptime birthday, '%d.%m.%y'
+          birthday = Date.parse(birthday)
         rescue ArgumentError
-          birthday = Date.strptime birthday, '%m/%d/%y'
+          begin
+            birthday = Date.strptime birthday, '%d.%m.%y'
+          rescue ArgumentError
+            birthday = Date.strptime birthday, '%m/%d/%y'
+          end
         end
       end
 
@@ -36,6 +39,7 @@ namespace :campplaner do
 
       begin
         user = User.where(email: email.downcase).first_or_create!(attributes)
+        next unless hostname
         next unless user.avatar.uses_fallback?
 
         picture_extension = picture_path.split('.').last.downcase

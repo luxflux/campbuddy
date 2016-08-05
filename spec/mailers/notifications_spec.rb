@@ -13,7 +13,7 @@ RSpec.describe Notifications, type: :mailer do
     it 'renders the headers' do
       expect(mail.subject).to eq("#{Camp.current.name} | Einladung zum Camp Buddy")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(['buddy@oneyouth.ch'])
+      expect(mail.from).to eq(['buddy@campbuddy.ch'])
     end
 
     it 'renders the body' do
