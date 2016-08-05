@@ -23,6 +23,17 @@
   <% end %>
 </div>
 
+<% if @event.lock_at %>
+  <% css_class = @event.locked? ? :locked : :open %>
+  <div class="event padded-row lock-status-<%= css_class %>">
+    <% if @event.locked? %>
+      <%= t('.has_been_locked') %>
+    <% else %>
+      <%= t('.will_be_locked_at', timestamp: l(@event.lock_at)) %>
+    <% end %>
+  </div>
+<% end %>
+
 <div class="event padded-row">
   <ul>
     <% if can? :create, Attendance %>

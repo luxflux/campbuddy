@@ -57,6 +57,8 @@ class Event < ActiveRecord::Base
   date_time_attribute :lock_at
 
   after_validation :copy_lock_at_errors
+  after_validation :copy_starts_errors
+  after_validation :copy_ends_errors
 
   def users
     return User.all if mandatory?
@@ -104,7 +106,19 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def copy_starts_errors
+    errors[:starts].each do |error|
+      errors.add(:starts_date, error)
+    end
+  end
+
+  def copy_ends_errors
+    errors[:ends].each do |error|
+      errors.add(:ends_date, error)
+    end
+  end
+
   def locked?
-    lock_at <= Time.zone.now
+    lock_at && lock_at <= Time.zone.now
   end
 end
