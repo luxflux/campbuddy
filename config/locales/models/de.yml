@@ -19,6 +19,7 @@ de:
         impression: Bild
         max_attendees: Max. Teilnehmer
         groups_only: Nur für Gruppen
+        lock_at: Sperren am
         lock_at_date: Sperren am
         lock_at_time: Sperren um
       user:
