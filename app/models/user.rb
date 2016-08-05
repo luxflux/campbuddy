@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true, unless: :guest?
   validates :name, presence: true, unless: :guest?
-  validates :birthday, presence: true, unless: :guest?
-  validates :cellphone, presence: true, phony_plausible: true, unless: :guest?
+  validates :cellphone, phony_plausible: true, unless: :guest?
 
   mount_uploader :avatar, AvatarUploader
 
