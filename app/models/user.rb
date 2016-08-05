@@ -78,4 +78,8 @@ class User < ActiveRecord::Base
       break token unless where(invitation_token: token).any?
     end
   end
+
+  def before_import_save(_csv_row)
+    self.password ||= SecureRandom.hex
+  end
 end

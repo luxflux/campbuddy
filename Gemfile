@@ -23,6 +23,7 @@ gem 'rails_admin'
 gem 'apartment'
 gem 'phony_rails'
 gem 'dotenv-rails'
+gem 'rails_admin_import'
 
 gem 'bourbon'
 gem 'neat'
@@ -38,9 +39,11 @@ gem 'skylight'
 gem 'github-markup', require: 'github/markup'
 gem 'redcarpet'
 
-gem 'rails_12factor'
-
 gem 'postmark-rails'
+
+group :development, :production do
+  gem 'rails_12factor'
+end
 
 group :production do
   gem 'therubyracer'

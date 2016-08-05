@@ -10,6 +10,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    import
   end
 
   config.model 'Camp' do
@@ -99,6 +100,10 @@ RailsAdmin.config do |config|
 
     object_label_method do
       :fullname
+    end
+
+    import do
+      mapping_key :email
     end
   end
 
