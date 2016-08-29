@@ -23,14 +23,3 @@
     <%= render [News.new(message: t('.no_news'))] %>
   <% end %>
 </div>
-
-<div class="padded-row">
-  <h1>
-    <%= t('.instagram_feed') %>
-    <small>#<%= @camp.hashtag %></small>
-  </h1>
-</div>
-<div class="full-row instagram-feed"
-     data-instagram-tag="<%= @camp.hashtag %>"
-     data-instagram-client-id="8015881f631a4433b998443d7a6f368d">
-</div>
