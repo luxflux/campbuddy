@@ -38,7 +38,7 @@ Available Variables:
 ### Sending
 
 ```ruby
-Apartment::Tenant.switch 'tenant'
+Apartment::Tenant.switch! 'tenant'
 ActionMailer::Base.default_url_options = { host: 'tenant.host' }
-User.find_each(&:send_welcome_mail)
+User.real_users.find_each(&:send_welcome_mail)
 ```
