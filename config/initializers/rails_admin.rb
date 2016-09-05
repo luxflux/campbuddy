@@ -122,6 +122,7 @@ RailsAdmin.config do |config|
       field :groups_only
       field :impression
       field :youtube_url
+      field :self_attended_users
     end
 
     configure :owner do
