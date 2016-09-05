@@ -1,3 +1,8 @@
+require Rails.root.join('lib', 'rails_admin', 'download_attendees')
+RailsAdmin::Config::Actions.register(
+  RailsAdmin::Config::Actions::DownloadAttendees
+)
+
 RailsAdmin.config do |config|
   config.authorize_with :cancan, RailsAdminAbility
   config.current_user_method(&:current_user)
@@ -11,6 +16,9 @@ RailsAdmin.config do |config|
     delete
     show_in_app
     import
+    download_attendees do
+      only %w(Event)
+    end
   end
 
   config.model 'Camp' do

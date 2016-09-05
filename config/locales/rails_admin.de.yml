@@ -1,0 +1,7 @@
+de:
+  admin:
+    actions:
+      download_attendees:
+        menu: 'Teilnehmerliste'
+        title: 'Teilnehmerliste'
+        breadcrumb: 'Teilnehmerliste'
