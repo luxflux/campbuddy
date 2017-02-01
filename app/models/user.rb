@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  after_save :send_welcome_mail, if: :send_mail
+  after_save :send_welcome_mail, if: -> { ActiveRecord::Type::Boolean.new.type_cast_from_user(send_mail) }
 
   scope :real_users, -> { where(guest: false) }
   scope :guests, -> { where(guest: true) }
