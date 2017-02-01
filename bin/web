@@ -6,5 +6,5 @@ set -x
 if [ "$RAILS_ENV" = "production" ]; then
   bundle exec puma --preload -p $PORT
 else
-  bundle exec puma --preload -b unix://$SOCKET_DIR/campplaner
+  bundle exec puma --preload -b unix://$SOCKET_DIR/dk-campbuddy.sock
 fi
