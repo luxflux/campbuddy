@@ -8,8 +8,8 @@ FactoryGirl.define do
     teaser 'Garending, yeah!'
     description 'Gardening in the backyard'
     meeting_point 'Backyard'
-    starts { |event| Setting.camp_starts + 1.day }
-    ends { |event| Setting.camp_ends - 1.day }
+    starts { |event| (Setting.camp_starts + 1.day).to_time.change(hour: 12) }
+    ends { |event| (Setting.camp_ends - 1.day).to_time.change(hour: 12) }
     groups_only false
   end
 end
