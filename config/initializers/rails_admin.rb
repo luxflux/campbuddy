@@ -221,9 +221,6 @@ RailsAdmin.config do |config|
 
     configure :identifier, :enum do
       searchable false
-      enum do
-        Category.identifiers.map { |k,_| [k.titleize, k] }
-      end
 
       pretty_value do
         bindings[:object].send(:identifier).titleize
@@ -254,9 +251,6 @@ RailsAdmin.config do |config|
 
     configure :color, :enum do
       searchable false
-      enum do
-        EmergencyNumber.colors.map { |k,_| [k.titleize, k] }
-      end
 
       pretty_value do
         bindings[:object].send(:color).titleize
