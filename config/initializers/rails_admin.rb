@@ -261,4 +261,7 @@ RailsAdmin.config do |config|
       end
     end
   end
+
+  config.model 'PicOfTheDay' do
+  end
 end

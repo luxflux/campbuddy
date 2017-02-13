@@ -23,3 +23,12 @@
     <%= render [News.new(message: t('.no_news'))] %>
   <% end %>
 </div>
+
+<div class="padded-row">
+  <% if @pics_of_the_day.any? %>
+    <h1><%= PicOfTheDay.model_name.human count: 2 %></h1>
+    <% @pics_of_the_day.each do |pic| %>
+      <%= image_tag pic.image.front, class: 'pic-of-the-day' %>
+    <% end %>
+  <% end %>
+</div>

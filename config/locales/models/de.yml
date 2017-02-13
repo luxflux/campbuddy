@@ -86,3 +86,6 @@ de:
       map:
         one: Karte
         other: Karten
+      pic_of_the_day:
+        one: Pic Of the Day
+        other: Pics Of the Day
