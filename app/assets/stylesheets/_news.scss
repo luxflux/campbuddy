@@ -54,4 +54,8 @@
       margin-bottom: 0;
     }
   }
+
+  .pic-of-the-day {
+    @include span-columns(4);
+  }
 }
