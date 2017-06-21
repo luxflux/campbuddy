@@ -26,6 +26,26 @@ ssh-add
 cap production deploy
 ```
 
+## Setup a new Tenant
+
+```ruby
+attributes = {
+  name: '20er Summercamp 2017',
+  subdomain: '20er-summer2017',
+  starts: '2017-09-02',
+  ends: '2017-09-09',
+  hashtag: 'zwzgrsummercamp',
+  allow_sign_up: false,
+  welcome_mail: Camp.find(5).welcome_mail,
+  welcome_text: 'Welcome',
+  reply_to: 'buddy@campbuddy.ch',
+  registration_opens: '2017-09-02',
+}
+camp = Organization.find(2).camps.create! attributes
+Apartment::Tenant.switch camp.schema_name
+User.create! email: 'raffael@yux.ch', firstname: 'Raffael', name: 'Schmid', password: 'passwordhere', admin: true
+```
+
 ## Send Welcome Mail
 
 ### Writing
