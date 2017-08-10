@@ -16,7 +16,8 @@
 <% end %>
 
 <div class="padded-row">
-  <h1><%= News.model_name.human count: 2 %></h1>
+  <h1><%= @camp.name %></h1>
+  <h2><%= News.model_name.human count: 2 %></h2>
   <% if @news.any? %>
     <%= render @news %>
   <% else %>

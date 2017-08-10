@@ -1,4 +1,8 @@
 .news-index {
+  h1 {
+    margin-bottom: 0.5em;
+  }
+
   .emergency,
   .maps {
     @include span-columns(6);
