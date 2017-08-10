@@ -29,7 +29,13 @@
   <% if @pics_of_the_day.any? %>
     <h1><%= PicOfTheDay.model_name.human count: 2 %></h1>
     <% @pics_of_the_day.each do |pic| %>
-      <%= image_tag pic.image.front, class: 'pic-of-the-day' %>
+      <a href="#img<%= pic.id %>">
+        <%= image_tag pic.image.front, class: 'thumbnail' %>
+      </a>
+
+      <a href="#_" class="lightbox" id="img<%= pic.id %>">
+        <%= image_tag pic.image.url %>
+      </a>
     <% end %>
   <% end %>
 </div>

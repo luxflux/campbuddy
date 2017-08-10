@@ -59,7 +59,32 @@
     }
   }
 
-  .pic-of-the-day {
+  .lightbox {
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .lightbox img {
+    margin-top: 2%;
+    max-height: 80%;
+    max-width: 90%;
+  }
+
+  .lightbox:target {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    outline: none;
+  }
+
+  .thumbnail {
     @include span-columns(4);
   }
 }
