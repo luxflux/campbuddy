@@ -3,6 +3,7 @@
     <h1>
       <%= image_tag group.leader.avatar.thumb.url, class: :avatar %>
       <%= group.name %>
+      <small><%= Group.human_attribute_name(:leader) %>: <%= group.leader.fullname %></small>
     </h1>
 
     <ul class="avatar-list">
