@@ -13,6 +13,7 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     show
+    clone
     edit
     delete
     show_in_app

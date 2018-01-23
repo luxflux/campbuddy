@@ -5,3 +5,10 @@ de:
         menu: 'Teilnehmerliste'
         title: 'Teilnehmerliste'
         breadcrumb: 'Teilnehmerliste'
+      clone:
+        title: "%{model_label} '%{object_label}' kopieren"
+        menu: "Kopieren"
+        breadcrumb: "Kopieren"
+        link: "Kopieren"
+        bulk_link: "Ausgewählte kopieren %{model_label_plural}"
+        done: "Kopiert"
