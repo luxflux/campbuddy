@@ -28,6 +28,7 @@ cap production deploy
 
 ## Setup a new Tenant
 
+* Create tenant
 ```ruby
 attributes = {
   name: '20er Summercamp 2017',
@@ -44,6 +45,10 @@ attributes = {
 camp = Organization.find(2).camps.create! attributes
 Apartment::Tenant.switch camp.schema_name
 User.create! email: 'raffael@yux.ch', firstname: 'Raffael', name: 'Schmid', password: 'passwordhere', admin: true
+```
+* Add domain
+```bash
+heroku domains:add ${DOMAIN}
 ```
 
 ## Send Welcome Mail
