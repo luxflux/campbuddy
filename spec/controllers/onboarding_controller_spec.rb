@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe OnboardingController do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   before do
     user.send_welcome_mail
   end
@@ -43,7 +43,7 @@ describe OnboardingController do
       it 'signs the user in' do
         expect {
           post :finish, params
-        }.to change { controller.current_user }.from(nil).to(user)
+        }.to change { controller.send(:current_user) }.from(nil).to(user)
       end
 
       it 'redirects to the events' do
@@ -71,7 +71,7 @@ describe OnboardingController do
       end
 
       it 'does not sign the user in' do
-        expect { post :finish, params }.to_not change { controller.current_user }.from(nil)
+        expect { post :finish, params }.to_not change { controller.send(:current_user) }.from(nil)
       end
 
       it 'renders the template again' do

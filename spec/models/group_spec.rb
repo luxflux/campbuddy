@@ -6,7 +6,7 @@ describe Group do
   it { is_expected.to validate_presence_of :order }
 
   describe '#name_with_leader' do
-    let(:user) { FactoryGirl.build :user }
+    let(:user) { FactoryBot.build :user }
     let(:group) { Group.new(name: 'Testgroup') }
 
     context 'leader not specified' do

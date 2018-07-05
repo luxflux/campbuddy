@@ -6,7 +6,7 @@ feature 'Guest View' do
     click_link 'Als Gast einloggen'
   end
 
-  let(:event) { FactoryGirl.create :event }
+  let(:event) { FactoryBot.create :event }
 
   scenario 'allows listing events catalog' do
     Timecop.travel event.starts - 1.day

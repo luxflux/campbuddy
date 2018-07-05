@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature 'Event View' do
-  let(:user) { FactoryGirl.create :user, password: 'secure', admin: false }
-  let(:event) { FactoryGirl.create :event }
+  let(:user) { FactoryBot.create :user, password: 'secure', admin: false }
+  let(:event) { FactoryBot.create :event }
 
   background do
     Timecop.travel Setting.registration_opens
@@ -64,8 +64,8 @@ feature 'Event View' do
     end
 
     context 'event is mandatory' do
-      let(:category) { FactoryGirl.create :category, mandatory_events: true }
-      let(:event) { FactoryGirl.create :event, category: category }
+      let(:category) { FactoryBot.create :category, mandatory_events: true }
+      let(:event) { FactoryBot.create :event, category: category }
 
       scenario 'shows the mandatoriness' do
         expect(page).to_not have_css '.partipicate'
@@ -75,8 +75,8 @@ feature 'Event View' do
     end
 
     context 'event is info only' do
-      let(:category) { FactoryGirl.create :category, info_events: true }
-      let(:event) { FactoryGirl.create :event, category: category }
+      let(:category) { FactoryBot.create :category, info_events: true }
+      let(:event) { FactoryBot.create :event, category: category }
 
       scenario 'shows that its info only' do
         expect(page).to_not have_css '.partipicate'
@@ -87,7 +87,7 @@ feature 'Event View' do
     end
 
     context 'group event' do
-      let(:event) { FactoryGirl.create :event, groups_only: true }
+      let(:event) { FactoryBot.create :event, groups_only: true }
 
       scenario 'shows the group only stuff' do
         expect(page).to_not have_css '.partipicate'

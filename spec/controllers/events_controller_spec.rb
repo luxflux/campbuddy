@@ -14,27 +14,27 @@ describe EventsController do
       sign_in
     end
 
-    let(:owner) { FactoryGirl.create(:user) }
-    let(:category) { FactoryGirl.create(:category) }
+    let(:owner) { FactoryBot.create(:user) }
+    let(:category) { FactoryBot.create(:category) }
 
     describe "GET index" do
       it 'assigns events as @events' do
-        event = FactoryGirl.create(:event)
+        event = FactoryBot.create(:event)
         get :index, { date: event.starts }
         expect(assigns(:events)).to eq([event])
       end
 
       it 'does not assign group events as @events' do
-        event = FactoryGirl.create(:event, groups_only: true)
+        event = FactoryBot.create(:event, groups_only: true)
         get :index, { date: event.starts }
         expect(assigns(:events)).to_not include(event)
       end
 
       it 'assigns all the categories of the events as @categories' do
-        category1 = FactoryGirl.create(:category, identifier: :red)
-        category2 = FactoryGirl.create(:category, identifier: :yellow)
-        FactoryGirl.create(:event, category: category2, starts: Setting.camp_starts + 1.hour)
-        event = FactoryGirl.create(:event, category: category1)
+        category1 = FactoryBot.create(:category, identifier: :red)
+        category2 = FactoryBot.create(:category, identifier: :yellow)
+        FactoryBot.create(:event, category: category2, starts: Setting.camp_starts + 1.hour)
+        event = FactoryBot.create(:event, category: category1)
 
         Timecop.travel Setting.camp_starts + 2.days
 
@@ -98,8 +98,8 @@ describe EventsController do
 
     describe 'GET catalog' do
       it 'assigns all Events in the future as @events' do
-        passed_event = FactoryGirl.create(:event, starts: Setting.camp_starts + 1.hour)
-        future_event = FactoryGirl.create(:event, starts: Setting.camp_starts + 3.hours)
+        passed_event = FactoryBot.create(:event, starts: Setting.camp_starts + 1.hour)
+        future_event = FactoryBot.create(:event, starts: Setting.camp_starts + 3.hours)
 
         Timecop.travel Setting.camp_starts + 2.hours
 
@@ -108,30 +108,30 @@ describe EventsController do
       end
 
       it 'does not fetch mandatory events' do
-        category = FactoryGirl.create(:category, mandatory_events: true)
-        mandatory_event = FactoryGirl.create(:event, category: category)
+        category = FactoryBot.create(:category, mandatory_events: true)
+        mandatory_event = FactoryBot.create(:event, category: category)
         get :catalog
         expect(assigns(:events)).to eq([])
       end
 
       it 'does not fetch group events' do
-        group_event = FactoryGirl.create(:event, groups_only: true)
+        group_event = FactoryBot.create(:event, groups_only: true)
         get :catalog
         expect(assigns(:events)).to eq([])
       end
 
       it 'does not fetch info events' do
-        category = FactoryGirl.create(:category, info_events: true)
-        info_event = FactoryGirl.create(:event, category: category)
+        category = FactoryBot.create(:category, info_events: true)
+        info_event = FactoryBot.create(:event, category: category)
         get :catalog
         expect(assigns(:events)).to eq([])
       end
 
       it 'assigns all the categories of the events as @categories' do
-        category1 = FactoryGirl.create(:category, identifier: :red)
-        category2 = FactoryGirl.create(:category, identifier: :yellow)
-        FactoryGirl.create(:event, category: category2, starts: Setting.camp_starts + 1.day)
-        FactoryGirl.create(:event, category: category1, starts: Setting.camp_starts + 1.day + 4.hours)
+        category1 = FactoryBot.create(:category, identifier: :red)
+        category2 = FactoryBot.create(:category, identifier: :yellow)
+        FactoryBot.create(:event, category: category2, starts: Setting.camp_starts + 1.day)
+        FactoryBot.create(:event, category: category1, starts: Setting.camp_starts + 1.day + 4.hours)
 
         Timecop.travel Setting.camp_starts + 1.day + 2.hours
         get :catalog
@@ -140,7 +140,7 @@ describe EventsController do
     end
 
     describe "GET show" do
-      let(:event) { FactoryGirl.create(:event) }
+      let(:event) { FactoryBot.create(:event) }
 
       it "assigns the requested event as @event" do
         get :show, {:id => event.to_param}
@@ -149,7 +149,7 @@ describe EventsController do
     end
 
     describe "GET edit" do
-      let(:event) { FactoryGirl.create(:event) }
+      let(:event) { FactoryBot.create(:event) }
 
       it "assigns the requested event as @event" do
         get :edit, {:id => event.to_param}
@@ -158,7 +158,7 @@ describe EventsController do
     end
 
     describe "PUT update" do
-      let(:event) { FactoryGirl.create(:event) }
+      let(:event) { FactoryBot.create(:event) }
 
       describe "with valid params" do
         it "updates the requested event" do

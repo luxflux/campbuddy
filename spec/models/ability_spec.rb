@@ -6,16 +6,16 @@ describe Ability do
   subject(:ability) { Ability.new(current_user, camp) }
 
   context 'for an admin' do
-    let(:current_user) { FactoryGirl.create(:user, admin: true) }
+    let(:current_user) { FactoryBot.create(:user, admin: true) }
 
     it { should be_able_to(:manage, :all) }
   end
 
   context 'as normal user' do
-    let(:current_user) { FactoryGirl.create(:user, admin: false) }
-    let(:other_user) { FactoryGirl.create(:user) }
-    let(:event) { FactoryGirl.create(:event) }
-    let(:owned_event) { FactoryGirl.create(:event, owner: current_user) }
+    let(:current_user) { FactoryBot.create(:user, admin: false) }
+    let(:other_user) { FactoryBot.create(:user) }
+    let(:event) { FactoryBot.create(:event) }
+    let(:owned_event) { FactoryBot.create(:event, owner: current_user) }
 
     specify { should_not be_able_to(:manage, :all) }
 
@@ -32,10 +32,10 @@ describe Ability do
 
     describe 'Attendance' do
       let(:own_attendance) do
-        FactoryGirl.create(:attendance, user: current_user, event: event)
+        FactoryBot.create(:attendance, user: current_user, event: event)
       end
       let(:other_attendance) do
-        FactoryGirl.create(:attendance, user: other_user, event: event)
+        FactoryBot.create(:attendance, user: other_user, event: event)
       end
 
       it { should be_able_to(:read, Attendance) }
@@ -92,7 +92,7 @@ describe Ability do
   end
 
   context 'as guest' do
-    let(:current_user) { FactoryGirl.create(:user, admin: false, guest: true) }
+    let(:current_user) { FactoryBot.create(:user, admin: false, guest: true) }
 
     it { should_not be_able_to(:manage, :all) }
     it { should_not be_able_to(:read, Event) }
@@ -108,13 +108,13 @@ describe Ability do
     let(:current_user) { nil }
 
     context 'camp allows to sign up' do
-      let(:camp) { FactoryGirl.build :camp, allow_sign_up: true }
+      let(:camp) { FactoryBot.build :camp, allow_sign_up: true }
 
       it { should be_able_to(:create, User) }
     end
 
     context 'camp does not allow to sign up' do
-      let(:camp) { FactoryGirl.build :camp, allow_sign_up: false }
+      let(:camp) { FactoryBot.build :camp, allow_sign_up: false }
 
       it { should_not be_able_to(:create, User) }
     end

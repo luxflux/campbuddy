@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe UsersController do
-  let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
+  let(:valid_attributes) { FactoryBot.attributes_for(:user) }
 
   context 'a guest' do
     describe 'GET show' do
       before do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         get :show, {:id => user.to_param}
       end
 
@@ -36,13 +36,13 @@ describe UsersController do
   end
 
   context 'a user' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     before do
       sign_in_as(user)
     end
 
     describe "GET show" do
-      let(:event) { FactoryGirl.create :event }
+      let(:event) { FactoryBot.create :event }
 
       before do
         user.events << event
@@ -55,7 +55,7 @@ describe UsersController do
 
     describe "GET edit" do
       it "assigns the requested user as @user" do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         get :edit, {:id => user.to_param}
         expect(assigns(:user)).to eq(user)
       end
@@ -64,7 +64,7 @@ describe UsersController do
     describe "PUT update" do
       describe "with valid params" do
         it "updates the requested user" do
-          user = FactoryGirl.create(:user)
+          user = FactoryBot.create(:user)
           # Assuming there are no other users in the database, this
           # specifies that the User created on the previous line
           # receives the :update_attributes message with whatever params are
@@ -74,13 +74,13 @@ describe UsersController do
         end
 
         it "assigns the requested user as @user" do
-          user = FactoryGirl.create(:user)
+          user = FactoryBot.create(:user)
           put :update, {:id => user.to_param, :user => valid_attributes}
           expect(assigns(:user)).to eq(user)
         end
 
         it "redirects to the user" do
-          user = FactoryGirl.create(:user)
+          user = FactoryBot.create(:user)
           put :update, {:id => user.to_param, :user => valid_attributes}
           expect(response).to redirect_to(user)
         end
@@ -88,7 +88,7 @@ describe UsersController do
 
       describe "with invalid params" do
         it "assigns the user as @user" do
-          user = FactoryGirl.create(:user)
+          user = FactoryBot.create(:user)
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(User).to receive(:save).and_return(false)
           put :update, {:id => user.to_param, :user => { "name" => "invalid value" }}
@@ -96,7 +96,7 @@ describe UsersController do
         end
 
         it "re-renders the 'edit' template" do
-          user = FactoryGirl.create(:user)
+          user = FactoryBot.create(:user)
           # Trigger the behavior that occurs when invalid params are submitted
           allow_any_instance_of(User).to receive(:save).and_return(false)
           put :update, {:id => user.to_param, :user => { "name" => "invalid value" }}

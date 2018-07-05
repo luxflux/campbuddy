@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :map do
     name 'S ganze Areal'
     description 'ganz une isch de iigang'

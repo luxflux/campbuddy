@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Notifications, type: :mailer do
-  let(:user) { FactoryGirl.create :user }
+  let(:user) { FactoryBot.create :user }
 
   describe 'invitation' do
     before do

@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'Events Filters' do
 
-  let(:red_category) { FactoryGirl.create :category, name: 'Red Category', identifier: :red }
-  let(:blue_category) { FactoryGirl.create :category, name: 'Blue Category', identifier: :blue }
+  let(:red_category) { FactoryBot.create :category, name: 'Red Category', identifier: :red }
+  let(:blue_category) { FactoryBot.create :category, name: 'Blue Category', identifier: :blue }
 
   let(:red_event) do
-    FactoryGirl.create :event,
+    FactoryBot.create :event,
       title: 'Red Event',
       category: red_category,
       starts_date: Setting.camp_starts,
@@ -14,7 +14,7 @@ feature 'Events Filters' do
   end
 
   let(:blue_event) do
-    FactoryGirl.create :event,
+    FactoryBot.create :event,
       title: 'Blue Event',
       category: blue_category,
       starts_date: Setting.camp_starts,

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :emergency_number do
     name 'Polizei'
     number '117'

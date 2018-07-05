@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe AttendancesController do
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:event) { FactoryGirl.create(:event) }
-  let(:attendance) { FactoryGirl.create(:attendance, user: user, event: event) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:event) { FactoryBot.create(:event) }
+  let(:attendance) { FactoryBot.create(:attendance, user: user, event: event) }
 
   context 'a guest' do
     before do

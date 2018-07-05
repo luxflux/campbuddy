@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Onboarding' do
   context 'user has been invited' do
-    let(:user) { FactoryGirl.create :user }
+    let(:user) { FactoryBot.create :user }
 
     before do
       user.send_welcome_mail

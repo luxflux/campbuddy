@@ -20,7 +20,7 @@ require 'rails_helper'
 
 describe MembershipsController do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   let(:valid_attributes) { { "user_id" => user.id } }
 
   context 'a guest' do

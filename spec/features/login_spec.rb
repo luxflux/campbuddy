@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Login' do
   context 'as user' do
-    let(:user) { FactoryGirl.create :user, password: 'secure' }
+    let(:user) { FactoryBot.create :user, password: 'secure' }
 
     scenario 'login succeeds' do
       visit root_url

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :camp do
     organization
     name "example camp"

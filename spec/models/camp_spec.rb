@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Camp, type: :model do
-  let(:camp) { FactoryGirl.build :camp }
+  let(:camp) { FactoryBot.build :camp }
 
   it { is_expected.to validate_presence_of(:schema_name) }
   it { is_expected.to validate_presence_of(:name) }

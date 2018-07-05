@@ -5,7 +5,7 @@ RSpec.describe News, :type => :model do
   it { is_expected.to validate_presence_of :visible_until }
 
   describe '#visible_until validations' do
-    let(:news) { FactoryGirl.build :news, visible_until: visible_until }
+    let(:news) { FactoryBot.build :news, visible_until: visible_until }
 
     subject { news }
 
@@ -17,8 +17,8 @@ RSpec.describe News, :type => :model do
   end
 
   describe '.visible' do
-    let!(:visible) { FactoryGirl.create :news, visible_until: Time.current + 6.hours }
-    let!(:invisible) { FactoryGirl.create :news, visible_until: Time.current + 3.hours }
+    let!(:visible) { FactoryBot.create :news, visible_until: Time.current + 6.hours }
+    let!(:invisible) { FactoryBot.create :news, visible_until: Time.current + 3.hours }
 
     subject { News.visible }
 

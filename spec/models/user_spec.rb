@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  let(:user) { FactoryGirl.build(:user) }
+  let(:user) { FactoryBot.build(:user) }
 
   context 'validations' do
     context 'normal user' do
@@ -29,17 +29,17 @@ describe User do
   describe '#events' do
     subject { user.events }
 
-    let(:mandatory_category) { FactoryGirl.create(:category, mandatory_events: true) }
-    let!(:mandatory_event) { FactoryGirl.create(:event, category: mandatory_category, title: 'Mandatory') }
-    let!(:owned_event) { FactoryGirl.create(:event, owner: user, title: 'Owned Event') }
-    let(:group_event) { FactoryGirl.create(:event, title: 'Group Event', groups_only: true) }
-    let(:event) { FactoryGirl.create(:event, title: 'Event') }
-    let(:group_as_leader_event) { FactoryGirl.create(:event, title: 'Group As Leader Event') }
-    let!(:unattended_group_event_in_mandatory_category) { FactoryGirl.create(:event, title: 'Campleader Group Event', groups_only: true, category: mandatory_category) }
-    let!(:attended_group_event_in_mandatory_category) { FactoryGirl.create(:event, title: 'Campmember Group Event', groups_only: true, category: mandatory_category) }
+    let(:mandatory_category) { FactoryBot.create(:category, mandatory_events: true) }
+    let!(:mandatory_event) { FactoryBot.create(:event, category: mandatory_category, title: 'Mandatory') }
+    let!(:owned_event) { FactoryBot.create(:event, owner: user, title: 'Owned Event') }
+    let(:group_event) { FactoryBot.create(:event, title: 'Group Event', groups_only: true) }
+    let(:event) { FactoryBot.create(:event, title: 'Event') }
+    let(:group_as_leader_event) { FactoryBot.create(:event, title: 'Group As Leader Event') }
+    let!(:unattended_group_event_in_mandatory_category) { FactoryBot.create(:event, title: 'Campleader Group Event', groups_only: true, category: mandatory_category) }
+    let!(:attended_group_event_in_mandatory_category) { FactoryBot.create(:event, title: 'Campmember Group Event', groups_only: true, category: mandatory_category) }
 
-    let(:group) { FactoryGirl.create(:group) }
-    let(:group_as_leader) { FactoryGirl.create(:group, leader: user) }
+    let(:group) { FactoryBot.create(:group) }
+    let(:group_as_leader) { FactoryBot.create(:group, leader: user) }
 
     before do
       user.save!
@@ -77,7 +77,7 @@ describe User do
   describe '#send_mail=' do
     let(:send_mail) { nil }
 
-    subject { FactoryGirl.build :user }
+    subject { FactoryBot.build :user }
 
     before do
       subject.send_mail = send_mail
@@ -110,7 +110,7 @@ describe User do
     end
 
     context 'an existing user' do
-      subject { FactoryGirl.create :user }
+      subject { FactoryBot.create :user }
 
       context 'true' do
         let(:send_mail) { true }

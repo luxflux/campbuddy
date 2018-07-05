@@ -11,7 +11,7 @@ describe GroupsController do
   end
 
   context 'a user' do
-    let(:user) { FactoryGirl.create :user }
+    let(:user) { FactoryBot.create :user }
 
     before do
       sign_in_as user
@@ -19,8 +19,8 @@ describe GroupsController do
 
     describe "GET index" do
       it "assigns the current users groups to @groups" do
-        group = FactoryGirl.create :group
-        other_group = FactoryGirl.create :group
+        group = FactoryBot.create :group
+        other_group = FactoryBot.create :group
         user.groups << group
         get :index, {}
         expect(assigns(:groups)).to eq([group])

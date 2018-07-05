@@ -4,7 +4,7 @@ require 'carrierwave/test/matchers'
 describe AvatarUploader do
   include CarrierWave::Test::Matchers
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   let(:image_file) { Rails.root.join('spec', 'support', 'huge.jpg') }
 
   subject { AvatarUploader.new(user, :avatar) }

@@ -6,7 +6,7 @@ RSpec.configure do |config|
 
     # feature tests
     Apartment::Tenant.drop('127_0_0_1') rescue nil
-    FactoryGirl.create :camp
+    FactoryBot.create :camp
   end
 
   config.around(:each) do |block|
@@ -39,7 +39,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
     if example.metadata[:js]
       Apartment::Tenant.drop('127_0_0_1') rescue nil
-      FactoryGirl.create :camp
+      FactoryBot.create :camp
     end
   end
 end

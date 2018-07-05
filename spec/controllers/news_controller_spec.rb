@@ -17,8 +17,8 @@ describe NewsController do
 
     describe 'GET index' do
       it 'assigns all visible news as @news' do
-        visible = FactoryGirl.create :news, visible_until: Time.now + 10.hours
-        invisible = FactoryGirl.create :news, visible_until: Time.now + 1.hour
+        visible = FactoryBot.create :news, visible_until: Time.now + 10.hours
+        invisible = FactoryBot.create :news, visible_until: Time.now + 1.hour
 
         Timecop.freeze Time.now + 2.hours
 

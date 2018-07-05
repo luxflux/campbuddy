@@ -7,7 +7,7 @@ RSpec.describe RootController, :type => :controller do
 
   describe 'GET show' do
     context 'as guest' do
-      let(:user) { FactoryGirl.create(:user, admin: false, guest: true) }
+      let(:user) { FactoryBot.create(:user, admin: false, guest: true) }
 
       it 'redirects to the event catalog' do
         get :show
@@ -16,7 +16,7 @@ RSpec.describe RootController, :type => :controller do
     end
 
     context 'as normal user' do
-      let(:user) { FactoryGirl.create(:user, admin: false) }
+      let(:user) { FactoryBot.create(:user, admin: false) }
 
       it 'redirects to the news feed' do
         get :show
