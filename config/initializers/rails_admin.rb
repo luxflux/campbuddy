@@ -6,7 +6,9 @@ RailsAdmin::Config::Actions.register(
 RailsAdmin.config do |config|
   config.parent_controller = '::ApplicationController'
   config.authorize_with :cancan, RailsAdminAbility
-  config.current_user_method(&:current_user)
+  config.current_user_method do |controller|
+    controller.send(:current_user)
+  end
 
   config.actions do
     dashboard                     # mandatory
