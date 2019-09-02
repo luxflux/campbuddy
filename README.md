@@ -2,7 +2,6 @@
 
 For camps, you know.
 
-
 ## Setup
 
 ```bash
