@@ -490,7 +490,7 @@ GEM
       nokogiri (~> 1.5)
       trollop (~> 2.1)
     rchardet (1.8.0)
-    redcarpet (3.4.0)
+    redcarpet (3.5.1)
     ref (2.0.0)
     remotipart (1.4.2)
     rest-client (2.0.2)
